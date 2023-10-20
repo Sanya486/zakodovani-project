@@ -2,7 +2,8 @@
   "user": {
     "auth": {
       "email": "email@mail.com",
-      "name": "Petro Petrenko"
+      "name": "Petro Petrenko",
+      "token": "ddawdawdaw"
     },
     "info": {
       "height": 165,
