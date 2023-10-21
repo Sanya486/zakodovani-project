@@ -1,27 +1,56 @@
-// @use "index";
+@use "index";
 
-// .one {
-//     color:aqua;
-// }
+.infoItemContainer {
+  padding: 14px;
+  background-color: index.$orange-main-color;
+  border: 1px solid rgba(index.$white-color, 0.2);
+  border-radius: 12px;
+  max-width: 157px;
+  max-height: 96px;
+}
 
-// .two {
-//     color: index.$beige-color;
-// }
+.wrap {
+  display: flex;
+  column-gap: 8px;
+  row-gap: 0px;
+  align-items: center;
+  margin-bottom: 28px;
+}
 
-// .three {
-//     color: index.$orange-main-color;
-// }
+.icon {
+  max-width: 20px;
+  max-height: 20px;
+  fill: index.$orange-secondary-color;
+}
+
+.itemName {
+  color: rgba(index.$white-color, 0.8);
+  font-size: 12px;
+  line-height: 1.33;
+  width: 101px;
+  height: 16px;
+  font-feature-settings: 'clig' off, 'liga' off;
+}
+
+.itemValue {
+  color: index.$white-color;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.11;
+  width: 42px;
+  height: 20px;
+}
 
 // @media screen and (min-width: index.$mobile-breakpoint) {
-    
+
 //     .one {
 //         color: index.$error-color;
 //     }
-    
+
 //     .two {
 //         color: index.$error-color;
 //     }
-    
+
 //     .three {
 //         color: index.$error-color;
 //     }
@@ -32,11 +61,11 @@
 //     .one {
 //         color: index.$white-color;
 //     }
-    
+
 //     .two {
 //         color: index.$white-color;
 //     }
-    
+
 //     .three {
 //         color: index.$white-color;
 //     }
@@ -46,11 +75,11 @@
 //     .one {
 //         color: index.$success-color;
 //     }
-    
+
 //     .two {
 //         color: index.$success-color;
 //     }
-    
+
 //     .three {
 //         color: index.$success-color;
 //     }
