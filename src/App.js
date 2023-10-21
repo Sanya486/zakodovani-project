@@ -1,12 +1,7 @@
 import './App.scss';
-import Logout from './components/Logout/Logout.jsx';
 
 function App() {
-	return (
-		<div>
-			<Logout />
-		</div>
-	);
+	return <div></div>;
 }
 
 export default App;
