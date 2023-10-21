@@ -1,0 +1,81 @@
+.form {
+    box-sizing: border-box;
+    padding: 48px 24px;
+    width: 100%;
+    height: 100%;
+}
+
+.inputsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+input {
+    box-sizing: border-box;
+    border-radius: 12px;
+    border: 1px solid #E6533C;
+    width: 100%;
+    padding: 8px 14px;
+    background-color: inherit;
+    color: rgba(239, 237, 232, 0.30);
+    font-size: 14px;
+    line-height: 18px;
+    outline: none;
+}
+
+.inputWeight {
+    color: #EFEDE8;
+    outline: none;
+}
+
+.weightLabel {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    color: rgba(239, 237, 232, 0.40);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.calories {
+    margin: 0;
+    padding: 0;
+    color: rgba(239, 237, 232, 0.40);
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.caloriesSpan {
+    color: #EFEDE8;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+    .form {
+        padding: 48px 32px;
+    }
+
+    .inputsContainer {
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    input {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .calories {
+        margin-bottom: 64px;
+    }
+}
