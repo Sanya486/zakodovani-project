@@ -1,11 +1,8 @@
-
-import './App.scss';
+import "./App.scss";
+import UserForm from "components/UserForm/UserForm";
 
 function App() {
-  return (
-    <div>
-    </div>
-  );
+  return <UserForm />;
 }
 
 export default App;

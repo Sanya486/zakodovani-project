@@ -1,0 +1,156 @@
+.container {
+  margin:0 auto;
+  max-width: 100%;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin:0 auto;
+}
+
+.input {
+  width: 135px;
+  border-radius: 12px;
+  border-color: #efede8;
+  font-family: RobotoRegular;
+  font-weight: 500;
+  line-height: 1.29;
+  font-size: 14px;
+  padding: 14px 0 14px 14px;
+}
+.inputBase {
+  width: 300px;
+  border-radius: 12px;
+  border-color: #efede8;
+  font-family: RobotoRegular;
+  font-weight: 500;
+  line-height: 1.29;
+  font-size: 14px;
+  margin-bottom: 14px;
+  padding: 14px 0 14px 14px;
+}
+
+.calendar-custom-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.calendar-custom-input svg {
+  position: absolute;
+  right: 10px; 
+}
+.calendar {
+  width: 135px;
+  border-radius: 12px;
+  border-color: #efede8;
+  font-family: RobotoRegular;
+  font-weight: 500;
+  line-height: 18px;
+  font-size: 14px;
+  padding: 14px 0 14px 14px !important;
+}
+
+.label {
+  margin-bottom: 4px;
+  font-family: RobotoRegular;
+  font-weight: 500;
+  line-height: 1.5;
+  font-size: 12px;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.group1 {
+  display: flex;
+}
+
+.group1 > *:not(:last-child) {
+  margin-right: 12px;
+}
+.group2 {
+  display: flex;
+}
+.group2 > *:not(:last-child) {
+  margin-right: 12px;
+}
+.labelNone {
+  margin-bottom: 3px;
+  visibility: hidden;
+}
+.radio {
+  display: flex;
+  gap: 20px;
+}
+
+.labelMargin {
+  margin-right: 2px;
+}
+.inputRadio {
+  font-family: RobotoRegular;
+  font-weight: 500;
+  line-height: 1.29;
+  font-size: 14px;
+}
+.radioText {
+  display: flex;
+  flex-direction: column;
+  margin-top: 41px;
+  max-width: 325px;
+}
+.labelText {
+  margin-bottom: 9px;
+}
+
+.labelText:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.btn{
+    padding: 12px 40px;
+    width: 115px;
+   background-color: #E6533C;
+   border-radius: 12px;
+   border: none;
+   color: #EFEDE8;
+   font-family: RobotoRegular;
+   font-weight: 500;
+   line-height: 1.2;
+   font-size: 16px;
+   margin-top: 46px;
+
+}
+@media screen and (max-width: 767px) {
+    .container {
+      max-width: 375px;
+     
+    }
+ 
+    
+  
+   
+  }
+
+  @media screen and (min-width: 768px) {
+    .container {
+      max-width: 768px
+    }
+
+    .input {
+        width: 160px;}
+
+        .inputBase {
+            width: 335px;}
+
+            .calendar {
+                width: 161px;}
+  }
+
+  @media screen and (min-width: 1280px) {
+    .container {
+      max-width: 1440px;
+    }
+   
+  }
