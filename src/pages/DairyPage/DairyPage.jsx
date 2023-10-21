@@ -1,7 +1,7 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 
-const WelcomePage = props => {
+const DairyPage = props => {
   return (
     <div>
       
@@ -9,8 +9,8 @@ const WelcomePage = props => {
   )
 }
 
-// WelcomePage.propTypes = {
+// DairyPage.propTypes = {
 
 // }
 
-export default WelcomePage
+export default DairyPage
