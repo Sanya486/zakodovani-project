@@ -3,12 +3,12 @@ import css from './Logout.module.scss';
 
 const Logout = () => {
 	return (
-		<div className={css.logoutWrapper}>
-			<p>Logout</p>
+		<button className={css.logoutBtn}>
+			Logout
 			<svg className={css.icon}>
 				<use xlinkHref='#log_out_icon'></use>
 			</svg>
-		</div>
+		</button>
 	);
 };
 
