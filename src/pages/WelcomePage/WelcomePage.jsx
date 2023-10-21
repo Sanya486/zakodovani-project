@@ -5,7 +5,7 @@ import React from 'react'
 const WelcomePage = props => {
   return (
     <div>
-      <InfoItem value="2000"/>
+      <InfoItem name="Daily calorie intake" value="2000"/>
     </div>
   )
 }

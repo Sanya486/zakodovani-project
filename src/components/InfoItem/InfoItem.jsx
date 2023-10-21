@@ -5,14 +5,14 @@ import React from "react";
 import css from "./InfoItem.module.scss";
 import sprite from "../../images/svg/sprite.svg";
 
-export const InfoItem = ({value}) => {
+export const InfoItem = ({name, value}) => {
     return (
     <div className={css.infoItemContainer}>
         <div className={css.wrap}>
         <svg className={css.icon}>
             <use href={sprite + "#fluent_food_icon"}></use>
         </svg>
-        <p className={css.itemName}>Daily calorie intake</p>
+        <p className={css.itemName}>{name}</p>
         </div>
         <h2 className={css.itemValue}> {value}</h2>
     </div>
