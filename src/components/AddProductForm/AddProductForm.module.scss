@@ -1,5 +1,6 @@
+@import 'index.scss';
+
 .form {
-    box-sizing: border-box;
     padding: 48px 24px;
     width: 100%;
     height: 100%;
@@ -13,9 +14,8 @@
 }
 
 input {
-    box-sizing: border-box;
     border-radius: 12px;
-    border: 1px solid #E6533C;
+    border: 1px solid $orange-main-color;
     width: 100%;
     padding: 8px 14px;
     background-color: inherit;
@@ -26,13 +26,10 @@ input {
 }
 
 .inputWeight {
-    color: #EFEDE8;
-    outline: none;
+    color: $white-color;
 }
 
 .weightLabel {
-    margin: 0;
-    padding: 0;
     position: absolute;
     top: 50%;
     right: 14px;
@@ -43,8 +40,6 @@ input {
 }
 
 .calories {
-    margin: 0;
-    padding: 0;
     color: rgba(239, 237, 232, 0.40);
     font-size: 12px;
     line-height: 1.5;
@@ -52,7 +47,7 @@ input {
 }
 
 .caloriesSpan {
-    color: #EFEDE8;
+    color: $white-color;
 }
 
 .btnContainer {
@@ -60,7 +55,7 @@ input {
     justify-content: space-between;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet-breakpoint) {
     .form {
         padding: 48px 32px;
     }

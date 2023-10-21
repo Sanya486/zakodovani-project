@@ -1,3 +1,5 @@
+@import 'index.scss';
+
 .backdrop {
     display: flex;
     justify-content: center;
@@ -30,7 +32,7 @@
     position: absolute;
     top: 14px;
     right: 14px;
-    color:#EFEDE8;
+    color:$white-color;
     cursor: pointer;
 }
 
@@ -41,7 +43,7 @@
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet-breakpoint) {
     .modal {
         width: 479px;
         height: 286px;
