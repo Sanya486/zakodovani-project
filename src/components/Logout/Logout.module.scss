@@ -1,0 +1,27 @@
+.logoutWrapper {
+	display: flex;
+	width: 72px;
+	height: 20px;
+	justify-content: center;
+	gap: 8px;
+	color: #efede8;
+}
+
+.icon {
+	stroke: #efede8;
+	width: 20px;
+	height: 20px;
+}
+
+@media (min-width: 768px) {
+	.logoutWrapper {
+		width: 78px;
+		height: 24px;
+	}
+}
+
+@media (min-width: 1440px) {
+	.icon {
+		stroke: #e6533c;
+	}
+}
