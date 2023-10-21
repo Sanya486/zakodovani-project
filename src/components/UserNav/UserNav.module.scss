@@ -1,12 +1,14 @@
-.NavLink {
-	height: 38px;
-	border: 1px rgba(239, 237, 232, 0.2);
-	border-radius: 12px;
-	margin: 10px, 27px;
-	color: #efede8;
+@media (min-width: 375px) {
+	.NavLink {
+		height: 38px;
+		border: 1px rgba(239, 237, 232, 0.2);
+		border-radius: 12px;
+		margin: 10px, 27px;
+		color: #efede8;
 
-	&.active {
-		border-color: #efede8;
+		&.active {
+			border-color: #efede8;
+		}
 	}
 }
 
