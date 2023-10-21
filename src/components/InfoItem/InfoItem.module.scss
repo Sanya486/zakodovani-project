@@ -1,0 +1,57 @@
+// @use "index";
+
+// .one {
+//     color:aqua;
+// }
+
+// .two {
+//     color: index.$beige-color;
+// }
+
+// .three {
+//     color: index.$orange-main-color;
+// }
+
+// @media screen and (min-width: index.$mobile-breakpoint) {
+    
+//     .one {
+//         color: index.$error-color;
+//     }
+    
+//     .two {
+//         color: index.$error-color;
+//     }
+    
+//     .three {
+//         color: index.$error-color;
+//     }
+
+// }
+
+// @media screen and (min-width: index.$tablet-breakpoint) {
+//     .one {
+//         color: index.$white-color;
+//     }
+    
+//     .two {
+//         color: index.$white-color;
+//     }
+    
+//     .three {
+//         color: index.$white-color;
+//     }
+// }
+
+// @media screen and (min-width: index.$desktop-breakpoint) {
+//     .one {
+//         color: index.$success-color;
+//     }
+    
+//     .two {
+//         color: index.$success-color;
+//     }
+    
+//     .three {
+//         color: index.$success-color;
+//     }
+// }

@@ -1,4 +1,3 @@
-import LogoutBtn from 'components/LogoutBtn/LogoutBtn';
 import './App.scss';
 
 function App() {
