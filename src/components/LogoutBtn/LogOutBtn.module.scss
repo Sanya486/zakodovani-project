@@ -1,21 +1,23 @@
-.logoutBtn {
-	display: flex;
-	height: 20px;
-	justify-content: center;
-	align-items: center;
-	gap: 8px;
-	border: none;
-	outline: none;
-	background: none;
-	color: #efede8;
-	font-size: 14px;
-	cursor: pointer;
-}
+@media (min-width: 375px) {
+	.logoutBtn {
+		display: flex;
+		height: 20px;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+		border: none;
+		outline: none;
+		background: none;
+		color: #efede8;
+		font-size: 14px;
+		cursor: pointer;
+	}
 
-.icon {
-	stroke: #efede8;
-	width: 20px;
-	height: 20px;
+	.icon {
+		stroke: #efede8;
+		width: 20px;
+		height: 20px;
+	}
 }
 
 @media (min-width: 768px) {
