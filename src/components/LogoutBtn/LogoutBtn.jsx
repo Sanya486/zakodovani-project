@@ -1,4 +1,4 @@
-import '../../images/svg/sprite.svg';
+import sprite from '../../images/svg/sprite.svg';
 import css from './LogOutBtn.module.scss';
 
 const LogoutBtn = () => {
@@ -6,7 +6,7 @@ const LogoutBtn = () => {
 		<button className={css.logoutBtn}>
 			Logout
 			<svg className={css.icon}>
-				<use xlinkHref='#log_out_icon'></use>
+				<use href={sprite + '#log_out_icon'}></use>
 			</svg>
 		</button>
 	);
