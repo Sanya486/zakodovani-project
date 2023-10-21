@@ -1,31 +1,53 @@
 .container {
   margin:0 auto;
-  max-width: 100%;
+  width: 100%;
+}
+.title{
+  margin-bottom: 4px;
+  font-family: RobotoRegular;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 12px;
+  margin-left: 15px;
+}
+.blood{
+  display:inline;
+  font-family: RobotoRegular;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 12px;
+  margin-right: 280px;
+}
+.tabletInput{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin:0 auto;
+ 
 }
 
 .input {
-  width: 135px;
+ 
   border-radius: 12px;
   border-color: #efede8;
   font-family: RobotoRegular;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.29;
   font-size: 14px;
   padding: 14px 0 14px 14px;
 }
 .inputBase {
-  width: 300px;
+ 
   border-radius: 12px;
   border-color: #efede8;
   font-family: RobotoRegular;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.29;
   font-size: 14px;
   margin-bottom: 14px;
@@ -43,11 +65,11 @@
   right: 10px; 
 }
 .calendar {
-  width: 135px;
+ 
   border-radius: 12px;
   border-color: #efede8;
   font-family: RobotoRegular;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 18px;
   font-size: 14px;
   padding: 14px 0 14px 14px !important;
@@ -56,7 +78,7 @@
 .label {
   margin-bottom: 4px;
   font-family: RobotoRegular;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.5;
   font-size: 12px;
 }
@@ -91,7 +113,7 @@
 }
 .inputRadio {
   font-family: RobotoRegular;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.29;
   font-size: 14px;
 }
@@ -99,7 +121,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 41px;
-  max-width: 325px;
+
 }
 .labelText {
   margin-bottom: 9px;
@@ -117,41 +139,100 @@
    border: none;
    color: #EFEDE8;
    font-family: RobotoRegular;
-   font-weight: 500;
+   font-weight: 400;
    line-height: 1.2;
    font-size: 16px;
    margin-top: 46px;
+   margin-right: auto;
 
 }
 @media screen and (min-width: 375px) {
     .container {
-      max-width: 375px;
-     
+      width: 375px;
+    
     }
  
-    
-  
+    .input {
+      width: 160px;}
+
+      .inputBase {
+          width: 345px;}
+
+          .calendar {
+              width: 161px;}
    
   }
 
   @media screen and (min-width: 768px) {
     .container {
-      max-width: 768px
+      width: 768px
+    }
+    .title{
+      margin-bottom: 8px;
+      margin-left: 18px;
+    }
+    .tabletInput{
+      flex-direction: row;
+      gap: 14px;
+      margin-right: auto;
+      margin-left: 18px;
+    }
+    .inputBase{
+      width: 341px;
+      font-weight: 400;
+      line-height: 1.5;
+      font-size: 16px;
+      
+    }
+    .group{
+      display: flex;
+      gap: 14px;
+      margin-right: auto;
+      margin-left: 18px;
+    }
+    .input {
+      width: 159px;
+      font-weight: 400;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+    .blood{
+      margin-right: auto;
+      margin-left: 18px;
+    }
+    .radio{
+      margin-right: auto;
+    margin-left: 18px;
+     
+    }
+    .labelMargin{
+      margin-right: 8px;
     }
 
-    .input {
-        width: 160px;}
-
-        .inputBase {
-            width: 335px;}
-
-            .calendar {
-                width: 161px;}
+    .radioNumber{
+      margin-right: 32px;
+    }
+    .radioText {
+      margin-top: 32px;
+      margin-right: auto;
+    margin-left: 18px;
+      
+    }
+   
+    .btn{
+      padding: 16px 50px;
+      width: 144px;
+     font-weight: 400;
+     font-size: 20px;
+     margin-top: 38px;
+     
+     margin-left: 18px;
+  }
   }
 
   @media screen and (min-width: 1440px) {
     .container {
-      max-width: 1440px;
+     width: 1440px;
     }
    
   }

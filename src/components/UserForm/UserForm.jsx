@@ -20,12 +20,12 @@ const UserForm = () => {
   });
 
   return (
+    <>
     <div className={css["container"]}>
+    <p className={css["title"]}>Basic info</p>
       <form onSubmit={formik.handleSubmit} className={css["form"]}>
-        <label htmlFor="name" className={css["label"]}>
-          Basic info
-        </label>
-        <input
+       <div className={css["tabletInput"]}>
+       <input
           id="name"
           name="name"
           type="string"
@@ -43,6 +43,8 @@ const UserForm = () => {
           defaultValue={formik.values.email}
           className={css["inputBase"]}
         />
+       </div>
+        <div className={css["group"]}>
         <div className={css["group1"]}>
           <div className={css["column"]}>
             <label htmlFor="height" className={css["label"]}>
@@ -154,7 +156,9 @@ const UserForm = () => {
             </div>
           </div>
         </div>
-        <p className={css["label"]}>Blood</p>
+        </div>
+
+        <p className={css["blood"]}>Blood</p>
         <div className={css["radio"]}>
           <div className={css["radioNumber"]}>
             <label className={css["labelMargin"]}>
@@ -276,7 +280,8 @@ const UserForm = () => {
         </div>
         <button type="submit" className={css['btn']}>Save</button>
       </form>
-    </div>
+    </div></>
+    
   );
 };
 
