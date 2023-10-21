@@ -10,9 +10,6 @@ import './App.scss';
 function App() {
   return (
     <div>
-      <ButtonSingUP></ButtonSingUP>
-      <ButtonSingIn></ButtonSingIn>
-      <ButtonGoHome></ButtonGoHome>
     </div>
   );
 }
