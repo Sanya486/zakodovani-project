@@ -4,10 +4,10 @@ import './App.scss';
 
 import Layout from "components/Layout/Layout";
 import WelcomePage from "pages/WelcomePage/WelcomePage";
-import RestrictedRoute from "components/Routes/RestrictedRoute";
+// import RestrictedRoute from "components/Routes/RestrictedRoute";
 import SignUpPage from "pages/SignUpPape/SignUpPage";
 import SignInPage from "pages/SignInPage/SignInPage";
-import PrivateRoute from "components/Routes/PrivateRoute";
+// import PrivateRoute from "components/Routes/PrivateRoute";
 import DairyPage from "pages/DairyPage/DairyPage";
 import ProfilePage from "pages/ProfilePage/ProfilePage";
 import ProductsPage from "pages/ProductsPage/ProductsPage";
