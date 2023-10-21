@@ -1,5 +1,62 @@
-body {
+@import 'node_modules/modern-normalize/modern-normalize.css';
+
+:root {
+    --mobile-breakpoint: 375px;
+    --tablet-breakpoint: 768px;
+    --desktop-breakpoint: 1440px;
+
+    --black-color: #040404;
+    --orange-main-color: #E6533C;
+    --orange-secondary-color: #EF8964;
+    --beige-color: #EFA082;
+    --white-color: #EFEDE8;
+    --success-color: #3CBF61;
+    --error-color: #D80027;
+
 }
 
-code {
+.hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
+
+.modal-backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(1.3);
+}
+
+.link {
+    font-style: normal;
+    text-decoration: none;
+    color: currentColor;
+}
+
+img {
+    display: block;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
