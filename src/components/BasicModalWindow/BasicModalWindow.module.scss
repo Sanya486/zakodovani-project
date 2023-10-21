@@ -17,8 +17,6 @@
     border: 1px solid rgba(239, 237, 232, 0.20);
     background: #10100F;
     position: relative;
-    width: 335px;
-    height: 280px;
 }
 
 .modalCloseBtn {
@@ -44,10 +42,6 @@
 
 
 @media screen and (min-width: $tablet-breakpoint) {
-    .modal {
-        width: 479px;
-        height: 286px;
-    }
 
     .modalCloseBtn {
         width: 26px;

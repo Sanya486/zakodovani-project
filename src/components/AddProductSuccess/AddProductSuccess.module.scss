@@ -1,0 +1,61 @@
+@import 'index.scss';
+
+.container {
+    padding: 48px 89px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image {
+    width: 123px;
+    height: 97px;
+    margin-bottom: 3px;
+}
+
+.title {
+    margin: 0;
+    color: $white-color;
+    font-size: 24px;
+    line-height: 1.33;
+    margin-bottom: 16px;
+
+}
+
+.text {
+    color: rgba(239, 237, 232, 0.30);
+    font-size: 14px;
+    line-height: 1.28;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.span {
+    color: $orange-main-color;
+}
+
+.button {
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.arrowIcon {
+    stroke: currentColor;
+    width: 16px;
+    height: 16px;
+}
+
+@media screen and (min-width: $tablet-breakpoint) {
+    .container {
+        padding: 64px 136px 64px 137px;
+    }
+
+    .image {
+        margin-bottom: 19px;
+    }
+
+    .button {
+        margin-top: 32px;
+    }
+}
