@@ -5,6 +5,7 @@
 .form {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   margin:0 auto;
 }
@@ -122,7 +123,7 @@
    margin-top: 46px;
 
 }
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 375px) {
     .container {
       max-width: 375px;
      
@@ -148,7 +149,7 @@
                 width: 161px;}
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     .container {
       max-width: 1440px;
     }
