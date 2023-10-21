@@ -1,5 +1,16 @@
-// here will be code...
+import React from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import PropTypes from "prop-types";
+// import clsx from "clsx";
 
-//test 2
+import css from "./InfoItem.module.scss";
 
-//test3
+export const InfoItem = ({value}) => {
+    return (
+    <div>
+        <p className={css.one}>SVG</p>
+        <p className={css.two}>Daily calorie intake</p>
+        <h2 className={css.three}> {value}</h2>
+    </div>
+    );
+}
