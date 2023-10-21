@@ -9,6 +9,27 @@ $white-color: #efede8;
 $success-color: #3cbf61;
 $error-color: #d80027;
 
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url('./fonts/Roboto-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url('./fonts/Roboto-Medium.ttf');
+    font-weight: medium;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url('./fonts/Roboto-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
 .hidden {
   position: absolute;
   width: 1px;
@@ -27,6 +48,12 @@ $error-color: #d80027;
   visibility: hidden;
   pointer-events: none;
   transform: scale(1.3);
+}
+
+body, button, a, input, p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;
 }
 
 img {
