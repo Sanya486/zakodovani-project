@@ -1,7 +1,10 @@
-import "./App.scss";
+import './App.scss';
 
 function App() {
-  return <UserForm />;
+  return (
+    <div>
+    </div>
+  );
 }
 
 export default App;
