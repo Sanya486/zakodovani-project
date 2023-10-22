@@ -1,0 +1,38 @@
+.logoWrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 126px;
+	gap: 8px;
+}
+
+.logoIcon {
+	width: 36px;
+	height: 13px;
+	fill: #e6533c;
+	flex-shrink: 0;
+}
+
+.errorPageIconColor {
+	composes: logoIcon;
+	fill: #efede8;
+}
+
+.logoText {
+	fill: #efede8;
+	height: 12px;
+}
+
+@media (min-width: 768px) {
+	.logoWrapper {
+		width: 151px;
+	}
+	.logoIcon {
+		width: 44px;
+		height: 17px;
+	}
+
+	.logoText {
+		height: 17px;
+	}
+}

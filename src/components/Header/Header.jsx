@@ -1,16 +1,18 @@
-import React from 'react'
-// import PropTypes from 'prop-types'
+import Logo from 'components/Logo/Logo';
+import { useIconColor } from '../../hooks/IconColorContext';
 
-const Header = props => {
-  return (
-    <div>
-      
-    </div>
-  )
+function Header() {
+	const { logoIconColor } = useIconColor();
+
+	return (
+		<div>
+			<Logo logoIconColor={logoIconColor} />
+		</div>
+	);
 }
 
 // Header.propTypes = {
 
 // }
 
-export default Header
+export default Header;

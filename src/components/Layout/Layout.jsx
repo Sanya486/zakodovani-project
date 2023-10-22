@@ -1,19 +1,19 @@
 import Header from 'components/Header/Header';
-import React from 'react'
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
+import { IconColorProvider } from '../../hooks/IconColorContext';
 // import PropTypes from 'prop-types'
 
 const Layout = props => {
-  return (
-    <>
-      <Header />
-      <Outlet/>
-    </>
-  )
-}
+	return (
+		<IconColorProvider>
+			<Header />
+			<Outlet />
+		</IconColorProvider>
+	);
+};
 
 // Layout.propTypes = {
 
 // }
 
-export default Layout
+export default Layout;
