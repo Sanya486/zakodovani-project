@@ -1,6 +1,6 @@
 @import 'index.scss';
 
-.form {
+.container {
     padding: 48px 24px;
 }
 
@@ -23,11 +23,11 @@ input {
     outline: none;
 }
 
-.inputWeight {
+.inputAmount {
     color: $white-color;
 }
 
-.weightLabel {
+.amountLabel {
     position: absolute;
     top: 50%;
     right: 14px;
@@ -53,9 +53,21 @@ input {
     justify-content: space-between;
 }
 
-@media screen and (min-width: $tablet-breakpoint) {
+@media screen and (min-width: $mobile-breakpoint) {
     .form {
+        width: 287px;
+    }
+
+}
+
+@media screen and (min-width: $tablet-breakpoint) {
+    .container {
         padding: 48px 32px;
+    }
+    
+    .form {
+        
+        width: 415px;
     }
 
     .inputsContainer {
@@ -66,6 +78,10 @@ input {
     input {
         font-size: 16px;
         line-height: 1.5;
+    }
+
+    .inputAmount {
+        width: 155px;
     }
 
     .calories {
