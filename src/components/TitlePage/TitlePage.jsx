@@ -1,4 +1,5 @@
-import css from "./TitlePage.module.scss";
+import React from 'react';
+import css from './TitlePage.module.scss';
 
 const TitlePage = ({ children }) => {
   return <h2 className={css.titlePage}>{children}</h2>;

@@ -1,16 +1,12 @@
-import React from 'react'
+import React from 'react';
 // import PropTypes from 'prop-types'
 
-const ProductsPage = props => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const ProductsPage = () => {
+  return <div></div>;
+};
 
 // ProductsPage.propTypes = {
 
 // }
 
-export default ProductsPage
+export default ProductsPage;

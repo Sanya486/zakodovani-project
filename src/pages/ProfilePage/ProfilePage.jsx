@@ -1,16 +1,12 @@
-import React from 'react'
+import React from 'react';
 // import PropTypes from 'prop-types'
 
-const ProfilePage = props => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const ProfilePage = () => {
+  return <div></div>;
+};
 
 // ProfilePage.propTypes = {
 
 // }
 
-export default ProfilePage
+export default ProfilePage;

@@ -1,33 +1,33 @@
 .logoutBtn {
-	display: flex;
-	height: 20px;
-	justify-content: center;
-	align-items: center;
-	gap: 8px;
-	border: none;
-	outline: none;
-	background: none;
-	color: #efede8;
-	font-size: 14px;
-	cursor: pointer;
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  outline: none;
+  background: none;
+  color: #efede8;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .icon {
-	stroke: #efede8;
-	width: 20px;
-	height: 20px;
-	fill: transparent;
+  stroke: #efede8;
+  width: 20px;
+  height: 20px;
+  fill: transparent;
 }
 
 @media (min-width: 768px) {
-	.logoutBtn {
-		height: 24px;
-		font-size: 16px;
-	}
+  .logoutBtn {
+    height: 24px;
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 1440px) {
-	.icon {
-		stroke: #e6533c;
-	}
+  .icon {
+    stroke: #e6533c;
+  }
 }
