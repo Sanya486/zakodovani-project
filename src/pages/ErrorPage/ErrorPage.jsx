@@ -1,8 +1,10 @@
-import React from 'react';
+
 // import PropTypes from 'prop-types'
 
-const ErrorPage = () => {
-  return <div></div>;
+// import Logo from 'components/Logo/Logo';
+
+const ErrorPage = props => {
+	return <div>{/* <Logo iconColor='white-color' /> */}</div>;
 };
 
 // ErrorPage.propTypes = {
