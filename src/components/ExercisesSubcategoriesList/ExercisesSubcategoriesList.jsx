@@ -1,3 +1,4 @@
+import React from 'react';
 import ExercisesSubcategoriesItem from 'components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 import styles from './ExercisesSubcategoriesList.module.scss';
 
