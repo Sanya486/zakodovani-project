@@ -1,8 +1,8 @@
 .container {
-  margin:0 auto;
+  margin: 0 auto;
   width: 100%;
 }
-.title{
+.title {
   margin-bottom: 4px;
   font-family: RobotoRegular;
   font-weight: 400;
@@ -10,15 +10,15 @@
   font-size: 12px;
   margin-left: 15px;
 }
-.blood{
-  display:inline;
+.blood {
+  display: inline;
   font-family: RobotoRegular;
   font-weight: 400;
   line-height: 1.5;
   font-size: 12px;
   margin-right: 280px;
 }
-.tabletInput{
+.tabletInput {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,11 +29,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
- 
 }
 
 .input {
- 
   border-radius: 12px;
   border-color: #efede8;
   font-family: RobotoRegular;
@@ -43,7 +41,6 @@
   padding: 14px 0 14px 14px;
 }
 .inputBase {
- 
   border-radius: 12px;
   border-color: #efede8;
   font-family: RobotoRegular;
@@ -62,10 +59,10 @@
 
 .calendar-custom-input svg {
   position: absolute;
-  right: 10px; 
+  right: 10px;
 }
 .calendar {
- 
+  margin-top: 21px;
   border-radius: 12px;
   border-color: #efede8;
   font-family: RobotoRegular;
@@ -73,6 +70,10 @@
   line-height: 18px;
   font-size: 14px;
   padding: 14px 0 14px 14px !important;
+}
+.react-datepicker {
+  background-color: #e11b1b; /* Змініть на ваш обраний колір */
+  border: 1px solid #e91111; /* Колір рамки */
 }
 
 .label {
@@ -121,7 +122,6 @@
   display: flex;
   flex-direction: column;
   margin-top: 41px;
-
 }
 .labelText {
   margin-bottom: 9px;
@@ -131,108 +131,125 @@
   margin-bottom: 0;
 }
 
-.btn{
-    padding: 12px 40px;
-    width: 115px;
-   background-color: #E6533C;
-   border-radius: 12px;
-   border: none;
-   color: #EFEDE8;
-   font-family: RobotoRegular;
-   font-weight: 400;
-   line-height: 1.2;
-   font-size: 16px;
-   margin-top: 46px;
-   margin-right: auto;
+.btn {
+  padding: 12px 40px;
+  width: 115px;
+  background-color: #e6533c;
+  border-radius: 12px;
+  border: none;
+  color: #efede8;
+  font-family: RobotoRegular;
+  font-weight: 400;
+  line-height: 1.2;
+  font-size: 16px;
+  margin-top: 46px;
+  margin-right: auto;
+}
 
+.calendar-wrapper svg {
+  position: absolute;
+  top: 35px;
+  right: 10px;
+}
+
+.inputError {
+  border: 1px solid red;
+}
+
+.inputSuccess {
+  border: 1px solid green;
+}
+.error {
+  color: red;
+  font-size: 12px; /* Задайте бажаний розмір шрифту */
 }
 @media screen and (min-width: 375px) {
-    .container {
-      width: 375px;
-    
-    }
- 
-    .input {
-      width: 160px;}
-
-      .inputBase {
-          width: 345px;}
-
-          .calendar {
-              width: 161px;}
-   
+  .container {
+    width: 375px;
   }
 
-  @media screen and (min-width: 768px) {
-    .container {
-      width: 768px
-    }
-    .title{
-      margin-bottom: 8px;
-      margin-left: 18px;
-    }
-    .tabletInput{
-      flex-direction: row;
-      gap: 14px;
-      margin-right: auto;
-      margin-left: 18px;
-    }
-    .inputBase{
-      width: 341px;
-      font-weight: 400;
-      line-height: 1.5;
-      font-size: 16px;
-      
-    }
-    .group{
-      display: flex;
-      gap: 14px;
-      margin-right: auto;
-      margin-left: 18px;
-    }
-    .input {
-      width: 159px;
-      font-weight: 400;
-      line-height: 1.5;
-      font-size: 16px;
-    }
-    .blood{
-      margin-right: auto;
-      margin-left: 18px;
-    }
-    .radio{
-      margin-right: auto;
+  .input {
+    width: 160px;
+  }
+
+  .inputBase {
+    width: 345px;
+  }
+
+  .calendar {
+    width: 161px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+  .title {
+    margin-bottom: 8px;
     margin-left: 18px;
-     
-    }
-    .labelMargin{
-      margin-right: 8px;
-    }
-
-    .radioNumber{
-      margin-right: 32px;
-    }
-    .radioText {
-      margin-top: 32px;
-      margin-right: auto;
+  }
+  .tabletInput {
+    flex-direction: row;
+    gap: 14px;
+    margin-right: auto;
     margin-left: 18px;
-      
-    }
-   
-    .btn{
-      padding: 16px 50px;
-      width: 144px;
-     font-weight: 400;
-     font-size: 20px;
-     margin-top: 38px;
-     
-     margin-left: 18px;
   }
+  .inputBase {
+    width: 341px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  .calendar {
+    margin-top: 23px;
+  }
+  .group {
+    display: flex;
+    gap: 14px;
+    margin-right: auto;
+    margin-left: 18px;
+  }
+  .input {
+    width: 159px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  .blood {
+    margin-right: auto;
+    margin-left: 18px;
+  }
+  .radio {
+    margin-right: auto;
+    margin-left: 18px;
+  }
+  .labelMargin {
+    margin-right: 8px;
   }
 
-  @media screen and (min-width: 1440px) {
-    .container {
-     width: 1440px;
-    }
-   
+  .radioNumber {
+    margin-right: 32px;
   }
+  .radioText {
+    margin-top: 32px;
+    margin-right: auto;
+    margin-left: 18px;
+  }
+
+  .btn {
+    padding: 16px 50px;
+    width: 144px;
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 38px;
+
+    margin-left: 18px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+  }
+}
