@@ -1,4 +1,3 @@
-
 import React from 'react';
 // import PropTypes from 'prop-types'
 
@@ -10,4 +9,4 @@ const WelcomePage = () => {
 
 // }
 
-export default WelcomePage;
+export default WelcomePage
