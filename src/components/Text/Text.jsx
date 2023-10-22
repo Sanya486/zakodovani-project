@@ -1,3 +1,4 @@
+import React from 'react';
 import css from './Text.module.scss';
 
 const Text = ({ children }) => {
