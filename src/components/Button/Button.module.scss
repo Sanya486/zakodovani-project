@@ -1,0 +1,87 @@
+.buttonsingup {
+  font-family: 'roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.12;
+  width: 136px;
+  height: 42px;
+  background-color: rgba(230, 83, 60, 1);
+  border-radius: 12px;
+  border: 0;
+  color: rgba(239, 237, 232, 1);
+  gap: 14px;
+  padding: 12px, 40px;
+}
+
+.buttonsingin {
+  font-family: 'roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.12;
+  width: 136px;
+  height: 42px;
+  gap: 14px;
+  padding: 12px, 40px;
+  border-width: 1px;
+  border-radius: 12px;
+  border-color: rgba(239, 237, 232, 0.3);
+  background-color: transparent;
+  color: rgba(239, 237, 232, 1);
+}
+
+.buttongohome {
+  font-family: 'roboto';
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.12;
+  width: 150px;
+  height: 42px;
+  gap: 10px;
+  padding: 12px, 40px;
+  border-width: 1px;
+  border-radius: 12px;
+  border-color: rgba(239, 237, 232, 0.3);
+  background-color: transparent;
+  color: rgba(239, 237, 232, 1);
+}
+
+.btn {
+  font-family: 'roboto';
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  gap: 10px;
+  padding: 16px, 60px;
+  color: rgba(239, 237, 232, 1);
+}
+
+@media screen and (min-width: 375px) {
+}
+@media screen and (min-width: 768px) {
+  .buttonsingup {
+    font-size: 20px;
+    line-height: 1.2;
+    width: 190px;
+    height: 56px;
+    padding: 16px, 60px;
+    gap: 10px;
+  }
+  .buttonsingin {
+    font-size: 20px;
+    line-height: 1.2;
+    width: 190px;
+    height: 56px;
+    padding: 16px, 60px;
+    gap: 10px;
+  }
+  .buttongohome {
+    font-size: 20px;
+    line-height: 1.2;
+    width: 200px;
+    height: 56px;
+    padding: 16px, 60px;
+    gap: 10px;
+  }
+}
+@media screen and (min-width: 1440px) {
+}

@@ -1,19 +1,19 @@
 import Header from 'components/Header/Header';
-import React from 'react'
-import { Outlet } from "react-router-dom";
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 // import PropTypes from 'prop-types'
 
-const Layout = props => {
+const Layout = () => {
   return (
     <>
       <Header />
-      <Outlet/>
+      <Outlet />
     </>
-  )
-}
+  );
+};
 
 // Layout.propTypes = {
 
 // }
 
-export default Layout
+export default Layout;

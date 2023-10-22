@@ -1,32 +1,32 @@
-@use "index";
+@use 'index';
 
 .infoItemContainer {
   padding: 13.2px;
-//   background-color: index.$orange-main-color;
-//   border: 1px solid rgba(index.$white-color, 0.2);
+  //   background-color: index.$orange-main-color;
+  //   border: 1px solid rgba(index.$white-color, 0.2);
   border-radius: 12px;
   max-width: 100%;
   max-height: auto;
 }
 
 .firstVariant {
-    background-color: index.$orange-main-color;
-    border: 1px solid rgba(index.$white-color, 0.2);
+  background-color: index.$orange-main-color;
+  border: 1px solid rgba(index.$white-color, 0.2);
 }
 
 .secondVariant {
-    background-color: rgba(index.$white-color, 0.05);
-    border: 1px solid rgba(index.$white-color, 0.2);
+  background-color: rgba(index.$white-color, 0.05);
+  border: 1px solid rgba(index.$white-color, 0.2);
 }
 
 .thirdVariant {
-    background-color: rgba(index.$white-color, 0.05);
-    border: 1px solid index.$variant-error-color;
+  background-color: rgba(index.$white-color, 0.05);
+  border: 1px solid index.$variant-error-color;
 }
 
 .fourthVariant {
-    background-color: rgba(index.$white-color, 0.05);
-    border: 1px solid index.$variant-success-color;
+  background-color: rgba(index.$white-color, 0.05);
+  border: 1px solid index.$variant-success-color;
 }
 
 .wrap {
@@ -50,7 +50,9 @@
   line-height: 1.33;
   width: 100%;
   height: 16px;
-  font-feature-settings: "clig" off, "liga" off;
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
 }
 
 .itemValue {
@@ -93,7 +95,9 @@
     line-height: 1.33;
     width: 101px;
     height: 16px;
-    font-feature-settings: "clig" off, "liga" off;
+    font-feature-settings:
+      'clig' off,
+      'liga' off;
   }
 
   .itemValue {
@@ -127,5 +131,4 @@
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
-
 }

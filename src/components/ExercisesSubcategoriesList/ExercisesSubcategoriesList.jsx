@@ -1,3 +1,4 @@
+import React from 'react';
 import ExercisesSubcategoriesItem from 'components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 import styles from './ExercisesSubcategoriesList.module.scss';
 
@@ -32,8 +33,7 @@ const filters = [
     },
     filter: 'Body parts',
     name: 'lower arms',
-    imgURL:
-      'https://ftp.goit.study/img/power-pulse/filters/lower_arms_hvwarx.jpg',
+    imgURL: 'https://ftp.goit.study/img/power-pulse/filters/lower_arms_hvwarx.jpg',
   },
   {
     _id: {
@@ -41,8 +41,7 @@ const filters = [
     },
     filter: 'Body parts',
     name: 'lower legs',
-    imgURL:
-      'https://ftp.goit.study/img/power-pulse/filters/lower_legs_thafch.jpg',
+    imgURL: 'https://ftp.goit.study/img/power-pulse/filters/lower_legs_thafch.jpg',
   },
   {
     _id: {
@@ -58,8 +57,7 @@ const filters = [
     },
     filter: 'Body parts',
     name: 'shoulders',
-    imgURL:
-      'https://ftp.goit.study/img/power-pulse/filters/shoulders_deqz9d.jpg',
+    imgURL: 'https://ftp.goit.study/img/power-pulse/filters/shoulders_deqz9d.jpg',
   },
   {
     _id: {
@@ -67,8 +65,7 @@ const filters = [
     },
     filter: 'Body parts',
     name: 'upper arms',
-    imgURL:
-      'https://ftp.goit.study/img/power-pulse/filters/upper_arms_xsndlt.jpg',
+    imgURL: 'https://ftp.goit.study/img/power-pulse/filters/upper_arms_xsndlt.jpg',
   },
   {
     _id: {
@@ -76,8 +73,7 @@ const filters = [
     },
     filter: 'Body parts',
     name: 'upper legs',
-    imgURL:
-      'https://ftp.goit.study/img/power-pulse/filters/upper_legs_dlkfwx.jpg',
+    imgURL: 'https://ftp.goit.study/img/power-pulse/filters/upper_legs_dlkfwx.jpg',
   },
   {
     _id: {
@@ -93,8 +89,7 @@ const filters = [
     },
     filter: 'Equipment',
     name: 'assisted',
-    imgURL:
-      'https://ftp.goit.study/img/power-pulse/filters/assisted_gukduh.jpg',
+    imgURL: 'https://ftp.goit.study/img/power-pulse/filters/assisted_gukduh.jpg',
   },
   {
     _id: {
@@ -118,8 +113,7 @@ const filters = [
     },
     filter: 'Equipment',
     name: 'body weight',
-    imgURL:
-      'https://ftp.goit.study/img/power-pulse/filters/body_weight_ofngta.jpg',
+    imgURL: 'https://ftp.goit.study/img/power-pulse/filters/body_weight_ofngta.jpg',
   },
   {
     _id: {
@@ -127,8 +121,7 @@ const filters = [
     },
     filter: 'Equipment',
     name: 'bosu ball',
-    imgURL:
-      'https://ftp.goit.study/img/power-pulse/filters/bosu_ball_t8sjw4.jpg',
+    imgURL: 'https://ftp.goit.study/img/power-pulse/filters/bosu_ball_t8sjw4.jpg',
   },
   {
     _id: {
@@ -144,8 +137,7 @@ const filters = [
     },
     filter: 'Equipment',
     name: 'dumbbell',
-    imgURL:
-      'https://ftp.goit.study/img/power-pulse/filters/dumbbell_uakfyd.jpg',
+    imgURL: 'https://ftp.goit.study/img/power-pulse/filters/dumbbell_uakfyd.jpg',
   },
   {
     _id: {
@@ -153,8 +145,7 @@ const filters = [
     },
     filter: 'Equipment',
     name: 'elliptical machine',
-    imgURL:
-      'https://ftp.goit.study/img/power-pulse/filters/elliptical_machine_wgwuxq.jpg',
+    imgURL: 'https://ftp.goit.study/img/power-pulse/filters/elliptical_machine_wgwuxq.jpg',
   },
   {
     _id: {
@@ -162,8 +153,7 @@ const filters = [
     },
     filter: 'Equipment',
     name: 'ez barbell',
-    imgURL:
-      'https://ftp.goit.study/img/power-pulse/filters/ez_barbell_vjkcrp.jpg',
+    imgURL: 'https://ftp.goit.study/img/power-pulse/filters/ez_barbell_vjkcrp.jpg',
   },
 ];
 
