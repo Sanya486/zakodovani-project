@@ -1,3 +1,4 @@
+import AddExerciseSuccess from "components/AddExerciseSuccess/AddExerciseSuccess";
 import AddProductForm from "components/AddProductForm/AddProductForm";
 import AddProductSuccess from "components/AddProductSuccess/AddProductSuccess";
 import BasicModalWindow from "components/BasicModalWindow/BasicModalWindow";
@@ -8,7 +9,7 @@ const WelcomePage = (props) => {
   return (
     <div>
       <BasicModalWindow>
-        <AddProductSuccess />
+        <AddExerciseSuccess />
       </BasicModalWindow>
     </div>
   );
