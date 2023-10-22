@@ -1,6 +1,9 @@
-import { InfoItem } from 'components/InfoItem/InfoItem'
-import React from 'react'
+import React from "react";
 // import PropTypes from 'prop-types'
+
+
+import { InfoItem } from "components/InfoItem/InfoItem";
+
 
 const WelcomePage = props => {
   return (
@@ -14,4 +17,4 @@ const WelcomePage = props => {
 
 // }
 
-export default WelcomePage
+export default WelcomePage;

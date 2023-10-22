@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import './App.scss';
+import "./App.scss";
 
 import Layout from "components/Layout/Layout";
 import WelcomePage from "pages/WelcomePage/WelcomePage";
@@ -13,7 +13,6 @@ import ProfilePage from "pages/ProfilePage/ProfilePage";
 import ProductsPage from "pages/ProductsPage/ProductsPage";
 import ExercisesPage from "pages/ExercisesPage/ExercisesPage";
 import ErrorPage from "pages/ErrorPage/ErrorPage";
-
 
 function App() {
   return (
