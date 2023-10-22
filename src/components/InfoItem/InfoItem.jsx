@@ -1,6 +1,6 @@
 import React from 'react';
 // import { useDispatch, useSelector } from "react-redux";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from 'clsx';
 import css from './InfoItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
@@ -34,3 +34,9 @@ export const InfoItem = ({ name, value, variant }) => {
     </div>
   );
 };
+
+InfoItem.propTypes = {
+    name: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    variant: PropTypes.string
+}
