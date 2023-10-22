@@ -13,13 +13,14 @@ import ProfilePage from "pages/ProfilePage/ProfilePage";
 import ProductsPage from "pages/ProductsPage/ProductsPage";
 import ExercisesPage from "pages/ExercisesPage/ExercisesPage";
 import ErrorPage from "pages/ErrorPage/ErrorPage";
+import UserForm from "components/UserForm/UserForm";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<WelcomePage />} />
+          {/* <Route index element={<WelcomePage />} /> */}
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/profile" element={<ProfilePage />} />
@@ -27,9 +28,11 @@ function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/exercises" element={<ExercisesPage />} />
           <Route path="/error" element={<ErrorPage />} />
+          
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      <UserForm/>
       <Toaster />
     </>
   );

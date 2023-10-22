@@ -1,0 +1,265 @@
+@import "../../index.scss";
+
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+}
+.title {
+  margin-bottom: 4px;
+  font-family: RobotoRegular;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 12px;
+  margin-left: 15px;
+}
+.blood {
+  display: inline;
+  font-family: RobotoRegular;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 12px;
+  margin-right: 280px;
+}
+.tabletInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input {
+  border-radius: 12px;
+  border-color: $white-color;
+  font-weight: 400;
+  line-height: 1.29;
+  font-size: 14px;
+  padding: 14px 0 14px 14px;
+}
+.inputBase {
+  border-radius: 12px;
+  border-color: $white-color;
+  font-weight: 400;
+  line-height: 1.29;
+  font-size: 14px;
+  margin-bottom: 4px;
+  padding: 14px 0 14px 14px;
+}
+
+.calendar-custom-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.calendar-custom-input svg {
+  position: absolute;
+  right: 10px;
+}
+.calendar {
+  margin-top: 21px;
+  border-radius: 12px;
+  border-color: $white-color;
+  font-weight: normal;
+  line-height: 18px;
+  font-size: 14px;
+  padding: 14px 0 14px 14px !important;
+  width: 161px;
+}
+.react-datepicker {
+  background-color: #e11b1b; 
+  border: 1px solid #e91111;
+}
+
+.label {
+  margin-bottom: 4px;
+  font-family: RobotoRegular;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 12px;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.group1 {
+  display: flex;
+}
+
+.group1 > *:not(:last-child) {
+  margin-right: 12px;
+}
+.group2 {
+  display: flex;
+}
+.group2 > *:not(:last-child) {
+  margin-right: 12px;
+}
+.labelNone {
+  margin-bottom: 3px;
+  visibility: hidden;
+}
+.radio {
+  display: flex;
+  gap: 20px;
+}
+
+.labelMargin {
+  margin-right: 2px;
+}
+.inputRadio {
+  line-height: 1.29;
+  font-size: 14px;
+ 
+}
+.radioText {
+  display: flex;
+  flex-direction: column;
+  margin-top: 41px;
+}
+.labelText {
+  margin-bottom: 9px;
+
+}
+
+.labelText:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.btn {
+  padding: 12px 40px;
+  width: 115px;
+  background-color: $orange-main-color;
+  border-radius: 12px;
+  border: none;
+  color: $white-color;
+  font-family: RobotoRegular;
+  font-weight: 400;
+  line-height: 1.2;
+  font-size: 16px;
+  margin-top: 46px;
+  margin-right: auto;
+}
+
+.calendar-wrapper svg {
+  position: absolute;
+  top: 35px;
+  right: 10px;
+}
+
+.inputError {
+  border: 1px solid red;
+}
+
+.inputSuccess {
+  border: 1px solid green;
+}
+.error {
+  color: red;
+  font-size: 10px; 
+}
+.columnName{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.errorName {
+    color: red;
+    font-size: 10px; 
+  }
+@media screen and (min-width: 375px) {
+  .container {
+    width: 375px;
+  }
+
+  .input {
+    width: 160px;
+  }
+
+  .inputBase {
+    width: 340px;
+  }
+
+  .calendar {
+    width: 161px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+  .title {
+    margin-bottom: 8px;
+    margin-left: 18px;
+  }
+  .tabletInput {
+    flex-direction: row;
+    gap: 14px;
+    margin-right: auto;
+    margin-left: 18px;
+  }
+  .inputBase {
+    width: 333px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  .calendar {
+    margin-top: 23px;
+  }
+  .group {
+    display: flex;
+    gap: 14px;
+    margin-right: auto;
+    margin-left: 18px;
+  }
+  .input {
+    width: 159px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  .blood {
+    margin-right: auto;
+    margin-left: 18px;
+  }
+  .radio {
+    margin-right: auto;
+    margin-left: 18px;
+  }
+  .labelMargin {
+    margin-right: 8px;
+  }
+
+  .radioNumber {
+    margin-right: 32px;
+  }
+  .radioText {
+    margin-top: 32px;
+    margin-right: auto;
+    margin-left: 18px;
+  }
+
+  .btn {
+    padding: 16px 50px;
+    width: 144px;
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 38px;
+
+    margin-left: 18px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+  }
+}
