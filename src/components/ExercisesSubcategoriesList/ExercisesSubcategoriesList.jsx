@@ -167,6 +167,9 @@ const filters = [
   },
 ];
 
+//-Add getVisibleCards()
+//-Add OnClick logic
+
 const ExercisesSubcategoriesList = () => {
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
