@@ -2,11 +2,31 @@
 
 .infoItemContainer {
   padding: 13.2px;
-  background-color: index.$orange-main-color;
-  border: 1px solid rgba(index.$white-color, 0.2);
+//   background-color: index.$orange-main-color;
+//   border: 1px solid rgba(index.$white-color, 0.2);
   border-radius: 12px;
   max-width: 100%;
   max-height: auto;
+}
+
+.firstVariant {
+    background-color: index.$orange-main-color;
+    border: 1px solid rgba(index.$white-color, 0.2);
+}
+
+.secondVariant {
+    background-color: rgba(index.$white-color, 0.05);
+    border: 1px solid rgba(index.$white-color, 0.2);
+}
+
+.thirdVariant {
+    background-color: rgba(index.$white-color, 0.05);
+    border: 1px solid index.$variant-error-color;
+}
+
+.fourthVariant {
+    background-color: rgba(index.$white-color, 0.05);
+    border: 1px solid index.$variant-success-color;
 }
 
 .wrap {
@@ -45,8 +65,8 @@
 @media screen and (min-width: index.$mobile-breakpoint) {
   .infoItemContainer {
     padding: 13.2px;
-    background-color: index.$orange-main-color;
-    border: 1px solid rgba(index.$white-color, 0.2);
+    // background-color: index.$orange-main-color;
+    // border: 1px solid rgba(index.$white-color, 0.2);
     border-radius: 12px;
     max-width: 157px;
     max-height: 96px;
