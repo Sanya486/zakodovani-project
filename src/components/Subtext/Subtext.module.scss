@@ -1,0 +1,19 @@
+@use "index";
+
+.signIn,
+.signUp {
+    font-size: 12px;
+    font-weight: normal;
+    color: #91908D;
+}
+
+.userPage {
+    font-size: 14px;
+    font-weight: normal;
+    color: #91908D;
+}
+
+.link {
+    color: index.$white-color;
+}
+

@@ -1,61 +1,248 @@
 {
-  "user": {
-    "auth": {
-      "email": "email@mail.com",
-      "name": "Petro Petrenko",
-      "token": "ddawdawdaw"
-    },
-    "info": {
-      "height": 165,
-      "current_weight": 95,
-      "desire_weight": 80,
-      "reg_date": 454654514165,
-      "blood": 2,
-      "life_style": 1,
-      "cal_norm": 2200,
-      "sport_norm": 110,
-      "cal_consumed": 1000,
-      "cal_burnt": 1000
-    }
+  "client": {
+    "_id": "65341806adcbac0f2bea5f8a",
+    "email": "test@gmail.com",
+    "name": "mykolka",
+    "password": "$2b$11$PeThk3io4wQO4fxA6ZHcqOjUj4bWhIEdb1zHKESH2mbBPolDfathC",
+    "__v": 0,
+    "birthday": "2003-10-10T00:00:00.000Z",
+    "blood": 1,
+    "currentWeight": 55,
+    "desiredWeight": 55,
+    "height": 155,
+    "levelActivity": 4,
+    "sex": "male",
+    "avatar": "https://res.cloudinary.com/dvmmkonxh/image/upload/v1697958203/power-pulse/avatars/65341806adcbac0f2bea5f8a.jpg",
+    "token": "09f26e402586e2faa8da4c98a35f1b20d6b033c6097befa8be3486a829587fe2f90a832bd3ff9d42710a4da095a2ce285b009f0c3730cd9b8e1af3eb84df6611"
   },
   "dairy": {
-    "43241411231312": {
-      "products": [
-        {
-          "title": "marlin",
-          "category": "fish",
-          "weight": 100,
-          "calories": 112,
-          "reccomendation": true
-        },
-        {
-          "title": "Danbo cheese",
-          "category": "dairy",
-          "weight": 100,
-          "calories": 340,
-          "reccomendation": true
-        }
-      ],
-      "exercises": [
-        {
-          "bodyPart": "upper arms",
-          "equipment": "barbell",
-          "name": "barbell drag curl",
-          "target": "biceps",
-          "burnedCalories": 84,
-          "time": 3,
-          "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0038.gif"
-        },
-        {
-          "bodyPart": "waist",
-          "equipment": "body weight",
-          "name": "air bike",
-          "target": "abs",
-          "burnedCalories": 312,
-          "time": 3,
-          "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0003.gif"
-        }
-      ]
+    "products": [
+      {
+        "title": "marlin",
+        "category": "fish",
+        "weight": 100,
+        "calories": 112,
+        "reccomendation": true
+      },
+      {
+        "title": "Danbo cheese",
+        "category": "dairy",
+        "weight": 100,
+        "calories": 340,
+        "reccomendation": true
+      }
+    ],
+    "exercises": [
+      {
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "name": "barbell drag curl",
+        "target": "biceps",
+        "burnedCalories": 84,
+        "time": 3
+      },
+      {
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "name": "air bike",
+        "target": "abs",
+        "burnedCalories": 312,
+        "time": 3,
+        "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0003.gif"
+      }
+    ]
+  },
+  "products": [
+    {
+      "_id": "5d51694902b2373622ff5773",
+      "weight": 100,
+      "calories": 340,
+      "category": "dairy",
+      "title": "Danbo cheese"
+    },
+    {
+      "_id": "5d51694902b2373622ff5b7f",
+      "weight": 100,
+      "calories": 112,
+      "category": "fish",
+      "title": "marlin"
+    },
+    {
+      "_id": "5d51694902b2373622ff5e13",
+      "weight": 100,
+      "calories": 17,
+      "category": "vegetables and herbs",
+      "title": "Salads Belaya Dacha Delicate root"
     }
+  ],
+  "sport": {
+    "exercises": [
+      {
+        "_id": {
+          "$oid": "64f2458d6f67bc34bae4f7f7"
+        },
+        "bodyPart": "chest",
+        "equipment": "leverage machine",
+        "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0009.gif",
+        "name": "assisted chest dip (kneeling)",
+        "target": "pectorals",
+        "burnedCalories": 329,
+        "time": 3
+      },
+      {
+        "_id": {
+          "$oid": "64f2458d6f67bc34bae4f801"
+        },
+        "bodyPart": "upper arms",
+        "equipment": "leverage machine",
+        "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0019.gif",
+        "name": "assisted triceps dip (kneeling)",
+        "target": "triceps",
+        "burnedCalories": 233,
+        "time": 3
+      },
+      {
+        "_id": {
+          "$oid": "64f2458d6f67bc34bae4f813"
+        },
+        "bodyPart": "upper arms",
+        "equipment": "barbell",
+        "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0038.gif",
+        "name": "barbell drag curl",
+        "target": "biceps",
+        "burnedCalories": 84,
+        "time": 3
+      },
+      {
+        "_id": {
+          "$oid": "64f2458d6f67bc34bae4f7f4"
+        },
+        "bodyPart": "waist",
+        "equipment": "body weight",
+        "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0003.gif",
+        "name": "air bike",
+        "target": "abs",
+        "burnedCalories": 312,
+        "time": 3
+      },
+      {
+        "_id": {
+          "$oid": "64f2458d6f67bc34bae4f819"
+        },
+        "bodyPart": "upper legs",
+        "equipment": "barbell",
+        "gifUrl": "https://ftp.goit.study/img/power-pulse/gifs/0044.gif",
+        "name": "barbell good morning",
+        "target": "hamstrings",
+        "burnedCalories": 335,
+        "time": 3
+      }
+    ],
+    "filter": [
+      {
+        "_id": {
+          "$oid": "650f35ece3f5522fc6396289"
+        },
+        "filter": "Body parts",
+        "name": "back",
+        "imgURL": "https://ftp.goit.study/img/power-pulse/filters/back_wzzphw.jpg"
+      },
+      {
+        "_id": {
+          "$oid": "650f35ece3f5522fc639628a"
+        },
+        "filter": "Body parts",
+        "name": "cardio",
+        "imgURL": "https://ftp.goit.study/img/power-pulse/filters/cardio_pkkceg.jpg"
+      },
+      {
+        "_id": {
+          "$oid": "650f35ece3f5522fc639628b"
+        },
+        "filter": "Body parts",
+        "name": "chest",
+        "imgURL": "https://ftp.goit.study/img/power-pulse/filters/chest_rqs6fw.jpg"
+      },
+      {
+        "_id": {
+          "$oid": "650f35ece3f5522fc639628c"
+        },
+        "filter": "Body parts",
+        "name": "lower arms",
+        "imgURL": "https://ftp.goit.study/img/power-pulse/filters/lower_arms_hvwarx.jpg"
+      },
+      {
+        "_id": {
+          "$oid": "650f35ece3f5522fc639628d"
+        },
+        "filter": "Body parts",
+        "name": "lower legs",
+        "imgURL": "https://ftp.goit.study/img/power-pulse/filters/lower_legs_thafch.jpg"
+      },
+      {
+        "_id": {
+          "$oid": "650f35ece3f5522fc639628e"
+        },
+        "filter": "Body parts",
+        "name": "neck",
+        "imgURL": "https://ftp.goit.study/img/power-pulse/filters/neck_t0fc1k.jpg"
+      },
+      {
+        "_id": {
+          "$oid": "650f35ece3f5522fc639628f"
+        },
+        "filter": "Body parts",
+        "name": "shoulders",
+        "imgURL": "https://ftp.goit.study/img/power-pulse/filters/shoulders_deqz9d.jpg"
+      },
+      {
+        "_id": {
+          "$oid": "650f35ece3f5522fc6396290"
+        },
+        "filter": "Body parts",
+        "name": "upper arms",
+        "imgURL": "https://ftp.goit.study/img/power-pulse/filters/upper_arms_xsndlt.jpg"
+      },
+      {
+        "_id": {
+          "$oid": "650f35ece3f5522fc6396291"
+        },
+        "filter": "Body parts",
+        "name": "upper legs",
+        "imgURL": "https://ftp.goit.study/img/power-pulse/filters/upper_legs_dlkfwx.jpg"
+      },
+      {
+        "_id": {
+          "$oid": "650f35ece3f5522fc6396292"
+        },
+        "filter": "Body parts",
+        "name": "waist",
+        "imgURL": "https://ftp.goit.study/img/power-pulse/filters/waist_i7kqzq.jpg"
+      },
+      {
+        "_id": {
+          "$oid": "650f35ece3f5522fc6396293"
+        },
+        "filter": "Equipment",
+        "name": "assisted",
+        "imgURL": "https://ftp.goit.study/img/power-pulse/filters/assisted_gukduh.jpg"
+      },
+      {
+        "_id": {
+          "$oid": "650f35ece3f5522fc6396294"
+        },
+        "filter": "Equipment",
+        "name": "band",
+        "imgURL": "https://ftp.goit.study/img/power-pulse/filters/band_ri4mww.jpg"
+      },
+      {
+        "_id": {
+          "$oid": "650f35ece3f5522fc6396295"
+        },
+        "filter": "Equipment",
+        "name": "barbell",
+        "imgURL": "https://ftp.goit.study/img/power-pulse/filters/barbell_tw7rra.jpg"
+      }
+    ]
   }
 }
