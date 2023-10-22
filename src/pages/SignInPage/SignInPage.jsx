@@ -1,16 +1,12 @@
-import React from 'react'
+import React from 'react';
 // import PropTypes from 'prop-types'
 
-const SignInPage = props => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const SignInPage = (props) => {
+  return <div></div>;
+};
 
 // SignInPage.propTypes = {
 
 // }
 
-export default SignInPage
+export default SignInPage;

@@ -1,26 +1,26 @@
 .NavLink {
-	height: 38px;
-	border: 1px rgba(239, 237, 232, 0.2);
-	border-radius: 12px;
-	margin: 10px, 27px;
-	color: #efede8;
+  height: 38px;
+  border: 1px rgba(239, 237, 232, 0.2);
+  border-radius: 12px;
+  margin: 10px, 27px;
+  color: #efede8;
 
-	&.active {
-		border-color: #efede8;
-	}
+  &.active {
+    border-color: #efede8;
+  }
 }
 
 @media (min-width: 768px) {
-	.NavLink {
-		height: 44px;
-	}
+  .NavLink {
+    height: 44px;
+  }
 }
 
 @media (min-width: 1440px) {
-	.NavLink {
-		&.active {
-			border-color: transparent;
-			background-color: #e6533c;
-		}
-	}
+  .NavLink {
+    &.active {
+      border-color: transparent;
+      background-color: #e6533c;
+    }
+  }
 }
