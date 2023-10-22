@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
 
-const SignUpPage = (props) => {
+const SignUpPage = () => {
   return <div></div>;
 };
 

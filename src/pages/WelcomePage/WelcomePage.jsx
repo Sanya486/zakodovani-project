@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
 
-const WelcomePage = (props) => {
+const WelcomePage = () => {
   return <div></div>;
 };
 
