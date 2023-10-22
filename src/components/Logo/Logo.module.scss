@@ -1,3 +1,5 @@
+@use 'index';
+
 .logoWrapper {
 	display: flex;
 	justify-content: center;
@@ -9,24 +11,25 @@
 .logoIcon {
 	width: 36px;
 	height: 13px;
-	fill: #e6533c;
+	fill: index.$orange-main-color;
 	flex-shrink: 0;
 }
 
-.errorPageIconColor {
+.logoIconColor {
 	composes: logoIcon;
-	fill: #efede8;
+	fill: index.$white-color;
 }
 
 .logoText {
-	fill: #efede8;
+	fill: index.$white-color;
 	height: 12px;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: index.$tablet-breakpoint) {
 	.logoWrapper {
 		width: 151px;
 	}
+
 	.logoIcon {
 		width: 44px;
 		height: 17px;
