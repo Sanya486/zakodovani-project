@@ -36,6 +36,14 @@
 	fill: rgba(index.$white-color, 0.3);
 }
 
+.avatarImage {
+	width: 37px;
+	height: 37px;
+	object-fit: cover;
+	border-radius: 50%;
+	border: 1px solid index.$orange-main-color;
+}
+
 @media screen and (min-width: index.$tablet-breakpoint) {
 	.userBarWrapper {
 		gap: 16px;
@@ -54,5 +62,10 @@
 	.avatarIcon {
 		width: 24px;
 		height: 24px;
+	}
+
+	.avatarImage {
+		width: 46px;
+		height: 46px;
 	}
 }
