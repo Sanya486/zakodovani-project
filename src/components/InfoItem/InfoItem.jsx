@@ -10,17 +10,17 @@ export const InfoItem = ({name, value, variant}) => {
 let addClass = "";
 
 switch (variant) {
-    case "2":
-        addClass = css.secondVariant;
+    case "empty":
+        addClass = css.firstVariant;
         break;
-    case "3":
+    case "error":
         addClass = css.thirdVariant;
         break;
-    case "4":
+    case "success":
         addClass = css.fourthVariant;
         break;
     default:
-        addClass = css.firstVariant;
+        addClass = css.secondVariant;
 }
 
     return (
