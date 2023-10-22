@@ -1,16 +1,11 @@
-import AddExerciseSuccess from "components/AddExerciseSuccess/AddExerciseSuccess";
-import AddProductForm from "components/AddProductForm/AddProductForm";
-import AddProductSuccess from "components/AddProductSuccess/AddProductSuccess";
-import BasicModalWindow from "components/BasicModalWindow/BasicModalWindow";
+import { InfoItem } from "components/InfoItem/InfoItem";
 import React from "react";
 // import PropTypes from 'prop-types'
 
 const WelcomePage = (props) => {
   return (
     <div>
-      <BasicModalWindow>
-        <AddExerciseSuccess />
-      </BasicModalWindow>
+      <InfoItem name="Daily calorie intake" value="2000" variant="1" />
     </div>
   );
 };
