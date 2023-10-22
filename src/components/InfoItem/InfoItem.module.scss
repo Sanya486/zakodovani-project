@@ -1,0 +1,131 @@
+@use "index";
+
+.infoItemContainer {
+  padding: 13.2px;
+//   background-color: index.$orange-main-color;
+//   border: 1px solid rgba(index.$white-color, 0.2);
+  border-radius: 12px;
+  max-width: 100%;
+  max-height: auto;
+}
+
+.firstVariant {
+    background-color: index.$orange-main-color;
+    border: 1px solid rgba(index.$white-color, 0.2);
+}
+
+.secondVariant {
+    background-color: rgba(index.$white-color, 0.05);
+    border: 1px solid rgba(index.$white-color, 0.2);
+}
+
+.thirdVariant {
+    background-color: rgba(index.$white-color, 0.05);
+    border: 1px solid index.$variant-error-color;
+}
+
+.fourthVariant {
+    background-color: rgba(index.$white-color, 0.05);
+    border: 1px solid index.$variant-success-color;
+}
+
+.wrap {
+  display: flex;
+  column-gap: 8px;
+  row-gap: 0px;
+  align-items: center;
+  margin-bottom: 28px;
+  width: 100%;
+}
+
+.icon {
+  max-width: 20px;
+  max-height: 20px;
+  fill: index.$orange-secondary-color;
+}
+
+.itemName {
+  color: rgba(index.$white-color, 0.8);
+  font-size: 12px;
+  line-height: 1.33;
+  width: 100%;
+  height: 16px;
+  font-feature-settings: "clig" off, "liga" off;
+}
+
+.itemValue {
+  color: index.$white-color;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.11;
+  width: 42px;
+  height: 20px;
+}
+
+@media screen and (min-width: index.$mobile-breakpoint) {
+  .infoItemContainer {
+    padding: 13.2px;
+    // background-color: index.$orange-main-color;
+    // border: 1px solid rgba(index.$white-color, 0.2);
+    border-radius: 12px;
+    max-width: 157px;
+    max-height: 96px;
+  }
+
+  .wrap {
+    display: flex;
+    column-gap: 8px;
+    row-gap: 0px;
+    align-items: center;
+    margin-bottom: 28px;
+    width: 100%;
+  }
+
+  .icon {
+    max-width: 20px;
+    max-height: 20px;
+    fill: index.$orange-secondary-color;
+  }
+
+  .itemName {
+    color: rgba(index.$white-color, 0.8);
+    font-size: 12px;
+    line-height: 1.33;
+    width: 101px;
+    height: 16px;
+    font-feature-settings: "clig" off, "liga" off;
+  }
+
+  .itemValue {
+    color: index.$white-color;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.11;
+    width: 42px;
+    height: 20px;
+  }
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .infoItemContainer {
+    padding: 18px;
+    max-width: 187px;
+    max-height: 116px;
+  }
+
+  .itemName {
+    line-height: 1.5;
+    height: 18px;
+  }
+
+  .itemValue {
+    font-size: 24px;
+    line-height: 1.33;
+    width: 56px;
+    height: 32px;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+
+}
