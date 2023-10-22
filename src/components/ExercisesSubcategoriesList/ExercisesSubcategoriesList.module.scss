@@ -1,5 +1,10 @@
-.exercises-card-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px 16px;
+@import '../../index.scss';
+
+@media screen and (min-width: $tablet-breakpoint) {
+  .exercises-card-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px 16px;
+  }
 }
