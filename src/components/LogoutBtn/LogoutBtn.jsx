@@ -1,3 +1,4 @@
+import React from 'react';
 import sprite from '../../images/svg/sprite.svg';
 import css from './LogOutBtn.module.scss';
 

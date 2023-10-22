@@ -1,3 +1,4 @@
+import React from 'react';
 import css from './TitlePage.module.scss';
 
 const TitlePage = ({ children }) => {

@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import './App.scss';
+import React from 'react';
 
 import Layout from 'components/Layout/Layout';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
