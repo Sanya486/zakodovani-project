@@ -37,8 +37,6 @@
     bottom: 20px;
     left: 20px;
   }
-
-  
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
@@ -48,7 +46,7 @@
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
-    .burgerMenu {
+  .burgerMenu {
     display: none;
   }
 }
