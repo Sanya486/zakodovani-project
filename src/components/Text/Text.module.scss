@@ -1,4 +1,4 @@
-@import 'index.scss';
+@use 'index';
 
 .text {
   color: rgba(239, 237, 232, 0.3);
@@ -8,7 +8,7 @@
   margin-bottom: 28px;
 }
 
-@media screen and (min-width: $tablet-breakpoint) {
+@media screen and (min-width: index.$tablet-breakpoint) {
   .text {
     font-size: 16px;
     line-height: 1.5;
