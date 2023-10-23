@@ -1,0 +1,104 @@
+@use 'index';
+
+.formWrapper {
+  height: 244px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background-color: black;
+}
+
+.noGap {
+  & div:first-child {
+    margin-bottom: 18px;
+  }
+  gap: 0;
+}
+
+.btn {
+  width: 138px;
+}
+
+.errorMessage {
+  color: index.$error-color;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.12px;
+}
+
+.successMessage {
+  color: index.$success-color;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.12px;
+}
+
+.inputStyle {
+  display: block;
+  height: 46px;
+  padding: 14px;
+  color: #efede899;
+  font-size: 14px;
+  line-height: 1.28571;
+  background-color: transparent;
+  border-radius: 12px;
+  border: 1px solid #efede84d;
+  outline: none;
+
+  &:focus {
+    border: 1px solid index.$orange-main-color;
+  }
+}
+
+.messageWrap {
+  display: flex;
+  gap: 4px;
+}
+
+.errorInput {
+  border: 1px solid index.$error-color;
+}
+
+.successInput {
+  border: 1px solid index.$success-color;
+}
+
+.errorIcon {
+  width: 16px;
+  height: 16px;
+  fill: index.$error-color;
+}
+
+.successIcon {
+  width: 16px;
+  height: 16px;
+  fill: index.$success-color;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .formWrapper {
+    height: 316px;
+    gap: 20px;
+  }
+  .inputStyle {
+    height: 52px;
+    font-size: 16px;
+    line-height: 1.5;
+    width: 279px;
+  }
+  .btn {
+    width: 192px;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .inputStyle {
+    width: 364px;
+  }
+}

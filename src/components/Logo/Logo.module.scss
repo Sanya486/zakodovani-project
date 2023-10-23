@@ -1,0 +1,41 @@
+@use 'index';
+
+.logoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 126px;
+  gap: 8px;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 13px;
+  fill: index.$orange-main-color;
+  flex-shrink: 0;
+}
+
+.logoIconColor {
+  composes: logoIcon;
+  fill: index.$white-color;
+}
+
+.logoText {
+  fill: index.$white-color;
+  height: 12px;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .logoWrapper {
+    width: 151px;
+  }
+
+  .logoIcon {
+    width: 44px;
+    height: 17px;
+  }
+
+  .logoText {
+    height: 17px;
+  }
+}
