@@ -1,4 +1,4 @@
-@import 'index.scss';
+@use 'index';
 
 .container {
   padding: 48px 89px;
@@ -15,7 +15,7 @@
 
 .title {
   margin: 0;
-  color: $white-color;
+  color: index.$white-color;
   font-size: 24px;
   line-height: 1.33;
   margin-bottom: 16px;
@@ -31,7 +31,7 @@
 }
 
 .span {
-  color: $orange-main-color;
+  color: index.$orange-main-color;
 }
 
 .buttonLink {
@@ -45,7 +45,7 @@
   height: 16px;
 }
 
-@media screen and (min-width: $tablet-breakpoint) {
+@media screen and (min-width: index.$tablet-breakpoint) {
   .container {
     padding: 64px 136px 64px 137px;
   }
