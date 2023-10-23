@@ -1,0 +1,54 @@
+@use 'index';
+
+.burgerMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  padding: 20px;
+
+  background-color: index.$orange-main-color;
+
+  .closeIcon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    stroke: index.$white-color;
+    margin-bottom: 202px;
+  }
+
+  .navList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .logoutBtn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .burgerMenu {
+    width: 350px;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+    .burgerMenu {
+    display: none;
+  }
+}

@@ -8,7 +8,7 @@ import Button from 'components/Button/Button';
 
 import sprite from '../../images/svg/sprite.svg';
 
-// import PropTypes from 'prop-types'
+
 
 const SignUpFrom = () => {
   return (
@@ -115,8 +115,6 @@ const SignUpFrom = () => {
   );
 };
 
-// SignInForm.propTypes = {
 
-// }
 
 export default SignUpFrom;
