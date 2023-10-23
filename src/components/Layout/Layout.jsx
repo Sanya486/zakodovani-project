@@ -3,7 +3,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 // import PropTypes from 'prop-types'
 
-const Layout = (props) => {
+const Layout = () => {
   return (
     <>
       <Header />

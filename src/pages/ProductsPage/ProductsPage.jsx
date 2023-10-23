@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
 
-const ProductsPage = (props) => {
+const ProductsPage = () => {
   return <div></div>;
 };
 

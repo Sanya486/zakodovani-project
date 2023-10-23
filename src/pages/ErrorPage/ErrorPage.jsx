@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
 
-const ErrorPage = (props) => {
+const ErrorPage = () => {
   return <div></div>;
 };
 

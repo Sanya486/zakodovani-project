@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
 
-const SignInPage = (props) => {
+const SignInPage = () => {
   return <div></div>;
 };
 
