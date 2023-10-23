@@ -22,7 +22,7 @@ const AddExerciseSuccess = ({ data, onClose }) => {
         </p>
       </div>
       <Link to='/exercises' onClick={onClose} className={css.buttonLink}>
-        <Button title='Next product' classes={['nextProductButton']} />
+        <Button title='Next product' classes={[css.button]} />
       </Link>
       <Link to='/diary' onClick={onClose}>
         <p className={css.text}>

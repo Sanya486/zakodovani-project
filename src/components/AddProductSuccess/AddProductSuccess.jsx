@@ -16,7 +16,7 @@ const AddProductSuccess = ({ calories, onClose }) => {
         Calories: <span className={css.span}>{calories}</span>
       </p>
       <Link to='/products' onClick={onClose} className={css.buttonLink}>
-        <Button title='Next product' classes={['nextProductButton']} />
+        <Button title='Next product' classes={[css.button]} />
       </Link>
       <Link to='/diary' onClick={onClose}>
         <p className={css.text}>
