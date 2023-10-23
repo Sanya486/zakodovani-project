@@ -1,4 +1,4 @@
-@import 'index.scss';
+@use 'index';
 
 .backdrop {
   display: flex;
@@ -30,7 +30,7 @@
   position: absolute;
   top: 14px;
   right: 14px;
-  color: $white-color;
+  color: index.$white-color;
   cursor: pointer;
 }
 
@@ -40,7 +40,7 @@
   height: 22px;
 }
 
-@media screen and (min-width: $tablet-breakpoint) {
+@media screen and (min-width: index.$tablet-breakpoint) {
   .modalCloseBtn {
     width: 26px;
     height: 26px;
