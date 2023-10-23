@@ -3,7 +3,7 @@
 .form {
   background: index.$black-color;
   max-width: 297px;
-  width: 100%
+  width: 100%;
 }
 
 .field {
@@ -17,15 +17,15 @@
 }
 
 .caloriesField {
-    width: 81px;
+  width: 81px;
 }
 
 .weightField {
-    width: 80px;
+  width: 80px;
 }
 
 .recommendField {
-    width: 76px;
+  width: 76px;
 }
 
 .title {
@@ -48,23 +48,32 @@
 
 .blockWrap {
   display: flex;
+  align-items: flex-end;
+  column-gap: 8px;
+  width: 269px;
+//   padding-bottom: 9px;
+}
+
+.subBlockWrap {
+  display: flex;
   align-items: center;
-  justify-content: space-between;
   column-gap: 16px;
-//   justify-content: space-between;
+  width: inherit;
 }
 
 .blockWrap:last-child {
-    column-gap: 8px;
+  column-gap: 8px;
 }
 
 .blockWrap .fieldWrap {
   margin-bottom: 0;
 }
 
-// .blockWrap .fieldWrap:last-child {
-//   margin-bottom: 9px;
-// }
+.buttonWrap {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 9px;
+}
 
 .button {
   width: 20px;
@@ -75,8 +84,7 @@
 }
 
 .icon {
-  max-width: 20px;
-  max-height: 20px;
+  width: 20px;
+  height: 20px;
   stroke: index.$orange-secondary-color;
-//   margin-top: 12px;
 }

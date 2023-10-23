@@ -27,39 +27,58 @@ export const ProductTableItem = ({ title, category, calories, weight, recommend 
             <label htmlFor='title' className={css.title}>
               Title
             </label>
-            <Field id='title' name='title' className={css.field} readOnly/>
+            <Field id='title' name='title' className={css.field} readOnly />
           </div>
           <div className={css.fieldWrap}>
             <label htmlFor='category' className={css.title}>
               Category
             </label>
-            <Field id='category' name='category' className={css.field} readOnly/>
+            <Field id='category' name='category' className={css.field} readOnly />
           </div>
           <div className={css.blockWrap}>
-            <div className={css.fieldWrap}>
-              <label htmlFor='calories' className={css.title}>
-                Calories
-              </label>
-              <Field id='calories' name='calories' className={clsx(css.field, css.caloriesField)} readOnly/>
+            <div className={css.subBlockWrap}>
+              <div className={css.fieldWrap}>
+                <label htmlFor='calories' className={css.title}>
+                  Calories
+                </label>
+                <Field
+                  id='calories'
+                  name='calories'
+                  className={clsx(css.field, css.caloriesField)}
+                  readOnly
+                />
+              </div>
+              <div className={css.fieldWrap}>
+                <label htmlFor='weight' className={css.title}>
+                  Weight
+                </label>
+                <Field
+                  id='weight'
+                  name='weight'
+                  className={clsx(css.field, css.weightField)}
+                  readOnly
+                />
+              </div>
+              <div className={css.fieldWrap}>
+                <label htmlFor='recommend' className={css.title}>
+                  Recommend
+                </label>
+                <Field
+                  id='recommend'
+                  name='recommend'
+                  className={clsx(css.field, css.recommendField)}
+                  readOnly
+                />
+              </div>
             </div>
-            <div className={css.fieldWrap}>
-              <label htmlFor='weight' className={css.title}>
-                Weight
-              </label>
-              <Field id='weight' name='weight' className={clsx(css.field, css.weightField)} readOnly/>
-            </div>
-            <div className={css.fieldWrap}>
-              <label htmlFor='recommend' className={css.title}>
-                Recommend
-              </label>
-              <Field id='recommend' name='recommend' className={clsx(css.field, css.recommendField)} readOnly/>
+            <div className={css.buttonWrap}>
+              <button type='submit' className={css.button}>
+                <svg className={css.icon}>
+                  <use href={sprite + '#trash_icon'}></use>
+                </svg>
+              </button>
             </div>
           </div>
-          <button type='submit' className={css.button}>
-              <svg className={css.icon}>
-                <use href={sprite + '#trash_icon'}></use>
-              </svg>
-            </button>
         </Form>
       </Formik>
     </div>
