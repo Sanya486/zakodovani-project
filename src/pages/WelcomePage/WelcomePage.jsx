@@ -1,4 +1,4 @@
-import ExercisesItem from 'components/ExercisesItem/ExercisesItem';
+
 import React from 'react'
 // import PropTypes from 'prop-types'
 
