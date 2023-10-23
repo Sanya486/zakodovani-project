@@ -1,0 +1,43 @@
+@use "index";
+
+.form {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 1px solid index.$orange-main-color;
+    background-color: #111111;
+}
+
+.avatarDefault {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    height: 41px;
+    width: 41px;
+    fill: #1B1B1B;
+}
+
+.iconToChooseFile {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    fill: index.$orange-main-color;
+    stroke: index.$white-color;
+    width: 24px;
+    height: 24px;
+    top: 100%;
+    left: 50%;
+}
+
+.imageSelected {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 89px;
+    height: 89px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
