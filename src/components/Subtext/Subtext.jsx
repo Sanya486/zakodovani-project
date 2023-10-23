@@ -14,8 +14,10 @@ const Subtext = ({ page }) => {
       break;
     case 'userPage':
       cssClass = css.userPage;
+      break
     default:
       cssClass = '';
+      break
   }
 
   return (

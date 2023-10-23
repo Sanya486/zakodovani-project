@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../images/svg/sprite.svg';
 import css from './UserBar.module.scss';
