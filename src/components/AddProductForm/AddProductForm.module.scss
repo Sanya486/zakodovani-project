@@ -1,4 +1,4 @@
-@import 'index.scss';
+@use 'index';
 
 .container {
   padding: 48px 24px;
@@ -19,7 +19,7 @@
 
 input {
   border-radius: 12px;
-  border: 1px solid $orange-main-color;
+  border: 1px solid index.$orange-main-color;
   width: 100%;
   padding: 8px 14px;
   background-color: inherit;
@@ -30,7 +30,7 @@ input {
 }
 
 .inputAmount {
-  color: $white-color;
+  color: index.$white-color;
 }
 
 .amountLabel {
@@ -51,7 +51,7 @@ input {
 }
 
 .caloriesSpan {
-  color: $white-color;
+  color: index.$white-color;
 }
 
 .btnContainer {
@@ -59,7 +59,7 @@ input {
   justify-content: space-between;
 }
 
-@media screen and (min-width: $mobile-breakpoint) {
+@media screen and (min-width: index.$mobile-breakpoint) {
   .form {
     width: 287px;
   }
