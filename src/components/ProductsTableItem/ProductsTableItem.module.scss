@@ -4,6 +4,7 @@
   background: index.$black-color;
   max-width: 297px;
   width: 100%;
+  height: auto;
 }
 
 .field {
@@ -51,7 +52,6 @@
   align-items: flex-end;
   column-gap: 8px;
   width: 269px;
-//   padding-bottom: 9px;
 }
 
 .subBlockWrap {
@@ -70,9 +70,9 @@
 }
 
 .buttonWrap {
-    width: 20px;
-    height: 20px;
-    margin-bottom: 9px;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 9px;
 }
 
 .button {
@@ -88,3 +88,179 @@
   height: 20px;
   stroke: index.$orange-secondary-color;
 }
+
+@media screen and (min-width: index.$mobile-breakpoint) {
+  .form {
+    max-width: 297px;
+  }
+
+  .field {
+    padding: 9.2px 14px;
+    background: inherit;
+    color: index.$white-color;
+    border-radius: 12px;
+    border: 1px solid rgba(index.$white-color, 0.3);
+    width: 100%;
+    max-height: 38px;
+  }
+
+  .caloriesField {
+    width: 81px;
+  }
+
+  .weightField {
+    width: 80px;
+  }
+
+  .recommendField {
+    width: 76px;
+  }
+
+  .title {
+    color: index.$orange-secondary-color;
+    max-height: 18px;
+    max-width: 100%;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .fieldWrap {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+  }
+
+  .fieldWrap:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  .blockWrap {
+    display: flex;
+    align-items: flex-end;
+    column-gap: 8px;
+    width: 269px;
+  }
+
+  .subBlockWrap {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+    width: inherit;
+  }
+
+  .blockWrap:last-child {
+    column-gap: 8px;
+  }
+
+  .blockWrap .fieldWrap {
+    margin-bottom: 0;
+  }
+
+  .buttonWrap {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 9px;
+  }
+
+  .button {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    background-color: inherit;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    stroke: index.$orange-secondary-color;
+  }
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+    .form {
+      width: 704px;
+    }
+  
+    .field {
+      padding: 9.2px 14px;
+      background: inherit;
+      color: index.$white-color;
+      border-radius: 12px;
+      border: 1px solid rgba(index.$white-color, 0.3);
+      width: 100%;
+      max-height: 38px;
+    }
+  
+    .caloriesField {
+      width: 81px;
+    }
+  
+    .weightField {
+      width: 80px;
+    }
+  
+    .recommendField {
+      width: 76px;
+    }
+  
+    .title {
+      color: index.$orange-secondary-color;
+      max-height: 18px;
+      max-width: 100%;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  
+    .fieldWrap {
+      display: flex;
+      flex-direction: column;
+      row-gap: 8px;
+    }
+  
+    .fieldWrap:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  
+    .blockWrap {
+      display: flex;
+      align-items: flex-end;
+      column-gap: 8px;
+      width: 269px;
+    }
+  
+    .subBlockWrap {
+      display: flex;
+      align-items: center;
+      column-gap: 16px;
+      width: inherit;
+    }
+  
+    .blockWrap:last-child {
+      column-gap: 8px;
+    }
+  
+    .blockWrap .fieldWrap {
+      margin-bottom: 0;
+    }
+  
+    .buttonWrap {
+      width: 20px;
+      height: 20px;
+      margin-bottom: 9px;
+    }
+  
+    .button {
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      border: 0;
+      background-color: inherit;
+    }
+  
+    .icon {
+      width: 20px;
+      height: 20px;
+      stroke: index.$orange-secondary-color;
+    }
+  }
