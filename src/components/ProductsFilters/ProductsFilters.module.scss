@@ -109,35 +109,34 @@ body {
   color: index.$white-color;
   font-size: 14px;
   line-height: 18px;
-
 }
 
-.scrollWrap{
-    height: 100%;
+.scrollWrap {
+  height: 100%;
   overflow: scroll;
-//   &::-webkit-scrollbar {
-//     display: none;
-//   }
-//   -ms-overflow-style: none;
-//   scrollbar-width: none;
-&::-webkit-scrollbar {
+  //   &::-webkit-scrollbar {
+  //     display: none;
+  //   }
+  //   -ms-overflow-style: none;
+  //   scrollbar-width: none;
+  &::-webkit-scrollbar {
     margin-top: 10px;
-  width: 6px;
-}
+    width: 6px;
+  }
 
-/* Track */
-&::-webkit-scrollbar-track {
-  display: none;
-}
-
-/* Handle */
-&::-webkit-scrollbar-thumb {
-background: rgba(239, 237, 232, 0.10);
-  border-radius: 10px;
-}
-&::-webkit-scrollbar-corner{
+  /* Track */
+  &::-webkit-scrollbar-track {
     display: none;
-}
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: rgba(239, 237, 232, 0.1);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-corner {
+    display: none;
+  }
 }
 
 .categoryOptionWrapList {
@@ -147,26 +146,23 @@ background: rgba(239, 237, 232, 0.10);
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-   .formStyle{
+  .formStyle {
     display: flex;
     gap: 16px;
     max-width: 664px;
   }
-  .searchWrapper{
+  .searchWrapper {
     width: 236px;
     margin-bottom: 0;
   }
-  .categoryWrap{
+  .categoryWrap {
     width: 196px;
-    input{
+    input {
       width: 100%;
     }
   }
 
-  .recommendationWrap{
+  .recommendationWrap {
     width: 204px;
   }
-  
 }
-
-

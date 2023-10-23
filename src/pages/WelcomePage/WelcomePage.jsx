@@ -4,7 +4,11 @@ import React from 'react';
 // import PropTypes from 'prop-types'
 
 const WelcomePage = () => {
-  return <div><ProductsFilters /></div>;
+  return (
+    <div>
+      <ProductsFilters />
+    </div>
+  );
 };
 
 // WelcomePage.propTypes = {

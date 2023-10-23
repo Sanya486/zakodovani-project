@@ -24,7 +24,7 @@ Button.propTypes = {
   title: PropTypes.string.isRequired,
   styled: PropTypes.string.isRequired,
   classes: PropTypes.array,
-  props:PropTypes.any, 
+  props: PropTypes.any,
 };
 
 export default Button;
