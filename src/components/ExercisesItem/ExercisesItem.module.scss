@@ -24,7 +24,7 @@
   font-weight: 400;
 }
 
-.workout-tag { 
+.workout-tag {
   display: block;
   text-transform: uppercase;
   font-size: 12px;
@@ -45,11 +45,11 @@
   line-height: 1.5;
 }
 
-.arrow-svg{
-fill: index.$orange-main-color;
-width: 16px;
-height: 16px;
-margin-left: 8px;
+.arrow-svg {
+  fill: index.$orange-main-color;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
 }
 
 .running-svg {
@@ -85,8 +85,6 @@ margin-left: 8px;
 .stat-item-value {
   color: index.$white-color;
 }
-
-
 
 @media screen and (min-width: index.$mobile-breakpoint) {
   .exercise-item-block {
