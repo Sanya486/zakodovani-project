@@ -1,6 +1,5 @@
 @import 'index.scss';
 
-
 .titleMain {
   font-weight: 300;
   font-size: 38px;
@@ -17,11 +16,10 @@
 }
 
 @media screen and (min-width: $mobile-breakpoint) {
-  
 }
 
 @media screen and (min-width: $tablet-breakpoint) {
-    .titleMain {
+  .titleMain {
     font-size: 70px;
     line-height: 1.11;
     width: 600px;

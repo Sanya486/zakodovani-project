@@ -14,15 +14,15 @@
   background-color: black;
 }
 
-.noGap{
-    & div:first-child{
-        margin-bottom: 18px;
-    }
-  gap: 0
+.noGap {
+  & div:first-child {
+    margin-bottom: 18px;
+  }
+  gap: 0;
 }
 
-.btn{
-  width: 138px
+.btn {
+  width: 138px;
 }
 
 .errorMessage {
@@ -92,9 +92,9 @@
     line-height: 1.5;
     width: 279px;
   }
-  .btn{
-  width: 192px
-}
+  .btn {
+    width: 192px;
+  }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {

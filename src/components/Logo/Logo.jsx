@@ -3,26 +3,26 @@ import sprite from '../../images/svg/sprite.svg';
 import css from './Logo.module.scss';
 
 const Logo = ({ iconColor }) => {
-	let addColor = '';
+  let addColor = '';
 
-	switch (iconColor) {
-		case 'white-color':
-			addColor = css.logoIconColor;
-			break;
-		default:
-			addColor = css.logoIcon;
-	}
+  switch (iconColor) {
+    case 'white-color':
+      addColor = css.logoIconColor;
+      break;
+    default:
+      addColor = css.logoIcon;
+  }
 
-	return (
-		<div className={css.logoWrapper}>
-			<svg className={addColor}>
-				<use href={sprite + '#logo_icon'}></use>
-			</svg>
-			<svg className={css.logoText}>
-				<use href={sprite + '#logo_text'}></use>
-			</svg>
-		</div>
-	);
+  return (
+    <div className={css.logoWrapper}>
+      <svg className={addColor}>
+        <use href={sprite + '#logo_icon'}></use>
+      </svg>
+      <svg className={css.logoText}>
+        <use href={sprite + '#logo_text'}></use>
+      </svg>
+    </div>
+  );
 };
 
 export default Logo;

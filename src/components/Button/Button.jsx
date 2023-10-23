@@ -3,7 +3,7 @@ import css from './Button.module.scss';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-const Button = ({ title="Title", styled ="accent", classes, ...props }) => {
+const Button = ({ title = 'Title', styled = 'accent', classes, ...props }) => {
   if (styled === 'accent') {
     return (
       <button {...props} className={clsx(css.accentButton, css.btn, ...classes)}>
