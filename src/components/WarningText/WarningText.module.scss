@@ -1,45 +1,43 @@
-@use "index";
+@use 'index';
 
 .warningTextUserPage,
 .warningTextDairyPage {
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.125;
-    color: #4B4A48;
-    max-width: 303px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.125;
+  color: #4b4a48;
+  max-width: 303px;
 }
 
 .warningIcon {
-    fill: #EFA082;
-    stroke: #EFEDE8;
+  fill: #efa082;
+  stroke: #efede8;
 }
 
 .wrapper {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-    .warningTextDairyPage,
-    .warningTextUserPage {
-        font-size: 16px;
-        line-height: 1.5;
-    }
+  .warningTextDairyPage,
+  .warningTextUserPage {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 
-    .warningTextDairyPage {
-        max-width: 561px;
-    }
+  .warningTextDairyPage {
+    max-width: 561px;
+  }
 
-    .warningTextUserPage {
-        max-width: 407px;
-    }
+  .warningTextUserPage {
+    max-width: 407px;
+  }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
-    .warningTextDairyPage {
-        max-width: 358px;
-    }
+  .warningTextDairyPage {
+    max-width: 358px;
+  }
 }
-
-

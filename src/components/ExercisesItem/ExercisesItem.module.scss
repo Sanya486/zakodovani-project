@@ -1,0 +1,129 @@
+@use 'index';
+
+.exercise-item-block {
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+  padding: 16px;
+  border: 1px #efede833 solid;
+  border-radius: 12px;
+  background-color: rgba(239, 237, 232, 0.05);
+  color: index.$white-color;
+}
+
+.top-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exercise-name {
+  margin-left: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.3;
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.workout-tag {
+  display: block;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 7.5px;
+  background-color: rgba(239, 237, 232, 0.05);
+  border-radius: 4px;
+}
+
+.start-button {
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  background-color: inherit;
+  color: index.$orange-main-color;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.arrow-svg {
+  fill: index.$orange-main-color;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+}
+
+.running-svg {
+  fill: index.$white-color;
+  width: 24px;
+  height: 24px;
+  background-color: index.$beige-color;
+  padding: 4px 5px;
+  border-radius: 50%;
+}
+
+.middle-flex {
+  display: flex;
+  align-items: center;
+}
+
+.stats-list {
+  display: flex;
+  margin-top: 8px;
+}
+
+.stat-item {
+  margin-right: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(239, 237, 232, 0.4);
+  text-transform: capitalize;
+}
+
+.stat-item:last-child {
+  margin-right: 0;
+}
+
+.stat-item-value {
+  color: index.$white-color;
+}
+
+@media screen and (min-width: index.$mobile-breakpoint) {
+  .exercise-item-block {
+    width: 335px;
+  }
+
+  .exercise-name {
+    font-size: 20px;
+  }
+
+  .middle-flex {
+    margin-top: 33px;
+  }
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .middle-flex {
+    margin-top: 25px;
+  }
+
+  .exercise-item-block {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .exercise-item-block {
+    width: 405px;
+  }
+
+  .exercise-name {
+    font-size: 24px;
+  }
+
+  .middle-flex {
+    margin-top: 27px;
+  }
+}
