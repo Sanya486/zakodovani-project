@@ -23,6 +23,8 @@ const Button = ({ title = 'Title', styled = 'accent', classes = [], ...props }) 
 Button.propTypes = {
   title: PropTypes.string.isRequired,
   styled: PropTypes.string.isRequired,
+  classes: PropTypes.array,
+  props:PropTypes.any, 
 };
 
 export default Button;
