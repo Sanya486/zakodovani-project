@@ -3,12 +3,20 @@ import css from './Button.module.scss';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-const Button = ({ title="Title", styled ="accent" }) => {
+const Button = ({ title="Title", styled ="accent", classes, ...props }) => {
   if (styled === 'accent') {
-    return <button className={clsx(css.accentButton, css.btn)}>{title}</button>;
+    return (
+      <button {...props} className={clsx(css.accentButton, css.btn, ...classes)}>
+        {title}
+      </button>
+    );
   }
   if (styled === 'transparent') {
-    return <button className={clsx(css.transparentButton, css.btn)}>{title}</button>;
+    return (
+      <button {...props} className={clsx(css.transparentButton, css.btn, ...classes)}>
+        {title}
+      </button>
+    );
   }
 };
 

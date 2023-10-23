@@ -27,7 +27,7 @@ const SignInForm = () => {
     >
       {({ errors, touched }) => (
         <Form className={css.formWrapper}>
-          <div className={css.inputsWrapper}>
+          <div className={clsx(css.inputsWrapper, errors.email && touched.email && css.noGap)}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
               <Field
                 name='email'
@@ -87,7 +87,7 @@ const SignInForm = () => {
             </div>
           </div>
 
-          <Button title='Sign In' styled='accent' />
+          <Button classes={[css.btn]} title='Sign In' styled='accent' />
         </Form>
       )}
     </Formik>

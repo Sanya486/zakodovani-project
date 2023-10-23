@@ -14,6 +14,14 @@
   background-color: black;
 }
 
+.noGap{
+  gap: 0
+}
+
+.btn{
+  width: 132px
+}
+
 .errorMessage {
   color: index.$error-color;
   font-size: 12px;
@@ -72,6 +80,7 @@
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .formWrapper {
+    height: 244px;
     gap: 20px;
     margin-bottom: 64px;
   }
@@ -81,6 +90,9 @@
     line-height: 1.5;
     width: 279px;
   }
+  .btn{
+  width: 184px
+}
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
