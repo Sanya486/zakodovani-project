@@ -1,8 +1,9 @@
+import SignInForm from 'components/SignInForm/SignInForm';
 import React from 'react';
 // import PropTypes from 'prop-types'
 
 const WelcomePage = () => {
-  return <div></div>;
+  return <div><SignInForm/></div>;
 };
 
 // WelcomePage.propTypes = {

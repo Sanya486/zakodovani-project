@@ -1,87 +1,42 @@
-.buttonsingup {
-  font-family: 'roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.12;
-  width: 136px;
-  height: 42px;
-  background-color: rgba(230, 83, 60, 1);
-  border-radius: 12px;
-  border: 0;
-  color: rgba(239, 237, 232, 1);
-  gap: 14px;
-  padding: 12px, 40px;
-}
+@use 'index';
 
-.buttonsingin {
-  font-family: 'roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.12;
-  width: 136px;
-  height: 42px;
-  gap: 14px;
-  padding: 12px, 40px;
-  border-width: 1px;
-  border-radius: 12px;
-  border-color: rgba(239, 237, 232, 0.3);
-  background-color: transparent;
-  color: rgba(239, 237, 232, 1);
-}
-
-.buttongohome {
-  font-family: 'roboto';
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.12;
-  width: 150px;
-  height: 42px;
-  gap: 10px;
-  padding: 12px, 40px;
-  border-width: 1px;
-  border-radius: 12px;
-  border-color: rgba(239, 237, 232, 0.3);
-  background-color: transparent;
-  color: rgba(239, 237, 232, 1);
+.accentButton {
+  background-color: index.$orange-main-color;
+  border-color: transparent;
 }
 
 .btn {
-  font-family: 'roboto';
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.2;
+  height: 42px;
+  display: flex;
+  padding: 12px 40px;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
-  padding: 16px, 60px;
-  color: rgba(239, 237, 232, 1);
+  border-radius: 12px;
+
+  color: index.$white-color;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.125;
 }
 
-@media screen and (min-width: 375px) {
+.transparentButton {
+  background-color: transparent;
+  border: 1px solid #efede84d;
 }
-@media screen and (min-width: 768px) {
-  .buttonsingup {
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .btn {
+    height: 56px;
+    padding: 12px 40px;
     font-size: 20px;
     line-height: 1.2;
-    width: 190px;
-    height: 56px;
-    padding: 16px, 60px;
-    gap: 10px;
-  }
-  .buttonsingin {
-    font-size: 20px;
-    line-height: 1.2;
-    width: 190px;
-    height: 56px;
-    padding: 16px, 60px;
-    gap: 10px;
-  }
-  .buttongohome {
-    font-size: 20px;
-    line-height: 1.2;
-    width: 200px;
-    height: 56px;
-    padding: 16px, 60px;
-    gap: 10px;
   }
 }
-@media screen and (min-width: 1440px) {
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .btn {
+    padding: 16px 60px;
+  }
 }

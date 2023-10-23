@@ -1,50 +1,20 @@
 import React from 'react';
 import css from './Button.module.scss';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
-const classNames = require('classnames');
-
-// Кнопка изменяется в зависимости от пропcа который придет в title
-
-// Работает на 3-х title
-// title = "Sign Up"
-// title = "Go Home"
-// title = "Sign In"
-
-const Button = ({ childern, title }) => {
-  if (title === 'Go Home') {
-    const handleClick = () => {
-      console.log('Клик по кнопке GoHome');
-    };
-    return (
-      <div>
-        <button className={classNames(css.buttongohome, css.btn)} onClick={handleClick}>
-          {title}
-        </button>
-      </div>
-    );
-  } else if (title === 'Sign Up') {
-    const handleClick = () => {
-      console.log('Клик по кнопке SingUP');
-    };
-    return (
-      <div>
-        <button className={classNames(css.buttonsingup, css.btn)} onClick={handleClick}>
-          Sign Up
-        </button>
-      </div>
-    );
-  } else if (title === 'Sign In') {
-    const handleClick = () => {
-      console.log('Клик по кнопке SingIn');
-    };
-    return (
-      <div>
-        <button className={classNames(css.buttonsingin, css.btn)} onClick={handleClick}>
-          {title}
-        </button>
-      </div>
-    );
+const Button = ({ title="Title", styled ="accent" }) => {
+  if (styled === 'accent') {
+    return <button className={clsx(css.accentButton, css.btn)}>{title}</button>;
   }
+  if (styled === 'transparent') {
+    return <button className={clsx(css.transparentButton, css.btn)}>{title}</button>;
+  }
+};
+
+Button.propTypes = {
+  title: PropTypes.string.isRequired,
+  styled: PropTypes.string.isRequired,
 };
 
 export default Button;
