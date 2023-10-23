@@ -1,6 +1,5 @@
 import React from 'react';
-// import { useDispatch, useSelector } from "react-redux";
-// import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import css from './InfoItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
@@ -48,7 +47,7 @@ export const InfoItem = ({ name, value, variant }) => {
   }
 
   return (
-    <li className={clsx(css.infoItemContainer, addClass)}>
+    <li key={name} className={clsx(css.infoItemContainer, addClass)}>
       <div className={css.wrap}>
         <svg className={css.icon}>
           <use href={sprite + addSvg}></use>
@@ -58,4 +57,10 @@ export const InfoItem = ({ name, value, variant }) => {
       <h2 className={css.itemValue}> {value}</h2>
     </li>
   );
+};
+
+InfoItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  variant: PropTypes.string,
 };
