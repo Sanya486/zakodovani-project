@@ -3,15 +3,9 @@ import PropTypes from 'prop-types';
 import styles from './ExercisesItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 
-const ExercisesItem = ({
-  key,
-  exerciseType = 'Air Bike',
-  calories = 312,
-  bodyPart = 'Waist',
-  targetMuscle = 'Abs',
-}) => {
+const ExercisesItem = ({ exerciseType, calories, bodyPart, targetMuscle }) => {
   return (
-    <li key={key} className={styles['exercise-item-block']}>
+    <li className={styles['exercise-item-block']}>
       <div className={styles['top-flex']}>
         <p className={styles['workout-tag']}>workout</p>
 
