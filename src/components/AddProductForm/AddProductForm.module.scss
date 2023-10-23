@@ -65,7 +65,7 @@ input {
   }
 }
 
-@media screen and (min-width: $tablet-breakpoint) {
+@media screen and (min-width: index.$tablet-breakpoint) {
   .container {
     padding: 48px 32px;
 
