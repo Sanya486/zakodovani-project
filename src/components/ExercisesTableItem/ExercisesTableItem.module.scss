@@ -1,9 +1,9 @@
 @use 'index';
 
 .bodybox {
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-bottom: 14px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 14px;
   margin: 20px;
   background-color: rgba(239, 237, 232, 0.05);
   border-color: rgba(239, 237, 232, 0.2);
@@ -20,27 +20,68 @@
 }
 .exercisetitle {
   color: rgba(239, 237, 232, 0.5);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.3;
 }
 
 .addexercisetitle {
   color: index.$orange-main-color;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
 }
 
 .exercisename {
   color: #ef8964;
+  overflow-x: hidden;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .exercisetitleitem {
-  color: rgba(239, 237, 232, 1);
+  color: #efede8;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
 }
 
 .exercisetipe {
+  overflow-x: hidden;
   color: index.$white-color;
   border-color: rgba(239, 237, 232, 0.3);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
   border: solid;
   border-width: 1px;
   border-radius: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 14px;
+  padding-right: 14px;
+}
+.rowtext {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.icon {
+  position: relative;
+  top: +50px;
+  display: flex;
+  flex-direction: column;
+  stroke: #ef8964;
+  width: 20px;
+  height: 20px;
+}
+
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  
 }
