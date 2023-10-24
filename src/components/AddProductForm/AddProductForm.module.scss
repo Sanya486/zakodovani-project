@@ -1,0 +1,110 @@
+@use 'index';
+
+.container {
+  padding: 48px 24px;
+  .button {
+    padding: 12px 32px;
+  }
+  .buttonCancel {
+    padding: 12px 36px;
+  }
+}
+
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+input {
+  border-radius: 12px;
+  border: 1px solid index.$orange-main-color;
+  width: 100%;
+  padding: 8px 14px;
+  background-color: inherit;
+  color: rgba(239, 237, 232, 0.3);
+  font-size: 14px;
+  line-height: 18px;
+  outline: none;
+}
+
+.inputAmount {
+  color: index.$white-color;
+}
+
+.amountLabel {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  color: rgba(239, 237, 232, 0.4);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.calories {
+  color: rgba(239, 237, 232, 0.4);
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.caloriesSpan {
+  color: index.$white-color;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: index.$mobile-breakpoint) {
+  .form {
+    width: 287px;
+  }
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .container {
+    padding: 48px 32px;
+
+    .button {
+      padding: 14px 32px;
+      font-size: 16px;
+      line-height: 1.5;
+      height: 52px;
+    }
+    .buttonCancel {
+      padding: 14px 40px;
+      height: 52px;
+    }
+  }
+
+  .form {
+    width: 415px;
+  }
+
+  .inputsContainer {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  input {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .inputAmount {
+    width: 155px;
+  }
+
+  .calories {
+    margin-bottom: 64px;
+  }
+
+  .btnContainer {
+    justify-content: flex-start;
+    gap: 16px;
+  }
+}

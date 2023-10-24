@@ -1,0 +1,71 @@
+@use 'index';
+
+.userBarWrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.settingsItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settingsIcon {
+  width: 24px;
+  height: 24px;
+  stroke: rgba(index.$white-color, 0.3);
+  fill: transparent;
+}
+
+.avatarItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  border: 1px solid index.$orange-main-color;
+  background-color: rgba(48, 48, 48, 0.3);
+}
+
+.avatarIcon {
+  width: 21px;
+  height: 21px;
+  fill: rgba(index.$white-color, 0.3);
+}
+
+.avatarImage {
+  width: 37px;
+  height: 37px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid index.$orange-main-color;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .userBarWrapper {
+    gap: 16px;
+  }
+
+  .settingsIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .avatarItem {
+    width: 46px;
+    height: 46px;
+  }
+
+  .avatarIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .avatarImage {
+    width: 46px;
+    height: 46px;
+  }
+}
