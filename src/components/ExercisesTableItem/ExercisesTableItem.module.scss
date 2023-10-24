@@ -76,7 +76,15 @@
   width: 20px;
   height: 20px;
 }
-
+.icon2{
+  position: relative;
+ 
+  display: flex;
+  flex-direction: column;
+  stroke: #ef8964;
+  width: 20px;
+  height: 20px;
+}
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   

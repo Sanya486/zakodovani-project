@@ -3,6 +3,7 @@ import css from './ExercisesTableItem.module.scss';
 import { selectExercises } from 'redux/selectors';
 import { useSelector } from 'react-redux';
 import sprite from '../../images/svg/sprite.svg';
+import clsx from 'clsx';
 
 const ExercisesTableItem = () => {
   const exercises = useSelector(selectExercises);
@@ -21,7 +22,7 @@ const ExercisesTableItem = () => {
     return (
       <div>
         {exercises.map(({ key, bodyPart, equipment, name, target, burnedCalories, time }) => (
-          <div className={css.bodybox} key={key}>
+          <div className={clsx(css.bodybox, css.hidden)} key={key}>
             <div className={css.container}>
               <h2 className={css.exercisetitle}>Execrcises</h2>
               <h2 className={css.addexercisetitle}>Add exercises </h2>
@@ -59,31 +60,39 @@ const ExercisesTableItem = () => {
             </div>
           </div>
         ))}
-        <table>
-          <thead className={css.exercisename}>
-            <tr>
-              <th>Body Part</th>
-              <th>Equipment</th>
-              <th>Name</th>
-              <th>Target</th>
-              <th>Burned Calories</th>
-              <th>Time</th>
-            </tr>
-          </thead>
-          <tbody className={css.exercisetipe}>
-            {exercises.map(({ key, bodyPart, equipment, name, target, burnedCalories, time }) => (
-              <tr key={key}></tr>
-            <td>{bodyPart}</td>
-            <td>{equipment}</td>
-            <td>{name}</td>
-            <td>{target}</td>
-            <td>{burnedCalories}</td>
-            <td>{time}</td>
+        <div className={css.bodybox}>
+          <div className={css.container}>
+            <h2 className={css.exercisetitle}>Execrcises</h2>
+            <h2 className={css.addexercisetitle}>Add exercises </h2>
+          </div>
+          <table>
+            <thead className={css.exercisename}>
+              <tr className={css.exercisename}>
+                <th>Body Part</th>
+                <th>Equipment</th>
+                <th>Name</th>
+                <th>Target</th>
+                <th>Burned Calories</th>
+                <th>Time</th>
               </tr>
-            ))}
-            
-          </tbody>
-        </table>
+            </thead>
+            <tbody className={css.exercisetipe}>
+              {exercises.map(({ key, bodyPart, equipment, name, target, burnedCalories, time }) => (
+                <tr key={key}>
+                  <td className={css.exercisetipe}>{bodyPart}</td>
+                  <td className={css.exercisetipe}>{equipment}</td>
+                  <td className={css.exercisetipe}>{name}</td>
+                  <td className={css.exercisetipe}>{target}</td>
+                  <td className={css.exercisetipe}>{burnedCalories}</td>
+                  <td className={css.exercisetipe}>{time}</td>
+                  <svg className={css.icon2}>
+                    <use href={sprite + '#trash_icon'}></use>
+                  </svg>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         ;
       </div>
     );

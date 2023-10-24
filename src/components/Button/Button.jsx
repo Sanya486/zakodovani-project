@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const Button = ({ title = 'Title', styled = 'accent', classes, ...props }) => {
   if (styled === 'accent') {
     return (
-      <button {...props} className={clsx(css.accentButton, css.btn, ...classes)}>
+      <button {...props} className={clsx(css.accentButton, css.btn,   )}>
         {title}
       </button>
     );
