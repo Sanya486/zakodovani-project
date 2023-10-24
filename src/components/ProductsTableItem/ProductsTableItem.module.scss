@@ -247,18 +247,18 @@
   }
 
   .blockWrap {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    column-gap: 8px;
+    display: block;
+    // flex-direction: row;
+    // align-items: flex-end;
+    // column-gap: 8px;
     width: 269px;
   }
 
   .subBlockWrap {
     display: flex;
-    flex-direction: row;    
+    // flex-direction: row;    
     align-items: center;
-    // column-gap: 16px;
+    column-gap: 0px;
     width: inherit;
   }
 
@@ -273,7 +273,7 @@
   .buttonWrap {
     width: 20px;
     height: 20px;
-    margin-bottom: 9px;
+    // margin-bottom: 9px;
   }
 
   .button {

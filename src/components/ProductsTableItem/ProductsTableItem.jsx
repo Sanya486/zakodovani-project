@@ -35,6 +35,9 @@ export const ProductTableItem = ({ title, category, calories, weight, recommend 
             </label>
             <Field id='category' name='category' className={clsx(css.field, css.categoriesField)} readOnly />
           </div>
+
+
+
           <div className={css.blockWrap}>
             <div className={css.subBlockWrap}>
               <div className={css.fieldWrap}>
@@ -79,6 +82,7 @@ export const ProductTableItem = ({ title, category, calories, weight, recommend 
               </button>
             </div>
           </div>
+          
         </Form>
       </Formik>
     </div>
