@@ -1,5 +1,5 @@
 .logoutBtn {
-  display: flex;
+  display: none;
   height: 20px;
   justify-content: center;
   align-items: center;
@@ -27,6 +27,9 @@
 }
 
 @media (min-width: 1440px) {
+  .logoutBtn {
+    display: flex;
+  }
   .icon {
     stroke: #e6533c;
   }
