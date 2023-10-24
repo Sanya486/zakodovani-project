@@ -59,6 +59,12 @@
   padding: 0;
   margin-top: 14px;
   margin-bottom: 8px;
+  cursor: pointer;
+  transition: background-color index.$transition-dur-and-fun;
+}
+
+.timerButton:hover {
+  background-color: index.$orange-secondary-color;
 }
 
 .timerButtonIcon {
