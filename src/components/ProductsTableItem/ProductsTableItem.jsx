@@ -27,13 +27,13 @@ export const ProductTableItem = ({ title, category, calories, weight, recommend 
             <label htmlFor='title' className={css.title}>
               Title
             </label>
-            <Field id='title' name='title' className={css.field} readOnly />
+            <Field id='title' name='title' className={clsx(css.field, css.titleField)} readOnly />
           </div>
           <div className={css.fieldWrap}>
             <label htmlFor='category' className={css.title}>
               Category
             </label>
-            <Field id='category' name='category' className={css.field} readOnly />
+            <Field id='category' name='category' className={clsx(css.field, css.categoriesField)} readOnly />
           </div>
           <div className={css.blockWrap}>
             <div className={css.subBlockWrap}>

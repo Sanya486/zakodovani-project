@@ -2,7 +2,7 @@
 
 .form {
   background: index.$black-color;
-  max-width: 297px;
+//   max-width: 100%;
   width: 100%;
   height: auto;
 }
@@ -15,18 +15,27 @@
   border: 1px solid rgba(index.$white-color, 0.3);
   width: 100%;
   max-height: 38px;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.titleField,
+.categoriesField {
+  width: 100%;
 }
 
 .caloriesField {
-  width: 81px;
+  width: calc((100% - 60px)*34.177%)
 }
 
 .weightField {
-  width: 80px;
+  width: calc((100% - 60px)*33.755%)
 }
 
 .recommendField {
-  width: 76px;
+  width: calc((100% - 60px)*32.067%)
 }
 
 .title {
@@ -51,14 +60,14 @@
   display: flex;
   align-items: flex-end;
   column-gap: 8px;
-  width: 269px;
+//   width: 100%;
 }
 
 .subBlockWrap {
   display: flex;
   align-items: center;
   column-gap: 16px;
-  width: inherit;
+//   width: inherit;
 }
 
 .blockWrap:last-child {
@@ -91,17 +100,22 @@
 
 @media screen and (min-width: index.$mobile-breakpoint) {
   .form {
-    max-width: 297px;
+    width: 297px;
   }
 
   .field {
-    padding: 9.2px 14px;
-    background: inherit;
-    color: index.$white-color;
-    border-radius: 12px;
-    border: 1px solid rgba(index.$white-color, 0.3);
-    width: 100%;
+    padding: 8.2px 14px;
+    // background: inherit;
+    // color: index.$white-color;
+    // border-radius: 12px;
+    // border: 1px solid rgba(index.$white-color, 0.3);
+    width: 297px;
     max-height: 38px;
+  }
+
+  .titleField,
+  .categoriesField {
+    width: 297px;
   }
 
   .caloriesField {
@@ -116,13 +130,111 @@
     width: 76px;
   }
 
-  .title {
-    color: index.$orange-secondary-color;
-    max-height: 18px;
-    max-width: 100%;
-    font-size: 12px;
-    line-height: 1.5;
+//   .title {
+//     color: index.$orange-secondary-color;
+//     max-height: 18px;
+//     max-width: 100%;
+//     font-size: 12px;
+//     line-height: 1.5;
+//   }
+
+//   .fieldWrap {
+//     display: flex;
+//     flex-direction: column;
+//     row-gap: 8px;
+//   }
+
+//   .fieldWrap:not(:last-child) {
+//     margin-bottom: 16px;
+//   }
+
+  .blockWrap {
+    // display: flex;
+    // align-items: flex-end;
+    // column-gap: 8px;
+    width: 269px;
   }
+
+//   .subBlockWrap {
+//     display: flex;
+//     align-items: center;
+//     column-gap: 16px;
+//     width: inherit;
+//   }
+
+//   .blockWrap:last-child {
+//     column-gap: 8px;
+//   }
+
+//   .blockWrap .fieldWrap {
+//     margin-bottom: 0;
+//   }
+
+//   .buttonWrap {
+//     width: 20px;
+//     height: 20px;
+//     margin-bottom: 9px;
+//   }
+
+//   .button {
+//     width: 20px;
+//     height: 20px;
+//     padding: 0;
+//     border: 0;
+//     background-color: inherit;
+//   }
+
+//   .icon {
+//     width: 20px;
+//     height: 20px;
+//     stroke: index.$orange-secondary-color;
+//   }
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .form {
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .field {
+    padding: 9.2px 14px;
+    background: inherit;
+    color: index.$white-color;
+    border-radius: 12px;
+    border: 1px solid rgba(index.$white-color, 0.3);
+    //   width: 204px;
+    max-height: 40px;
+  }
+
+  .titleField {
+    width: 204px;
+  }
+
+  .categoriesField {
+    width: 128px;
+  }
+
+  .caloriesField, .weightField {
+    width: 90px;
+  }
+
+//   .weightField {
+//     width: 90px;
+//   }
+
+  .recommendField {
+    width: 80px;
+  }
+
+//   .title {
+//     // color: index.$orange-secondary-color;
+//     max-height: 18px;
+//     max-width: 100%;
+//     font-size: 12px;
+//     line-height: 1.5;
+//   }
 
   .fieldWrap {
     display: flex;
@@ -136,6 +248,7 @@
 
   .blockWrap {
     display: flex;
+    flex-direction: row;
     align-items: flex-end;
     column-gap: 8px;
     width: 269px;
@@ -143,8 +256,9 @@
 
   .subBlockWrap {
     display: flex;
+    flex-direction: row;    
     align-items: center;
-    column-gap: 16px;
+    // column-gap: 16px;
     width: inherit;
   }
 
@@ -177,90 +291,90 @@
   }
 }
 
-@media screen and (min-width: index.$tablet-breakpoint) {
-    .form {
-      width: 704px;
-    }
-  
-    .field {
-      padding: 9.2px 14px;
-      background: inherit;
-      color: index.$white-color;
-      border-radius: 12px;
-      border: 1px solid rgba(index.$white-color, 0.3);
-      width: 100%;
-      max-height: 38px;
-    }
-  
-    .caloriesField {
-      width: 81px;
-    }
-  
-    .weightField {
-      width: 80px;
-    }
-  
-    .recommendField {
-      width: 76px;
-    }
-  
-    .title {
-      color: index.$orange-secondary-color;
-      max-height: 18px;
-      max-width: 100%;
-      font-size: 12px;
-      line-height: 1.5;
-    }
-  
-    .fieldWrap {
-      display: flex;
-      flex-direction: column;
-      row-gap: 8px;
-    }
-  
-    .fieldWrap:not(:last-child) {
-      margin-bottom: 16px;
-    }
-  
-    .blockWrap {
-      display: flex;
-      align-items: flex-end;
-      column-gap: 8px;
-      width: 269px;
-    }
-  
-    .subBlockWrap {
-      display: flex;
-      align-items: center;
-      column-gap: 16px;
-      width: inherit;
-    }
-  
-    .blockWrap:last-child {
-      column-gap: 8px;
-    }
-  
-    .blockWrap .fieldWrap {
-      margin-bottom: 0;
-    }
-  
-    .buttonWrap {
-      width: 20px;
-      height: 20px;
-      margin-bottom: 9px;
-    }
-  
-    .button {
-      width: 20px;
-      height: 20px;
-      padding: 0;
-      border: 0;
-      background-color: inherit;
-    }
-  
-    .icon {
-      width: 20px;
-      height: 20px;
-      stroke: index.$orange-secondary-color;
-    }
-  }
+//   @media screen and (min-width: index.$desktop-breakpoint) {
+//     .form {
+//       width: 704px;
+//     }
+
+//     .field {
+//       padding: 9.2px 14px;
+//       background: inherit;
+//       color: index.$white-color;
+//       border-radius: 12px;
+//       border: 1px solid rgba(index.$white-color, 0.3);
+//       width: 204px;
+//       max-height: 38px;
+//     }
+
+//     .caloriesField {
+//       width: 81px;
+//     }
+
+//     .weightField {
+//       width: 80px;
+//     }
+
+//     .recommendField {
+//       width: 76px;
+//     }
+
+//     .title {
+//       color: index.$orange-secondary-color;
+//       max-height: 18px;
+//       max-width: 100%;
+//       font-size: 12px;
+//       line-height: 1.5;
+//     }
+
+//     .fieldWrap {
+//       display: flex;
+//       flex-direction: column;
+//       row-gap: 8px;
+//     }
+
+//     .fieldWrap:not(:last-child) {
+//       margin-bottom: 16px;
+//     }
+
+//     .blockWrap {
+//       display: flex;
+//       align-items: flex-end;
+//       column-gap: 8px;
+//       width: 269px;
+//     }
+
+//     .subBlockWrap {
+//       display: flex;
+//       align-items: center;
+//       column-gap: 16px;
+//       width: inherit;
+//     }
+
+//     .blockWrap:last-child {
+//       column-gap: 8px;
+//     }
+
+//     .blockWrap .fieldWrap {
+//       margin-bottom: 0;
+//     }
+
+//     .buttonWrap {
+//       width: 20px;
+//       height: 20px;
+//       margin-bottom: 9px;
+//     }
+
+//     .button {
+//       width: 20px;
+//       height: 20px;
+//       padding: 0;
+//       border: 0;
+//       background-color: inherit;
+//     }
+
+//     .icon {
+//       width: 20px;
+//       height: 20px;
+//       stroke: index.$orange-secondary-color;
+//     }
+//   }
