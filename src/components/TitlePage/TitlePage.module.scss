@@ -1,13 +1,13 @@
-@import 'index.scss';
+@use 'index';
 
 .titlePage {
-  color: $white-color;
+  color: index.$white-color;
   font-size: 24px;
   line-height: 1.16;
   text-transform: capitalize;
 }
 
-@media screen and (min-width: $tablet-breakpoint) {
+@media screen and (min-width: index.$tablet-breakpoint) {
   .titlePage {
     font-size: 32px;
     line-height: 1.37;
