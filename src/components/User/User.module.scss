@@ -1,0 +1,93 @@
+@use 'index';
+
+.form {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 1px solid index.$orange-main-color;
+  background-color: #111111;
+  margin-bottom: 31px;
+}
+
+.avatarDefault {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  height: 41px;
+  width: 41px;
+  fill: #1b1b1b;
+}
+
+.iconToChooseFile {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  fill: index.$orange-main-color;
+  stroke: index.$white-color;
+  width: 24px;
+  height: 24px;
+  top: 100%;
+  left: 50%;
+}
+
+.imageSelected {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 89px;
+  height: 89px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.userName {
+  font-size: 18px;
+  color: index.$white-color;
+  font-weight: normal;
+  line-height: 1, 25;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 4px;
+}
+
+.userWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .form {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 32px;
+  }
+
+  .avatarDefault {
+    height: 68px;
+    width: 68px;
+  }
+
+  .iconToChooseFile {
+    width: 32px;
+    height: 32px;
+  }
+
+  .imageSelected {
+    width: 149px;
+    height: 149px;
+  }
+
+  .userName {
+    font-size: 24px;
+    line-height: 1, 75;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 8px;
+  }
+}
