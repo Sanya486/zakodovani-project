@@ -29,7 +29,6 @@ const ProductsFilters = () => {
   }
   return (
     <>
-      <div style={{ width: 200, height: 200 }}></div>
 
       <form className={css.formStyle} onSubmit={handleSubmit}>
         <div className={css.searchWrapper}>
