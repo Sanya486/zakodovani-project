@@ -1,4 +1,5 @@
-import ProductsFilters from 'components/ProductsFilters/ProductsFilters';
+// import ProductsFilters from 'components/ProductsFilters/ProductsFilters';
+import UserCard from 'components/UserCard/UserCard';
 
 import React from 'react';
 // import PropTypes from 'prop-types'
@@ -6,7 +7,8 @@ import React from 'react';
 const WelcomePage = () => {
   return (
     <div>
-      <ProductsFilters />
+      {/* <ProductsFilters /> */}
+      <UserCard/>
     </div>
   );
 };
