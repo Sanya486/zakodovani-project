@@ -75,7 +75,7 @@ const AddExerciseForm = ({ data, onClick }) => {
               {({ remainingTime }) => renderTime({ remainingTime })}
             </CountdownCircleTimer>
           </div>
-          <button className={css.timerButton} onClick={toggleIsPlaying}>
+          <button type='button' className={css.timerButton} onClick={toggleIsPlaying}>
             <svg className={css.timerButtonIcon}>
               <use href={isPlaying ? `${sprite}#pause_square_icon` : `${sprite}#play_icon`} />
             </svg>
