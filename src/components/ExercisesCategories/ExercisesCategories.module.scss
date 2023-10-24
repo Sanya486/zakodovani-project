@@ -1,0 +1,20 @@
+@use 'index';
+
+.category-list {
+  display: flex;
+  gap: 32px;
+}
+
+.category-name {
+  font-size: 16px;
+  color: #efede866;
+  line-height: 1.5;
+  font-weight: normal;
+}
+
+.active {
+  color: #efede8;
+  padding-bottom: 4px;
+  border-bottom: 4px solid #ef8964;
+  border-radius: 2px;
+}

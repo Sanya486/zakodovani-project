@@ -10,8 +10,11 @@ const ExercisesItem = ({
   bodyPart = 'Waist',
   targetMuscle = 'Abs',
 }) => {
+
+const ExercisesItem = ({ exerciseType, calories, bodyPart, targetMuscle }) => {
+
   return (
-    <li key={key} className={styles['exercise-item-block']}>
+    <li className={styles['exercise-item-block']}>
       <div className={styles['top-flex']}>
         <p className={styles['workout-tag']}>workout</p>
 
