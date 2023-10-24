@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import thumbUp from '../../images/svg/thumb_up.svg';
+import thumbUp from '../../images/thumb_up.png';
 import sprite from '../../images/svg/sprite.svg';
 import css from './AddExerciseSuccess.module.scss';
 import { Link } from 'react-router-dom';
+import Button from 'components/Button/Button';
 
 const AddExerciseSuccess = ({ data, onClose }) => {
   return (
@@ -21,7 +22,7 @@ const AddExerciseSuccess = ({ data, onClose }) => {
         </p>
       </div>
       <Link to='/exercises' onClick={onClose} className={css.buttonLink}>
-        <button>Next exercise</button>
+        <Button title='Next product' classes={[css.button]} />
       </Link>
       <Link to='/diary' onClick={onClose}>
         <p className={css.text}>
