@@ -3,7 +3,7 @@ import css from './ExercisesTableItem.module.scss';
 import { selectExercises } from 'redux/selectors';
 import { useSelector } from 'react-redux';
 
-const ExercisesTableItem = () => {
+export const ExercisesTableItem = () => {
   const exercises = useSelector(selectExercises);
 
   console.log(exercises);
@@ -19,7 +19,6 @@ const ExercisesTableItem = () => {
   } else {
     return (
       <div>
-        
         {exercises.map(({ key, bodyPart, equipment, name, target, burnedCalories, time }) => (
           <div className={css.bodybox} key={key}>
             <div className={css.container}>
@@ -58,29 +57,3 @@ const ExercisesTableItem = () => {
     );
   }
 };
-
-export default ExercisesTableItem;
-
-// import React from 'react';
-
-
-// <table>
-//   <thead className={css.exercisename}>
-//     <tr>
-//       <th>Body Part</th>
-//       <th>Equipment</th>
-//       <th>Name</th>
-//       <th>Target</th>
-//       <th>Burned Calories</th>
-//       <th>Time</th>
-//     </tr>
-//   </thead>
-//   <tbody className={css.exercisetipe}>
-//     <td>{bodyPart}</td>
-//     <td>{equipment}</td>
-//     <td>{name}</td>
-//     <td>{target}</td>
-//     <td>{burnedCalories}</td>
-//     <td>{time}</td>
-//   </tbody>
-// </table>;

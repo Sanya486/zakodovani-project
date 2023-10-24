@@ -1,0 +1,46 @@
+@use 'index';
+
+.bodybox {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 14px;
+  margin: 20px;
+  background-color: rgba(239, 237, 232, 0.05);
+  border-color: rgba(239, 237, 232, 0.2);
+  border-width: 1px;
+  border-radius: 12px;
+  gap: 32px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(239, 237, 232, 0);
+}
+.exercisetitle {
+  color: rgba(239, 237, 232, 0.5);
+}
+
+.addexercisetitle {
+  color: index.$orange-main-color;
+}
+
+.exercisename {
+  color: #ef8964;
+}
+
+.exercisetitleitem {
+  color: rgba(239, 237, 232, 1);
+}
+
+.exercisetipe {
+  color: index.$white-color;
+  border-color: rgba(239, 237, 232, 0.3);
+  border: solid;
+  border-width: 1px;
+  border-radius: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 14px;
+}
