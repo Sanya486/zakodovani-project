@@ -4,28 +4,25 @@ import Subtext from 'components/Subtext/Subtext';
 import Text from 'components/Text/Text';
 import TitlePage from 'components/TitlePage/TitlePage';
 import React from 'react';
-import css from './SignUpPage.module.scss'; // Використовуйте `import` для імпорту стилів
+import css from './SignUpPage.module.scss';
+import Container from 'components/Container/Container';
 
 const SignUpPage = () => {
   return (
-
-    <div className={css.backgroundFone}>
-     <div className={css.pageContainer}>
-      <div className={css.leftContent}>
-        <TitlePage>SignUp</TitlePage>
-        <Text>
-          Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.
-        </Text>
-        <SignUpForm />
-        <Subtext page="SignUpPage" />
+    <>
+      <div className={css.background}>
+        <Container>
+          <TitlePage>SignUp</TitlePage>
+          <Text>
+            Thank you for your interest in our platform. To complete the registration process, please
+            provide us with the following information.
+          </Text>
+          <SignUpForm />
+          <Subtext page='SignUpPage' />
+          <StatisticsInfo marginTopUp={true} />
+        </Container>
       </div>
-      <div className={css.rightContent}>
-        <StatisticsInfo marginTopUp={true} />
-      </div>
-    </div>
-  
-   
-  </div>
+    </>
   );
 };
 

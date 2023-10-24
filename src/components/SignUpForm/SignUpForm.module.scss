@@ -1,24 +1,25 @@
 @use 'index';
 
 .formWrapper {
-  height: 244px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .inputsWrapper {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  
+  gap: 22px;
+  margin-bottom: 30px;
 }
 
-.noGap {
-  & div:first-child {
-    margin-bottom: 18px;
-  }
-  gap: 0;
+.inputNameNoMargin {
+  margin-bottom: 0;
+}
+
+.inputNameWithMArgin {
+  margin-bottom: 18px;
+}
+
+.inputWrapper {
+  position: relative;
 }
 
 .btn {
@@ -50,7 +51,7 @@
   border-radius: 12px;
   border: 1px solid #efede84d;
   outline: none;
-  width: 335px;
+  width: 100%;
 
   &:focus {
     border: 1px solid index.$orange-main-color;
@@ -58,6 +59,8 @@
 }
 
 .messageWrap {
+  position: absolute;
+  top: calc(100% + 4px);
   display: flex;
   gap: 4px;
 }
@@ -84,7 +87,6 @@
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .formWrapper {
-    height: 316px;
     gap: 20px;
   }
   .inputStyle {
