@@ -1,5 +1,6 @@
 @import '~modern-normalize/modern-normalize.css';
 
+
 $mobile-breakpoint: 375px;
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1440px;
@@ -36,7 +37,7 @@ $transition-dur-and-fun: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   font-style: normal;
 }
 
-body{
+body {
   background-color: $black-color;
 }
 
@@ -89,3 +90,5 @@ p {
   padding: 0;
   margin: 0;
 }
+
+
