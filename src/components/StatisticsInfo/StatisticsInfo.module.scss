@@ -22,9 +22,6 @@
   margin-top: 231px;
 }
 
-
-
-
 .circle {
   width: 30px;
   height: 30px;
@@ -171,10 +168,12 @@
 @media (min-width: index.$desktop-breakpoint) {
   .container {
     margin-bottom: 39px;
+    margin-left:0;
+    margin-top: 0;
+    
   }
-  .containerCal {
-  
+
+  .statist{
     margin-bottom: 171px;
   }
-  
 }

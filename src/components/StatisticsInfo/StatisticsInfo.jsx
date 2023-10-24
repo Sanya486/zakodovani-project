@@ -10,7 +10,7 @@ const StatisticsInfo = ({ marginTopUp, marginTopIn, marginTopProfile }) => {
   ${marginTopProfile && css.marginTopProfile}
 `;
   return (
-    <>
+    <><div className={css.statist}>
       <div className={containerClass}>
         <div className={css.circle}>
           <svg className={css.play}>
@@ -33,6 +33,8 @@ const StatisticsInfo = ({ marginTopUp, marginTopIn, marginTopProfile }) => {
           <p className={css.cal}>cal</p>
         </div>
       </div>
+    </div>
+      
     </>
   );
 };

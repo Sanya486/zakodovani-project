@@ -1,3 +1,21 @@
+@use 'index';
+
 body{
     padding: 0 20px;
 }
+
+  @media (min-width: index.$desktop-breakpoint){
+    .pageContainer {
+        display: flex;
+        justify-content: space-between; 
+      }
+      
+      .leftContent {
+        flex: 1; 
+      }
+      
+      .rightContent {
+        width: 47%; /* Ширина правого контенту (змініть за потребою) */
+      }
+      
+  }
