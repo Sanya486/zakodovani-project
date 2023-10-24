@@ -5,6 +5,7 @@
 //   max-width: 100%;
   width: 100%;
   height: auto;
+  margin-bottom: 40px;
 }
 
 .field {
@@ -14,7 +15,7 @@
   border-radius: 12px;
   border: 1px solid rgba(index.$white-color, 0.3);
   width: 100%;
-  max-height: 38px;
+  height: 38px;
 
   overflow: hidden;
   white-space: nowrap;
@@ -110,7 +111,7 @@
     // border-radius: 12px;
     // border: 1px solid rgba(index.$white-color, 0.3);
     width: 297px;
-    max-height: 38px;
+    height: 38px;
   }
 
   .titleField,
@@ -130,13 +131,13 @@
     width: 76px;
   }
 
-//   .title {
-//     color: index.$orange-secondary-color;
-//     max-height: 18px;
-//     max-width: 100%;
-//     font-size: 12px;
-//     line-height: 1.5;
-//   }
+  .title {
+    // color: index.$orange-secondary-color;
+    height: 18px;
+    // max-width: 100%;
+    // font-size: 12px;
+    // line-height: 1.5;
+  }
 
 //   .fieldWrap {
 //     display: flex;
@@ -193,19 +194,21 @@
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .form {
-    width: 600px;
+    width: 656px;
     display: flex;
     flex-direction: row;
+    column-gap: 8px;
+    margin-bottom: 8px;
   }
 
   .field {
-    padding: 9.2px 14px;
+    padding: 8.2px 14px;
     background: inherit;
     color: index.$white-color;
     border-radius: 12px;
     border: 1px solid rgba(index.$white-color, 0.3);
     //   width: 204px;
-    max-height: 40px;
+    height: 40px;
   }
 
   .titleField {
@@ -229,9 +232,9 @@
   }
 
 //   .title {
-//     // color: index.$orange-secondary-color;
+//     color: index.$orange-secondary-color;
 //     max-height: 18px;
-//     max-width: 100%;
+//     max-width: 148px;
 //     font-size: 12px;
 //     line-height: 1.5;
 //   }
@@ -243,14 +246,14 @@
   }
 
   .fieldWrap:not(:last-child) {
-    margin-bottom: 16px;
+    margin-bottom: 0;
   }
 
   .blockWrap {
-    display: block;
-    // flex-direction: row;
-    // align-items: flex-end;
-    // column-gap: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0;
     width: 269px;
   }
 
@@ -258,12 +261,13 @@
     display: flex;
     // flex-direction: row;    
     align-items: center;
-    column-gap: 0px;
+    column-gap: 8px;
     width: inherit;
   }
 
   .blockWrap:last-child {
-    column-gap: 8px;
+    column-gap: 12px;
+    align-items: flex-end;
   }
 
   .blockWrap .fieldWrap {
