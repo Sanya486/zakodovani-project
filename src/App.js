@@ -9,7 +9,7 @@ import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import SignUpPage from 'pages/SignUpPape/SignUpPage';
 import SignInPage from 'pages/SignInPage/SignInPage';
 // import PrivateRoute from "components/Routes/PrivateRoute";
-import DairyPage from 'pages/DairyPage/DairyPage';
+import DiaryPage from 'pages/DiaryPage/DiaryPage';
 import ProfilePage from 'pages/ProfilePage/ProfilePage';
 import ProductsPage from 'pages/ProductsPage/ProductsPage';
 import ExercisesPage from 'pages/ExercisesPage/ExercisesPage';
@@ -24,7 +24,7 @@ function App() {
           <Route path='/signup' element={<SignUpPage />} />
           <Route path='/signin' element={<SignInPage />} />
           <Route path='/profile' element={<ProfilePage />} />
-          <Route path='/dairy' element={<DairyPage />} />
+          <Route path='/diary' element={<DiaryPage />} />
           <Route path='/products' element={<ProductsPage />} />
           <Route path='/exercises' element={<ExercisesPage />} />
           <Route path='/error' element={<ErrorPage />} />
