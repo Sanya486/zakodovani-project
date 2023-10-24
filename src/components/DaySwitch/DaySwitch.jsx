@@ -16,6 +16,11 @@ const DaySwitch = () => {
     const year = currentDate.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
 
+    const customWeekdayFormatter = (locale, date) => {
+        const weekdays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+        return weekdays[date.getDay()];
+      };
+
     const incrementDate = () => {
         const newDate = new Date(currentDate);
         newDate.setDate(currentDate.getDate() + 1);
@@ -36,28 +41,44 @@ const DaySwitch = () => {
         onChange(currentDate)
       }, [currentDate])
 
-    //   const closeCalendar = () => {
-    //     setCalendarIsClicked(false);
-    //   }
+      const closeCalendar = () => {
+        setCalendarIsClicked(false);
+      }
+
+      const onClickDay = (value) => {
+        setCurrentDate(value);
+      }
 
 
     return (
     <div className={css.wrapper}>
         <div className={css.dateAndIconWrapper}>
         <p className={css.date}>{formattedDate}</p>
-        <button onClick={showCalendar}>
-            <svg className={css.calendar}>
+        {calendarIsClicked
+        ? <button onClick={closeCalendar}>
+            <svg className={css.closeIcon}>
+                <use href={sprite + "#close_icon"}></use>
+            </svg>
+          </button>
+        : <button onClick={showCalendar}>
+            <svg className={css.calendarIcon}>
                 <use href={sprite + "#calendar_icon"}></use>
             </svg>
-        </button>
-        <div className={css.backdrop}>
-        {calendarIsClicked && <Calendar
+          </button>}
+        {calendarIsClicked &&
+        <Calendar
         onChange={onChange}
         value={value}
         className={css.reactCalendar}
         next2Label={null}
-        prev2Label={null} />}
-        </div>
+        prev2Label={null}
+        locale="en"
+        defaultView="month"
+        formatShortWeekday={customWeekdayFormatter}
+        // minDate=
+        minDetail="month"
+        onClickDay={onClickDay}
+        />}
         </div>
         <ul className={css.arrowsWrapper}>
             <li>
