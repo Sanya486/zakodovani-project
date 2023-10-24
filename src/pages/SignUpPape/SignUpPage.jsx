@@ -8,7 +8,9 @@ import css from './SignUpPage.module.scss'; // Використовуйте `imp
 
 const SignUpPage = () => {
   return (
-    <div className={css.pageContainer}>
+
+    <div className={css.backgroundFone}>
+     <div className={css.pageContainer}>
       <div className={css.leftContent}>
         <TitlePage>SignUp</TitlePage>
         <Text>
@@ -21,6 +23,9 @@ const SignUpPage = () => {
         <StatisticsInfo marginTopUp={true} />
       </div>
     </div>
+  
+   
+  </div>
   );
 };
 

@@ -1,13 +1,47 @@
 @use 'index';
 
-body{
-    padding: 0 20px;
+.backgroundFone {
+  position: relative;
+ 
+  }
+  .pageContainer{
+    width: 375px;
+    background-image: url(../../images/gym-mob1.jpg);
+    background-repeat: no-repeat;
+  background-position: 57px 164px;
+  background-size: 369px 571px;
+  margin-left: auto;
+  margin-right: auto;
+ 
+
+
+
+
+ }
+//     @media (min-device-pixel-ratio: 2),
+//   (-webkit-min-device-pixel-ratio: 2),
+//   (min-resolution: 192dpi),
+//   (min-resolution: 2dppx) {
+//   .pageContainer {
+//     background-image: 
+//     // var(--linear-gradient-bg),
+//      url(../../images/gym-mob2.jpg);
+//   }
+@media (min-width: index.$tablet-breakpoint){
+   .pageContainer{
+    width: 768px;
+    background-image: url(../../images/gym1tablet.jpg);
+  background-position: 300px 60px;
+  background-size: 369px 571px;
+
+   } 
 }
 
   @media (min-width: index.$desktop-breakpoint){
     .pageContainer {
         display: flex;
         justify-content: space-between; 
+        
       }
       
       .leftContent {
@@ -16,6 +50,7 @@ body{
       
       .rightContent {
         width: 47%; /* Ширина правого контенту (змініть за потребою) */
+        
       }
       
   }
