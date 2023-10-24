@@ -8,8 +8,6 @@ import Button from 'components/Button/Button';
 
 import sprite from '../../images/svg/sprite.svg';
 
-
-
 const SignUpFrom = () => {
   return (
     <Formik
@@ -114,7 +112,5 @@ const SignUpFrom = () => {
     </Formik>
   );
 };
-
-
 
 export default SignUpFrom;
