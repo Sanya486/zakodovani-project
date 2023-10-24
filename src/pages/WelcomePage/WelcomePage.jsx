@@ -1,5 +1,4 @@
 import React from 'react';
-import DaySwitch from 'components/DaySwitch/DaySwitch';
 // import PropTypes from 'prop-types'
 
 const WelcomePage = () => {
