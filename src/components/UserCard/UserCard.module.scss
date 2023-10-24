@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@use 'index';
 
 .group {
   display: flex;
@@ -13,13 +13,13 @@
   justify-content: center;
   width: 165px;
   height: 96px;
-  background-color: $orange-main-color;
+  background-color: index.$orange-main-color;
   border-radius: 12px;
   margin-top: 5px;
   position: relative;
 }
 .text {
-  color: $white-color;
+  color:index.$white-color;
   line-height: 1.33;
   font-size: 12px;
   margin-top: 16px;
@@ -30,46 +30,55 @@
   position: relative;
 }
 .fork {
-  fill: $orange-secondary-color;
-  position: absolute;
-  right: 0;
+  fill: index.$orange-secondary-color;
+ max-width: 11.67px;
+ max-height: 15px;
+ position: absolute;
+ right:-6px;
 }
 .gym {
-  fill: $orange-secondary-color;
-  position: absolute;
-  right: -3px;
+  fill: index.$orange-secondary-color;
+  max-width: 20px;
+ max-height: 14px;
+ position: absolute;
+ right:-9px;
 }
 .span1 {
   position: absolute;
   bottom: 14px;
   left: 14px;
-  color: $white-color;
+  color: index.$white-color;
 }
 .span2 {
   position: absolute;
   bottom: 14px;
   left: 14px;
-  color: $white-color;
+  color: index.$white-color;
 }
 .dang {
-  width: 335px;
+  max-width: 335px;
   display: flex;
   gap: 8px;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  align-items: center;
 }
 .textDang {
   line-height: 1.29;
   font-size: 14px;
-  color: $white-color;
+  color: index.$white-color;
 }
-@media screen and (min-width: $mobile-breakpoint) {
+.mark_icon{
+  max-width: 24px;
+  max-height: 24px;
+  background-color: #fff;
+  fill:index.$beige-color;
+  stroke: index.$white-color;
 }
-@media screen and (min-width: $tablet-breakpoint) {
+
+@media screen and (min-width: index.$tablet-breakpoint) {
   .group {
-    gap: 16px;
+    gap: 32px;
   }
   .conteiner {
     width: 211px;
@@ -80,12 +89,15 @@
     line-height: 1.2;
     font-size: 15px;
     margin-top: 15px;
+    color: aqua;
+   
   }
   .textDang {
     line-height: 1.5;
     font-size: 16px;
-    color: $white-color;
-  }
+    color:index.$beige-color ; 
+    
+}
 
   .span1 {
     left: 18px;
