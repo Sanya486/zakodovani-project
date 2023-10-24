@@ -1,0 +1,45 @@
+@use 'index';
+.container {
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.dayDashboard {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 13px;
+}
+
+@media screen and (min-width: index.$mobile-breakpoint) {
+  .container {
+    width: 375px;
+  }
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .container {
+    width: 768px;
+    margin-left: 0;
+  }
+
+  .dayDashboard {
+    flex-direction: column;
+    align-content: flex-start;
+    height: 248px;
+    row-gap: 16px;
+    column-gap: 16px;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .container {
+    width: 390px;
+    height: auto;
+    padding: 0;
+  }
+
+  .dayDashboard {
+    flex-direction: row;
+  }
+}

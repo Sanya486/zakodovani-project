@@ -1,6 +1,6 @@
 @use 'index';
 
-body {
+body{
   background-color: black;
 }
 
@@ -15,6 +15,7 @@ body {
   background-color: transparent;
   border: 1px solid #efede84d;
   border-radius: 12px;
+  outline: none;
 
   color: index.$white-color;
   font-size: 14px;
@@ -37,7 +38,16 @@ body {
   width: 146px;
 }
 
-.btnIcon {
+.btnClearIcon {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  position: absolute;
+  right: 40px;
+  top: 14px;
+}
+
+.btnSearchIcon {
   background-color: transparent;
   padding: 0;
   border: none;
@@ -46,7 +56,16 @@ body {
   top: 14px;
 }
 
-.icon {
+.clearIcon {
+  display: block;
+  background-color: transparent;
+  width: 18px;
+  height: 18px;
+  fill: transparent;
+  stroke: index.$orange-main-color;
+}
+
+.searchIcon {
   display: block;
   background-color: transparent;
   width: 18px;
