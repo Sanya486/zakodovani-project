@@ -35,6 +35,10 @@ $option-list-color: #1c1c1c;
   font-style: normal;
 }
 
+body{
+  background-color: $black-color;
+}
+
 .hidden {
   position: absolute;
   width: 1px;
