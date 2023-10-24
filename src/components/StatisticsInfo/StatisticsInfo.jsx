@@ -2,10 +2,16 @@ import React from 'react';
 import css from './StatisticsInfo.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 
-const StatisticsInfo = () => {
+const StatisticsInfo = ({ marginTopUp, marginTopIn, marginTopProfile }) => {
+  const containerClass = `
+  ${css.container}
+  ${marginTopUp && css.marginTopUp}
+  ${marginTopIn && css.marginTopIn}
+  ${marginTopProfile && css.marginTopProfile}
+`;
   return (
     <>
-      <div className={css.container}>
+      <div className={containerClass}>
         <div className={css.circle}>
           <svg className={css.play}>
             <use href={sprite + '#play_icon'}></use>

@@ -9,10 +9,21 @@
   background-color: #303030;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5px;
   gap: 8px;
   margin-bottom: 70px;
 }
+.marginTopUp {
+  margin-top: 35px;
+}
+.marginTopIn{
+  margin-top: 121px;
+}
+.marginTopProfile{
+  margin-top: 231px;
+}
+
+
+
 
 .circle {
   width: 30px;
@@ -52,6 +63,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 4px;
+  margin-bottom: 40px;
 }
 .circle2 {
   width: 20px;
@@ -119,6 +131,7 @@
     width: 180px;
     height: 110px;
     gap: 8px;
+    margin-bottom: 48px;
   }
   .circle2 {
     width: 24px;
@@ -141,12 +154,27 @@
   .cal {
     font-size: 16px;
     line-height: 1.5;
-
     padding-top: 20px;
   }
+  .marginTopUp {
+    margin-top: 39px;
+  }
+  .marginTopIn{
+    margin-top: 135px;
+  }
+  .marginTopProfile{
+    margin-top: 171px;
+  }
+
+  
 }
 @media (min-width: index.$desktop-breakpoint) {
   .container {
     margin-bottom: 39px;
   }
+  .containerCal {
+  
+    margin-bottom: 171px;
+  }
+  
 }
