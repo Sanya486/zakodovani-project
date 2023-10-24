@@ -5,7 +5,7 @@
 //   max-width: 100%;
   width: 100%;
   height: auto;
-  margin-bottom: 40px;
+//   margin-bottom: 40px;
 }
 
 .field {
@@ -156,12 +156,12 @@
     width: 269px;
   }
 
-//   .subBlockWrap {
-//     display: flex;
-//     align-items: center;
-//     column-gap: 16px;
-//     width: inherit;
-//   }
+  .subBlockWrap {
+    // display: flex;
+    // align-items: center;
+    // column-gap: 16px;
+    width: inherit;
+  }
 
 //   .blockWrap:last-child {
 //     column-gap: 8px;
@@ -198,15 +198,15 @@
     display: flex;
     flex-direction: row;
     column-gap: 8px;
-    margin-bottom: 8px;
+    // margin-bottom: 8px;
   }
 
   .field {
     padding: 8.2px 14px;
-    background: inherit;
-    color: index.$white-color;
-    border-radius: 12px;
-    border: 1px solid rgba(index.$white-color, 0.3);
+    // background: inherit;
+    // color: index.$white-color;
+    // border-radius: 12px;
+    // border: 1px solid rgba(index.$white-color, 0.3);
     //   width: 204px;
     height: 40px;
   }
@@ -239,30 +239,30 @@
 //     line-height: 1.5;
 //   }
 
-  .fieldWrap {
-    display: flex;
-    flex-direction: column;
-    row-gap: 8px;
-  }
+//   .fieldWrap {
+//     display: flex;
+//     flex-direction: column;
+//     row-gap: 8px;
+//   }
 
   .fieldWrap:not(:last-child) {
     margin-bottom: 0;
   }
 
   .blockWrap {
-    display: flex;
-    flex-direction: row;
+    // display: flex;
+    // flex-direction: row;
     align-items: flex-start;
     gap: 0;
     width: 269px;
   }
 
   .subBlockWrap {
-    display: flex;
+    // display: flex;
     // flex-direction: row;    
-    align-items: center;
+    // align-items: center;
     column-gap: 8px;
-    width: inherit;
+    // width: inherit;
   }
 
   .blockWrap:last-child {
@@ -274,25 +274,25 @@
     margin-bottom: 0;
   }
 
-  .buttonWrap {
-    width: 20px;
-    height: 20px;
-    // margin-bottom: 9px;
-  }
+//   .buttonWrap {
+//     width: 20px;
+//     height: 20px;
+//     // margin-bottom: 9px;
+//   }
 
-  .button {
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    border: 0;
-    background-color: inherit;
-  }
+//   .button {
+//     width: 20px;
+//     height: 20px;
+//     padding: 0;
+//     border: 0;
+//     background-color: inherit;
+//   }
 
-  .icon {
-    width: 20px;
-    height: 20px;
-    stroke: index.$orange-secondary-color;
-  }
+//   .icon {
+//     width: 20px;
+//     height: 20px;
+//     stroke: index.$orange-secondary-color;
+//   }
 }
 
 //   @media screen and (min-width: index.$desktop-breakpoint) {
