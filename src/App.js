@@ -15,7 +15,6 @@ import ProductsPage from 'pages/ProductsPage/ProductsPage';
 import ExercisesPage from 'pages/ExercisesPage/ExercisesPage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
 
-
 function App() {
   return (
     <>
@@ -32,7 +31,6 @@ function App() {
         </Route>
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>
-  
       <Toaster />
     </>
   );
