@@ -1,7 +1,7 @@
 @use 'index';
 
 .warningTextUserPage,
-.warningTextDairyPage {
+.warningTextDiaryPage {
   font-size: 14px;
   font-weight: normal;
   line-height: 1.125;
@@ -21,13 +21,13 @@
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-  .warningTextDairyPage,
+  .warningTextDiaryPage,
   .warningTextUserPage {
     font-size: 16px;
     line-height: 1.5;
   }
 
-  .warningTextDairyPage {
+  .warningTextDiaryPage {
     max-width: 561px;
   }
 
@@ -37,7 +37,7 @@
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
-  .warningTextDairyPage {
+  .warningTextDiaryPage {
     max-width: 358px;
   }
 }
