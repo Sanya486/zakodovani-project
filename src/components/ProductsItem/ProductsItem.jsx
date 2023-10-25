@@ -76,5 +76,4 @@ ProductsItem.propTypes = {
     category: PropTypes.string.isRequired,
     weight: PropTypes.string.isRequired,
   }).isRequired,
-  // handleAdd: PropTypes.func.isRequired,
 };
