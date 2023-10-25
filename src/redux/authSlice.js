@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCurrentUser, fetchLogin, fetchLogout, fetchSignup } from './operations';
+import {
+  fetchCalculateDailyMetrics,
+  fetchCurrentUser,
+  fetchLogin,
+  fetchLogout,
+  fetchSignup,
+  fetchUpload,
+} from './operations';
 
-const handlePending = (state) => {
-  state.isLoading = true;
-};
-
-const handleReject = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};
+import { handlePending, handleReject } from './handlers';
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -16,6 +16,16 @@ export const authSlice = createSlice({
     client: {
       email: '',
       name: '',
+    },
+    clientData: {
+      birthday: '',
+      blood: null,
+      currentWeight: null,
+      desiredWeight: null,
+      height: null,
+      levelActivity: null,
+      sex: '',
+      avatar: '',
     },
     token: '',
     isLoading: null,
@@ -26,14 +36,11 @@ export const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) =>
     builder
-      .addCase(fetchSignup.pending, handlePending)
       .addCase(fetchSignup.fulfilled, (state, { payload }) => {
         state.client = payload.client;
         state.token = payload.token;
         state.isLoading = false;
       })
-      .addCase(fetchSignup.rejected, handleReject)
-      .addCase(fetchLogin.pending, handlePending)
       .addCase(fetchLogin.fulfilled, (state, { payload }) => {
         state.token = payload.token;
         state.client = payload.client;
@@ -41,21 +48,23 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.isRefreshing = true;
       })
-      .addCase(fetchLogin.rejected, handleReject)
-      .addCase(fetchLogout.pending, handlePending)
       .addCase(fetchLogout.fulfilled, (state) => {
         state.isLoggedIn = false;
         state.isLoading = false;
         state.isRefreshing = false;
         state.token = '';
       })
-      .addCase(fetchLogout.rejected, handleReject)
-      .addCase(fetchCurrentUser.pending, handlePending)
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.client = payload;
         state.isLoading = false;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      .addCase(fetchCurrentUser.rejected, handleReject),
+      .addCase(fetchCalculateDailyMetrics.fulfilled, (state, { payload }) => {
+        state.clientData = payload;
+        state.isLoading = false;
+      })
+      .addCase(fetchUpload.fulfilled, (state) => state)
+      .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
+      .addMatcher((action) => action.type.endsWith('/rejected'), handleReject),
 });
