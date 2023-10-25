@@ -13,16 +13,16 @@ const SignUpPage = () => {
       <div className={css.background}>
         <div className={css.containerWrapper}>
           <div className={css.signUpBlockWrapper}>
-          <TitlePage>SignUp</TitlePage>
-          <Text>
-            Thank you for your interest in our platform. To complete the registration process, please
-            provide us with the following information.
-          </Text>
-          <SignUpForm />
-          <Subtext page='SignUpPage' />
+            <TitlePage>SignUp</TitlePage>
+            <Text>
+              Thank you for your interest in our platform. To complete the registration process,
+              please provide us with the following information.
+            </Text>
+            <SignUpForm />
+            <Subtext page='SignUpPage' />
           </div>
           <div>
-          <StatisticsInfo />
+            <StatisticsInfo />
           </div>
         </div>
       </div>

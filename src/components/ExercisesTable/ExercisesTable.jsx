@@ -5,10 +5,7 @@ import { useSelector } from 'react-redux';
 import ExercisesTableItem from 'components/ExercisesTableItem/ExercisesTableItem';
 import clsx from 'clsx';
 
-
-
 // import React from 'react';
-
 
 const ExercisesTable = () => {
   const exercises = useSelector(selectDiaryExercises);
@@ -25,7 +22,8 @@ const ExercisesTable = () => {
             target={target}
             burnedCalories={burnedCalories}
             time={time}
-          />))}
+          />
+        ))}
       </div>
       <div className={clsx(css.bodyboxTable)}>
         <table className={css.exercisestablehead}>
@@ -42,14 +40,14 @@ const ExercisesTable = () => {
           <tbody className={css.exercisestablebody}>
             {exercises.map(({ key, bodyPart, equipment, name, target, burnedCalories, time }) => (
               <ExercisesTableItem
-            key={key}
-            bodyPart={bodyPart}
-            equipment={equipment}
-            name={name}
-            target={target}
-            burnedCalories={burnedCalories}
-            time={time}
-          />
+                key={key}
+                bodyPart={bodyPart}
+                equipment={equipment}
+                name={name}
+                target={target}
+                burnedCalories={burnedCalories}
+                time={time}
+              />
             ))}
           </tbody>
         </table>
