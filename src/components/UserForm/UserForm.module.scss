@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@use 'index';
 
 .container {
   margin: 0 auto;
@@ -6,19 +6,17 @@
 }
 .title {
   margin-bottom: 4px;
-  font-family: RobotoRegular;
-  font-weight: 400;
   line-height: 1.5;
   font-size: 12px;
   margin-left: 15px;
+  color: rgba(index.$white-color, 50%);
 }
 .blood {
   display: inline;
-  font-family: RobotoRegular;
-  font-weight: 400;
   line-height: 1.5;
   font-size: 12px;
   margin-right: 280px;
+  color:rgba(index.$white-color, 30%);
 }
 .tabletInput {
   display: flex;
@@ -35,33 +33,27 @@
 
 .input {
   border-radius: 12px;
-  border-color: $white-color;
-  font-weight: 400;
+  border-color: rgba(index.$white-color, 30%);
+  color:index.$white-color;
   line-height: 1.29;
   font-size: 14px;
   padding: 14px 0 14px 14px;
+  background-color: transparent;
+ 
 }
 .inputBase {
   border-radius: 12px;
-  border-color: $white-color;
-  font-weight: 400;
+  border-color: rgba(index.$white-color, 30%);
+  color:index.$white-color;
   line-height: 1.29;
   font-size: 14px;
   margin-bottom: 16px;
   padding: 14px 0 14px 14px;
+  background-color: transparent;
+ 
 }
 
-.calendar {
-  margin-top: 21px;
-  height: 43px;
-  border-radius: 12px;
-  border-color: $white-color;
-  font-weight: normal;
-  line-height: 18px;
-  font-size: 14px;
-  padding: 14px 0 14px 14px !important;
-  width: 161px;
-}
+
 .react-datepicker {
   background-color: #e11b1b;
   border: 1px solid #e91111;
@@ -69,10 +61,9 @@
 
 .label {
   margin-bottom: 4px;
-  font-family: RobotoRegular;
-  font-weight: 400;
   line-height: 1.5;
   font-size: 12px;
+  color:rgba(index.$white-color, 50%);
 }
 .column {
   display: flex;
@@ -104,10 +95,14 @@
 
 .labelMargin {
   margin-right: 2px;
+  color:index.$white-color;
 }
 .inputRadio {
   line-height: 1.29;
   font-size: 14px;
+  color:index.$radio-color;
+  background-color: transparent;
+  margin-right: 2px;
 }
 .radioText {
   display: flex;
@@ -116,6 +111,7 @@
 }
 .labelText {
   margin-bottom: 9px;
+  color:index.$white-color;
 }
 
 .labelText:not(:last-child) {
@@ -125,22 +121,14 @@
 .btn {
   padding: 12px 40px;
   width: 115px;
-  background-color: $orange-main-color;
+  background-color: index.$orange-main-color;
   border-radius: 12px;
   border: none;
-  color: $white-color;
-  font-family: RobotoRegular;
-  font-weight: 400;
+  color: index.$white-color;
   line-height: 1.2;
   font-size: 16px;
   margin-top: 46px;
   margin-right: auto;
-}
-
-.calendar-wrapper svg {
-  position: absolute;
-  top: 35px;
-  right: 10px;
 }
 
 .inputError {
@@ -184,13 +172,13 @@
   position: absolute;
   margin-top: 68px;
 }
-.errorCalendar {
-  color: red;
-  font-size: 10px;
-  position: absolute;
-  margin-top: 2px;
-}
-@media screen and (min-width: 375px) {
+// .errorCalendar {
+//   color: red;
+//   font-size: 10px;
+//   position: absolute;
+//   margin-top: 2px;
+// }
+@media screen and (min-width: index.$mobile-breakpoint) {
   .container {
     width: 375px;
   }
@@ -209,7 +197,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width:index.$tablet-breakpoint) {
   .container {
     width: 768px;
   }
@@ -292,7 +280,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: index.$desktop-breakpoint) {
   .container {
     width: 1440px;
   }
