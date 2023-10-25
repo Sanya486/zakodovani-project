@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import css from './ProductsItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 
-export const ProductsItem = ({ product }) => {
+export const ProductsItem = ({ product, handleAdd }) => {
   return (
     <li className={css.itemContainer}>
       <div className={css.wrap}>
@@ -22,7 +22,7 @@ export const ProductsItem = ({ product }) => {
             <span className={css.recommendText}>
               {product.isRecommend ? 'Recommended' : 'Not recommended'}
             </span>
-            <button className={css.addBtn}>
+            <button onClick={handleAdd} className={css.addBtn}>
               Add
               <svg>
                 <use href={sprite + '#icon-arrow-right'}></use>
@@ -64,4 +64,5 @@ ProductsItem.propTypes = {
     category: PropTypes.string.isRequired,
     weight: PropTypes.string.isRequired,
   }).isRequired,
+  handleAdd: PropTypes.func.isRequired,
 };
