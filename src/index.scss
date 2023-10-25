@@ -1,5 +1,6 @@
 @import '~modern-normalize/modern-normalize.css';
 
+
 $mobile-breakpoint: 375px;
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1440px;
@@ -13,6 +14,7 @@ $error-color: #d80027;
 $variant-error-color: #e9101d;
 $variant-success-color: #3cbf61;
 $option-list-color: #1c1c1c;
+$transition-dur-and-fun: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 @font-face {
   font-family: 'Roboto', sans-serif;
@@ -33,6 +35,10 @@ $option-list-color: #1c1c1c;
   src: url('./fonts/Roboto-Bold.ttf');
   font-weight: bold;
   font-style: normal;
+}
+
+body {
+  background-color: $black-color;
 }
 
 .hidden {
@@ -63,6 +69,7 @@ p {
   font-family: 'Roboto', sans-serif;
   font-weight: normal;
   font-style: normal;
+ 
 }
 
 img {
@@ -84,3 +91,5 @@ p {
   padding: 0;
   margin: 0;
 }
+
+

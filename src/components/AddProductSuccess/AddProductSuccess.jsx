@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import clsx from 'clsx';
 import avocado from '../../images/food_icon.png';
 import sprite from '../../images/svg/sprite.svg';
 import css from './AddProductSuccess.module.scss';
@@ -19,7 +19,7 @@ const AddProductSuccess = ({ calories, onClose }) => {
         <Button title='Next product' classes={[css.button]} />
       </Link>
       <Link to='/diary' onClick={onClose}>
-        <p className={css.text}>
+        <p className={clsx(css.text, css.link)}>
           To the diary
           <svg className={css.arrowIcon}>
             <use href={sprite + '#arrow_add_icon'}></use>

@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { selectProductsCategories } from 'redux/selectors';
 import clsx from 'clsx';
 
-
 const ProductsFilters = () => {
   const [reccomendation, setReccomendation] = useState('All');
   const [category, setCategory] = useState('');
@@ -13,24 +12,21 @@ const ProductsFilters = () => {
   const [isCloseIconShown, setIsCloseIconShown] = useState(false);
 
   useEffect(() => {
-    if (search) setIsCloseIconShown(true)
-    else setIsCloseIconShown(false)
-  }, [search])
+    if (search) setIsCloseIconShown(true);
+    else setIsCloseIconShown(false);
+  }, [search]);
 
   const [isRecOpen, setIsRecOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const productCategories = useSelector(selectProductsCategories);
 
-
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const formdata = { search, category, reccomendation }
-    console.log(formdata)
-  }
+    e.preventDefault();
+    const formdata = { search, category, reccomendation };
+    console.log(formdata);
+  };
   return (
     <>
-      <div style={{ width: 200, height: 200 }}></div>
-
       <form className={css.formStyle} onSubmit={handleSubmit}>
         <div className={css.searchWrapper}>
           <input
@@ -40,11 +36,13 @@ const ProductsFilters = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          {isCloseIconShown && <button className={css.btnClearIcon} type='button' onClick={()=> setSearch('')}>
-            <svg className={css.clearIcon}>
-              <use href={sprite + '#close_icon'}></use>
-            </svg>
-          </button>}
+          {isCloseIconShown && (
+            <button className={css.btnClearIcon} type='button' onClick={() => setSearch('')}>
+              <svg className={css.clearIcon}>
+                <use href={sprite + '#close_icon'}></use>
+              </svg>
+            </button>
+          )}
 
           <button className={css.btnSearchIcon} type='submit'>
             <svg className={css.searchIcon}>
@@ -139,6 +137,5 @@ const ProductsFilters = () => {
     </>
   );
 };
-
 
 export default ProductsFilters;

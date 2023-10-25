@@ -40,6 +40,14 @@
   gap: 8px;
 }
 
+.link {
+  transition: color index.$transition-dur-and-fun;
+}
+
+.link:hover {
+  color: index.$orange-main-color;
+}
+
 .span {
   color: index.$orange-main-color;
 }

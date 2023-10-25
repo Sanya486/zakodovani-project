@@ -1,0 +1,24 @@
+@use 'index';
+
+.container {
+  margin: 0 auto;
+  max-width: 375px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .container {
+    max-width: 1440px;
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+}

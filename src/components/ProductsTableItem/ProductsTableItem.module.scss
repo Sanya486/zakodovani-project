@@ -1,43 +1,38 @@
 @use 'index';
 
-.form {
+.container {
   background: index.$black-color;
-  //   max-width: 100%;
   width: 100%;
   height: auto;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
-.field {
-  padding: 9.2px 14px;
-  background: inherit;
-  color: index.$white-color;
-  border-radius: 12px;
-  border: 1px solid rgba(index.$white-color, 0.3);
-  width: 100%;
-  height: 38px;
-
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.titleField,
-.categoriesField {
+.element {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
   width: 100%;
 }
 
-.caloriesField {
-  max-width: calc((100% - 60px)*34.177%);
+.element:not(:last-child) {
+  margin-bottom: 16px;
 }
 
-.weightField {
-  width: calc((100% - 60px)*33.755%);
+.titleElement,
+.categoriesElement {
+  width: 100%;
 }
 
-.recommendField {
-  width: calc((100% - 60px)*32.067%);
-//   padding: 30px;
+.caloriesElement {
+  width: calc((100vw - 60px) * 0.34177);
+}
+
+.weightElement {
+  width: calc((100vw - 60px) * 0.33755);
+}
+
+.recommendElement {
+  width: calc((100vw - 60px) * 0.32067);
 }
 
 .title {
@@ -48,35 +43,57 @@
   line-height: 1.5;
 }
 
-.fieldWrap {
-  display: flex;
-  flex-direction: column;
-  row-gap: 8px;
+.field {
+  padding: 9.2px 14px;
+  background: inherit;
+  color: index.$white-color;
+  border-radius: 12px;
+  border: 1px solid rgba(index.$white-color, 0.3);
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  width: 100%;
+  height: 38px;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.fieldWrap:not(:last-child) {
-  margin-bottom: 16px;
+.recommendField {
+  padding-left: 36px;
+  position: relative;
+}
+
+.recomendStatus::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 30%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: index.$variant-success-color;
+}
+
+.recommendColor {
+  background-color: index.$variant-error-color;
 }
 
 .blockWrap {
   display: flex;
   align-items: flex-end;
   column-gap: 8px;
-  //   width: 100%;
+  width: 100%;
 }
 
 .subBlockWrap {
   display: flex;
   align-items: center;
   column-gap: 16px;
-  //   width: inherit;
+  width: 100%;
 }
 
-.blockWrap:last-child {
-  column-gap: 8px;
-}
-
-.blockWrap .fieldWrap {
+.blockWrap .element {
   margin-bottom: 0;
 }
 
@@ -101,287 +118,127 @@
 }
 
 @media screen and (min-width: index.$mobile-breakpoint) {
-  .form {
+  .container {
     width: 297px;
   }
 
-  .field {
-    padding: 8.2px 14px;
-    // background: inherit;
-    // color: index.$white-color;
-    // border-radius: 12px;
-    // border: 1px solid rgba(index.$white-color, 0.3);
-    width: 297px;
-    height: 38px;
-  }
-
-  .titleField,
-  .categoriesField {
-    width: 297px;
-  }
-
-  .caloriesField {
+  .caloriesElement {
     width: 81px;
   }
 
-  .weightField {
+  .weightElement {
     width: 80px;
   }
 
-  .recommendField {
+  .recommendElement {
     width: 76px;
-    padding-left: 22px;
   }
 
   .title {
-    // color: index.$orange-secondary-color;
     height: 18px;
-    // max-width: 100%;
-    // font-size: 12px;
-    // line-height: 1.5;
   }
 
-  //   .fieldWrap {
-  //     display: flex;
-  //     flex-direction: column;
-  //     row-gap: 8px;
-  //   }
-
-  //   .fieldWrap:not(:last-child) {
-  //     margin-bottom: 16px;
-  //   }
+  // .field {
+  //   padding: 9.2px 14px;
+  // }
 
   .blockWrap {
-    // display: flex;
-    // align-items: flex-end;
-    // column-gap: 8px;
     width: 269px;
   }
-
-  //   .subBlockWrap {
-  //     display: flex;
-  //     align-items: center;
-  //     column-gap: 16px;
-  //     width: inherit;
-  //   }
-
-  //   .blockWrap:last-child {
-  //     column-gap: 8px;
-  //   }
-
-  //   .blockWrap .fieldWrap {
-  //     margin-bottom: 0;
-  //   }
-
-  //   .buttonWrap {
-  //     width: 20px;
-  //     height: 20px;
-  //     margin-bottom: 9px;
-  //   }
-
-  //   .button {
-  //     width: 20px;
-  //     height: 20px;
-  //     padding: 0;
-  //     border: 0;
-  //     background-color: inherit;
-  //   }
-
-  //   .icon {
-  //     width: 20px;
-  //     height: 20px;
-  //     stroke: index.$orange-secondary-color;
-  //   }
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-  .form {
+  .container {
     width: 656px;
     display: flex;
     flex-direction: row;
     column-gap: 8px;
-    margin-bottom: 8px;
   }
 
-  .field {
-    padding: 8.2px 14px;
-    background: inherit;
-    color: index.$white-color;
-    border-radius: 12px;
-    border: 1px solid rgba(index.$white-color, 0.3);
-    //   width: 204px;
-    height: 40px;
+  .element:not(:last-child) {
+    margin-bottom: 0;
   }
 
-  .titleField {
+  .titleElement {
     width: 204px;
   }
 
-  .categoriesField {
+  .categoriesElement {
     width: 128px;
   }
 
-  .caloriesField,
-  .weightField {
+  .caloriesElement,
+  .weightElement {
     width: 90px;
   }
 
-  //   .weightField {
-  //     width: 90px;
-  //   }
-
-  .recommendField {
+  .recommendElement {
     width: 80px;
   }
 
-  //   .title {
-  //     color: index.$orange-secondary-color;
-  //     max-height: 18px;
-  //     max-width: 148px;
-  //     font-size: 12px;
-  //     line-height: 1.5;
-  //   }
-
-  .fieldWrap {
-    display: flex;
-    flex-direction: column;
-    row-gap: 8px;
+  .field {
+    padding: 7.2px 14px;
+    height: 40px;
+    font-size: 16px;
+    line-height: calc(24 / 16);
   }
 
-  .fieldWrap:not(:last-child) {
-    margin-bottom: 0;
+  .recommendField {
+    padding-left: 36px;
   }
 
   .blockWrap {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 0;
-    width: 269px;
+    column-gap: 12px;
+    width: 308px;
   }
 
   .subBlockWrap {
-    display: flex;
-    // flex-direction: row;
-    align-items: center;
     column-gap: 8px;
-    width: inherit;
   }
 
   .blockWrap:last-child {
-    column-gap: 12px;
     align-items: flex-end;
   }
 
-  .blockWrap .fieldWrap {
+  .blockWrap .element {
     margin-bottom: 0;
-  }
-
-  .buttonWrap {
-    width: 20px;
-    height: 20px;
-    // margin-bottom: 9px;
-  }
-
-  .button {
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    border: 0;
-    background-color: inherit;
-  }
-
-  .icon {
-    width: 20px;
-    height: 20px;
-    stroke: index.$orange-secondary-color;
   }
 }
 
-//   @media screen and (min-width: index.$desktop-breakpoint) {
-//     .form {
-//       width: 704px;
-//     }
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .container {
+    width: 762px;
+  }
 
-//     .field {
-//       padding: 9.2px 14px;
-//       background: inherit;
-//       color: index.$white-color;
-//       border-radius: 12px;
-//       border: 1px solid rgba(index.$white-color, 0.3);
-//       width: 204px;
-//       max-height: 38px;
-//     }
+  .titleElement {
+    width: 212px;
+  }
 
-//     .caloriesField {
-//       width: 81px;
-//     }
+  .categoriesElement {
+    width: 166px;
+  }
 
-//     .weightField {
-//       width: 80px;
-//     }
+  .caloriesElement,
+  .weightElement {
+    width: 105px;
+  }
 
-//     .recommendField {
-//       width: 76px;
-//     }
+  .recommendElement {
+    width: 110px;
+  }
 
-//     .title {
-//       color: index.$orange-secondary-color;
-//       max-height: 18px;
-//       max-width: 100%;
-//       font-size: 12px;
-//       line-height: 1.5;
-//     }
+  .blockWrap {
+    width: 368px;
+  }
 
-//     .fieldWrap {
-//       display: flex;
-//       flex-direction: column;
-//       row-gap: 8px;
-//     }
+  .blockWrap:last-child {
+    column-gap: 8px;
+  }
 
-//     .fieldWrap:not(:last-child) {
-//       margin-bottom: 16px;
-//     }
-
-//     .blockWrap {
-//       display: flex;
-//       align-items: flex-end;
-//       column-gap: 8px;
-//       width: 269px;
-//     }
-
-//     .subBlockWrap {
-//       display: flex;
-//       align-items: center;
-//       column-gap: 16px;
-//       width: inherit;
-//     }
-
-//     .blockWrap:last-child {
-//       column-gap: 8px;
-//     }
-
-//     .blockWrap .fieldWrap {
-//       margin-bottom: 0;
-//     }
-
-//     .buttonWrap {
-//       width: 20px;
-//       height: 20px;
-//       margin-bottom: 9px;
-//     }
-
-//     .button {
-//       width: 20px;
-//       height: 20px;
-//       padding: 0;
-//       border: 0;
-//       background-color: inherit;
-//     }
-
-//     .icon {
-//       width: 20px;
-//       height: 20px;
-//       stroke: index.$orange-secondary-color;
-//     }
-//   }
+  .blockWrap .element {
+    margin-bottom: 0;
+  }
+}

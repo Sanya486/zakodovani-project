@@ -1,26 +1,66 @@
-.NavLink {
-  height: 38px;
-  border: 1px rgba(239, 237, 232, 0.2);
-  border-radius: 12px;
-  margin: 10px, 27px;
-  color: #efede8;
+@use 'index';
 
-  &.active {
-    border-color: #efede8;
+.navWrapper {
+  display: none;
+}
+
+.navBurgerMenu {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.navBurgerMenuIcon {
+  stroke: index.$orange-main-color;
+  fill: transparent;
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .navBurgerMenu {
+    top: 15px;
+    right: 20px;
+  }
+
+  .navBurgerMenuIcon {
+    width: 32px;
+    height: 32px;
   }
 }
 
-@media (min-width: 768px) {
-  .NavLink {
-    height: 44px;
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .navWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-right: 32px;
   }
-}
 
-@media (min-width: 1440px) {
+  .navBurgerMenu {
+    display: none;
+  }
+
   .NavLink {
+    height: 38px;
+    border: 1px solid rgba(index.$white-color, 0.2);
+    border-radius: 12px;
+    padding: 10px 27px;
+    color: #efede8;
+    background-color: transparent;
+    font-size: 16px;
+
     &.active {
       border-color: transparent;
-      background-color: #e6533c;
+      background-color: index.$orange-main-color;
     }
   }
 }

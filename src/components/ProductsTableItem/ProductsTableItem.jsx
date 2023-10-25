@@ -1,9 +1,8 @@
-// import { Field, Formik, Form } from 'formik';
 import React from 'react';
 import PropTypes from 'prop-types';
 
 // import css from './ProductsTableItem.module.scss';
-import css from './ProductsTableItem-copy.module.scss';
+import css from './ProductsTableItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import { clsx } from 'clsx';
 
@@ -16,82 +15,6 @@ export const ProductTableItem = ({ title, category, calories, weight, recommend 
     recommend: recommend,
   };
   return (
-    // <div>
-    //   <Formik
-    //     initialValues={{
-    //       title: title,
-    //       category: category,
-    //       calories: calories,
-    //       weight: weight,
-    //       recommend: recommend,
-    //     }}
-    //     onSubmit={async (values) => {
-    //       await new Promise((r) => setTimeout(r, 500));
-    //       alert(JSON.stringify(values, null, 2));
-    //     }}
-    //   >
-    //     <Form className={css.form}>
-    //       <div className={css.fieldWrap}>
-    //         <label htmlFor='title' className={css.title}>
-    //           Title
-    //         </label>
-    //         <Field id='title' name='title' className={clsx(css.field, css.titleField)} readOnly />
-    //       </div>
-    //       <div className={css.fieldWrap}>
-    //         <label htmlFor='category' className={css.title}>
-    //           Category
-    //         </label>
-    //         <Field id='category' name='category' className={clsx(css.field, css.categoriesField)} readOnly />
-    //       </div>
-
-    //       <div className={css.blockWrap}>
-    //         <div className={css.subBlockWrap}>
-    //           <div className={css.fieldWrap}>
-    //             <label htmlFor='calories' className={css.title}>
-    //               Calories
-    //             </label>
-    //             <Field
-    //               id='calories'
-    //               name='calories'
-    //               className={clsx(css.field, css.caloriesField)}
-    //               readOnly
-    //             />
-    //           </div>
-    //           <div className={css.fieldWrap}>
-    //             <label htmlFor='weight' className={css.title}>
-    //               Weight
-    //             </label>
-    //             <Field
-    //               id='weight'
-    //               name='weight'
-    //               className={clsx(css.field, css.weightField)}
-    //               readOnly
-    //             />
-    //           </div>
-    //           <div className={css.fieldWrap}>
-    //             <label htmlFor='recommend' className={css.title}>
-    //               Recommend
-    //             </label>
-    //             <Field
-    //               id='recommend'
-    //               name='recommend'
-    //               className={clsx(css.field, css.recommendField)}
-    //               readOnly
-    //             />
-    //           </div>
-    //         </div>
-    //         <div className={css.buttonWrap}>
-    //           <button type='submit' className={css.button}>
-    //             <svg className={css.icon}>
-    //               <use href={sprite + '#trash_icon'}></use>
-    //             </svg>
-    //           </button>
-    //         </div>
-    //       </div>
-
-    //     </Form>
-    //   </Formik>
-    // </div>
 
     <div className={css.container}>
       <div className={clsx(css.element, css.titleElement)}>
@@ -132,71 +55,7 @@ export const ProductTableItem = ({ title, category, calories, weight, recommend 
           </button>
         </div>
       </div>
-
-      {/* <Form className={css.form}>
-        <div className={css.fieldWrap}>
-          <label htmlFor='title' className={css.title}>
-            Title
-          </label>
-          <Field id='title' name='title' className={clsx(css.field, css.titleField)} readOnly />
-        </div>
-        <div className={css.fieldWrap}>
-          <label htmlFor='category' className={css.title}>
-            Category
-          </label>
-          <Field id='category' name='category' className={clsx(css.field, css.categoriesField)} readOnly />
-        </div>
-
-
-
-        <div className={css.blockWrap}>
-          <div className={css.subBlockWrap}>
-            <div className={css.fieldWrap}>
-              <label htmlFor='calories' className={css.title}>
-                Calories
-              </label>
-              <Field
-                id='calories'
-                name='calories'
-                className={clsx(css.field, css.caloriesField)}
-                readOnly
-              />
-            </div>
-            <div className={css.fieldWrap}>
-              <label htmlFor='weight' className={css.title}>
-                Weight
-              </label>
-              <Field
-                id='weight'
-                name='weight'
-                className={clsx(css.field, css.weightField)}
-                readOnly
-              />
-            </div>
-            <div className={css.fieldWrap}>
-              <label htmlFor='recommend' className={css.title}>
-                Recommend
-              </label>
-              <Field
-                id='recommend'
-                name='recommend'
-                className={clsx(css.field, css.recommendField)}
-                readOnly
-              />
-            </div>
-          </div> */}
-      {/* <div className={css.buttonWrap}>
-        <button type='submit' className={css.button}>
-          <svg className={css.icon}>
-            <use href={sprite + '#trash_icon'}></use>
-          </svg>
-        </button>
-      </div> */}
     </div>
-
-    //   </Form>
-
-    //   </div>
   );
 };
 

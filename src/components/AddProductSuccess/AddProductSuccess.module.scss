@@ -49,6 +49,14 @@
   height: 16px;
 }
 
+.link {
+  transition: color index.$transition-dur-and-fun;
+}
+
+.link:hover {
+  color: index.$orange-main-color;
+}
+
 @media screen and (min-width: index.$tablet-breakpoint) {
   .container {
     padding: 64px 136px 64px 137px;

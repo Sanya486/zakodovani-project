@@ -1,13 +1,13 @@
 import React from 'react';
+import Subtext from 'components/Subtext/Subtext';
 // import PropTypes from 'prop-types'
 
-// import { InfoItem } from "components/InfoItem/InfoItem";
 import { ProductTableItem } from 'components/ProductsTableItem/ProductsTableItem';
 
 const WelcomePage = () => {
-  return <div>
-    {/* <InfoItem name="Daily calorie intake" value="2000" variant="success"/> */}
-    <ProductTableItem 
+  return <div><Subtext page="signIn" />
+  
+  <ProductTableItem 
     title="Bread Hercules grain" 
     category="Flour"
     calories="289"
@@ -21,7 +21,8 @@ const WelcomePage = () => {
     weight="100"
     recommend="no"
     />
-    </div>;
+  
+  </div>;
 };
 
 // WelcomePage.propTypes = {
