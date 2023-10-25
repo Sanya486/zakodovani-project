@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import css from './ProductsItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
+import BasicModalWindow from 'components/BasicModalWindow/BasicModalWindow';
+import AddProductForm from 'components/AddProductForm/AddProductForm';
 
-export const ProductsItem = ({ product, handleAdd }) => {
+export const ProductsItem = ({ product }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <li className={css.itemContainer}>
       <div className={css.wrap}>
@@ -22,7 +26,7 @@ export const ProductsItem = ({ product, handleAdd }) => {
             <span className={css.recommendText}>
               {product.isRecommend ? 'Recommended' : 'Not recommended'}
             </span>
-            <button onClick={handleAdd} className={css.addBtn}>
+            <button onClick={() => setIsModalOpen(true)} className={css.addBtn}>
               Add
               <svg>
                 <use href={sprite + '#icon-arrow-right'}></use>
@@ -52,6 +56,14 @@ export const ProductsItem = ({ product, handleAdd }) => {
           </ul>
         </div>
       </div>
+      {isModalOpen && (
+        <BasicModalWindow onClose={() => setIsModalOpen(false)}>
+          <AddProductForm
+            data={{ _id: product._id, title: product.name, calories: product.calories }}
+            onClose={() => setIsModalOpen(false)}
+          />
+        </BasicModalWindow>
+      )}
     </li>
   );
 };
@@ -64,5 +76,5 @@ ProductsItem.propTypes = {
     category: PropTypes.string.isRequired,
     weight: PropTypes.string.isRequired,
   }).isRequired,
-  handleAdd: PropTypes.func.isRequired,
+  // handleAdd: PropTypes.func.isRequired,
 };
