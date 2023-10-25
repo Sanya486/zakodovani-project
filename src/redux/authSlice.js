@@ -10,29 +10,33 @@ import {
 
 import { handlePending, handleReject } from './handlers';
 
+const initialState = {
+  client: {
+    _id:'',
+    email: '',
+    name: '',
+  },
+  clientData: {
+    birthday: '',
+    blood: null,
+    currentWeight: null,
+    desiredWeight: null,
+    height: null,
+    levelActivity: null,
+    sex: '',
+    avatar: '',
+  },
+  token:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTM5NGRkYmY4YTRmNGFjY2QwYWE3ZmEiLCJpYXQiOjE2OTgyNTY5MTMsImV4cCI6MTY5ODMyODkxM30.yjoJepzsM0bh7TVnHdWIH7Vs44KmciSrYC0kIk8zQck',
+  isLoading: false,
+  isLoggedIn: false,
+  isRefreshing: false,
+  error: null,
+};
+
 export const authSlice = createSlice({
   name: 'auth',
-  initialState: {
-    client: {
-      email: '',
-      name: '',
-    },
-    clientData: {
-      birthday: '',
-      blood: null,
-      currentWeight: null,
-      desiredWeight: null,
-      height: null,
-      levelActivity: null,
-      sex: '',
-      avatar: '',
-    },
-    token: '',
-    isLoading: null,
-    isLoggedIn: false,
-    isRefreshing: false,
-    error: null,
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) =>
     builder
@@ -49,10 +53,13 @@ export const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(fetchLogout.fulfilled, (state) => {
-        state.isLoggedIn = false;
-        state.isLoading = false;
-        state.isRefreshing = false;
-        state.token = '';
+        state.client = initialState.client
+        state.clientData = initialState.client
+        state.error = initialState.error
+        state.isLoading = initialState.isLoading
+        state.isLoggedIn = initialState.isLoggedIn
+        state.isRefreshing = initialState.isRefreshing
+        state.token = initialState.token
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.client = payload;
