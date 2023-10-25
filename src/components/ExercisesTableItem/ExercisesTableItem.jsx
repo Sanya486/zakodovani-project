@@ -16,8 +16,8 @@ const ExercisesTableItem = () => {
       </div>
     );
   } else {
-    {/* mobile show */ }
-    return (
+        {/* mobile show */}
+        return (
       <div>
         <div className={css.container}>
           <h2 className={css.exercisetitle}>Execrcises</h2>
@@ -95,8 +95,9 @@ const ExercisesTableItem = () => {
       </div>
     );
   }
-}
+};
+
 
 export default ExercisesTableItem;
 
-
+// import React from 'react';
