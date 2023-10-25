@@ -75,7 +75,7 @@
   background-color: index.$variant-success-color;
 }
 
-.recommendColor {
+.recommendFalseColor::before {
   background-color: index.$variant-error-color;
 }
 
