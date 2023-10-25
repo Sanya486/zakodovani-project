@@ -1,17 +1,39 @@
 @use 'index';
+.statist {
+  padding-bottom: 40px;
+} 
+
 .container {
+  position: absolute;
+  bottom: 22%;
+  right: 28%;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px;
   width: 146px;
   height: 66px;
   border-radius: 12px;
   background-color: #303030;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5px;
-  gap: 8px;
-  margin-bottom: 70px;
+}
+
+@media (max-height: 812px) {
+  .container {
+    bottom: 16%;
+    right: 28%;
+  }
+}
+
+.marginTopUp {
+  margin-top: 35px;
+}
+
+.marginTopIn{
+  margin-top: 121px;
+}
+
+.marginTopProfile{
+  margin-top: 231px;
 }
 
 .circle {
@@ -21,6 +43,7 @@
   background-color: index.$orange-secondary-color;
   position: relative;
 }
+
 .play {
   width: 30px;
   height: 30px;
@@ -30,6 +53,7 @@
   left: 54%;
   transform: translate(-50%, -50%);
 }
+
 .text1 {
   font-size: 16px;
   line-height: 1.12;
@@ -37,12 +61,17 @@
   font-weight: bold;
   margin-bottom: 4px;
 }
+
 .text2 {
   font-size: 12px;
   line-height: 1.33;
   color: rgba(index.$white-color, 0.65);
 }
+
 .containerCal {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
   width: 119px;
   height: 76px;
   background-color: index.$orange-secondary-color;
@@ -53,6 +82,13 @@
   justify-content: center;
   gap: 4px;
 }
+
+@media (max-height: 812px) {
+  .containerCal {
+    bottom: 2%;
+  }
+}
+
 .circle2 {
   width: 20px;
   height: 20px;
@@ -89,11 +125,39 @@
   padding-top: 8px;
 }
 @media (min-width: index.$tablet-breakpoint) {
-  .container {
-    width: 206px;
-    height: 96px;
-    gap: 12px;
-    margin-bottom: 56px;
+  
+  @media (min-height: 600px) {
+    .container {
+      position: absolute;
+      right: 22%;
+      bottom: 24%;
+      width: 206px;
+      height: 96px;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    .containerCal {
+      position: absolute;
+      bottom: -4%;
+      right: 3%;
+      width: 180px;
+      height: 110px;
+    }
+  }
+
+  @media (min-height: 889px) {
+    .container {
+      position: absolute;
+      right: 30%;
+      bottom: 20%;
+    }
+  
+    .containerCal {
+      position: absolute;
+      bottom: -1%;
+      right: 2%;
+    }
   }
 
   .circle {
@@ -119,6 +183,7 @@
     width: 180px;
     height: 110px;
     gap: 8px;
+    margin-bottom: 48px;
   }
   .circle2 {
     width: 24px;
@@ -141,12 +206,34 @@
   .cal {
     font-size: 16px;
     line-height: 1.5;
-
     padding-top: 20px;
   }
+  .marginTopUp {
+    margin-top: 39px;
+  }
+  .marginTopIn{
+    margin-top: 135px;
+  }
+  .marginTopProfile{
+    margin-top: 171px;
+  }
+
+  
 }
 @media (min-width: index.$desktop-breakpoint) {
-  .container {
-    margin-bottom: 39px;
+.container {
+    position: absolute;
+    bottom: 43%;
+    left: 60%;
+}
+  
+.containerCal {
+  position: absolute;
+  bottom: 17%;
+  right: 2%;
+}
+
+  .statist{
+    padding-bottom: 0;
   }
 }

@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ExercisesSubcategoriesItem.module.scss';
+// import clsx from 'clsx';
+// import { SwiperSlide } from 'swiper/react';
 
-const ExercisesSubcategoriesItem = ({ key, name, category, imageURL }) => {
+const ExercisesSubcategoriesItem = ({ name, category, imageURL, handleClick }) => {
   const cardStyle = {
     backgroundImage: `linear-gradient(
       to right,
@@ -13,18 +15,18 @@ const ExercisesSubcategoriesItem = ({ key, name, category, imageURL }) => {
   };
 
   return (
-    <li key={key} className={styles['exercise-card']} style={cardStyle}>
+    <div className={styles['exercise-card']} style={cardStyle} onClick={() => handleClick(name)}>
       <h3 className={styles['exercise-card-subcategory']}>{name}</h3>
       <p className={styles['exercise-card-category']}>{category}</p>
-    </li>
+    </div>
   );
 };
 
 ExercisesSubcategoriesItem.propTypes = {
-  key: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   imageURL: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default ExercisesSubcategoriesItem;

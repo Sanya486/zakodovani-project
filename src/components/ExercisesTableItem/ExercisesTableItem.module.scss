@@ -1,9 +1,8 @@
 @use 'index';
 
 .bodybox {
-  padding-left: 16px;
-  padding-right: 16px;
-  background-color: rgba(239, 237, 232, 0.05);
+
+
   border-color: rgba(239, 237, 232, 0.2);
   border-width: 1px;
   border-radius: 12px;
@@ -12,9 +11,6 @@
 .bodyboxTable {
   padding-left: 16px;
   padding-right: 16px;
-  padding-bottom: 14px;
-  margin: 20px;
-  background-color: rgba(239, 237, 232, 0.05);
   border-color: rgba(239, 237, 232, 0.2);
   border-width: 1px;
   border-radius: 12px;
@@ -28,6 +24,10 @@
   justify-content: space-between;
   background-color: rgba(239, 237, 232, 0);
 }
+.itembox {
+  margin-bottom: 60px;
+}
+
 .exercisetitle {
   color: rgba(239, 237, 232, 0.5);
   font-weight: 500;
@@ -44,10 +44,12 @@
 
 .exercisename {
   color: #ef8964;
-  overflow-x: hidden;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .exercisetitleitem {
@@ -58,7 +60,6 @@
 }
 
 .exercisetipe {
-  overflow-x: hidden;
   color: index.$white-color;
   border-color: rgba(239, 237, 232, 0.3);
   font-weight: 400;
@@ -72,6 +73,7 @@
   padding-left: 14px;
   padding-right: 14px;
 }
+
 .rowtext {
   display: flex;
   flex-direction: row;
@@ -89,12 +91,12 @@
 
 .icon {
   position: relative;
-  top: +67px;
+  top: +50px;
   display: flex;
   flex-direction: column;
   stroke: #ef8964;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 }
 
 .icon2 {
@@ -104,14 +106,25 @@
   stroke: #ef8964;
   width: 20px;
   height: 20px;
+  top: +10px;
+}
+.tablehide {
+  display: none;
 }
 
 @media screen and (min-width: index.$mobile-breakpoint) {
   .rowtext {
-    gap: 25px;
+    gap: 5px;
   }
   .icon {
     top: +50px;
+  }
+  .extrabigwidth {
+    max-width: 150px;
+  }
+
+  .extrasmallwidth {
+    width: 20px;
   }
 }
 

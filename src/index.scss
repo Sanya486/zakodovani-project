@@ -98,3 +98,36 @@ h5,
 h6 {
   margin: 0;
 }
+
+.swiper-pagination-bullet {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-image: url('./images/svg/pagination_bullet.svg');
+  background-size: contain;
+  margin-left: 8px;
+}
+
+.swiper-pagination-bullet:first-child {
+  margin-left: 0;
+}
+
+.swiper-pagination-bullet-active {
+  background-image: url('./images/svg/pagination_active.svg');
+}
+
+.swiper-pagination {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet:only-child {
+  visibility: hidden;
+}
+
+h2{
+  margin: 0;
+}
+
+
