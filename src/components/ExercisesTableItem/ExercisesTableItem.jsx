@@ -1,12 +1,12 @@
 import React from 'react';
 import css from './ExercisesTableItem.module.scss';
-import { selectExercises } from 'redux/selectors';
+import { selectDiaryExercises } from 'redux/selectors';
 import { useSelector } from 'react-redux';
 import sprite from '../../images/svg/sprite.svg';
 import clsx from 'clsx';
 
 const ExercisesTableItem = () => {
-  const exercises = useSelector(selectExercises);
+  const exercises = useSelector(selectDiaryExercises);
   if (exercises.length === 0) {
     return (
       <div className={css.bodybox}>
@@ -16,8 +16,10 @@ const ExercisesTableItem = () => {
       </div>
     );
   } else {
-        {/* mobile show */}
-        return (
+    {
+      /* mobile show */
+    }
+    return (
       <div>
         <div className={css.container}>
           <h2 className={css.exercisetitle}>Execrcises</h2>
@@ -96,7 +98,6 @@ const ExercisesTableItem = () => {
     );
   }
 };
-
 
 export default ExercisesTableItem;
 
