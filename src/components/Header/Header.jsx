@@ -6,9 +6,13 @@ import UserNav from '../../components/UserNav/UserNav';
 import UserBar from '../../components/UserBar/UserBar';
 import LogoutBtn from '../../components/LogoutBtn/LogoutBtn';
 import css from './Header.module.scss';
+import Container from 'components/Container/Container';
+import { selectIsLoggedIn } from 'redux/selectors';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 // import PropTypes from 'prop-types'
 
 const Header = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [token, setToken] = useState('');
   const navigate = useNavigate();
@@ -60,7 +64,8 @@ const Header = () => {
 
   return (
     <>
-    {isAuthenticated 
+    <Container />
+    {isLoggedIn 
     ? <div className={css.headerWrapper}>
     <Link
       to={isAuthenticated ? '/diary' : '/welcome'}
@@ -79,8 +84,8 @@ const Header = () => {
   </div>
   : <div className={css.headerNoAuthenticatedWpapper}>
   <Logo />
-  </div> }
-    </>
+  </div>}
+  </>
   );
 };
 
