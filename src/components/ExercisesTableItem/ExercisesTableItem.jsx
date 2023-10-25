@@ -7,9 +7,17 @@ import clsx from 'clsx';
 
 const ExercisesTableItem = () => {
   const exercises = useSelector(selectExercises);
-  
-        {/* mobile show */}
-        return (
+  if (exercises.length === 0) {
+    return (
+      <div className={css.bodybox}>
+        <div className={css.container}>
+          <h3>Not found exercises</h3>
+        </div>
+      </div>
+    );
+  } else {
+    {/* mobile show */ }
+    return (
       <div>
         <div className={css.container}>
           <h2 className={css.exercisetitle}>Execrcises</h2>
@@ -87,9 +95,8 @@ const ExercisesTableItem = () => {
       </div>
     );
   }
-
-
+}
 
 export default ExercisesTableItem;
 
-// import React from 'react';
+
