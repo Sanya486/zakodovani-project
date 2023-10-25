@@ -1,10 +1,7 @@
 @use 'index';
 
 .bodybox {
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-bottom: 14px;
-  margin: 20px;
+
 
   border-color: rgba(239, 237, 232, 0.2);
   border-width: 1px;
@@ -76,14 +73,6 @@
   text-overflow: ellipsis;
 }
 
-.extrabigwidth {
-  max-width: 150px;
-}
-
-.extrasmallwidth {
-  max-width: 60px;
-}
-
 .rowtext {
   display: flex;
   flex-direction: row;
@@ -102,12 +91,12 @@
 
 .icon {
   position: relative;
-  top: +60px;
+  top: +50px;
   display: flex;
   flex-direction: column;
   stroke: #ef8964;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 }
 
 .icon2 {
@@ -119,16 +108,23 @@
   height: 20px;
   top: +10px;
 }
-.tablehide{
+.tablehide {
   display: none;
 }
 
 @media screen and (min-width: index.$mobile-breakpoint) {
   .rowtext {
-    gap: 25px;
+    gap: 5px;
   }
   .icon {
-    top: +60px;
+    top: +50px;
+  }
+  .extrabigwidth {
+    max-width: 150px;
+  }
+
+  .extrasmallwidth {
+    width: 20px;
   }
 }
 
@@ -152,9 +148,9 @@
   .exercisestablehead td {
     padding: 10px;
   }
-  .tablehide{
-  display: block;
-}
+  .tablehide {
+    display: table-row;
+  }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
