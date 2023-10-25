@@ -1,14 +1,11 @@
-import ProductsFilters from 'components/ProductsFilters/ProductsFilters';
 import React from 'react';
+
 // import PropTypes from 'prop-types'
 
-const WelcomePage = () => {
-  return (
-    <div>
-      <ProductsFilters />
+// import { ProductTableItem } from 'components/ProductsTableItem/ProductsTableItem';
 
-    </div>
-  );
+const WelcomePage = () => {
+  return <div></div>;
 };
 
 // WelcomePage.propTypes = {

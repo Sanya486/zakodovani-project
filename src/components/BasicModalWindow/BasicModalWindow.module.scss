@@ -17,6 +17,8 @@
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: #10100f;
   position: relative;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
 }
 
 .modalCloseBtn {
@@ -32,6 +34,15 @@
   right: 14px;
   color: index.$white-color;
   cursor: pointer;
+  transition: color index.$transition-dur-and-fun;
+}
+
+.modalCloseBtn:hover {
+  color: index.$orange-main-color;
+}
+
+.modalCloseBtnHidden {
+  display: none;
 }
 
 .modalCloseIcon {
@@ -46,6 +57,10 @@
     height: 26px;
     top: 16px;
     right: 16px;
+  }
+
+  .modalCloseBtnHidden {
+    display: block;
   }
 
   .modalCloseIcon {

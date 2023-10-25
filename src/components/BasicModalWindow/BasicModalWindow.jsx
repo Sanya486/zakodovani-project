@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import clsx from 'clsx';
 import { useEffect } from 'react';
 import sprite from '../../images/svg/sprite.svg';
 import css from './BasicModalWindow.module.scss';
 
-const BasicModalWindow = ({ children, onClose }) => {
+const BasicModalWindow = ({ children, onClose, showCloseBtn = true }) => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.code === 'Escape') {
@@ -28,7 +28,13 @@ const BasicModalWindow = ({ children, onClose }) => {
   return (
     <div className={css.backdrop} onClick={handleBackdropClick}>
       <div className={css.modal}>
-        <button className={css.modalCloseBtn} onClick={onClose}>
+        <button
+          type='button'
+          className={clsx(css.modalCloseBtn, {
+            [css.modalCloseBtnHidden]: !showCloseBtn,
+          })}
+          onClick={onClose}
+        >
           <svg className={css.modalCloseIcon}>
             <use href={sprite + '#close_icon'}></use>
           </svg>
@@ -43,4 +49,5 @@ export default BasicModalWindow;
 
 BasicModalWindow.propTypes = {
   onClose: PropTypes.func.isRequired,
+  showCloseBtn: PropTypes.bool,
 };
