@@ -7,7 +7,7 @@ export const dairySlice = createSlice({
     clientId: '',
     _v: null,
     consumedProduct: [],
-    exerciseDone: []
+    exerciseDone: [],
   },
   reducers: {},
   extraReducers: {},

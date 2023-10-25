@@ -30,6 +30,6 @@ export default ExercisesCategories;
 
 ExercisesCategories.propTypes = {
   activeFilter: PropTypes.string.isRequired,
-  setActiveFilter: PropTypes.func.isRequired, 
-  filterValues: PropTypes.arrayOf(PropTypes.string.isRequired)
-}
+  setActiveFilter: PropTypes.func.isRequired,
+  filterValues: PropTypes.arrayOf(PropTypes.string.isRequired),
+};

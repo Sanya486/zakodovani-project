@@ -9,7 +9,7 @@
   border-radius: 12px;
   gap: 32px;
 }
-.bodyboxTable{
+.bodyboxTable {
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: 14px;
@@ -20,10 +20,7 @@
   border-radius: 12px;
   gap: 32px;
   display: none;
-  
-  
 }
-
 
 .container {
   display: flex;
@@ -74,22 +71,20 @@
   padding-bottom: 10px;
   padding-left: 14px;
   padding-right: 14px;
-  
 }
 .rowtext {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
+
   gap: 10px;
   flex: 1;
 }
-.rowtextitems{
+.rowtextitems {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-flex: 1; 
-
+  flex: 1;
 }
 
 .icon {
@@ -102,8 +97,7 @@ flex: 1;
   height: 20px;
 }
 
-
-.icon2{
+.icon2 {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -113,8 +107,8 @@ flex: 1;
 }
 
 @media screen and (min-width: index.$mobile-breakpoint) {
-  .rowtext{
-    gap:25px;
+  .rowtext {
+    gap: 25px;
   }
   .icon {
     top: +50px;
@@ -122,37 +116,30 @@ flex: 1;
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-  .bodybox{
+  .bodybox {
     display: none;
   }
-  .bodyboxTable{
+  .bodyboxTable {
     display: block;
   }
   .exercisestablehead {
-  
-  
- flex: 1;
- 
- width: 100%;
-  text-align: left;
-  font-size: 16px;
-    
-}
+    flex: 1;
 
-.exercisestablehead td{
-  gap: 10px;
-  padding-right: 10px;
-}
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+  }
+
+  .exercisestablehead td {
+    gap: 10px;
+    padding-right: 10px;
+  }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
   .exercisetitleitem {
- 
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
-
-}
-
-

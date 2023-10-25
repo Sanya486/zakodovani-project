@@ -15,7 +15,6 @@ export const ProductTableItem = ({ title, category, calories, weight, recommend 
     recommend: recommend,
   };
   return (
-
     <div className={css.container}>
       <div className={clsx(css.element, css.titleElement)}>
         <p className={css.title}>Title</p>
