@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import css from './Subtext.module.scss';
+import PropTypes from 'prop-types';
 
 const Subtext = ({ page }) => {
   let cssClass = '';
@@ -41,6 +42,10 @@ const Subtext = ({ page }) => {
       {page === 'userPage' && <p className={cssClass}>User</p>}
     </>
   );
+};
+
+Subtext.propTypes = {
+  page: PropTypes.string.isRequired,
 };
 
 export default Subtext;
