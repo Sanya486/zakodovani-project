@@ -10,8 +10,8 @@ const handleReject = (state, action) => {
   state.error = action.payload;
 };
 
-export const clientSlice = createSlice({
-  name: 'client',
+export const authSlice = createSlice({
+  name: 'auth',
   initialState: {
     client: {
       email: '',

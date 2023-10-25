@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { clientSlice } from './clientSlice';
+import { authSlice } from './authSlice';
 import { sportsSlice } from './sportsSlice';
 import { productsSlice } from './productsSlice';
 
@@ -22,7 +22,7 @@ const persistContactsConfig = {
   whitelist: ['token'],
 };
 
-const authPersistReducer = persistReducer(persistContactsConfig, clientSlice.reducer);
+const authPersistReducer = persistReducer(persistContactsConfig, authSlice.reducer);
 
 export const store = configureStore({
   reducer: {
