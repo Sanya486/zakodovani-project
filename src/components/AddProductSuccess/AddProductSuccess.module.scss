@@ -1,10 +1,14 @@
-@import 'index.scss';
+@use 'index';
 
 .container {
   padding: 48px 89px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .button {
+    padding: 12px 32px;
+  }
 }
 
 .image {
@@ -15,7 +19,7 @@
 
 .title {
   margin: 0;
-  color: $white-color;
+  color: index.$white-color;
   font-size: 24px;
   line-height: 1.33;
   margin-bottom: 16px;
@@ -31,7 +35,7 @@
 }
 
 .span {
-  color: $orange-main-color;
+  color: index.$orange-main-color;
 }
 
 .buttonLink {
@@ -45,9 +49,22 @@
   height: 16px;
 }
 
-@media screen and (min-width: $tablet-breakpoint) {
+.link {
+  transition: color index.$transition-dur-and-fun;
+}
+
+.link:hover {
+  color: index.$orange-main-color;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
   .container {
     padding: 64px 136px 64px 137px;
+    .button {
+      padding: 14px 32px;
+      font-size: 16px;
+      height: 52px;
+    }
   }
 
   .image {

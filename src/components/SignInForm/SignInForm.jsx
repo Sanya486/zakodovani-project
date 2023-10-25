@@ -8,8 +8,6 @@ import Button from 'components/Button/Button';
 
 import sprite from '../../images/svg/sprite.svg';
 
-// import PropTypes from 'prop-types'
-
 const SignInForm = () => {
   return (
     <Formik
@@ -93,9 +91,5 @@ const SignInForm = () => {
     </Formik>
   );
 };
-
-// SignInForm.propTypes = {
-
-// }
 
 export default SignInForm;

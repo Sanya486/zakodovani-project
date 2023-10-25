@@ -1,4 +1,4 @@
-@import 'index.scss';
+@use 'index';
 
 .backdrop {
   display: flex;
@@ -17,6 +17,8 @@
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: #10100f;
   position: relative;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
 }
 
 .modalCloseBtn {
@@ -30,8 +32,17 @@
   position: absolute;
   top: 14px;
   right: 14px;
-  color: $white-color;
+  color: index.$white-color;
   cursor: pointer;
+  transition: color index.$transition-dur-and-fun;
+}
+
+.modalCloseBtn:hover {
+  color: index.$orange-main-color;
+}
+
+.modalCloseBtnHidden {
+  display: none;
 }
 
 .modalCloseIcon {
@@ -40,12 +51,16 @@
   height: 22px;
 }
 
-@media screen and (min-width: $tablet-breakpoint) {
+@media screen and (min-width: index.$tablet-breakpoint) {
   .modalCloseBtn {
     width: 26px;
     height: 26px;
     top: 16px;
     right: 16px;
+  }
+
+  .modalCloseBtnHidden {
+    display: block;
   }
 
   .modalCloseIcon {
