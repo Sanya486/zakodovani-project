@@ -8,7 +8,6 @@
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .container {
-  .container {
     max-width: 768px;
     padding: 72px 32px;
   }
@@ -16,9 +15,7 @@
 
 @media screen and (min-width: index.$desktop-breakpoint) {
   .container {
-  .container {
     max-width: 1440px;
     padding: 72px 96px;
   }
 }
-}}
