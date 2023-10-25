@@ -16,6 +16,7 @@
 
 .link {
   color: index.$white-color;
+  text-decoration-line: underline;
 }
 @media (min-width: index.$tablet-breakpoint){
   .signIn,

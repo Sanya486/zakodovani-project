@@ -19,7 +19,7 @@
   position: relative;
 }
 .text {
-  color:index.$white-color;
+  color: index.$white-color;
   line-height: 1.33;
   font-size: 12px;
   margin-top: 16px;
@@ -31,19 +31,19 @@
 }
 .fork {
   fill: index.$orange-secondary-color;
- max-width: 20px;
- max-height: 20px;
- position: absolute;
- right:-6px;
- top:-2px;
+  max-width: 20px;
+  max-height: 20px;
+  position: absolute;
+  right: -6px;
+  top: -2px;
 }
 .gym {
   fill: index.$orange-secondary-color;
   max-width: 20px;
- max-height: 20px;
- position: absolute;
- right:-5px;
- top:-3px;
+  max-height: 20px;
+  position: absolute;
+  right: -5px;
+  top: -3px;
 }
 .span1 {
   position: absolute;
@@ -58,7 +58,6 @@
   color: index.$white-color;
 }
 .dang {
-  
   display: flex;
   gap: 8px;
   justify-content: center;
@@ -70,19 +69,18 @@
   font-size: 14px;
   color: index.$white-color;
 }
-.mark_icon{
+.mark_icon {
   max-width: 24px;
   max-height: 24px;
   background-color: #fff;
-  fill:index.$beige-color;
+  fill: index.$beige-color;
   stroke: index.$white-color;
 }
 @media screen and (min-width: index.$mobile-breakpoint) {
-  .dang{
+  .dang {
     width: 335px;
   }
 }
-
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .group {
@@ -97,18 +95,14 @@
     line-height: 1.2;
     font-size: 15px;
     margin-top: 15px;
-   
   }
   .textDang {
     line-height: 1.5;
     font-size: 16px;
-   
-    
-}
-.gym {
-
- top:-1.5px;
-}
+  }
+  .gym {
+    top: -1.5px;
+  }
   .span1 {
     left: 18px;
   }
