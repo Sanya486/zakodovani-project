@@ -1,5 +1,20 @@
 @use "index";
 
-.logoutBtn{
-    display: block;
+.container{
+    max-width: 375px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 66px;
+}
+
+@media (min-width: index.$tablet-breakpoint) {
+    .container{
+        max-width: 768px;
+        margin-bottom: 54px;
+    }
+}
+@media (min-width: index.$desktop-breakpoint) {
+    .container{
+        max-width: 1440px;
+    }
 }

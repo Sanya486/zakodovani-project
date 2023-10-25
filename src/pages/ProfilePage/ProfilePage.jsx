@@ -8,7 +8,7 @@ import css from './ProfilePage.module.scss'
 // import PropTypes from 'prop-types'
 
 const ProfilePage = () => {
-  return <div >
+  return <div className={css.container}>
     <TitlePage>Profile Settings</TitlePage>
     <User/>
     <UserCard/>
