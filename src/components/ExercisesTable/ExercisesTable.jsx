@@ -7,21 +7,9 @@ import clsx from 'clsx';
 
 const ExercisesTable = () => {
   const exercises = useSelector(selectExercises);
+  
 
-  console.log(exercises);
-
-  if (exercises.length === 0) {
-    return (
-      <div className={css.bodybox}>
-        <div className={css.container}>
-          <h3>Not found exercises</h3>
-        </div>
-      </div>
-    );
-  } else {
-    {
       /* mobile show */
-    }
     return (
       <div>
         
@@ -94,7 +82,7 @@ const ExercisesTable = () => {
       </div>
     );
   }
-};
+
 
 export default ExercisesTable;
 

@@ -10,17 +10,7 @@ const ExercisesTableItem = () => {
 
   console.log(exercises);
 
-  if (exercises.length === 0) {
-    return (
-      <div className={css.bodybox}>
-        <div className={css.container}>
-          <h3>Not found exercises</h3>
-        </div>
-      </div>
-    );
-  } else {
-      
-        
+  
         {/* mobile show */}
         return (
       <div>
@@ -100,7 +90,7 @@ const ExercisesTableItem = () => {
       </div>
     );
   }
-};
+
 
 
 export default ExercisesTableItem;
