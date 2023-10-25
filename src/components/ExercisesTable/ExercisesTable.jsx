@@ -15,7 +15,7 @@ const ExercisesTable = () => {
 
 
   return (
-    <div>
+    <>
       <div className={clsx(css.bodybox)}>
         {exercises.map(({ key, bodyPart, equipment, name, target, burnedCalories, time }) => (
           <ExercisesTableItem
@@ -55,7 +55,7 @@ const ExercisesTable = () => {
           </tbody>
         </table>
       </div>
-    </div>
+    </>
   );
 };
 

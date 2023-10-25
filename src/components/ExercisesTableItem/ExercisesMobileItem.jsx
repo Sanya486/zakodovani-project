@@ -3,18 +3,7 @@ import css from './ExercisesTableItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import clsx from 'clsx';
 
-
-
-const ExercisesTableItem = ({ key,
-  bodyPart,
-  equipment,
-  name,
-  target,
-  burnedCalories,
-  time }
-  
-) => {
-
+const ExercisesTableItem = ({ key, bodyPart, equipment, name, target, burnedCalories, time }) => {
   return (
     <>
       <div className={clsx(css.bodybox)}>
@@ -50,7 +39,7 @@ const ExercisesTableItem = ({ key,
           </div>
         </div>
       </div>
-      <tr className={clsx(css.exercisestablebody, css.tablehide)} >
+      <tr className={clsx(css.exercisestablebody, css.tablehide)}>
         <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{bodyPart}</td>
         <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{equipment}</td>
         <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{name}</td>
@@ -65,8 +54,6 @@ const ExercisesTableItem = ({ key,
     </>
   );
 };
-
-
 
 export default ExercisesTableItem;
 
