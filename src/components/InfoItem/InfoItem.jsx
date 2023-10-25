@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import { useDispatch, useSelector } from "react-redux";
+// import PropTypes from "prop-types";
 import clsx from 'clsx';
 import css from './InfoItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
@@ -8,13 +9,13 @@ export const InfoItem = ({ name, value, variant }) => {
   let addClass = '';
 
   switch (variant) {
-    case '2':
-      addClass = css.secondVariant;
+    case 'empty':
+      addClass = css.firstVariant;
       break;
-    case '3':
+    case 'error':
       addClass = css.thirdVariant;
       break;
-    case '4':
+    case 'success':
       addClass = css.fourthVariant;
       break;
     default:
@@ -47,7 +48,8 @@ export const InfoItem = ({ name, value, variant }) => {
   }
 
   return (
-    <li key={name} className={clsx(css.infoItemContainer, addClass)}>
+    // <div className={css.infoItemContainer}>
+    <div className={clsx(css.infoItemContainer, addClass)}>
       <div className={css.wrap}>
         <svg className={css.icon}>
           <use href={sprite + addSvg}></use>
@@ -57,10 +59,4 @@ export const InfoItem = ({ name, value, variant }) => {
       <h2 className={css.itemValue}> {value}</h2>
     </li>
   );
-};
-
-InfoItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  variant: PropTypes.string,
 };

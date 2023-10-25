@@ -2,6 +2,7 @@ import React from 'react';
 import ExercisesSubcategoriesItem from 'components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 import styles from './ExercisesSubcategoriesList.module.scss';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 //-Add OnClick logic
 
@@ -25,3 +26,7 @@ const ExercisesSubcategoriesList = ({ activeFilter }) => {
 };
 
 export default ExercisesSubcategoriesList;
+
+ExercisesSubcategoriesList.propTypes = {
+  activeFilter: PropTypes.string.isRequired,
+}
