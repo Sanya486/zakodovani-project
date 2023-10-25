@@ -27,8 +27,8 @@ const SignUpFrom = () => {
     >
       {({ errors, touched }) => (
         <Form className={css.formWrapper}>
-          <div className={clsx(css.inputsWrapper, errors.email && touched.email && css.noGap)}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          <div className={clsx(css.inputsWrapper)}>
+            <div className={clsx(css.inputWrapper)}>
               <Field
                 name='name'
                 type='text'
@@ -48,7 +48,7 @@ const SignUpFrom = () => {
                 </div>
               )}
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <div className={clsx(css.inputWrapper)}>
               <Field
                 name='email'
                 type='email'
@@ -76,7 +76,7 @@ const SignUpFrom = () => {
                 </div>
               )}
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <div className={clsx(css.inputWrapper)}>
               <Field
                 name='password'
                 type='text'
