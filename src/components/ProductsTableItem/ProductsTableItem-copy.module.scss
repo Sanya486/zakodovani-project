@@ -50,13 +50,33 @@
   border-radius: 12px;
   border: 1px solid rgba(index.$white-color, 0.3);
   font-size: 14px;
-  line-height: calc(18/14);
+  line-height: calc(18 / 14);
   width: 100%;
   height: 38px;
 
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.recommendField {
+  padding-left: 36px;
+  position: relative;
+}
+
+.recomendStatus::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 30%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: index.$variant-success-color;
+}
+
+.recommendColor {
+  background-color: index.$variant-error-color;
 }
 
 .blockWrap {
@@ -118,9 +138,9 @@
     height: 18px;
   }
 
-  .field {
-    padding: 8.2px 14px;
-  }
+  // .field {
+  //   padding: 9.2px 14px;
+  // }
 
   .blockWrap {
     width: 269px;
@@ -160,7 +180,11 @@
     padding: 7.2px 14px;
     height: 40px;
     font-size: 16px;
-    line-height: calc(24/16);
+    line-height: calc(24 / 16);
+  }
+
+  .recommendField {
+    padding-left: 36px;
   }
 
   .blockWrap {
@@ -184,38 +208,37 @@
   }
 }
 
-  @media screen and (min-width: index.$desktop-breakpoint) {
-    .container {
-      width: 762px;
-    }
-
-    .titleElement {
-      width: 212px;
-    }
-  
-    .categoriesElement {
-      width: 166px;
-    }
-  
-    .caloriesElement,
-    .weightElement {
-      width: 105px;
-    }
-  
-    .recommendElement {
-      width: 110px;
-    }
-
-    .blockWrap {
-      width: 368px;
-    }
-
-    .blockWrap:last-child {
-      column-gap: 8px;
-    }
-
-    .blockWrap .element {
-      margin-bottom: 0;
-    }
-
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .container {
+    width: 762px;
   }
+
+  .titleElement {
+    width: 212px;
+  }
+
+  .categoriesElement {
+    width: 166px;
+  }
+
+  .caloriesElement,
+  .weightElement {
+    width: 105px;
+  }
+
+  .recommendElement {
+    width: 110px;
+  }
+
+  .blockWrap {
+    width: 368px;
+  }
+
+  .blockWrap:last-child {
+    column-gap: 8px;
+  }
+
+  .blockWrap .element {
+    margin-bottom: 0;
+  }
+}
