@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 
 // import { getDiaryProducts } from '../../redux/selectors';
-// import { fetchDiaryDateInfo, fetchDeleteProduct} from '../../redux/operations';
+// import { fetchDeleteProduct} from '../../redux/operations';
 
 export const ProductTableItem = ({ title, category, calories, weight, recommend, first }) => {
   const productTableItem = {
