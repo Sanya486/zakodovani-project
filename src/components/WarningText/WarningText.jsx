@@ -1,6 +1,7 @@
 import React from 'react';
 import sprite from '../../images/svg/sprite.svg';
 import css from './WarningText.module.scss';
+import PropTypes from 'prop-types';
 
 const WarningText = ({ page }) => {
   return (
@@ -14,14 +15,18 @@ const WarningText = ({ page }) => {
           and tailored to your unique body and goals.
         </p>
       )}
-      {page === 'dairyPage' && (
-        <p className={css.warningTextDairyPage}>
+      {page === 'diaryPage' && (
+        <p className={css.warningTextDiaryPage}>
           Record all your meals in a calorie diary every day. This will help me be aware of my
           nutrition and make me responsible for my choices.
         </p>
       )}
     </div>
   );
+};
+
+WarningText.propTypes = {
+  page: PropTypes.string.isRequired,
 };
 
 export default WarningText;

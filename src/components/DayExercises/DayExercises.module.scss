@@ -1,0 +1,56 @@
+@use 'index';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(239, 237, 232, 0);
+}
+.exercisetitle {
+  color: rgba(239, 237, 232, 0.5);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.3;
+}
+.addexercisetitle {
+  color: index.$orange-main-color;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+}
+.bodybox {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 14px;
+  margin: 20px;
+  background-color: rgba(239, 237, 232, 0.05);
+  border-color: rgba(104, 96, 75, 0.2);
+  border-width: 1px;
+  border-radius: 12px;
+  gap: 32px;
+}
+
+.exercisesepmty {
+  color: rgba(239, 237, 232, 0.5);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+@media screen and (min-width: index.$mobile-breakpoint) {
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .addexercisetitle {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .exercisesepmty {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+}
