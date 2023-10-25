@@ -17,6 +17,18 @@ const ExercisesTableItem = ({ key,
 
   return (
     <>
+      <tr className={clsx(css.exercisestablebody, css.tablehide)}>
+        <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{bodyPart}</td>
+        <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{equipment}</td>
+        <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{name}</td>
+        <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{target}</td>
+        <td className={clsx(css.exercisetipe, css.extrasmallwidth)}>{burnedCalories}</td>
+        <td className={css.exercisetipe}>{time}</td>
+        <svg className={css.icon2}>
+          <use href={sprite + '#trash_icon'}></use>
+        </svg>
+      </tr>
+
       <div className={clsx(css.bodybox)}>
         <div>
           <div>
@@ -50,18 +62,6 @@ const ExercisesTableItem = ({ key,
           </div>
         </div>
       </div>
-      <tr className={clsx(css.exercisestablebody, css.tablehide)} >
-        <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{bodyPart}</td>
-        <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{equipment}</td>
-        <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{name}</td>
-        <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{target}</td>
-        <td className={clsx(css.exercisetipe, css.extrasmallwidth)}>{burnedCalories}</td>
-        <td className={css.exercisetipe}>{time}</td>
-        <svg className={css.icon2}>
-          <use href={sprite + '#trash_icon'}></use>
-        </svg>
-      </tr>
-      ;
     </>
   );
 };
