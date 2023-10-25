@@ -7,9 +7,6 @@ import clsx from 'clsx';
 
 const ExercisesTableItem = () => {
   const exercises = useSelector(selectExercises);
-
-  console.log(exercises);
-
   
         {/* mobile show */}
         return (
