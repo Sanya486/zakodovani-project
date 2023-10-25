@@ -88,7 +88,7 @@ export const ProductTableItem = ({ title, category, calories, weight, recommend,
                   <span
                     className={clsx(
                       css.recomendStatus,
-                      recommend !== 'yes' && css.recommendFalseColor,
+                      recommend !== "Yes" && css.recommendFalseColor,
                     )}
                   >
                     {productTableItem.recommend}
@@ -116,4 +116,5 @@ ProductTableItem.propTypes = {
   calories: PropTypes.string.isRequired,
   weight: PropTypes.string.isRequired,
   recommend: PropTypes.string.isRequired,
+  first: PropTypes.string
 };

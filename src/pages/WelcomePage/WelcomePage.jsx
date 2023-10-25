@@ -2,17 +2,18 @@ import React from 'react';
 
 // import PropTypes from 'prop-types'
 
-import { ProductTableItem } from 'components/ProductsTableItem/ProductsTableItem';
+// import { ProductTableItem } from 'components/ProductsTableItem/ProductsTableItem';
+import { ProductTable } from 'components/ProductsTable/ProductsTable';
 
 const WelcomePage = () => {
-  return <div>
-
-  <ProductTableItem 
+  return (
+    <div>
+      {/* <ProductTableItem 
   title = 'marlin'
   category = 'fish'
   calories = '100'
   weight='112'
-  recommend='yes'
+  recommend='Yes'
   first='true'
   />
 
@@ -21,12 +22,13 @@ const WelcomePage = () => {
   category = 'dairy'
   calories = '200'
   weight='340'
-  recommend='no'
+  recommend='No'
   first='false'
-  />
+  /> */}
 
-
-  </div>;
+      <ProductTable />
+    </div>
+  );
 };
 
 // WelcomePage.propTypes = {
