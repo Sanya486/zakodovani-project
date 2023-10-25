@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import './App.scss';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Layout from 'components/Layout/Layout';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
@@ -14,8 +14,12 @@ import ProfilePage from 'pages/ProfilePage/ProfilePage';
 import ProductsPage from 'pages/ProductsPage/ProductsPage';
 import ExercisesPage from 'pages/ExercisesPage/ExercisesPage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
+import { useDispatch } from 'react-redux';
+import {  fetchLogin } from 'redux/operations';
 
 function App() {
+const dispatch = useDispatch()
+  useEffect(() => {dispatch(fetchLogin({ email: 'ben@mail.com', password: 'test12345'}));}, [dispatch]);
   return (
     <>
       <Routes>
