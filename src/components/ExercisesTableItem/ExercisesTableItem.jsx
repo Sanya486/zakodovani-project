@@ -8,8 +8,6 @@ import clsx from 'clsx';
 const ExercisesTableItem = ({ key, bodyPart, equipment, name, target, burnedCalories, time }) => {
   const exercises = useSelector(selectExercises);
 
-  console.log(exercises);
-
   if (exercises.length === 0) {
     return (
       <div className={css.bodybox}>
