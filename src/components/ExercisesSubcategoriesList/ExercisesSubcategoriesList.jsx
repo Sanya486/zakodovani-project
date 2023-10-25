@@ -29,4 +29,4 @@ export default ExercisesSubcategoriesList;
 
 ExercisesSubcategoriesList.propTypes = {
   activeFilter: PropTypes.string.isRequired,
-}
+};

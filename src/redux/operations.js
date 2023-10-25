@@ -141,7 +141,7 @@ export const fetchExercisesTypes = createAsyncThunk('/exercises/all-types', asyn
 
 // =========== Dairy fetches ===========
 
-export const fetchDairySaveProduct = createAsyncThunk(
+export const fetchDiarySaveProduct = createAsyncThunk(
   '/diary/save-product',
   async (data, thunkAPI) => {
     try {
@@ -153,7 +153,7 @@ export const fetchDairySaveProduct = createAsyncThunk(
   },
 );
 
-export const fetchDairySaveExercise = createAsyncThunk(
+export const fetchDiarySaveExercise = createAsyncThunk(
   '/diary/save-exercise',
   async (data, thunkAPI) => {
     try {
@@ -178,7 +178,7 @@ export const fetchDeleteExercise = createAsyncThunk(
 );
 
 export const fetchDiaryDateInfo = createAsyncThunk(
-  '/diary/dairy-date-info/{date}',
+  '/diary/diary-date-info/{date}',
   async (date, thunkAPI) => {
     try {
       const response = await axios.get(`diary/dairy-date-info/${date}`);

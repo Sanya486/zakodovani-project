@@ -1,11 +1,11 @@
 import React from 'react';
 import css from './DayExercises.module.scss';
-import { selectExercises } from 'redux/selectors';
+import { selectDiaryExercises } from 'redux/selectors';
 import { useSelector } from 'react-redux';
 import ExercisesTable from 'components/ExercisesTable/ExercisesTable';
 
 const DayExercises = () => {
-  const exercises = useSelector(selectExercises);
+  const exercises = useSelector(selectDiaryExercises);
   if (exercises.length === 0) {
     return (
       <div className={css.bodybox}>
