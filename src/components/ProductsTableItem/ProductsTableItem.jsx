@@ -51,14 +51,14 @@ export const ProductTableItem = ({ title, category, calories, weight, recommend,
     <>
         <div className={css.container}>
           <div className={clsx(css.element, css.titleElement)}>
-            <p className={clsx(css.title, width > 767 && first !== 'true' && css.titleHidden)}>
+            <p className={clsx(css.title, width > 767 && first !== 'true' && "hidden")}>
               Title
             </p>
             <p className={css.field}>{productTableItem.title}</p>
           </div>
 
           <div className={clsx(css.element, css.categoriesElement)}>
-            <p className={clsx(css.title, width > 767 && first !== 'true' && css.titleHidden)}>
+            <p className={clsx(css.title, width > 767 && first !== 'true' && "hidden")}>
               Category
             </p>
             <p className={css.field}>{productTableItem.category}</p>
@@ -67,21 +67,21 @@ export const ProductTableItem = ({ title, category, calories, weight, recommend,
           <div className={css.blockWrap}>
             <div className={css.subBlockWrap}>
               <div className={clsx(css.element, css.caloriesElement)}>
-                <p className={clsx(css.title, width > 767 && first !== 'true' && css.titleHidden)}>
+                <p className={clsx(css.title, width > 767 && first !== 'true' && "hidden")}>
                   Calories
                 </p>
                 <p className={css.field}>{productTableItem.calories}</p>
               </div>
 
               <div className={clsx(css.element, css.weightElement)}>
-                <p className={clsx(css.title, width > 767 && first !== 'true' && css.titleHidden)}>
+                <p className={clsx(css.title, width > 767 && first !== 'true' && "hidden")}>
                   Weight
                 </p>
                 <p className={css.field}>{productTableItem.weight}</p>
               </div>
 
               <div className={clsx(css.element, css.recommendElement)}>
-                <p className={clsx(css.title, width > 767 && first !== 'true' && css.titleHidden)}>
+                <p className={clsx(css.title, width > 767 && first !== 'true' && "hidden")}>
                   Recommend
                 </p>
                 <p className={clsx(css.field, css.recommendField)}>
