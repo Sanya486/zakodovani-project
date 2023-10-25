@@ -2,7 +2,7 @@
 
 .form {
   background: index.$black-color;
-//   max-width: 100%;
+  //   max-width: 100%;
   width: 100%;
   height: auto;
   margin-bottom: 40px;
@@ -28,15 +28,16 @@
 }
 
 .caloriesField {
-  width: calc((100% - 60px)*34.177%)
+  max-width: calc((100% - 60px)*34.177%);
 }
 
 .weightField {
-  width: calc((100% - 60px)*33.755%)
+  width: calc((100% - 60px)*33.755%);
 }
 
 .recommendField {
-  width: calc((100% - 60px)*32.067%)
+  width: calc((100% - 60px)*32.067%);
+//   padding: 30px;
 }
 
 .title {
@@ -61,14 +62,14 @@
   display: flex;
   align-items: flex-end;
   column-gap: 8px;
-//   width: 100%;
+  //   width: 100%;
 }
 
 .subBlockWrap {
   display: flex;
   align-items: center;
   column-gap: 16px;
-//   width: inherit;
+  //   width: inherit;
 }
 
 .blockWrap:last-child {
@@ -129,6 +130,7 @@
 
   .recommendField {
     width: 76px;
+    padding-left: 22px;
   }
 
   .title {
@@ -139,15 +141,15 @@
     // line-height: 1.5;
   }
 
-//   .fieldWrap {
-//     display: flex;
-//     flex-direction: column;
-//     row-gap: 8px;
-//   }
+  //   .fieldWrap {
+  //     display: flex;
+  //     flex-direction: column;
+  //     row-gap: 8px;
+  //   }
 
-//   .fieldWrap:not(:last-child) {
-//     margin-bottom: 16px;
-//   }
+  //   .fieldWrap:not(:last-child) {
+  //     margin-bottom: 16px;
+  //   }
 
   .blockWrap {
     // display: flex;
@@ -156,40 +158,40 @@
     width: 269px;
   }
 
-//   .subBlockWrap {
-//     display: flex;
-//     align-items: center;
-//     column-gap: 16px;
-//     width: inherit;
-//   }
+  //   .subBlockWrap {
+  //     display: flex;
+  //     align-items: center;
+  //     column-gap: 16px;
+  //     width: inherit;
+  //   }
 
-//   .blockWrap:last-child {
-//     column-gap: 8px;
-//   }
+  //   .blockWrap:last-child {
+  //     column-gap: 8px;
+  //   }
 
-//   .blockWrap .fieldWrap {
-//     margin-bottom: 0;
-//   }
+  //   .blockWrap .fieldWrap {
+  //     margin-bottom: 0;
+  //   }
 
-//   .buttonWrap {
-//     width: 20px;
-//     height: 20px;
-//     margin-bottom: 9px;
-//   }
+  //   .buttonWrap {
+  //     width: 20px;
+  //     height: 20px;
+  //     margin-bottom: 9px;
+  //   }
 
-//   .button {
-//     width: 20px;
-//     height: 20px;
-//     padding: 0;
-//     border: 0;
-//     background-color: inherit;
-//   }
+  //   .button {
+  //     width: 20px;
+  //     height: 20px;
+  //     padding: 0;
+  //     border: 0;
+  //     background-color: inherit;
+  //   }
 
-//   .icon {
-//     width: 20px;
-//     height: 20px;
-//     stroke: index.$orange-secondary-color;
-//   }
+  //   .icon {
+  //     width: 20px;
+  //     height: 20px;
+  //     stroke: index.$orange-secondary-color;
+  //   }
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
@@ -219,25 +221,26 @@
     width: 128px;
   }
 
-  .caloriesField, .weightField {
+  .caloriesField,
+  .weightField {
     width: 90px;
   }
 
-//   .weightField {
-//     width: 90px;
-//   }
+  //   .weightField {
+  //     width: 90px;
+  //   }
 
   .recommendField {
     width: 80px;
   }
 
-//   .title {
-//     color: index.$orange-secondary-color;
-//     max-height: 18px;
-//     max-width: 148px;
-//     font-size: 12px;
-//     line-height: 1.5;
-//   }
+  //   .title {
+  //     color: index.$orange-secondary-color;
+  //     max-height: 18px;
+  //     max-width: 148px;
+  //     font-size: 12px;
+  //     line-height: 1.5;
+  //   }
 
   .fieldWrap {
     display: flex;
@@ -259,7 +262,7 @@
 
   .subBlockWrap {
     display: flex;
-    // flex-direction: row;    
+    // flex-direction: row;
     align-items: center;
     column-gap: 8px;
     width: inherit;
