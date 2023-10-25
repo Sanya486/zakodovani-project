@@ -12,7 +12,7 @@ const handleMessage = (state, { payload }) => {
   state.message = payload.message;
 };
 
-export const dairySlice = createSlice({
+export const diarySlice = createSlice({
   name: 'diary',
   initialState: {
     data: {
