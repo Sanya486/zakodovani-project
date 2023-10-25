@@ -1,59 +1,42 @@
 import React from 'react';
 
-// import css from "./ProductsTable.module.scss"
+import css from "./ProductsTable.module.scss"
 import { ProductTableItem } from 'components/ProductsTableItem/ProductsTableItem';
-import { useDispatch, useSelector } from "react-redux";
-
-import { selectDiaryProducts } from "redux/selectors";
-import { fetchDiaryDateInfo } from "redux/operations";
-import { useEffect } from "react";
-
 // import { useSelector } from "react-redux";
 
-// import productlist from './products';
+// import { selectDiaryProducts } from "redux/selectors";
+// import { fetchDiaryDateInfo } from "redux/operations";
+// import { useEffect } from "react";
 
-export const ProductTable = () => {
-  const dispatch = useDispatch();
+export const ProductTable = ({products}) => {
+  // const dispatch = useDispatch();
 
-    // const products = JSON.stringify(newProducts);
+// const products = useSelector(selectDiaryProducts);
 
-  const products = useSelector(selectDiaryProducts);
-
-  useEffect(() => {
-      dispatch(fetchDiaryDateInfo());
-  }, [dispatch]);
+  // useEffect(() => {
+  //     dispatch(fetchDiaryDateInfo());
+  // }, [dispatch]);
 
   console.log(products);
 
   return (
     <>
-      {products.map(({ $oid: id, title, category, calories, weight, recommend }) => {
-        <div key={id}>
-          <ProductTableItem
-            title={title}
-            category={category}
-            calories={calories}
-            weight={weight}
-            recommend={recommend}
-            first='Yes'
-            //   first={elem.indexOf(elem) === 0 ? "Yes" : "No"}
-          />
-        </div>;
-      })}
+      {/* {products.map(({ $oid: id, title, category, calories, weight, recommend }) => { */}
 
-      {/* {products.map((elem) => {
-        <div key={elem._id.$oid}>
+      <ul>
+      {products.map((product) => {
+        <li key={product._id.$oid} className={css.element}>
           <ProductTableItem
-            title={elem.title}
-            category={elem.category}
-            calories={elem.calories}
-            weight={elem.weight}
-            recommend={elem.recommend}
-            first='Yes'
-            //   first={elem.indexOf(elem) === 0 ? "Yes" : "No"}
+            title={product.title}
+            category={product.category}
+            calories={product.calories}
+            weight={product.weight}
+            recommend={product.recommend}
+            first={products.indexOf(product) === 0 ? "Yes" : "No"}
           />
-        </div>;
-      })} */}
+        </li>;
+      })}
+      </ul>
     </>
   );
 };
