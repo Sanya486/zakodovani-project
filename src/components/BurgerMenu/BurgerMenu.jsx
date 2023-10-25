@@ -9,7 +9,7 @@ import LogoutBtn from 'components/LogoutBtn/LogoutBtn';
 const BurgerMenu = ({ switcher }) => {
   return (
     <div className={css.burgerMenu}>
-      <svg className={css.closeIcon} onClick={() => switcher(false)}>
+      <svg className={css.closeIcon} onClick={() => switcher()}>
         <use href={sprite + '#close_icon'}></use>
       </svg>
       <nav>
