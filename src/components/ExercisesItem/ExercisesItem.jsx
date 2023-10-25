@@ -47,7 +47,6 @@ const ExercisesItem = ({
 };
 
 ExercisesItem.propTypes = {
-  key: PropTypes.string.isRequired,
   exerciseType: PropTypes.string.isRequired,
   calories: PropTypes.number.isRequired,
   bodyPart: PropTypes.string.isRequired,

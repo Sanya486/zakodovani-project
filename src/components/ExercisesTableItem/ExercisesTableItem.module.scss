@@ -12,6 +12,7 @@
   gap: 32px;
 }
 .bodyboxTable {
+  padding-left: 16px;
   padding-right: 16px;
   border-color: rgba(239, 237, 232, 0.2);
   border-width: 1px;
@@ -70,18 +71,10 @@
   border: solid;
   border-width: 1px;
   border-radius: 12px;
-  padding: 10px 14px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.extrabigwidth {
-  max-width: 150px;
-}
-
-.extrasmallwidth {
-  max-width: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 .rowtext {
@@ -97,7 +90,6 @@
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
-  overflow: hidden;
 }
 
 .icon {
@@ -141,21 +133,22 @@
   }
   .exercisestablehead {
     flex: 1;
+
     width: 100%;
     text-align: left;
     font-size: 16px;
-    border-collapse: separate;
-    border-spacing: 10px;
   }
 
-  .exercisestablehead th,
   .exercisestablehead td {
-    padding: 10px;
+    gap: 10px;
+    padding-right: 10px;
   }
-  .tablehide{
-  display: block;
-}
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
+  .exercisetitleitem {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './ExercisesTable.module.scss';
-import { selectExercises } from 'redux/selectors';
+import { selectDiaryExercises } from 'redux/selectors';
 import { useSelector } from 'react-redux';
 import ExercisesTableItem from 'components/ExercisesTableItem/ExercisesTableItem';
 import clsx from 'clsx';
@@ -11,8 +11,7 @@ import clsx from 'clsx';
 
 
 const ExercisesTable = () => {
-  const exercises = useSelector(selectExercises);
-
+  const exercises = useSelector(selectDiaryExercises);
 
   return (
     <>

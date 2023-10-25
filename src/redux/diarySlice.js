@@ -1,44 +1,41 @@
 import { createSlice } from '@reduxjs/toolkit';
+import {
+  fetchDeleteExercise,
+  fetchDeleteProduct,
+  fetchDiaryDateInfo,
+  fetchDiarySaveExercise,
+  fetchDiarySaveProduct,
+} from './operations';
+import { handlePending, handleReject } from './handlers';
 
-export const dairySlice = createSlice({
-  name: 'dairy',
+const handleMessage = (state, { payload }) => {
+  state.message = payload.message;
+};
+
+export const diarySlice = createSlice({
+  name: 'diary',
   initialState: {
-    products: [
-      {
-        title: 'marlin',
-        category: 'fish',
-        weight: 100,
-        calories: 112,
-        reccomendation: true,
-      },
-      {
-        title: 'Danbo cheese',
-        category: 'dairy',
-        weight: 100,
-        calories: 340,
-        reccomendation: true,
-      },
-    ],
-    exercises: [
-      {
-        bodyPart: 'upper arms',
-        equipment: 'barbell',
-        name: 'barbell drag curl',
-        target: 'biceps',
-        burnedCalories: 84,
-        time: 3,
-      },
-      {
-        bodyPart: 'waist',
-        equipment: 'body weight',
-        name: 'air bike',
-        target: 'abs',
-        burnedCalories: 312,
-        time: 3,
-        gifUrl: 'https://ftp.goit.study/img/power-pulse/gifs/0003.gif',
-      },
-    ],
+    data: {
+      _id: '',
+      clientId: '',
+      _v: null,
+      consumedProduct: [],
+      exerciseDone: [],
+    },
+    message: '',
+    isLoading: false,
+    error: null,
   },
-  reducers: {},
-  extraReducers: {},
+  extraReducers: (builder) =>
+    builder
+      .addCase(fetchDiaryDateInfo.fulfilled, (state, { payload }) => {
+        state.data = payload.diary;
+        state.isLoading = false;
+      })
+      .addCase(fetchDiarySaveProduct.fulfilled, handleMessage)
+      .addCase(fetchDiarySaveExercise.fulfilled, handleMessage)
+      .addCase(fetchDeleteProduct.fulfilled, handleMessage)
+      .addCase(fetchDeleteExercise.fulfilled, handleMessage)
+      .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
+      .addMatcher((action) => action.type.endsWith('/rejected'), handleReject),
 });

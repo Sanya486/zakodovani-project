@@ -8,6 +8,15 @@
   background: transparent;
 }
 
+.headerNoAuthenticatedWpapper {
+  position: absolute;
+  display: flex;
+  height: 61px;
+  padding: 24px 20px;
+  align-items: flex-start;
+  background: transparent;
+}
+
 .userNavWrapper {
   display: flex;
   align-items: center;
