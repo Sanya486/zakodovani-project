@@ -7,7 +7,6 @@ import clsx from 'clsx';
 
 const ExercisesTableItem = () => {
   const exercises = useSelector(selectExercises);
-
   if (exercises.length === 0) {
     return (
       <div className={css.bodybox}>
@@ -17,8 +16,6 @@ const ExercisesTableItem = () => {
       </div>
     );
   } else {
-      
-        
         {/* mobile show */}
         return (
       <div>
