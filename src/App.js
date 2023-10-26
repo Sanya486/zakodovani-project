@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import './App.scss';
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Layout from 'components/Layout/Layout';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
@@ -14,10 +15,18 @@ import ProfilePage from 'pages/ProfilePage/ProfilePage';
 import ProductsPage from 'pages/ProductsPage/ProductsPage';
 import ExercisesPage from 'pages/ExercisesPage/ExercisesPage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
+import { fetchCurrentUser } from 'redux/operations';
+import { selectIsRefreshing } from 'redux/selectors';
 
 function App() {
-  useEffect(() => {}, []);
-  return (
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
+  const isRefreshing = useSelector(selectIsRefreshing);
+  return isRefreshing ? null : (
     <>
       <Routes>
         <Route path='/' element={<Layout />}>
