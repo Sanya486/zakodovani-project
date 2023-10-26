@@ -7,27 +7,26 @@
   background-color: rgba(239, 237, 232, 0);
 }
 .exercisetitle {
+  padding-bottom: 22px;
   color: rgba(239, 237, 232, 0.5);
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.3;
-}
-.addexercisetitle {
-  color: index.$orange-main-color;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.3;
 }
+.addexercisetitle {
+  display: flex;
+  gap: 8px;
+  color: index.$orange-main-color;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+}
 .bodybox {
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-bottom: 14px;
-  margin: 20px;
-  background-color: rgba(239, 237, 232, 0.05);
-  border-color: rgba(104, 96, 75, 0.2);
   border-width: 1px;
-  border-radius: 12px;
   gap: 32px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  background: rgba(239, 237, 232, 0.05);
 }
 
 .exercisesepmty {
@@ -36,7 +35,11 @@
   font-size: 14px;
   line-height: 1.3;
 }
-
+.iconarrow{
+stroke: index.$orange-main-color;
+width: 16px;
+height: 16px;
+}
 @media screen and (min-width: index.$mobile-breakpoint) {
 }
 
