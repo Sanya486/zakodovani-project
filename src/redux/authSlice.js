@@ -24,10 +24,9 @@ const initialState = {
     sex: '',
     avatar: '',
     BMR: null,
-    timeForSport: null
+    timeForSport: null,
   },
-  token:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTM5NGRkYmY4YTRmNGFjY2QwYWE3ZmEiLCJpYXQiOjE2OTgyNTY5MTMsImV4cCI6MTY5ODMyODkxM30.yjoJepzsM0bh7TVnHdWIH7Vs44KmciSrYC0kIk8zQck',
+  token: '',
   isLoading: false,
   isLoggedIn: false,
   isRefreshing: false,
@@ -44,6 +43,8 @@ export const authSlice = createSlice({
         state.client = payload.client;
         state.token = payload.token;
         state.isLoading = false;
+        state.isLoggedIn = true;
+        state.isRefreshing = true;
       })
       .addCase(fetchLogin.fulfilled, (state, { payload }) => {
         state.token = payload.token;
@@ -67,13 +68,13 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
       })
       .addCase(fetchCalculateDailyMetrics.fulfilled, (state, { payload }) => {
-        state.client = payload
+        state.client = payload;
         state.isLoading = false;
       })
-      .addCase(fetchUpload.fulfilled, (state, {payload}) => {
+      .addCase(fetchUpload.fulfilled, (state, { payload }) => {
         if (payload.name) {
-          state.client.name = payload.name
-        } else if (payload.avatar) state.client.avatar = payload.avatar
+          state.client.name = payload.name;
+        } else if (payload.avatar) state.client.avatar = payload.avatar;
       })
       .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
       .addMatcher((action) => action.type.endsWith('/rejected'), handleReject),
