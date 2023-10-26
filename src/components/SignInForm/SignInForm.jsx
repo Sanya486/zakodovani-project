@@ -20,9 +20,7 @@ const SignInForm = () => {
         password: '',
       }}
       validationSchema={Yup.object({
-        email: Yup.string()
-          .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, { message: 'Invalid email address' })
-          .required('Required'),
+        email: Yup.string().email('Invalid email address').required('Required'),
         password: Yup.string().required('Required'),
       })}
       onSubmit={(values) => {
