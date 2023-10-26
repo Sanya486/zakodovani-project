@@ -1,47 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import css from './ErrorPage.module.scss';
 import Button from 'components/Button/Button';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import Logo from 'components/Logo/Logo';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from 'redux/selectors';
 
 const ErrorPage = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [token, setToken] = useState('');
-
-  useEffect(() => {
-    axios
-      .get('/check-auth')
-      .then((response) => {
-        setIsAuthenticated(response.data.isAuthenticated);
-        setToken(response.data.token);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [isAuthenticated, token]);
-
-  const handleClick = () => {
-    const destination = isAuthenticated ? '/diary' : '/';
-    if (token) {
-      axios
-        .get(destination, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  };
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <div className={css.container}>
-      <Link to={isAuthenticated ? '/diary' : '/'} onClick={handleClick} className={css.logoWrapper}>
+      <Link to={isLoggedIn ? '/diary' : '/'} className={css.linkLogo}>
         <Logo iconColor={'white-color'} />
       </Link>
       <div className={css.leftContainer}>
@@ -51,14 +21,10 @@ const ErrorPage = () => {
           the numbers and letters of our virtual space. Perhaps this page went on vacation or
           decided to disappear into another dimension. We apologize for this inconvenience.
         </p>
-        <div>
-          <Button
-            title='Go Home'
-            styled='transparent'
-            classes={[css.button]}
-            onClick={handleClick}
-          />
-        </div>
+
+        <Link to={isLoggedIn ? '/diary' : '/'} className={css.linkBtn}>
+          <Button title='Go Home' styled='transparent' classes={[css.button]} />
+        </Link>
       </div>
     </div>
   );
