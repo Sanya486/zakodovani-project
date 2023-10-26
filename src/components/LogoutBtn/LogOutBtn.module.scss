@@ -37,6 +37,10 @@
     height: 24px;
     font-size: 16px;
   }
+  .logoutBtnProfile{
+    
+    margin-bottom: 38px;
+  }
 
   
 }
@@ -47,6 +51,9 @@
   }
   .logoutBtnHeader{
   display: flex;
+}
+.logoutBtnProfile{
+  margin-bottom: 36px;
 }
   .icon {
     stroke: #e6533c;

@@ -79,8 +79,14 @@
   stroke: index.$white-color;
 }
 @media screen and (min-width: index.$mobile-breakpoint) {
+  .group {
+    gap: 16px;
+    margin-bottom: 32px;
+    margin-top: 32px;
+  }
   .dang {
     width: 335px;
+    margin-bottom: 32px;
   }
 }
 

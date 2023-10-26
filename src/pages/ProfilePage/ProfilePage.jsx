@@ -12,12 +12,13 @@ const ProfilePage = () => {
     <div className={css.container}>
       <div className={css.flexCont}>
         <div className={css.rightCont}>
-          <TitlePage className={css.title}>Profile Settings</TitlePage>
+          <TitlePage marg className= {`${css.title} ${css.place}`}>Profile Settings</TitlePage>
           <User />
           <UserCard />
           <LogoutBtn profile className={`${css.iconForProfile} ${css.logoutBtnProfile}`} />
         </div>
         <div className={css.leftCont}>
+       
           <UserForm />
         </div>
       </div>
@@ -25,7 +26,7 @@ const ProfilePage = () => {
     </div>
   );
 };
-// radio-buttons, input for calendar, dekstop,
+// radio-buttons, input for calendar, dekstop - title,
 
 // ProfilePage.propTypes = {
 
