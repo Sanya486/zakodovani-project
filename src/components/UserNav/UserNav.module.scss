@@ -59,18 +59,18 @@
     font-size: 16px;
     transition: index.$transition-dur-and-fun;
 
-    &:hover {
-      border-color: index.$orange-main-color;
-    }
-
     &.active {
       border-color: transparent;
       background-color: index.$orange-main-color;
 
       &:hover {
-        border-color: transparent;
         background-color: index.$orange-secondary-color;
+        border-color: transparent;
       }
+    }
+
+    &:hover {
+      border-color: index.$orange-main-color;
     }
   }
 }

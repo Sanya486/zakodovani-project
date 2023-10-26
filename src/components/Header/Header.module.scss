@@ -6,6 +6,7 @@
   padding: 24px 20px;
   align-items: center;
   background: transparent;
+  border-bottom: 1px solid rgba(index.$white-color, 0.2);
 }
 
 .userNavWrapper {
@@ -15,8 +16,6 @@
   margin-right: 16px;
 }
 
-@media screen and (min-width: index.$tablet-breakpoint) {
-  .headerWrapper {
-    border-bottom: 1px solid rgba(index.$white-color, 0.2);
-  }
+.welcomeHeader {
+  border-bottom: transparent;
 }
