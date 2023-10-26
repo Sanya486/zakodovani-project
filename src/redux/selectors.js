@@ -1,8 +1,8 @@
 // Authenticate selectors
 
 export const selectName = (state) => state.auth.client;
-export const selectIsLoggedIn = (state) => state.auth.client.isLoggedIn;
-export const selectIsRefreshing = (state) => state.auth.client.isRefreshing;
+export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
+export const selectIsRefreshing = (state) => state.auth.isRefreshing;
 
 // Diary selectors
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import clsx from 'clsx';
@@ -7,8 +7,12 @@ import css from './SsignInForm.module.scss';
 import Button from 'components/Button/Button';
 
 import sprite from '../../images/svg/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { fetchLogin } from 'redux/operations';
 
 const SignInForm = () => {
+  const dispatch = useDispatch();
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   return (
     <Formik
       initialValues={{
@@ -16,12 +20,12 @@ const SignInForm = () => {
         password: '',
       }}
       validationSchema={Yup.object({
-        email: Yup.string()
-          .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, { message: 'Invalid email address' })
-          .required('Required'),
+        email: Yup.string().email('Invalid email address').required('Required'),
         password: Yup.string().required('Required'),
       })}
-      onSubmit={() => {}}
+      onSubmit={(values) => {
+        dispatch(fetchLogin(values));
+      }}
     >
       {({ errors, touched }) => (
         <Form className={css.formWrapper}>
@@ -56,16 +60,27 @@ const SignInForm = () => {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <Field
-                name='password'
-                type='text'
-                placeholder='Password'
-                className={clsx(
-                  css.inputStyle,
-                  errors.password && touched.password && css.errorInput,
-                  touched.email && !errors.email && css.successInput,
+              <div className={css.passwordWrapper}>
+                <Field
+                  name='password'
+                  type={isPasswordVisible ? 'text' : 'password'}
+                  placeholder='Password'
+                  className={clsx(
+                    css.inputStyle,
+                    errors.password && touched.password && css.errorInput,
+                    touched.email && !errors.email && css.successInput,
+                  )}
+                />
+                {isPasswordVisible ? (
+                  <svg className={css.eyeIcon} onClick={() => setIsPasswordVisible(false)}>
+                    <use href={sprite + '#icon-eye'}></use>
+                  </svg>
+                ) : (
+                  <svg className={css.eyeIcon} onClick={() => setIsPasswordVisible(true)}>
+                    <use href={sprite + '#icon-eye-off'}></use>
+                  </svg>
                 )}
-              />
+              </div>
               {errors.password && touched.password && (
                 <div className={css.messageWrap}>
                   <svg className={css.errorIcon}>

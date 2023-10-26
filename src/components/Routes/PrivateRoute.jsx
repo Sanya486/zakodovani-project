@@ -8,7 +8,7 @@ const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isRefreshing = useSelector(selectIsRefreshing);
   const isRedirect = !isLoggedIn && !isRefreshing;
-  return isRedirect ? <Navigate to={redirectTo} /> : Component;
+  return isRedirect ? <Navigate to={redirectTo} /> : <Component/>;
 };
 
 // PrivateRoute.propTypes = {
