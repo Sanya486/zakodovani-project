@@ -54,7 +54,7 @@ const SignInForm = () => {
                   <svg className={css.successIcon}>
                     <use href={sprite + '#icon-checkbox-circle-fill'}></use>
                   </svg>
-                  <p className={css.successMessage}>Success email</p>
+                  <p className={css.successMessage}>Email</p>
                 </div>
               )}
             </div>
@@ -94,7 +94,7 @@ const SignInForm = () => {
                   <svg className={css.successIcon}>
                     <use href={sprite + '#icon-checkbox-circle-fill'}></use>
                   </svg>
-                  <p className={css.successMessage}>Success password</p>
+                  <p className={css.successMessage}>Password</p>
                 </div>
               )}
             </div>
