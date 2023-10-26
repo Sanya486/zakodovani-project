@@ -44,10 +44,7 @@ function App() {
             path='/diary'
             element={<PrivateRoute component={<DiaryPage />} redirectTo='/signin' />}
           />
-          <Route
-            path='/products'
-            element={<PrivateRoute component={<ProductsPage />} redirectTo='/signin' />}
-          />
+          <Route path='/products' element={<ProductsPage />} />
           <Route
             path='/exercises'
             element={<PrivateRoute component={<ExercisesPage />} redirectTo='/signin' />}

@@ -5,9 +5,22 @@ import css from './ProductsItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import BasicModalWindow from 'components/BasicModalWindow/BasicModalWindow';
 import AddProductForm from 'components/AddProductForm/AddProductForm';
+import AddProductSuccess from 'components/AddProductSuccess/AddProductSuccess';
 
 export const ProductsItem = ({ product }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [calories, setCalories] = useState(0);
+
+  const handleSuccess = (calculatedCalories) => {
+    setCalories(calculatedCalories);
+    setShowSuccess(true);
+  };
+
+  const handleClose = () => {
+    setIsModalOpen(false);
+    setShowSuccess(false);
+  };
 
   return (
     <li className={css.itemContainer}>
@@ -57,11 +70,16 @@ export const ProductsItem = ({ product }) => {
         </div>
       </div>
       {isModalOpen && (
-        <BasicModalWindow onClose={() => setIsModalOpen(false)}>
-          <AddProductForm
-            data={{ _id: product._id, title: product.title, calories: product.calories }}
-            onClose={() => setIsModalOpen(false)}
-          />
+        <BasicModalWindow onClose={handleClose}>
+          {!showSuccess ? (
+            <AddProductForm
+              data={{ _id: product._id, title: product.title, calories: product.calories }}
+              onClose={handleClose}
+              onSuccess={handleSuccess}
+            />
+          ) : (
+            <AddProductSuccess calories={calories} onClose={handleClose} />
+          )}
         </BasicModalWindow>
       )}
     </li>
