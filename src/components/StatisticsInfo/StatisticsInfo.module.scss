@@ -1,7 +1,7 @@
 @use 'index';
 .statist {
   padding-bottom: 40px;
-} 
+}
 
 .container {
   position: absolute;
@@ -28,11 +28,11 @@
   margin-top: 35px;
 }
 
-.marginTopIn{
+.marginTopIn {
   margin-top: 121px;
 }
 
-.marginTopProfile{
+.marginTopProfile {
   margin-top: 231px;
 }
 
@@ -125,7 +125,6 @@
   padding-top: 8px;
 }
 @media (min-width: index.$tablet-breakpoint) {
-  
   @media (min-height: 600px) {
     .container {
       position: absolute;
@@ -152,7 +151,7 @@
       right: 30%;
       bottom: 20%;
     }
-  
+
     .containerCal {
       position: absolute;
       bottom: -1%;
@@ -211,29 +210,27 @@
   .marginTopUp {
     margin-top: 39px;
   }
-  .marginTopIn{
+  .marginTopIn {
     margin-top: 135px;
   }
-  .marginTopProfile{
+  .marginTopProfile {
     margin-top: 171px;
   }
-
-  
 }
 @media (min-width: index.$desktop-breakpoint) {
-.container {
+  .container {
     position: absolute;
     bottom: 43%;
     left: 60%;
-}
-  
-.containerCal {
-  position: absolute;
-  bottom: 17%;
-  right: 2%;
-}
+  }
 
-  .statist{
+  .containerCal {
+    position: absolute;
+    bottom: 17%;
+    right: 2%;
+  }
+
+  .statist {
     padding-bottom: 0;
   }
 }

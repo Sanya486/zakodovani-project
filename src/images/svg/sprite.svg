@@ -121,6 +121,7 @@
 </symbol>
 <symbol id="icon-arrow-right" viewBox="0 0 32 32">
 <path fill="none" stroke="#e6533c" style="stroke: var(--color1, #e6533c)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M15 28l13-13M28 15l-13-13M28 15h-26"></path>
+</symbol>
 <symbol id="icon-pagination-inactive" viewBox="0 0 32 32">
 <path fill="#efede8" style="fill: var(--color1, #efede8)" opacity="0.1" d="M32 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
 </symbol>
