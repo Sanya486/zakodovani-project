@@ -29,7 +29,7 @@ const initialState = {
   token: '',
   isLoading: false,
   isLoggedIn: false,
-  isRefreshing: false,
+  isRefreshing: true,
   error: null,
 };
 
@@ -44,21 +44,20 @@ export const authSlice = createSlice({
         state.token = payload.token;
         state.isLoading = false;
         state.isLoggedIn = true;
-        state.isRefreshing = true;
+        state.isRefreshing = false;
       })
       .addCase(fetchLogin.fulfilled, (state, { payload }) => {
         state.token = payload.token;
         state.client = payload.client;
         state.isLoggedIn = true;
         state.isLoading = false;
-        state.isRefreshing = true;
+        state.isRefreshing = false;
       })
       .addCase(fetchLogout.fulfilled, (state) => {
         state.client = initialState.client;
         state.error = initialState.error;
         state.isLoading = initialState.isLoading;
         state.isLoggedIn = initialState.isLoggedIn;
-        state.isRefreshing = initialState.isRefreshing;
         state.token = initialState.token;
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
@@ -66,6 +65,8 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.isLoggedIn = true;
         state.isRefreshing = false;
+      }).addCase(fetchCurrentUser.rejected, (state) => {
+        state.isRefreshing = false
       })
       .addCase(fetchCalculateDailyMetrics.fulfilled, (state, { payload }) => {
         state.client = payload;
