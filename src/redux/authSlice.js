@@ -15,8 +15,6 @@ const initialState = {
     _id: '',
     email: '',
     name: '',
-  },
-  clientData: {
     birthday: '',
     blood: null,
     currentWeight: null,
@@ -25,6 +23,8 @@ const initialState = {
     levelActivity: null,
     sex: '',
     avatar: '',
+    BMR: null,
+    timeForSport: null
   },
   token:
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTM5NGRkYmY4YTRmNGFjY2QwYWE3ZmEiLCJpYXQiOjE2OTgyNTY5MTMsImV4cCI6MTY5ODMyODkxM30.yjoJepzsM0bh7TVnHdWIH7Vs44KmciSrYC0kIk8zQck',
@@ -54,7 +54,6 @@ export const authSlice = createSlice({
       })
       .addCase(fetchLogout.fulfilled, (state) => {
         state.client = initialState.client;
-        state.clientData = initialState.client;
         state.error = initialState.error;
         state.isLoading = initialState.isLoading;
         state.isLoggedIn = initialState.isLoggedIn;
@@ -68,10 +67,14 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
       })
       .addCase(fetchCalculateDailyMetrics.fulfilled, (state, { payload }) => {
-        state.clientData = payload;
+        state.client = payload
         state.isLoading = false;
       })
-      .addCase(fetchUpload.fulfilled, (state) => state)
+      .addCase(fetchUpload.fulfilled, (state, {payload}) => {
+        if (payload.name) {
+          state.client.name = payload.name
+        } else if (payload.avatar) state.client.avatar = payload.avatar
+      })
       .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
       .addMatcher((action) => action.type.endsWith('/rejected'), handleReject),
 });

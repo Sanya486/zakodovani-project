@@ -41,7 +41,7 @@ export const ProductsItem = ({ product }) => {
                 <use href={sprite + '#icon-runner'}></use>
               </svg>
             </div>
-            <p className={css.mainText}>{product.name}</p>
+            <p className={css.mainText}>{product.title}</p>
           </div>
           <ul className={css.infoList}>
             <li className={css.infoItem}>
@@ -59,7 +59,7 @@ export const ProductsItem = ({ product }) => {
       {isModalOpen && (
         <BasicModalWindow onClose={() => setIsModalOpen(false)}>
           <AddProductForm
-            data={{ _id: product._id, title: product.name, calories: product.calories }}
+            data={{ _id: product._id, title: product.title, calories: product.calories }}
             onClose={() => setIsModalOpen(false)}
           />
         </BasicModalWindow>
@@ -75,5 +75,6 @@ ProductsItem.propTypes = {
     calories: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     weight: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
   }).isRequired,
 };

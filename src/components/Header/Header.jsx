@@ -6,7 +6,6 @@ import UserNav from '../../components/UserNav/UserNav';
 import UserBar from '../../components/UserBar/UserBar';
 import LogoutBtn from '../../components/LogoutBtn/LogoutBtn';
 import css from './Header.module.scss';
-import Container from 'components/Container/Container';
 import { selectIsLoggedIn } from 'redux/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 // import PropTypes from 'prop-types'
@@ -64,7 +63,6 @@ const Header = () => {
 
   return (
     <>
-      <Container />
       {isLoggedIn ? (
         <div className={css.headerWrapper}>
           <Link

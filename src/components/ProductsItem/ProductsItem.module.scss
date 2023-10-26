@@ -1,6 +1,7 @@
 @use 'index';
 
 .itemContainer {
+  width: 100%;
   max-width: 335px;
   height: 141px;
   padding: 16px;
@@ -156,6 +157,12 @@
 
 .infoItem span {
   color: index.$white-color;
+}
+
+@media screen and (min-width: index.$mobile-breakpoint) {
+  .itemContainer {
+    max-width: 335px;
+  }
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {

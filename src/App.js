@@ -15,12 +15,13 @@ import ProductsPage from 'pages/ProductsPage/ProductsPage';
 import ExercisesPage from 'pages/ExercisesPage/ExercisesPage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import { useDispatch } from 'react-redux';
-import { fetchLogin } from 'redux/operations';
+import { fetchAvaibleBloodProducts, fetchLogin } from 'redux/operations';
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchLogin({ email: 'ben@mail.com', password: 'test12345' }));
+    dispatch(fetchAvaibleBloodProducts(true));
   }, [dispatch]);
   return (
     <>
