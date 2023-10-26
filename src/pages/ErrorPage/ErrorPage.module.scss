@@ -22,7 +22,7 @@
   justify-content: center;
 }
 
-.logoWrapper {
+.linkLogo {
   position: absolute;
   left: 20px;
   top: 24px;
@@ -44,6 +44,10 @@
   margin-bottom: 28px;
 }
 
+.linkBtn {
+  align-self: flex-start;
+}
+
 @media screen and (min-width: index.$tablet-breakpoint) {
   .container {
     max-width: none;
@@ -63,7 +67,7 @@
     padding: 32px;
   }
 
-  .logoWrapper {
+  .linkLogo {
     left: 32px;
     top: 32px;
   }
@@ -96,7 +100,7 @@
     padding: 32px 96px;
   }
 
-  .logoWrapper {
+  .linkLogo {
     left: 96px;
   }
 }
