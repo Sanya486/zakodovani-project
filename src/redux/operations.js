@@ -28,7 +28,7 @@ export const fetchLogin = createAsyncThunk('/identification/login', async (user,
   try {
     const response = await axios.post('identification/login', user);
     setAuthorization(response.data.token);
-    const userName = response.data.user.name;
+    const userName = response.data.client.name;
     toast.success(`Welcome back, ${userName}`);
     return response.data;
   } catch (e) {
@@ -109,9 +109,9 @@ export const fetchProductsCategories = createAsyncThunk(
 
 export const fetchAvaibleBloodProducts = createAsyncThunk(
   '/products/available-blood-products/:type',
-  async (bloodNumber, thunkAPI) => {
+  async (type, thunkAPI) => {
     try {
-      const response = await axios.get('products/categories', { params: { type: bloodNumber } });
+      const response = await axios.get(`products/categories/${type}`);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
