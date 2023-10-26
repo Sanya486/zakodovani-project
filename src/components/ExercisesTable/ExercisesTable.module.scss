@@ -1,24 +1,19 @@
 @use 'index';
 
 .bodybox {
-<<<<<<< HEAD
-=======
+
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: 14px;
   margin: 20px;
 
->>>>>>> origin/development
   border-color: rgba(239, 237, 232, 0.2);
   border-width: 1px;
   border-radius: 12px;
   gap: 32px;
 }
 .bodyboxTable {
-<<<<<<< HEAD
-=======
-  padding-left: 16px;
->>>>>>> origin/development
+
   padding-right: 16px;
   border-color: rgba(239, 237, 232, 0.2);
   border-width: 1px;
@@ -104,10 +99,11 @@
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
-<<<<<<< HEAD
+
   overflow: hidden;
-=======
->>>>>>> origin/development
+
+  overflow: hidden;
+
 }
 
 .icon {
@@ -151,7 +147,7 @@
     width: 100%;
     text-align: left;
     font-size: 16px;
-<<<<<<< HEAD
+
     border-collapse: separate;
     border-spacing: 10px;
   }
@@ -159,13 +155,7 @@
   .exercisestablehead th,
   .exercisestablehead td {
     padding: 10px;
-=======
-  }
 
-  .exercisestablehead td {
-    gap: 10px;
-    padding-right: 10px;
->>>>>>> origin/development
   }
 }
 

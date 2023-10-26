@@ -15,6 +15,7 @@ const ExercisesTable = () => {
       <div className={clsx(css.bodybox)}>
         {exercises.map(({ bodyPart, equipment, name, target, burnedCalories, time }) => (
           <ExercisesTableItem
+            key
             bodyPart={bodyPart}
             equipment={equipment}
             name={name}
@@ -39,6 +40,7 @@ const ExercisesTable = () => {
           <tbody className={css.exercisestablebody}>
             {exercises.map(({bodyPart, equipment, name, target, burnedCalories, time }) => (
               <ExercisesTableItem
+                key
                 bodyPart={bodyPart}
                 equipment={equipment}
                 name={name}
