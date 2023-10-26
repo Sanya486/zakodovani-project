@@ -1,0 +1,102 @@
+@use 'index';
+
+.container {
+  background-image: url('../../images/hero-mobl-1x.jpg');
+  background-image: -webkit-image-set
+    (url('../../images/hero-deck-1x.jpg') 1x, url('../../images/hero-mobl-2x.jpg') 2x);
+  background-repeat: no-repeat;
+  background-position: bottom 0 left 140%;
+  max-width: 375px;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+}
+
+.leftContainer {
+  background-color: index.$orange-main-color;
+  width: 240px;
+  height: 100%;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoWrapper {
+  position: absolute;
+  left: 20px;
+  top: 24px;
+}
+
+.title {
+  color: index.$white-color;
+  font-size: 66px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.66px;
+  margin-bottom: 14px;
+}
+
+.text {
+  color: index.$white-color;
+  font-size: 14px;
+  line-height: 1.285;
+  margin-bottom: 28px;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .container {
+    max-width: none;
+    width: 768px;
+    background-image: url('../../images/hero-tabl-1x.jpg');
+    background-image: -webkit-image-set
+      (url('../../images/hero-tabl-1x.jpg') 1x, url('../../images/hero-tabl-2x.jpg') 2x);
+    background-position: bottom 0 right 0;
+
+    .button {
+      padding: 16px 60px;
+    }
+  }
+
+  .leftContainer {
+    width: 420px;
+    padding: 32px;
+  }
+
+  .logoWrapper {
+    left: 32px;
+    top: 32px;
+  }
+
+  .title {
+    font-size: 160px;
+    line-height: 0.9375;
+    letter-spacing: 1.6px;
+    margin-bottom: 28px;
+  }
+
+  .text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .container {
+    width: 1440px;
+    height: 800px;
+    background-image: url('../../images/hero-deck-1x.jpg');
+    background-image: -webkit-image-set
+      (url('../../images/hero-deck-1x.jpg') 1x, url('../../images/hero-deck-2x.jpg') 2x);
+  }
+
+  .leftContainer {
+    width: 669px;
+    height: 800px;
+    padding: 32px 96px;
+  }
+
+  .logoWrapper {
+    left: 96px;
+  }
+}

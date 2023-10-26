@@ -1,21 +1,13 @@
 @use 'index';
 
 .bodybox {
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-bottom: 14px;
-  margin: 20px;
-
   border-color: rgba(239, 237, 232, 0.2);
   border-width: 1px;
   border-radius: 12px;
   gap: 32px;
 }
 .bodyboxTable {
-  padding-left: 16px;
   padding-right: 16px;
-  padding-bottom: 14px;
-  margin: 20px;
   border-color: rgba(239, 237, 232, 0.2);
   border-width: 1px;
   border-radius: 12px;
@@ -29,6 +21,10 @@
   justify-content: space-between;
   background-color: rgba(239, 237, 232, 0);
 }
+.itembox {
+  margin-bottom: 60px;
+}
+
 .exercisetitle {
   color: rgba(239, 237, 232, 0.5);
   font-weight: 500;
@@ -45,10 +41,12 @@
 
 .exercisename {
   color: #ef8964;
-  overflow-x: hidden;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .exercisetitleitem {
@@ -59,7 +57,6 @@
 }
 
 .exercisetipe {
-  overflow-x: hidden;
   color: index.$white-color;
   border-color: rgba(239, 237, 232, 0.3);
   font-weight: 400;
@@ -68,11 +65,20 @@
   border: solid;
   border-width: 1px;
   border-radius: 12px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 14px;
-  padding-right: 14px;
+  padding: 10px 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+.extrabigwidth {
+  max-width: 150px;
+}
+
+.extrasmallwidth {
+  max-width: 60px;
+}
+
 .rowtext {
   display: flex;
   flex-direction: row;
@@ -86,11 +92,12 @@
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+  overflow: hidden;
 }
 
 .icon {
   position: relative;
-  top: +80px;
+  top: +50px;
   display: flex;
   flex-direction: column;
   stroke: #ef8964;
@@ -113,7 +120,7 @@
     gap: 25px;
   }
   .icon {
-    top: +65px;
+    top: +40px;
   }
 }
 
@@ -129,11 +136,13 @@
     width: 100%;
     text-align: left;
     font-size: 16px;
+    border-collapse: separate;
+    border-spacing: 10px;
   }
 
+  .exercisestablehead th,
   .exercisestablehead td {
-    gap: 10px;
-    padding-right: 10px;
+    padding: 10px;
   }
 }
 
