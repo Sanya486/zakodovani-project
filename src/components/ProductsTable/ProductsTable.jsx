@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import css from './ProductsTable.module.scss';
 import { ProductTableItem } from 'components/ProductsTableItem/ProductsTableItem';
 
@@ -26,3 +27,7 @@ export const ProductTable = ({ products }) => {
     </>
   );
 };
+
+ProductTable.propTypes = {
+  products: PropTypes.arrayOf
+}
