@@ -17,6 +17,7 @@ import ExercisesPage from 'pages/ExercisesPage/ExercisesPage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import { fetchCurrentUser } from 'redux/operations';
 import { selectIsRefreshing } from 'redux/selectors';
+import { Puff } from 'react-loader-spinner';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,7 +27,26 @@ function App() {
   }, [dispatch]);
 
   const isRefreshing = useSelector(selectIsRefreshing);
-  return isRefreshing ? null : (
+  return isRefreshing ? (
+    <Puff
+      height='100'
+      width='100'
+      color='#e6533c'
+      ariaLabel='line-wave'
+      wrapperStyle={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100vh',
+      }}
+      wrapperClass=''
+      visible={true}
+      firstLineColor=''
+      middleLineColor=''
+      lastLineColor=''
+    />
+  ) : (
     <>
       <Routes>
         <Route path='/' element={<Layout />}>
