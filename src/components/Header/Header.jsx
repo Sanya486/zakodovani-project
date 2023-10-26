@@ -64,28 +64,30 @@ const Header = () => {
 
   return (
     <>
-    <Container />
-    {isLoggedIn 
-    ? <div className={css.headerWrapper}>
-    <Link
-      to={isAuthenticated ? '/diary' : '/welcome'}
-      onClick={handleLogoClick}
-      className={css.logoWrapper}
-    >
-      <Logo />
-    </Link>
-    {!isAuthenticated ? (
-      <div className={css.userNavWrapper}>
-        <UserNav />
-        <UserBar onLogout={handleLogout} />
-        <LogoutBtn className={css.logoutBtnWrapper} onLogout={handleLogout} />
-      </div>
-    ) : null}
-  </div>
-  : <div className={css.headerNoAuthenticatedWpapper}>
-  <Logo />
-  </div>}
-  </>
+      <Container />
+      {isLoggedIn ? (
+        <div className={css.headerWrapper}>
+          <Link
+            to={isAuthenticated ? '/diary' : '/welcome'}
+            onClick={handleLogoClick}
+            className={css.logoWrapper}
+          >
+            <Logo />
+          </Link>
+          {!isAuthenticated ? (
+            <div className={css.userNavWrapper}>
+              <UserNav />
+              <UserBar onLogout={handleLogout} />
+              <LogoutBtn className={css.logoutBtnWrapper} onLogout={handleLogout} />
+            </div>
+          ) : null}
+        </div>
+      ) : (
+        <div className={css.headerNoAuthenticatedWpapper}>
+          <Logo />
+        </div>
+      )}
+    </>
   );
 };
 

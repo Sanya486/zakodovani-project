@@ -67,8 +67,6 @@ const ExercisesTableItem = ({
   );
 };
 
-
-
 export default ExercisesTableItem;
 
 // import React from 'react';

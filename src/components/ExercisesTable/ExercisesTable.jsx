@@ -8,7 +8,6 @@ import clsx from 'clsx';
 
 // import React from 'react';
 
-
 const ExercisesTable = () => {
   const exercises = useSelector(selectExercises);
   console.log(exercises);
@@ -28,6 +27,7 @@ const ExercisesTable = () => {
             time={time}
           />
         ))}
+
       </div>
       <div className={clsx(css.bodyboxTable)}>
         <table className={css.exercisestablehead}>
@@ -51,7 +51,7 @@ const ExercisesTable = () => {
                 target={target}
                 burnedCalories={burnedCalories}
                 time={time}
-              />
+              />>
             ))}
           </tbody>
         </table>

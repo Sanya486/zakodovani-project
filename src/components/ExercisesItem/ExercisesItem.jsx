@@ -4,7 +4,6 @@ import styles from './ExercisesItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 
 const ExercisesItem = ({
-  key,
   exerciseType = 'Air Bike',
   calories = 312,
   bodyPart = 'Waist',
