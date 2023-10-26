@@ -7,12 +7,12 @@ import clsx from 'clsx';
 
 
 const ExercisesTableItem = ({
-  bodyPart = 'upper arms',
-  equipment = 'barbell',
-  name = 'barbell drag curl',
-  target = 'biceps',
-  burnedCalories = 84,
-  time = 3,
+  bodyPart ,
+  equipment,
+  name  ,
+  target ,
+  burnedCalories ,
+  time,
 }) => {
   const onClick = () => {
     console.log("Удалить по йади");
