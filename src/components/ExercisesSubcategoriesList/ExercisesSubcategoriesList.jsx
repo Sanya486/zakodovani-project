@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ExercisesSubcategoriesItem from 'components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
-import styles from './ExercisesSubcategoriesList.module.scss';
+
 import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+
+
 import 'swiper/css';
 import 'swiper/css/grid';
 import Swiper from 'swiper/bundle';

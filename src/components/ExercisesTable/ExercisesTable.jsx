@@ -4,18 +4,22 @@ import { selectExercises } from 'redux/selectors';
 import { useSelector } from 'react-redux';
 import ExercisesTableItem from 'components/ExercisesTableItem/ExercisesTableItem';
 import clsx from 'clsx';
+// import sport from '../../redux-example.json';
 
 // import React from 'react';
 
+
 const ExercisesTable = () => {
   const exercises = useSelector(selectExercises);
-
+  console.log(exercises);
+  // console.log(sport.sport.exercises);
+  // const test = sport.sport.exercises;
   return (
     <>
       <div className={clsx(css.bodybox)}>
-        {exercises.map(({ bodyPart, equipment, name, target, burnedCalories, time }) => (
+        {exercises.map(({ key, bodyPart, equipment, name, target, burnedCalories, time }) => (
           <ExercisesTableItem
-            key
+            key={key}
             bodyPart={bodyPart}
             equipment={equipment}
             name={name}
@@ -38,9 +42,9 @@ const ExercisesTable = () => {
             </tr>
           </thead>
           <tbody className={css.exercisestablebody}>
-            {exercises.map(({bodyPart, equipment, name, target, burnedCalories, time }) => (
+            {exercises.map(({ key, bodyPart, equipment, name, target, burnedCalories, time }) => (
               <ExercisesTableItem
-                key
+                key={key}
                 bodyPart={bodyPart}
                 equipment={equipment}
                 name={name}

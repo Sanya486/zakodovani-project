@@ -1,23 +1,24 @@
+
 import React from 'react';
 import css from './ExercisesTableItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import clsx from 'clsx';
 
-const ExercisesTableItem = ({bodyPart, equipment, name, target, burnedCalories, time }) => {
+
+
+const ExercisesTableItem = ({
+  bodyPart = 'upper arms',
+  equipment = 'barbell',
+  name = 'barbell drag curl',
+  target = 'biceps',
+  burnedCalories = 84,
+  time = 3,
+}) => {
+  const onClick = () => {
+    console.log("Удалить по йади");
+  }
   return (
     <>
-      <tr className={clsx(css.exercisestablebody, css.tablehide)}>
-        <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{bodyPart}</td>
-        <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{equipment}</td>
-        <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{name}</td>
-        <td className={clsx(css.exercisetipe, css.extrabigwidth)}>{target}</td>
-        <td className={clsx(css.exercisetipe, css.extrasmallwidth)}>{burnedCalories}</td>
-        <td className={css.exercisetipe}>{time}</td>
-        <svg className={css.icon2}>
-          <use href={sprite + '#trash_icon'}></use>
-        </svg>
-      </tr>
-
       <div className={clsx(css.bodybox)}>
         <div>
           <div>
@@ -32,28 +33,41 @@ const ExercisesTableItem = ({bodyPart, equipment, name, target, burnedCalories, 
             <h2 className={css.exercisename}>Name</h2>
             <h3 className={css.exercisetipe}>{name}</h3>
           </div>
-          <div className={css.rowtext} >
-            <div>
+          <div className={css.rowtext}>
+            <div className={css.subrowtext}>
               <h2 className={css.exercisename}>Target</h2>
               <h3 className={css.exercisetipe}>{target}</h3>
             </div>
-            <div>
+            <div className={css.subrowtext}>
               <h2 className={css.exercisename}>Burned Calories</h2>
               <h3 className={css.exercisetipe}>{burnedCalories}</h3>
             </div>
-            <div>
+            <div className={css.subrowtext}>
               <h2 className={css.exercisename}>Time</h2>
               <h3 className={css.exercisetipe}>{time}</h3>
             </div>
-            <svg className={css.icon}>
+            <svg className={css.icon} onClick={onClick}>
               <use href={sprite + '#trash_icon'}></use>
             </svg>
           </div>
         </div>
       </div>
+      <tr className={clsx(css.exercisestablebody, css.tablehide)}>
+        <td className={css.exercisetipe}>{bodyPart}</td>
+        <td className={css.exercisetipe}>{equipment}</td>
+        <td className={css.exercisetipe}>{name}</td>
+        <td className={css.exercisetipe}>{target}</td>
+        <td className={css.exercisetipe}>{burnedCalories}</td>
+        <td className={css.exercisetipe}>{time}</td>
+        <svg className={css.icon2} onClick={onClick}>
+          <use href={sprite + '#trash_icon'}></use>
+        </svg>
+      </tr>
     </>
   );
 };
+
+
 
 export default ExercisesTableItem;
 
