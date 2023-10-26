@@ -26,7 +26,7 @@ const Subtext = ({ page }) => {
       {page === 'SignInPage' && (
         <p className={cssClass}>
           Don’t have an account?{' '}
-          <Link to='signup' className={css.link}>
+          <Link to='/signup' className={css.link}>
             Sign Up
           </Link>
         </p>
@@ -34,7 +34,7 @@ const Subtext = ({ page }) => {
       {page === 'SignUpPage' && (
         <p className={cssClass}>
           Already have account?{' '}
-          <Link to='signin' className={css.link}>
+          <Link to='/signin' className={css.link}>
             Sign In
           </Link>
         </p>
