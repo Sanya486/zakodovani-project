@@ -3,6 +3,13 @@
 .accentButton {
   background-color: index.$orange-main-color;
   border-color: transparent;
+  transition: index.$transition-dur-and-fun;
+}
+
+.accentButton:hover {
+  border-color: transparent;
+  background-color: index.$orange-secondary-color;
+  cursor: pointer;
 }
 
 .btn {
@@ -11,7 +18,6 @@
   padding: 12px 40px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   border-radius: 12px;
 
   color: index.$white-color;
@@ -24,6 +30,12 @@
 .transparentButton {
   background-color: transparent;
   border: 1px solid #efede84d;
+  transition: index.$transition-dur-and-fun;
+}
+
+.transparentButton:hover {
+  border-color: index.$orange-main-color;
+  cursor: pointer;
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {

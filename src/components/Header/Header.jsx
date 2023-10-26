@@ -1,58 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsLoggedIn } from '../../redux/selectors';
 import Logo from 'components/Logo/Logo';
 import UserNav from '../../components/UserNav/UserNav';
 import UserBar from '../../components/UserBar/UserBar';
 import LogoutBtn from '../../components/LogoutBtn/LogoutBtn';
 import css from './Header.module.scss';
+import { fetchLogout } from 'redux/operations';
 // import PropTypes from 'prop-types'
 
 const Header = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [token, setToken] = useState('');
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    axios
-      .get('/check-auth') // URL для перевірки аутентифікації
-      .then((response) => {
-        setIsAuthenticated(response.data.isAuthenticated);
-        setToken(response.data.token);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [isAuthenticated, token]);
-
-  const handleLogoClick = () => {
-    const destination = isAuthenticated ? '/diary' : '/welcome';
-    if (token) {
-      axios
-        .get(destination, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  };
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const dispatch = useDispatch();
 
   const handleLogout = async () => {
     try {
-      await axios.post('/identification/logout', null, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      setToken('');
-      navigate('/');
+      dispatch(fetchLogout());
     } catch (error) {
       console.log(error);
     }
@@ -60,18 +24,14 @@ const Header = () => {
 
   return (
     <div className={css.headerWrapper}>
-      <Link
-        to={isAuthenticated ? '/diary' : '/welcome'}
-        onClick={handleLogoClick}
-        className={css.logoWrapper}
-      >
+      <Link to={isLoggedIn ? '/diary' : '/'} className={css.logoWrapper}>
         <Logo />
       </Link>
-      {!isAuthenticated ? (
+      {!isLoggedIn ? (
         <div className={css.userNavWrapper}>
           <UserNav />
           <UserBar onLogout={handleLogout} />
-          <LogoutBtn className={css.logoutBtnWrapper} onLogout={handleLogout} />
+          <LogoutBtn onLogout={handleLogout} />
         </div>
       ) : null}
     </div>

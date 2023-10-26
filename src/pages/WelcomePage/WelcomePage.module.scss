@@ -1,0 +1,83 @@
+@use 'index';
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
+    url('../../images/hero-mobl-1x.jpg');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-attachment: fixed;
+}
+
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .box {
+    background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
+      url('../../images/hero-mobl-2x.jpg');
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-start;
+}
+
+.statisticsInfoPosition {
+  margin: 231px 0 40px;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  body {
+    background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
+      url('../../images/hero-tabl-1x.jpg');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: contain;
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .box {
+      background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
+        url('../../images/hero-tabl-2x.jpg');
+    }
+  }
+
+  .buttonWrapper {
+    gap: 20px;
+  }
+
+  .statisticsInfoPosition {
+    margin: 171px 0 40px;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  body {
+    background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
+      url('../../images/hero-deck-1x.jpg');
+    background-position: 100% bottom;
+    background-repeat: no-repeat;
+    background-size: 84vh;
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .box {
+      background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
+        url('../../images/hero-deck-2x.jpg');
+    }
+  }
+
+  .statisticsInfoPosition {
+    margin: -180px -64px 0 186px;
+  }
+}

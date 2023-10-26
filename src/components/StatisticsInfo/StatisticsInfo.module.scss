@@ -53,6 +53,7 @@
   justify-content: center;
   gap: 4px;
 }
+
 .circle2 {
   width: 20px;
   height: 20px;
@@ -88,6 +89,7 @@
   font-weight: bold;
   padding-top: 8px;
 }
+
 @media (min-width: index.$tablet-breakpoint) {
   .container {
     width: 206px;
