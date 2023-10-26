@@ -1,11 +1,21 @@
 import React from 'react';
-
 // import PropTypes from 'prop-types'
 
-// import { ProductTableItem } from 'components/ProductsTableItem/ProductsTableItem';
+// import { useSelector } from "react-redux";
+// import { selectDiaryProducts } from "redux/selectors";
+// import { ProductTable } from 'components/ProductsTable/ProductsTable';
+import Header from 'components/Header/Header';
+
+
 
 const WelcomePage = () => {
-  return <div></div>;
+  // const products = useSelector(selectDiaryProducts);
+  // return (
+  //   <div>
+  //     <ProductTable products={products}/>
+  //   </div>
+  // );
+  <Header/>
 };
 
 // WelcomePage.propTypes = {
