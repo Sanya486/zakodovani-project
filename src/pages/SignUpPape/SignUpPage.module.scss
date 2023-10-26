@@ -34,11 +34,14 @@
   background-size: cover;
 }
 
+
 @media screen and (min-width: index.$tablet-breakpoint) {
   .containerWrapper {
-    max-width: 1339px;
-    margin-right: 32px;
-    margin-left: 32px;
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .background {
@@ -65,7 +68,7 @@
 
   @media (max-height: 1023px) {
     .signUpBlockWrapper {
-      padding-top: 90px;
+      padding-top: px;
     }
 
     .background {
@@ -80,12 +83,14 @@
 
 @media screen and (min-width: index.$desktop-breakpoint) {
   .signUpBlockWrapper {
-    padding-top: 200px;
+    padding-top: 116px;
   }
 
   .containerWrapper {
     height: 100vh;
     max-width: 100%;
+    padding-left: 96px;
+    padding-right: 96px;
   }
 
   .background {
