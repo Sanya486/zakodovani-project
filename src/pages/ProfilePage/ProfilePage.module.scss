@@ -1,20 +1,39 @@
 @use "index";
 
 .container{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
     max-width: 375px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 66px;
 }
+.title{
+    margin-top: 40px;
+}
+
 
 @media (min-width: index.$tablet-breakpoint) {
     .container{
+        padding-left: 40px;
+        padding-right: 40px;
         max-width: 768px;
         margin-bottom: 54px;
     }
 }
 @media (min-width: index.$desktop-breakpoint) {
     .container{
+        padding-left: 0;
+        padding-right: 0;
         max-width: 1440px;
     }
+    .flexCont{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    
 }

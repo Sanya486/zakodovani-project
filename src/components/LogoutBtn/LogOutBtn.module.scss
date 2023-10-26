@@ -12,8 +12,14 @@
   cursor: pointer;
 }
 
+
 .logoutBtnHeader{
   display: none;
+}
+
+.logoutBtnProfile{
+  margin-left: auto;
+  margin-bottom: 40px;
 }
 
 .icon {
@@ -21,6 +27,9 @@
   width: 20px;
   height: 20px;
   fill: transparent;
+}
+.iconForProfile{
+  stroke: #e6533c;
 }
 
 @media (min-width: 768px) {

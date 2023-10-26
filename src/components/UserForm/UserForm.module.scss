@@ -8,7 +8,6 @@
   margin-bottom: 4px;
   line-height: 1.5;
   font-size: 12px;
-  margin-left: 15px;
   color: rgba(index.$white-color, 50%);
 }
 .blood {
@@ -54,11 +53,6 @@
 }
 
 
-.react-datepicker {
-  background-color: #e11b1b;
-  border: 1px solid #e91111;
-}
-
 .label {
   margin-bottom: 4px;
   line-height: 1.5;
@@ -94,15 +88,17 @@
 }
 
 .labelMargin {
-  margin-right: 2px;
+  margin-right: 5px;
   color:index.$white-color;
+  font-size: 14px;
+  line-height: 1.29;
 }
 .inputRadio {
   line-height: 1.29;
   font-size: 14px;
   color:index.$radio-color;
   background-color: transparent;
-  margin-right: 2px;
+  margin-right: 8px;
 }
 .radioText {
   display: flex;
@@ -110,13 +106,12 @@
   margin-top: 41px;
 }
 .labelText {
-  margin-bottom: 9px;
+  margin-bottom: 8px;
   color:index.$white-color;
+  font-size: 14px;
+  line-height: 1.29;
 }
 
-.labelText:not(:last-child) {
-  margin-bottom: 0;
-}
 
 .btn {
   padding: 12px 40px;
@@ -132,14 +127,14 @@
 }
 
 .inputError {
-  border: 1px solid red;
+  border: 1px solid index.$error-color;
 }
 
 .inputSuccess {
   border: 1px solid green;
 }
 .error {
-  color: red;
+  color: index.$error-color;
   font-size: 10px;
 }
 .columnName {
@@ -148,26 +143,26 @@
   flex-direction: column;
 }
 .errorName {
-  color: red;
+  color: index.$error-color;
   font-size: 10px;
   position: fixed;
   margin-top: -20px;
 }
 .errorEmail {
-  color: red;
+  color: index.$error-color;
   font-size: 10px;
   position: absolute;
   margin-top: 110px;
 }
 
 .errorGroup1 {
-  color: red;
+  color: index.$error-color;
   font-size: 10px;
   position: absolute;
   margin-top: 70px;
 }
 .errorGroup2 {
-  color: red;
+  color: index.$error-color;
   font-size: 10px;
   position: absolute;
   margin-top: 68px;
@@ -221,11 +216,11 @@
     margin-top: 23px;
     height: 55px;
   }
-  .group {
+  .groups {
     display: flex;
-    gap: 14px;
-    margin-right: auto;
-    margin-left: 18px;
+    justify-content: center;
+    align-items: center;
+
   }
   .input {
     width: 159px;
@@ -277,6 +272,10 @@
   .errorEmail {
     margin-top: 6%;
     margin-left: 17%;
+  }
+  .labelText {
+    font-size: 16px;
+    line-height: 1.5;
   }
 }
 
