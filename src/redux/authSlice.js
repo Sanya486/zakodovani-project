@@ -12,7 +12,7 @@ import { handlePending, handleReject } from './handlers';
 
 const initialState = {
   client: {
-    _id:'',
+    _id: '',
     email: '',
     name: '',
   },
@@ -53,13 +53,13 @@ export const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(fetchLogout.fulfilled, (state) => {
-        state.client = initialState.client
-        state.clientData = initialState.client
-        state.error = initialState.error
-        state.isLoading = initialState.isLoading
-        state.isLoggedIn = initialState.isLoggedIn
-        state.isRefreshing = initialState.isRefreshing
-        state.token = initialState.token
+        state.client = initialState.client;
+        state.clientData = initialState.client;
+        state.error = initialState.error;
+        state.isLoading = initialState.isLoading;
+        state.isLoggedIn = initialState.isLoggedIn;
+        state.isRefreshing = initialState.isRefreshing;
+        state.token = initialState.token;
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.client = payload;
