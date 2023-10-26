@@ -1,0 +1,184 @@
+@use 'index';
+
+.itemContainer {
+  width: 100%;
+  max-width: 335px;
+  height: 141px;
+  padding: 16px;
+
+  list-style: none;
+
+  background-color: rgba(index.$white-color, 0.05);
+
+  border-radius: 12px;
+  border: 1px solid rgba(index.$white-color, 0.2);
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+}
+
+.itemTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.diet {
+  position: relative;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 41px;
+  height: 24px;
+  border-radius: 4px;
+}
+
+.diet::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: index.$white-color;
+  opacity: 5%;
+  border-radius: 4px;
+}
+
+.diet span {
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.itemTopRight {
+  display: flex;
+  align-items: center;
+}
+
+.indicator {
+  display: block;
+
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+
+  border-radius: 10px;
+}
+
+.greenIndicator {
+  background-color: #419b09;
+}
+
+.redIndicator {
+  background-color: #e9101d;
+}
+
+.recommendText {
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+
+  margin-right: 16px;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: transparent;
+  border: none;
+
+  width: 49px;
+  padding: 0;
+
+  color: index.$orange-main-color;
+  font-size: 14px;
+}
+
+.addBtn svg {
+  max-width: 16px;
+  max-height: 16px;
+  fill: index.$orange-main-color;
+}
+
+.itemBottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent {
+  display: flex;
+  gap: 16px;
+}
+
+.svgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: content-box;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  background-color: index.$beige-color;
+}
+
+.mainContent svg {
+  height: 16px;
+}
+
+.mainText {
+  color: index.$white-color;
+  font-size: 20px;
+  line-height: 1.2;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.infoList {
+  display: flex;
+  gap: 16px;
+}
+
+.infoItem {
+  color: rgba(index.$white-color, 0.4);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.infoItem span {
+  color: index.$white-color;
+}
+
+@media screen and (min-width: index.$mobile-breakpoint) {
+  .itemContainer {
+    max-width: 335px;
+  }
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .addBtn {
+    font-size: 16px;
+  }
+
+  .mainText {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .itemContainer {
+    max-width: 100%;
+    width: 405px;
+  }
+}

@@ -1,0 +1,33 @@
+@use 'index';
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .exercise-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 16px;
+    overflow-y: scroll;
+    width: 702px;
+    max-height: 487px;
+  }
+
+  .exercise-list::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .exercise-list::-webkit-scrollbar-thumb {
+    background: #ef8964;
+    border-radius: 12px;
+  }
+
+  .exercise-list::-webkit-scrollbar-track {
+    background: #efede81a;
+    border-radius: 12px;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .exercise-list {
+    width: 842px;
+    max-height: 487px;
+  }
+}

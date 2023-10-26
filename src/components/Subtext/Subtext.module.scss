@@ -1,0 +1,26 @@
+@use 'index';
+
+.signIn,
+.signUp {
+  font-size: 12px;
+  font-weight: normal;
+  color: #91908d;
+  margin-top: 12px;
+}
+
+.userPage {
+  font-size: 14px;
+  font-weight: normal;
+  color: #91908d;
+}
+
+.link {
+  color: index.$white-color;
+  text-decoration-line: underline;
+}
+@media (min-width: index.$tablet-breakpoint) {
+  .signIn,
+  .signUp {
+    margin-left: 15px;
+  }
+}

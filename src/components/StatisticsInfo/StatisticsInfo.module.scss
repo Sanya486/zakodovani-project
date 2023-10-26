@@ -1,0 +1,236 @@
+@use 'index';
+.statist {
+  padding-bottom: 40px;
+}
+
+.container {
+  position: absolute;
+  bottom: 22%;
+  right: 28%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 146px;
+  height: 66px;
+  border-radius: 12px;
+  background-color: #303030;
+}
+
+@media (max-height: 812px) {
+  .container {
+    bottom: 16%;
+    right: 28%;
+  }
+}
+
+.marginTopUp {
+  margin-top: 35px;
+}
+
+.marginTopIn {
+  margin-top: 121px;
+}
+
+.marginTopProfile {
+  margin-top: 231px;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: index.$orange-secondary-color;
+  position: relative;
+}
+
+.play {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  fill: index.$white-color;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+}
+
+.text1 {
+  font-size: 16px;
+  line-height: 1.12;
+  color: index.$white-color;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.text2 {
+  font-size: 12px;
+  line-height: 1.33;
+  color: rgba(index.$white-color, 0.65);
+}
+
+.containerCal {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 119px;
+  height: 76px;
+  background-color: index.$orange-secondary-color;
+  border-radius: 12px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+@media (max-height: 812px) {
+  .containerCal {
+    bottom: 2%;
+  }
+}
+
+.circle2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: index.$beige-color;
+  position: relative;
+  margin-left: 14px;
+}
+.icon {
+  fill: index.$white-color;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.textGroup2 {
+  display: flex;
+  gap: 8px;
+  margin-left: 14px;
+}
+.quantity {
+  font-size: 24px;
+  line-height: 1;
+  color: index.$white-color;
+  font-weight: bold;
+}
+.cal {
+  font-size: 12px;
+  line-height: 1.33;
+  color: index.$white-color;
+  font-weight: bold;
+  padding-top: 8px;
+}
+@media (min-width: index.$tablet-breakpoint) {
+  @media (min-height: 600px) {
+    .container {
+      position: absolute;
+      right: 22%;
+      bottom: 24%;
+      width: 206px;
+      height: 96px;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    .containerCal {
+      position: absolute;
+      bottom: -4%;
+      right: 3%;
+      width: 180px;
+      height: 110px;
+    }
+  }
+
+  @media (min-height: 889px) {
+    .container {
+      position: absolute;
+      right: 30%;
+      bottom: 20%;
+    }
+
+    .containerCal {
+      position: absolute;
+      bottom: -1%;
+      right: 2%;
+    }
+  }
+
+  .circle {
+    width: 40px;
+    height: 40px;
+  }
+  .play {
+    width: 50px;
+    height: 50px;
+  }
+  .text1 {
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .text2 {
+    font-size: 12px;
+    line-height: 1.33;
+    color: rgba(index.$white-color, 0.65);
+  }
+
+  .containerCal {
+    width: 180px;
+    height: 110px;
+    gap: 8px;
+    margin-bottom: 48px;
+  }
+  .circle2 {
+    width: 24px;
+    height: 24px;
+
+    margin-left: 28px;
+  }
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+  .textGroup2 {
+    gap: 11px;
+    margin-left: 28px;
+  }
+  .quantity {
+    font-size: 48px;
+    line-height: 1.04;
+  }
+  .cal {
+    font-size: 16px;
+    line-height: 1.5;
+    padding-top: 20px;
+  }
+  .marginTopUp {
+    margin-top: 39px;
+  }
+  .marginTopIn {
+    margin-top: 135px;
+  }
+  .marginTopProfile {
+    margin-top: 171px;
+  }
+}
+@media (min-width: index.$desktop-breakpoint) {
+  .container {
+    position: absolute;
+    bottom: 43%;
+    left: 60%;
+  }
+
+  .containerCal {
+    position: absolute;
+    bottom: 17%;
+    right: 2%;
+  }
+
+  .statist {
+    padding-bottom: 0;
+  }
+}

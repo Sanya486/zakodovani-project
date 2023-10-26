@@ -1,0 +1,42 @@
+@use 'index';
+
+.accentButton {
+  background-color: index.$orange-main-color;
+  border-color: transparent;
+}
+
+.btn {
+  height: 42px;
+  display: flex;
+  padding: 12px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+
+  color: index.$white-color;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.125;
+}
+
+.transparentButton {
+  background-color: transparent;
+  border: 1px solid #efede84d;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .btn {
+    height: 56px;
+    padding: 12px 40px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .btn {
+    padding: 16px 58px;
+  }
+}

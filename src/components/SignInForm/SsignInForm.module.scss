@@ -1,0 +1,126 @@
+@use 'index';
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.noGap {
+  gap: 0;
+}
+
+.btn {
+  margin-top: 28px;
+  font-weight: normal;
+  border: 0;
+  width: 132px;
+}
+
+.errorMessage {
+  color: index.$error-color;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.12px;
+}
+
+.successMessage {
+  color: index.$success-color;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.12px;
+}
+
+.inputStyle {
+  width: 100%;
+  display: block;
+  height: 46px;
+  padding: 14px;
+  color: #efede899;
+  font-size: 14px;
+  line-height: 1.28571;
+  background-color: transparent;
+  border-radius: 12px;
+  border: 1px solid #efede84d;
+  outline: none;
+
+  &:focus {
+    border: 1px solid index.$orange-main-color;
+  }
+}
+
+.messageWrap {
+  display: flex;
+  gap: 4px;
+}
+
+.errorInput {
+  border: 1px solid index.$error-color;
+}
+
+.successInput {
+  border: 1px solid index.$success-color;
+}
+
+.errorIcon {
+  width: 16px;
+  height: 16px;
+  fill: index.$error-color;
+}
+
+.successIcon {
+  width: 16px;
+  height: 16px;
+  fill: index.$success-color;
+}
+
+.passwordWrapper {
+  position: relative;
+}
+
+.eyeIcon {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  stroke: index.$white-color;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .inputStyle {
+    height: 52px;
+    font-size: 16px;
+    line-height: 1.5;
+    width: 279px;
+  }
+  .btn {
+    margin-top: 64px;
+    width: 184px;
+  }
+
+  .passwordWrapper {
+    width: 279px;
+  }
+  .eyeIcon {
+    top: 16px;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .inputStyle {
+    width: 310px;
+  }
+  .passwordWrapper {
+    width: 310px;
+  }
+  .eyeIcon {
+    top: 16px;
+  }
+}

@@ -1,0 +1,83 @@
+@use 'index';
+
+.wrapper {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.date {
+  font-size: 18px;
+  font-weight: bold;
+  color: index.$white-color;
+  line-height: 1.25;
+}
+
+.calendarIcon {
+  fill: none;
+  stroke: index.$orange-main-color;
+  width: 20px;
+  height: 20px;
+}
+
+.closeIcon {
+  fill: none;
+  stroke: index.$orange-main-color;
+  width: 20px;
+  height: 20px;
+}
+
+.dateAndIconWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowsWrapper {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: transparent;
+  border: 0ch;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  fill: index.$white-color;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .wrapper {
+    gap: 40px;
+  }
+
+  .date {
+    font-size: 24px;
+    line-height: 2;
+  }
+
+  .calendarIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .closeIcon {
+    fill: none;
+    stroke: index.$orange-main-color;
+    width: 24px;
+    height: 24px;
+  }
+}

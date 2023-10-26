@@ -1,0 +1,43 @@
+@use 'index';
+
+.warningTextUserPage,
+.warningTextDiaryPage {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.125;
+  color: #4b4a48;
+  max-width: 303px;
+}
+
+.warningIcon {
+  fill: #efa082;
+  stroke: #efede8;
+}
+
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .warningTextDiaryPage,
+  .warningTextUserPage {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .warningTextDiaryPage {
+    max-width: 561px;
+  }
+
+  .warningTextUserPage {
+    max-width: 407px;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .warningTextDiaryPage {
+    max-width: 358px;
+  }
+}

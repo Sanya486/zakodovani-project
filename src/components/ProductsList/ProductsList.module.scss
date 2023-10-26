@@ -1,0 +1,31 @@
+@use 'index';
+
+.productsListContainer {
+  max-width: 335px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .productsListContainer {
+    max-width: 686px;
+  }
+
+  .productList {
+    row-gap: 32px;
+    column-gap: 16px;
+  }
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .productsListContainer {
+    max-width: 826px;
+    margin-left: 0;
+  }
+}

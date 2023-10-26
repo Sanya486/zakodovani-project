@@ -1,0 +1,23 @@
+@use 'index';
+
+.text {
+  color: rgba(239, 237, 232, 0.3);
+  font-size: 14px;
+  line-height: 1.28;
+  margin-top: 14px;
+  margin-bottom: 28px;
+}
+@media screen and (min-width: index.$mobile-breakpoint) {
+  .text {
+    width: 335px;
+  }
+}
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .text {
+    width: 496px;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
+}

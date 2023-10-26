@@ -1,0 +1,12 @@
+@use 'index';
+
+.element {
+    margin-bottom: 40px;
+}
+
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+    .element {
+        margin-bottom: 8px;
+    }
+}

@@ -1,0 +1,102 @@
+@use 'index';
+.signUpBlockWrapper {
+  padding-top: 127px;
+}
+
+@media (max-height: 812px) {
+  .signUpBlockWrapper {
+    padding-top: 70px;
+  }
+}
+
+.containerWrapper {
+  height: 100vh;
+  max-width: 375px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-height: 813px) {
+  .containerWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.background {
+  background: url('../../images/signUp-bgd-mobile.jpg');
+  background-repeat: no-repeat;
+  background-position-x: 77px;
+  background-position-y: 182px;
+  background-size: cover;
+}
+
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .containerWrapper {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .background {
+    background: url('../../images/signUp-bgd-tablet.jpg');
+    background-repeat: no-repeat;
+    background-position-x: 280px;
+    background-position-y: 15px;
+    background-size: cover;
+  }
+
+  @media (min-height: 1025px) {
+    .containerWrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100vh;
+    }
+
+    .background {
+      background-position-x: 77px;
+      background-position-y: 250px;
+    }
+  }
+
+  @media (max-height: 1023px) {
+    .signUpBlockWrapper {
+      padding-top: px;
+    }
+
+    .background {
+      background: url('../../images/signUp-bgd-tablet@2x.jpg');
+      background-repeat: no-repeat;
+      background-position-x: 280px;
+      background-position-y: -170px;
+      background-size: cover;
+    }
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .signUpBlockWrapper {
+    padding-top: 116px;
+  }
+
+  .containerWrapper {
+    height: 100vh;
+    max-width: 100%;
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+
+  .background {
+    background: url('../../images/signUp-bgd-tablet.jpg');
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: -130px;
+  }
+}
