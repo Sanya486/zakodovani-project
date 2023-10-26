@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Button from 'components/Button/Button';
 import toast from 'react-hot-toast';
 
-const AddProductForm = ({ data, onClose }) => {
+const AddProductForm = ({ data, onClose, onSuccess }) => {
   const [amount, setAmount] = useState(100);
   const { _id, title, calories } = data;
   const dispatch = useDispatch();
@@ -28,12 +28,10 @@ const AddProductForm = ({ data, onClose }) => {
         calories: calculatedCalories,
       }),
     )
-      .then(console.log(date, _id, amount, calculatedCalories))
+      .then(onSuccess(calculatedCalories))
       .catch((error) => {
         toast(error.message);
       });
-
-    onClose();
   };
 
   return (

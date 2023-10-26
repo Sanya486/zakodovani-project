@@ -8,7 +8,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { fetchDiarySaveExercise } from 'redux/operations';
 import toast from 'react-hot-toast';
 
-const AddExerciseForm = ({ data, onClick }) => {
+const AddExerciseForm = ({ data, onSuccess }) => {
   const { _id, bodyPart, equipment, gifUrl, name, target, burnedCalories, time } = data;
 
   const [currentTime, setCurrentTime] = useState(time * 60);
@@ -35,16 +35,10 @@ const AddExerciseForm = ({ data, onClick }) => {
         calories: calculatedCalories,
       }),
     )
-      .then(
-        console.log(
-          `date: ${date}, exerciseId: ${_id}, time: ${currentTime}, calories: ${calculatedCalories}`,
-        ),
-      )
+      .then(onSuccess(currentTime, calculatedCalories))
       .catch((error) => {
         toast(error.message);
       });
-
-    onClick(); //close modal
   };
 
   const renderTime = ({ remainingTime }) => {
