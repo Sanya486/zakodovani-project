@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { clientSlice } from './clientSlice';
+import { authSlice } from './authSlice';
 import { sportsSlice } from './sportsSlice';
 import { productsSlice } from './productsSlice';
 
@@ -15,6 +15,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { diarySlice } from './diarySlice';
 
 const persistContactsConfig = {
   key: 'token',
@@ -22,12 +23,12 @@ const persistContactsConfig = {
   whitelist: ['token'],
 };
 
-const authPersistReducer = persistReducer(persistContactsConfig, clientSlice.reducer);
+const authPersistReducer = persistReducer(persistContactsConfig, authSlice.reducer);
 
 export const store = configureStore({
   reducer: {
     auth: authPersistReducer,
-    dairy: sportsSlice.reducer,
+    diary: diarySlice.reducer,
     products: productsSlice.reducer,
     sports: sportsSlice.reducer,
   },
