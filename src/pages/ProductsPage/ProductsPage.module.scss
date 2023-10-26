@@ -1,10 +1,5 @@
 @use 'index';
 
-.wrapper {
-  margin-top: -40px;
-  padding-top: 40px;
-}
-
 .topWrapper {
   margin-bottom: 40px;
 }
@@ -18,11 +13,6 @@
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-  .wrapper {
-    margin-top: -72px;
-    padding-top: 72px;
-  }
-
   .topWrapper {
     margin-bottom: 32px;
   }
@@ -35,6 +25,8 @@
 @media screen and (min-width: index.$desktop-breakpoint) {
   .wrapper {
     position: relative;
+    margin-top: -72px;
+    padding-top: 72px;
     margin-right: -96px;
     background-image: url('../../images/prod-desk-1x.jpg');
     background-image: -webkit-image-set
