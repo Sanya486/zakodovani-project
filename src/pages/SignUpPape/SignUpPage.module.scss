@@ -49,7 +49,6 @@
     background-size: cover;
   }
 
-
   @media (min-height: 1025px) {
     .containerWrapper {
       display: flex;
@@ -64,30 +63,29 @@
     }
   }
 
-@media (max-height: 1023px) {
-  .signUpBlockWrapper {
-    padding-top: 90px;
-  }
+  @media (max-height: 1023px) {
+    .signUpBlockWrapper {
+      padding-top: 90px;
+    }
 
-  .background {
-    background: url('../../images/signUp-bgd-tablet@2x.jpg');
-    background-repeat: no-repeat;
-    background-position-x: 280px;
-    background-position-y: -170px;
-    background-size: cover;
+    .background {
+      background: url('../../images/signUp-bgd-tablet@2x.jpg');
+      background-repeat: no-repeat;
+      background-position-x: 280px;
+      background-position-y: -170px;
+      background-size: cover;
+    }
   }
-}
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
   .signUpBlockWrapper {
     padding-top: 200px;
-  } 
+  }
 
   .containerWrapper {
     height: 100vh;
     max-width: 100%;
-    
   }
 
   .background {
@@ -97,4 +95,3 @@
     background-position-y: -130px;
   }
 }
-

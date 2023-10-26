@@ -57,6 +57,6 @@ export const InfoItem = ({ name, value, variant }) => {
         <p className={css.itemName}>{name}</p>
       </div>
       <h2 className={css.itemValue}> {value}</h2>
-    </li>
+    </div>
   );
 };

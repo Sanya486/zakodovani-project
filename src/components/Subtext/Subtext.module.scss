@@ -18,10 +18,9 @@
   color: index.$white-color;
   text-decoration-line: underline;
 }
-@media (min-width: index.$tablet-breakpoint){
+@media (min-width: index.$tablet-breakpoint) {
   .signIn,
-.signUp {
-margin-left: 15px;
+  .signUp {
+    margin-left: 15px;
+  }
 }
-}
-
