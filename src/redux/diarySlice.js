@@ -12,14 +12,75 @@ const handleMessage = (state, { payload }) => {
   state.message = payload.message;
 };
 
-export const dairySlice = createSlice({
+export const diarySlice = createSlice({
   name: 'diary',
   initialState: {
     data: {
       _id: '',
       clientId: '',
       _v: null,
-      consumedProduct: [],
+      consumedProduct: [
+          {
+            _id: {
+              $oid: '5d51694902b2373622ff5773',
+            },
+            weight: 100,
+            calories: 340,
+            category: 'dairy',
+            title: 'Danbo cheese',
+            recommend: 'Yes',
+          },
+          {
+            _id: {
+              $oid: '5d51694902b2373622ff5b7f',
+            },
+            weight: 100,
+            calories: 112,
+            category: 'fish',
+            title: 'marlin',
+            recommend: 'Yes',
+          },
+          {
+            _id: {
+              $oid: '5d51694902b2373622ff5e13',
+            },
+            weight: 100,
+            calories: 17,
+            category: 'vegetables and herbs',
+            title: 'Salads Belaya Dacha Delicate root',
+            recommend: 'No',
+          },
+          {
+            _id: {
+              $oid: '5d51694902b2373622ff5b6f',
+            },
+            weight: 100,
+            calories: 160,
+            category: 'fish',
+            title: 'Cold smoked bream',
+            recommend: 'Yes',
+          },
+          {
+            _id: {
+              $oid: '5d51694902b2373622ff5b8d',
+            },
+            weight: 100,
+            calories: 281,
+            category: 'fish',
+            title: 'Pollock in batter',
+            recommend: 'Yes',
+          },
+          {
+            _id: {
+              $oid: '5d51694902b2373622ff590d',
+            },
+            weight: 100,
+            calories: 232,
+            category: 'meat',
+            title: 'Lamb ham',
+            recommend: 'No',
+          },
+      ],
       exerciseDone: [],
     },
     message: '',

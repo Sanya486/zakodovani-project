@@ -1,20 +1,15 @@
+
 @use 'index';
 
 .bodybox {
-  padding-left: 16px;
-  padding-right: 16px;
-  background-color: rgba(239, 237, 232, 0.05);
   border-color: rgba(239, 237, 232, 0.2);
   border-width: 1px;
   border-radius: 12px;
   gap: 32px;
+  margin-bottom: 50px;
 }
 .bodyboxTable {
-  padding-left: 16px;
   padding-right: 16px;
-  padding-bottom: 14px;
-  margin: 20px;
-  background-color: rgba(239, 237, 232, 0.05);
   border-color: rgba(239, 237, 232, 0.2);
   border-width: 1px;
   border-radius: 12px;
@@ -28,6 +23,10 @@
   justify-content: space-between;
   background-color: rgba(239, 237, 232, 0);
 }
+.itembox {
+  margin-bottom: 60px;
+}
+
 .exercisetitle {
   color: rgba(239, 237, 232, 0.5);
   font-weight: 500;
@@ -44,10 +43,12 @@
 
 .exercisename {
   color: #ef8964;
-  overflow-x: hidden;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .exercisetitleitem {
@@ -58,7 +59,6 @@
 }
 
 .exercisetipe {
-  overflow-x: hidden;
   color: index.$white-color;
   border-color: rgba(239, 237, 232, 0.3);
   font-weight: 400;
@@ -67,17 +67,21 @@
   border: solid;
   border-width: 1px;
   border-radius: 12px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 14px;
-  padding-right: 14px;
+  padding: 10px 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
 }
+.subrowtext{ flex-grow: 1;
+  
+}
+
 .rowtext {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  gap: 10px;
+  gap: 20px;
   flex: 1;
 }
 .rowtextitems {
@@ -85,16 +89,20 @@
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+  overflow: hidden;
 }
 
 .icon {
   position: relative;
-  top: +67px;
+  top: +40px;
   display: flex;
   flex-direction: column;
   stroke: #ef8964;
   width: 20px;
   height: 20px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 }
 
 .icon2 {
@@ -104,15 +112,20 @@
   stroke: #ef8964;
   width: 20px;
   height: 20px;
+  top: +10px;
+  cursor: pointer;
+}
+
+.tablehide {
+  display: none;
 }
 
 @media screen and (min-width: index.$mobile-breakpoint) {
   .rowtext {
     gap: 25px;
+    
   }
-  .icon {
-    top: +50px;
-  }
+
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
@@ -124,22 +137,24 @@
   }
   .exercisestablehead {
     flex: 1;
-
     width: 100%;
     text-align: left;
     font-size: 16px;
+    border-collapse: separate;
+    border-spacing: 10px;
   }
 
+  .exercisestablehead th,
   .exercisestablehead td {
-    gap: 10px;
-    padding-right: 10px;
+    padding: 10px;
+  }
+  .tablehide{
+  display: block;
+}
+  .tablehide {
+    display: table-row;
   }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
-  .exercisetitleitem {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-  }
 }

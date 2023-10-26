@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import './App.scss';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Layout from 'components/Layout/Layout';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
@@ -14,36 +15,65 @@ import ProfilePage from 'pages/ProfilePage/ProfilePage';
 import ProductsPage from 'pages/ProductsPage/ProductsPage';
 import ExercisesPage from 'pages/ExercisesPage/ExercisesPage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
+import { fetchCurrentUser } from 'redux/operations';
+import { selectIsRefreshing } from 'redux/selectors';
+import { Puff } from 'react-loader-spinner';
 
 function App() {
-  return (
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
+  const isRefreshing = useSelector(selectIsRefreshing);
+  return isRefreshing ? (
+    <Puff
+      height='100'
+      width='100'
+      color='#e6533c'
+      ariaLabel='line-wave'
+      wrapperStyle={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100vh',
+      }}
+      wrapperClass=''
+      visible={true}
+      firstLineColor=''
+      middleLineColor=''
+      lastLineColor=''
+    />
+  ) : (
     <>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<WelcomePage />} />
           <Route
             path='/signup'
-            element={<RestrictedRoute component={<SignUpPage />} redirectTo='/diary' />}
+            element={<RestrictedRoute component={SignUpPage} redirectTo='/diary' />}
           />
           <Route
             path='/signin'
-            element={<RestrictedRoute component={<SignInPage />} redirectTo='/diary' />}
+            element={<RestrictedRoute component={SignInPage} redirectTo='/diary' />}
           />
           <Route
             path='/profile'
-            element={<PrivateRoute component={<ProfilePage />} redirectTo='/signin' />}
+            element={<PrivateRoute component={ProfilePage} redirectTo='/signin' />}
           />
           <Route
             path='/diary'
-            element={<PrivateRoute component={<DiaryPage />} redirectTo='/signin' />}
+            element={<PrivateRoute component={DiaryPage} redirectTo='/signin' />}
           />
           <Route
             path='/products'
-            element={<PrivateRoute component={<ProductsPage />} redirectTo='/signin' />}
+            element={<PrivateRoute component={ProductsPage} redirectTo='/signin' />}
           />
           <Route
             path='/exercises'
-            element={<PrivateRoute component={<ExercisesPage />} redirectTo='/signin' />}
+            element={<PrivateRoute component={ExercisesPage} redirectTo='/signin' />}
           />
         </Route>
         <Route path='*' element={<ErrorPage />} />

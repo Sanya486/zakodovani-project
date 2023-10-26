@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-//import { useDispatch } from 'react-redux';
-//import { addExercise } from '../../redux/operations';
+import { useDispatch } from 'react-redux';
 import css from './AddExerciseForm.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import PropTypes from 'prop-types';
 import Button from 'components/Button/Button';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import { fetchDiarySaveExercise } from 'redux/operations';
+import toast from 'react-hot-toast';
 
 const AddExerciseForm = ({ data, onClick }) => {
   const { _id, bodyPart, equipment, gifUrl, name, target, burnedCalories, time } = data;
 
   const [currentTime, setCurrentTime] = useState(time * 60);
   const [isPlaying, setIsPlaying] = useState(false);
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const toggleIsPlaying = () => {
     setIsPlaying(!isPlaying);
@@ -26,17 +27,23 @@ const AddExerciseForm = ({ data, onClick }) => {
     }
 
     const date = new Date().toLocaleDateString('en-GB');
-    // dispatch(
-    //   addExercise({
-    //     date,
-    //     exerciseId: _id,
-    //     time: currentTime,
-    //     calories: calculatedCalories,
-    //   }),
-    // );
-    console.log(
-      `date: ${date}, exerciseId: ${_id}, time: ${currentTime}, calories: ${calculatedCalories}`,
-    );
+    dispatch(
+      fetchDiarySaveExercise({
+        date,
+        exerciseId: _id,
+        time: currentTime,
+        calories: calculatedCalories,
+      }),
+    )
+      .then(
+        console.log(
+          `date: ${date}, exerciseId: ${_id}, time: ${currentTime}, calories: ${calculatedCalories}`,
+        ),
+      )
+      .catch((error) => {
+        toast(error.message);
+      });
+
     onClick(); //close modal
   };
 

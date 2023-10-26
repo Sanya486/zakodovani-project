@@ -7,7 +7,7 @@
     gap: 32px 16px;
     overflow-y: scroll;
     width: 702px;
-    height: 487px;
+    max-height: 487px;
   }
 
   .exercise-list::-webkit-scrollbar {
@@ -28,6 +28,6 @@
 @media screen and (min-width: index.$desktop-breakpoint) {
   .exercise-list {
     width: 842px;
-    height: 487px;
+    max-height: 487px;
   }
 }

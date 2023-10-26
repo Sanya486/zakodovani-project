@@ -1,28 +1,30 @@
 @use 'index';
 
 .formWrapper {
-  height: 244px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .inputsWrapper {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  background-color: black;
+  gap: 24px;
+  margin-bottom: 28px;
 }
 
-.noGap {
-  & div:first-child {
-    margin-bottom: 18px;
-  }
-  gap: 0;
+.inputNameNoMargin {
+  margin-bottom: 0px;
+}
+
+.inputNameWithMArgin {
+  margin-bottom: 18px;
+}
+
+.inputWrapper {
+  position: relative;
 }
 
 .btn {
-  width: 138px;
+  width: 139px;
+  font-weight: normal;
 }
 
 .errorMessage {
@@ -50,6 +52,7 @@
   border-radius: 12px;
   border: 1px solid #efede84d;
   outline: none;
+  width: 100%;
 
   &:focus {
     border: 1px solid index.$orange-main-color;
@@ -57,6 +60,8 @@
 }
 
 .messageWrap {
+  position: absolute;
+  top: calc(100% + 4px);
   display: flex;
   gap: 4px;
 }
@@ -81,19 +86,42 @@
   fill: index.$success-color;
 }
 
+.passwordWrapper{
+  position: relative;
+}
+
+.eyeIcon{
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  stroke: index.$white-color
+}
+
 @media screen and (min-width: index.$tablet-breakpoint) {
+  .inputsWrapper {
+    margin-bottom: 64px;
+  }
+
   .formWrapper {
-    height: 316px;
     gap: 20px;
   }
   .inputStyle {
     height: 52px;
     font-size: 16px;
     line-height: 1.5;
-    width: 279px;
+    width: 364px;
   }
   .btn {
     width: 192px;
+  }
+
+   .passwordWrapper {
+    width: 364px;
+  }
+  .eyeIcon {
+    top: 16px;
   }
 }
 

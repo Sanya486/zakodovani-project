@@ -47,7 +47,7 @@ const UserNav = () => {
           <use href={sprite + '#burger_menu_icon'}></use>
         </svg>
       </button>
-      {isMenuOpen && <BurgerMenu />}
+      {isMenuOpen && <BurgerMenu switcher={toggleMenu} />}
     </>
   );
 };

@@ -1,53 +1,35 @@
 import React from 'react';
 import css from './ExercisesTable.module.scss';
-import { selectDiaryExercises } from 'redux/selectors';
+import { selectExercises } from 'redux/selectors';
 import { useSelector } from 'react-redux';
-import sprite from '../../images/svg/sprite.svg';
+import ExercisesTableItem from 'components/ExercisesTableItem/ExercisesTableItem';
 import clsx from 'clsx';
+// import sport from '../../redux-example.json';
+
+// import React from 'react';
 
 const ExercisesTable = () => {
-  const exercises = useSelector(selectDiaryExercises);
-
-  /* mobile show */
+  const exercises = useSelector(selectExercises);
+  console.log(exercises);
+  // console.log(sport.sport.exercises);
+  // const test = sport.sport.exercises;
   return (
-    <div>
+    <>
       <div className={clsx(css.bodybox)}>
         {exercises.map(({ key, bodyPart, equipment, name, target, burnedCalories, time }) => (
-          <div key={key}>
-            <div>
-              <h2 className={css.exercisename}>Body Part</h2>
-              <h3 className={css.exercisetipe}>{bodyPart}</h3>
-            </div>
-            <div>
-              <h2 className={css.exercisename}>Equipment</h2>
-              <h3 className={css.exercisetipe}>{equipment}</h3>
-            </div>
-            <div>
-              <h2 className={css.exercisename}>Name</h2>
-              <h3 className={css.exercisetipe}>{name}</h3>
-            </div>
-            <div className={css.rowtext}>
-              <div className={css.rowtextitems}>
-                <h2 className={css.exercisename}>Target</h2>
-                <h3 className={css.exercisetipe}>{target}</h3>
-              </div>
-              <div className={css.rowtextitems}>
-                <h2 className={css.exercisename}>Burned Calories</h2>
-                <h3 className={css.exercisetipe}>{burnedCalories}</h3>
-              </div>
-              <div className={css.rowtextitems}>
-                <h2 className={css.exercisename}>Time</h2>
-                <h3 className={css.exercisetipe}>{time}</h3>
-              </div>
-              <svg className={css.icon}>
-                <use href={sprite + '#trash_icon'}></use>
-              </svg>
-            </div>
-          </div>
+          <ExercisesTableItem
+            key={key}
+            bodyPart={bodyPart}
+            equipment={equipment}
+            name={name}
+            target={target}
+            burnedCalories={burnedCalories}
+            time={time}
+          />
         ))}
+
       </div>
-      {/* desk and tablet */}
-      <div className={clsx(css.bodyboxTable, css.ishidden)}>
+      <div className={clsx(css.bodyboxTable)}>
         <table className={css.exercisestablehead}>
           <thead>
             <tr className={css.exercisename}>
@@ -59,28 +41,23 @@ const ExercisesTable = () => {
               <th>Time</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className={css.exercisestablebody}>
             {exercises.map(({ key, bodyPart, equipment, name, target, burnedCalories, time }) => (
-              <tr key={key}>
-                <td className={css.exercisetipe}>{bodyPart}</td>
-                <td className={css.exercisetipe}>{equipment}</td>
-                <td className={css.exercisetipe}>{name}</td>
-                <td className={css.exercisetipe}>{target}</td>
-                <td className={css.exercisetipe}>{burnedCalories}</td>
-                <td className={css.exercisetipe}>{time}</td>
-                <svg className={css.icon2}>
-                  <use href={sprite + '#trash_icon'}></use>
-                </svg>
-              </tr>
+              <ExercisesTableItem
+                key={key}
+                bodyPart={bodyPart}
+                equipment={equipment}
+                name={name}
+                target={target}
+                burnedCalories={burnedCalories}
+                time={time}
+              />>
             ))}
           </tbody>
         </table>
       </div>
-      ;
-    </div>
+    </>
   );
 };
 
 export default ExercisesTable;
-
-// import React from 'react';

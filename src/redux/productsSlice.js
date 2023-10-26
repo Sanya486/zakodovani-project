@@ -6,7 +6,7 @@ export const productsSlice = createSlice({
   name: 'products',
   initialState: {
     productList: [],
-    productsCategories: [],
+    productsCategories: null,
     error: null,
     isLoading: false,
   },
@@ -22,7 +22,7 @@ export const productsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(fetchProductsCategories.fulfilled, (state, { payload }) => {
-        state.productsCategories = payload;
+        state.productsCategories = payload[0];
         state.isLoading = false;
       })
       .addMatcher((action) => action.type.endsWith('/pending'), handlePending)

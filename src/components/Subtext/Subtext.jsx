@@ -7,13 +7,13 @@ const Subtext = ({ page }) => {
   let cssClass = '';
 
   switch (page) {
-    case 'signIn':
+    case 'SignInPage':
       cssClass = css.signIn;
       break;
-    case 'signUp':
+    case 'SignUpPage':
       cssClass = css.signUp;
       break;
-    case 'userPage':
+    case 'ProfilePage':
       cssClass = css.userPage;
       break;
     default:
@@ -23,23 +23,23 @@ const Subtext = ({ page }) => {
 
   return (
     <>
-      {page === 'signIn' && (
+      {page === 'SignInPage' && (
         <p className={cssClass}>
           Don’t have an account?{' '}
-          <Link to='signup' className={css.link}>
+          <Link to='/signup' className={css.link}>
             Sign Up
           </Link>
         </p>
       )}
-      {page === 'signUn' && (
+      {page === 'SignUpPage' && (
         <p className={cssClass}>
           Already have account?{' '}
-          <Link to='signin' className={css.link}>
+          <Link to='/signin' className={css.link}>
             Sign In
           </Link>
         </p>
       )}
-      {page === 'userPage' && <p className={cssClass}>User</p>}
+      {page === 'ProfilePage' && <p className={cssClass}>User</p>}
     </>
   );
 };

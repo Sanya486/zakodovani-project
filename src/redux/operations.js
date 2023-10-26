@@ -16,8 +16,26 @@ const clearAuthorization = () => {
 
 export const fetchSignup = createAsyncThunk('/identification/signup', async (user, thunkAPI) => {
   try {
-    const response = await axios.post('identification/signup', user);
+    const fetchPromise = axios.post('identification/signup', user);
+    toast.promise(
+      fetchPromise,
+      {
+        loading: 'Loading...🤔 Please wait a moment until our freeware API will be ready 😴',
+        success: `Successful Signup 👍`,
+        error: 'Error when Signup. Please check your credentials 😓',
+      },
+      {
+        error: {
+          duration: 5000,
+        },
+      },
+    );
+    const response = await fetchPromise
     setAuthorization(response.data.token);
+    const userName = response.data.client.name;
+    toast.success(`Welcome to PowerPulse, ${userName} 🙂`, {
+      duration: 5000
+    });
     return response.data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);
@@ -26,10 +44,26 @@ export const fetchSignup = createAsyncThunk('/identification/signup', async (use
 
 export const fetchLogin = createAsyncThunk('/identification/login', async (user, thunkAPI) => {
   try {
-    const response = await axios.post('identification/login', user);
+    const fetchPromise = axios.post('identification/login', user);
+    toast.promise(
+      fetchPromise,
+      {
+        loading: 'Loading...🤔 Please wait a moment until our freeware API will be ready 😴',
+        success: `Successful Login 👍`,
+        error: 'Error when Login. Please check your credentials 😓',
+      },
+      {
+        error: {
+          duration: 5000,
+        },
+      },
+    );
+    const response = await fetchPromise;
     setAuthorization(response.data.token);
-    const userName = response.data.user.name;
-    toast.success(`Welcome back, ${userName}`);
+    const userName = response.data.client.name;
+    toast.success(`Welcome back, ${userName}`, {
+      duration: 5000,
+    });
     return response.data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);
@@ -109,9 +143,9 @@ export const fetchProductsCategories = createAsyncThunk(
 
 export const fetchAvaibleBloodProducts = createAsyncThunk(
   '/products/available-blood-products/:type',
-  async (bloodNumber, thunkAPI) => {
+  async (type, thunkAPI) => {
     try {
-      const response = await axios.get('products/categories', { params: { type: bloodNumber } });
+      const response = await axios.get(`products/categories/${type}`);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

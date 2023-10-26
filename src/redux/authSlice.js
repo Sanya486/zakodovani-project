@@ -10,29 +10,32 @@ import {
 
 import { handlePending, handleReject } from './handlers';
 
+const initialState = {
+  client: {
+    _id: '',
+    email: '',
+    name: '',
+    birthday: '',
+    blood: null,
+    currentWeight: null,
+    desiredWeight: null,
+    height: null,
+    levelActivity: null,
+    sex: '',
+    avatar: '',
+    BMR: null,
+    timeForSport: null,
+  },
+  token: '',
+  isLoading: false,
+  isLoggedIn: false,
+  isRefreshing: true,
+  error: null,
+};
+
 export const authSlice = createSlice({
   name: 'auth',
-  initialState: {
-    client: {
-      email: '',
-      name: '',
-    },
-    clientData: {
-      birthday: '',
-      blood: null,
-      currentWeight: null,
-      desiredWeight: null,
-      height: null,
-      levelActivity: null,
-      sex: '',
-      avatar: '',
-    },
-    token: '',
-    isLoading: null,
-    isLoggedIn: false,
-    isRefreshing: false,
-    error: null,
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) =>
     builder
@@ -40,31 +43,40 @@ export const authSlice = createSlice({
         state.client = payload.client;
         state.token = payload.token;
         state.isLoading = false;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
       })
       .addCase(fetchLogin.fulfilled, (state, { payload }) => {
         state.token = payload.token;
         state.client = payload.client;
         state.isLoggedIn = true;
         state.isLoading = false;
-        state.isRefreshing = true;
+        state.isRefreshing = false;
       })
       .addCase(fetchLogout.fulfilled, (state) => {
-        state.isLoggedIn = false;
-        state.isLoading = false;
-        state.isRefreshing = false;
-        state.token = '';
+        state.client = initialState.client;
+        state.error = initialState.error;
+        state.isLoading = initialState.isLoading;
+        state.isLoggedIn = initialState.isLoggedIn;
+        state.token = initialState.token;
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.client = payload;
         state.isLoading = false;
         state.isLoggedIn = true;
         state.isRefreshing = false;
+      }).addCase(fetchCurrentUser.rejected, (state) => {
+        state.isRefreshing = false
       })
       .addCase(fetchCalculateDailyMetrics.fulfilled, (state, { payload }) => {
-        state.clientData = payload;
+        state.client = payload;
         state.isLoading = false;
       })
-      .addCase(fetchUpload.fulfilled, (state) => state)
+      .addCase(fetchUpload.fulfilled, (state, { payload }) => {
+        if (payload.name) {
+          state.client.name = payload.name;
+        } else if (payload.avatar) state.client.avatar = payload.avatar;
+      })
       .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
       .addMatcher((action) => action.type.endsWith('/rejected'), handleReject),
 });

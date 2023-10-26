@@ -1,7 +1,6 @@
 @use 'index';
 
 .formWrapper {
-  height: 176px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,7 +10,6 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  background-color: black;
 }
 
 .noGap {
@@ -19,6 +17,9 @@
 }
 
 .btn {
+  margin-top: 28px;
+  font-weight: normal;
+  border: 0;
   width: 132px;
 }
 
@@ -37,6 +38,7 @@
 }
 
 .inputStyle {
+  width: 100%;
   display: block;
   height: 46px;
   padding: 14px;
@@ -78,12 +80,20 @@
   fill: index.$success-color;
 }
 
+.passwordWrapper {
+  position: relative;
+}
+
+.eyeIcon {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  stroke: index.$white-color;
+}
+
 @media screen and (min-width: index.$tablet-breakpoint) {
-  .formWrapper {
-    height: 244px;
-    gap: 20px;
-    margin-bottom: 64px;
-  }
   .inputStyle {
     height: 52px;
     font-size: 16px;
@@ -91,12 +101,26 @@
     width: 279px;
   }
   .btn {
+    margin-top: 64px;
     width: 184px;
+  }
+
+  .passwordWrapper {
+    width: 279px;
+  }
+  .eyeIcon {
+    top: 16px;
   }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
   .inputStyle {
     width: 310px;
+  }
+  .passwordWrapper {
+    width: 310px;
+  }
+  .eyeIcon {
+    top: 16px;
   }
 }
