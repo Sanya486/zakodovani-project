@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 import { fetchLogout } from 'redux/operations';
 
-const LogoutBtn = ({ classes = [], header }) => {
+const LogoutBtn = ({ classes = [], header, profile }) => {
   const dispatch = useDispatch()
    const handleLogout = async () => {
      dispatch(fetchLogout());
@@ -13,11 +13,11 @@ const LogoutBtn = ({ classes = [], header }) => {
   return (
     <button
       type='button'
-      className={clsx(css.logoutBtn, header && css.logoutBtnHeader, ...classes)}
+      className={clsx(css.logoutBtn, header && css.logoutBtnHeader, profile && css.logoutBtnProfile, ...classes)}
       onClick={handleLogout}
     >
       Logout
-      <svg className={css.icon}>
+      <svg className={clsx(css.icon, profile && css.iconForProfile, ...classes)}>
         <use href={sprite + '#log_out_icon'}></use>
       </svg>
     </button>
