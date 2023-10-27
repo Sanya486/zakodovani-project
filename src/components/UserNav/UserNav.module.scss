@@ -57,10 +57,20 @@
     color: #efede8;
     background-color: transparent;
     font-size: 16px;
+    transition: index.$transition-dur-and-fun;
 
     &.active {
       border-color: transparent;
       background-color: index.$orange-main-color;
+
+      &:hover {
+        background-color: index.$orange-secondary-color;
+        border-color: transparent;
+      }
+    }
+
+    &:hover {
+      border-color: index.$orange-main-color;
     }
   }
 }

@@ -1,5 +1,9 @@
 @import 'index.scss';
 
+.titleWrapper {
+  position: relative;
+}
+
 .titleMain {
   font-weight: 300;
   font-size: 38px;
@@ -7,12 +11,21 @@
   color: $white-color;
   width: 335px;
   background-color: transparent;
+  margin-top: 90px;
+  margin-bottom: 40px;
 }
+
 .spriteLine {
-  left: -10px;
-  position: absolute;
+  transform: translate(-5px);
   width: 98px;
   height: 35px;
+  stroke: $orange-secondary-color;
+  fill: transparent;
+}
+
+.spanAccent {
+  left: 0px;
+  position: absolute;
 }
 
 @media screen and (min-width: $mobile-breakpoint) {
@@ -23,6 +36,8 @@
     font-size: 70px;
     line-height: 1.11;
     width: 600px;
+    margin-top: 140px;
+    margin-bottom: 64px;
   }
   .spriteLine {
     left: -25px;
@@ -32,4 +47,10 @@
 }
 
 @media screen and (min-width: $desktop-breakpoint) {
+  .titleMain {
+    font-size: 70px;
+    line-height: 1.11;
+    width: 600px;
+    margin-top: 151px;
+  }
 }
