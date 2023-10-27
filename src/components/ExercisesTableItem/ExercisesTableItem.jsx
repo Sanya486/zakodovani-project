@@ -3,10 +3,13 @@ import React from 'react';
 import css from './ExercisesTableItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import clsx from 'clsx';
-
+import { fetchDeleteExercise } from 'redux/operations';
+import { useDispatch } from 'react-redux';
 
 
 const ExercisesTableItem = ({
+
+  id,
   bodyPart ,
   equipment,
   name  ,
@@ -14,9 +17,18 @@ const ExercisesTableItem = ({
   burnedCalories ,
   time,
 }) => {
-  const onClick = () => {
-    console.log("Удалить по йади");
-  }
+    const dispatch = useDispatch();
+
+
+   const onDeleteExercise = (id) => {
+     dispatch(fetchDeleteExercise(id));
+     console.log('Удалить по йади');
+  };
+
+   const deleteHandler = () => {
+     onDeleteExercise(id);
+  };
+  
   return (
     <>
       <div className={clsx(css.bodybox)}>
@@ -46,7 +58,7 @@ const ExercisesTableItem = ({
               <h2 className={css.exercisename}>Time</h2>
               <h3 className={css.exercisetipe}>{time}</h3>
             </div>
-            <svg className={css.icon} onClick={onClick}>
+            <svg className={css.icon} onClick={deleteHandler}>
               <use href={sprite + '#trash_icon'}></use>
             </svg>
           </div>
@@ -59,7 +71,7 @@ const ExercisesTableItem = ({
         <td className={css.exercisetipe}>{target}</td>
         <td className={css.exercisetipe}>{burnedCalories}</td>
         <td className={css.exercisetipe}>{time}</td>
-        <svg className={css.icon2} onClick={onClick}>
+        <svg className={css.icon2} onClick={deleteHandler}>
           <use href={sprite + '#trash_icon'}></use>
         </svg>
       </tr>

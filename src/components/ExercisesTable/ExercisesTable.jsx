@@ -51,7 +51,7 @@ const ExercisesTable = () => {
                 target={target}
                 burnedCalories={burnedCalories}
                 time={time}
-              />>
+              />
             ))}
           </tbody>
         </table>
