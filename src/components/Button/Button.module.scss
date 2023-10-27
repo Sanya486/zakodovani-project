@@ -3,6 +3,7 @@
 .accentButton {
   background-color: index.$orange-main-color;
   border-color: transparent;
+  transition: index.$transition-dur-and-fun;
 }
 
 .accentButton:hover {
@@ -30,6 +31,7 @@
 .transparentButton {
   background-color: transparent;
   border: 1px solid #efede84d;
+  transition: index.$transition-dur-and-fun;
 }
 
 .transparentButton:hover {
