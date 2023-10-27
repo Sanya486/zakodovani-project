@@ -4,7 +4,6 @@ import * as Yup from 'yup';
 
 import css from './UserForm.module.scss';
 
-
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Це поле обов'язкове"),
   email: Yup.string().email('Невірний формат Email'),
@@ -15,13 +14,6 @@ const validationSchema = Yup.object().shape({
   number: Yup.string().required('Оберіть опцію Blood'),
   sex: Yup.string().required('Оберіть стать'),
 });
-const radioTexts = [
-  'Sedentary lifestyle (little or no physical activity)',
-  'Light activity (light exercises/sports 1-3 days per week)',
-  'Moderately active (moderate exercises/sports 3-5 days per week)',
-  'Very active (intense exercises/sports 6-7 days per week)',
-  'Extremely active (very strenuous exercises/sports and physical work)',
-];
 
 const UserForm = () => {
   return (
@@ -64,7 +56,7 @@ const UserForm = () => {
                 />
                 <ErrorMessage name='email' component='div' className={css.error} />
               </div>
-              <div className={css.groups}> 
+              <div className={css.groups}>
                 <div className={css.group1}>
                   <div className={css.column}>
                     <label htmlFor='height' className={css.label}>
@@ -117,16 +109,13 @@ const UserForm = () => {
                       Calendar
                     </label>
                     <div></div>
-                    
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        
-        
-    
-          <span className={css.blood}>Blood</span>
+
+          <p className={css.blood}>Blood</p>
           <div className={css.radio}>
             <div className={css.radioNumber}>
               {[1, 2, 3, 4, 5].map((value) => (
@@ -151,7 +140,7 @@ const UserForm = () => {
                     type='radio'
                     name='sex'
                     value={option}
-                    className={`${css.inputRadio} ${errors.sex && touched.sex ? css.error : ''}`}
+                    className={`${css.inputRadioSex} ${errors.sex && touched.sex ? css.error : ''}`}
                   />
                   {option}
                 </label>
@@ -160,18 +149,87 @@ const UserForm = () => {
             </div>
           </div>
           <div className={css.radioText}>
-            {[1, 2, 3, 4, 5].map((value) => (
-              <label key={value} className={css.labelText}>
-                <Field
-                  type='radio'
-                  name='radioText'
-                  value={value.toString()}
-                  className={css.inputRadio}
-                />
-                {radioTexts[value - 1]}
-              </label>
-            ))}
+            <label className={css.labelText}>
+              <Field
+                type='radio'
+                name='radioText'
+                value='Sedentary lifestyle (little or no physical activity)'
+                className={css.inputRadioText}
+              />
+              Sedentary lifestyle (little or no physical activity)
+            </label>
+            <label className={css.labelText}>
+              <Field
+                type='radio'
+                name='radioText'
+                value='Light activity (light exercises/sports 1-3 days per week)'
+                className={css.inputRadioText}
+              />
+              Light activity (light exercises/sports 1-3 days per week)
+            </label>
+            <label className={css.labelText}>
+              <Field
+                type='radio'
+                name='radioText'
+                value='Moderately active (moderate exercises/sports 3-5 days per week)'
+                className={css.inputRadioText}
+              />
+              Moderately active (moderate exercises/sports 3-5 days per week)
+            </label>
+            <label className={css.labelText}>
+              <Field
+                type='radio'
+                name='radioText'
+                value='Very active (intense exercises/sports 6-7 days per week)'
+                className={css.inputRadioText}
+              />
+              Very active (intense exercises/sports 6-7 days per week)
+            </label>
+            <label className={css.labelText}>
+              <Field
+                type='radio'
+                name='radioText'
+                value='Extremely active (very strenuous exercises/sports and physical work)'
+                className={css.inputRadioText}
+              />
+              Extremely active (very strenuous exercises/sports and physical work)
+            </label>
           </div>
+
+          <div>
+    <h1>Sign Up</h1>
+    <Formik
+      initialValues={{
+        picked: '',
+      }}
+      onSubmit={async (values) => {
+        await new Promise((r) => setTimeout(r, 500));
+        alert(JSON.stringify(values, null, 2));
+      }}
+    >
+      {({ values }) => (
+        <Form>
+          <div id="my-radio-group">Picked</div>
+          <div role="group" aria-labelledby="my-radio-group">
+            <label>
+              <Field type="radio" name="picked" value="One" />
+              One
+            </label>
+            <label>
+              <Field type="radio" name="picked" value="Two" />
+              Two
+            </label>
+            <div>Picked: {values.picked}</div>
+          </div>
+
+          <button type="submit">Submit</button>
+        </Form>
+      )}
+    </Formik>
+  </div>
+      
+
+
           <button type='submit' className={css.btn}>
             Save
           </button>

@@ -10,10 +10,12 @@
   font-size: 12px;
   color: rgba(index.$white-color, 50%);
 }
+
 .blood {
   display: inline;
   line-height: 1.5;
   font-size: 12px;
+  margin-bottom: 4px;
 
   color:rgba(index.$white-color, 30%);
 }
@@ -87,29 +89,37 @@
   gap: 20px;
 }
 
-.labelMargin {
+.labelMargin{
+  display: flex;
+  align-items: center;
   margin-right: 5px;
   color:index.$white-color;
   font-size: 14px;
   line-height: 1.29;
 }
-.inputRadio {
-  line-height: 1.29;
-  font-size: 14px;
+.inputRadio{
+  margin-right: 3px;
+}
+.inputRadioSex {
   color:index.$radio-color;
-  background-color: transparent;
-  margin-right: 8px;
+  margin-right: 3px;
+ 
 }
 .radioText {
   display: flex;
-  flex-direction: column;
+  
   margin-top: 41px;
 }
-.labelText {
+.labelText
+ {display: flex;
+  align-items: center;
+
   margin-bottom: 8px;
-  color:index.$white-color;
-  font-size: 14px;
-  line-height: 1.29;
+
+}
+.sex{
+  display: flex;
+  gap: 8px;
 }
 
 
@@ -169,6 +179,13 @@
 }
 .radioNumber{
   display: flex;
+  gap: 8px;
+}
+.radioTextValue{
+  color: aqua;
+}
+.inputRadioText{
+  color: aqua;
 }
 @media screen and (min-width: index.$mobile-breakpoint) {
   .container {
@@ -183,10 +200,7 @@
     width: 340px;
   }
 
-  .calendar {
-    width: 161px;
-    height: 50px;
-  }
+ 
 }
 
 @media screen and (min-width:index.$tablet-breakpoint) {
