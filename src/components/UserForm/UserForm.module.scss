@@ -14,7 +14,7 @@
   display: inline;
   line-height: 1.5;
   font-size: 12px;
-  margin-right: 280px;
+
   color:rgba(index.$white-color, 30%);
 }
 .tabletInput {
@@ -167,12 +167,9 @@
   position: absolute;
   margin-top: 68px;
 }
-// .errorCalendar {
-//   color: red;
-//   font-size: 10px;
-//   position: absolute;
-//   margin-top: 2px;
-// }
+.radioNumber{
+  display: flex;
+}
 @media screen and (min-width: index.$mobile-breakpoint) {
   .container {
     width: 375px;

@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 import css from './UserForm.module.scss';
-// import DaySwitch from 'components/DaySwitch/DaySwitch';
+
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Це поле обов'язкове"),
@@ -112,18 +112,20 @@ const UserForm = () => {
                     />
                     <ErrorMessage name='weight' component='div' className={css.error} />
                   </div>
-                  {/* <div className={css.column}>
+                  <div className={css.column}>
                     <label htmlFor='weight' className={css.label}>
                       Calendar
                     </label>
-
-                    <DaySwitch />
-                  </div> */}
+                    <div></div>
+                    
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
+        
+        
+    
           <span className={css.blood}>Blood</span>
           <div className={css.radio}>
             <div className={css.radioNumber}>
