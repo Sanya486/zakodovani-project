@@ -7,24 +7,30 @@
   align-items: center;
   background: transparent;
 }
+.diaryHeader {
+  border-bottom: 1px solid rgba(index.$white-color, 0.2);
+}
 
-@media screen and (max-width: 375px) { 
+.welcomeHeader {
+  border-bottom: transparent;
+}
+
+@media screen and (max-width: index.$mobile-breakpoint) {
   .headerNoAuthenticatedWpapper {
-  position: absolute;
-  left: 20px;
-  display: flex;
-  height: 61px;
-  padding: 24px 0;
-  align-items: center;
-  background: transparent;
+    position: absolute;
+    left: 20px;
+    display: flex;
+    height: 61px;
+    padding: 24px 0;
+    align-items: center;
+    background: transparent;
   }
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: index.$mobile-breakpoint) {
   .headerNoAuthenticatedWpapper {
     position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+    left: 20px;
     display: flex;
     height: 61px;
     padding: 24px 0;
@@ -41,10 +47,6 @@
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-  .headerWrapper {
-    border-bottom: 1px solid rgba(index.$white-color, 0.2);
-  }
-
   .headerNoAuthenticatedWpapper {
     transform: translate(0);
     left: 32px;

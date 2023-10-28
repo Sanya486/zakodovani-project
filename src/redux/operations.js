@@ -30,11 +30,11 @@ export const fetchSignup = createAsyncThunk('/identification/signup', async (use
         },
       },
     );
-    const response = await fetchPromise
+    const response = await fetchPromise;
     setAuthorization(response.data.token);
     const userName = response.data.client.name;
     toast.success(`Welcome to PowerPulse, ${userName} 🙂`, {
-      duration: 5000
+      duration: 5000,
     });
     return response.data;
   } catch (e) {
@@ -172,6 +172,22 @@ export const fetchExercisesTypes = createAsyncThunk('/exercises/all-types', asyn
     return thunkAPI.rejectWithValue(e.message);
   }
 });
+
+export const fetchExercisesByName = createAsyncThunk(
+  '/exercises/{exerciseName}',
+  async ({ name, filter }, thunkAPI) => {
+    try {
+      const response = await axios.get(`exercises/${name}`, {
+        params: {
+          filter,
+        },
+      });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  },
+);
 
 // =========== Dairy fetches ===========
 

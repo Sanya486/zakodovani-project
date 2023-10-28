@@ -3,21 +3,18 @@ import PropTypes from 'prop-types';
 import styles from './ExercisesItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 
-const ExercisesItem = ({
-  exerciseType = 'Air Bike',
-  calories = 312,
-  bodyPart = 'Waist',
-  targetMuscle = 'Abs',
-}) => {
+const ExercisesItem = ({ exerciseType, calories, bodyPart, targetMuscle }) => {
+  const onStartClick = () => {};
+
   return (
     <li className={styles['exercise-item-block']}>
       <div className={styles['top-flex']}>
         <p className={styles['workout-tag']}>workout</p>
 
-        <button type='button' className={styles['start-button']}>
+        <button type='button' className={styles['start-button']} onClick={() => onStartClick()}>
           Start
           <svg className={styles['arrow-svg']}>
-            <use href={sprite + '#arrow_add_icon'}></use>
+            <use href={sprite + '#icon-arrow-right'}></use>
           </svg>
         </button>
       </div>
