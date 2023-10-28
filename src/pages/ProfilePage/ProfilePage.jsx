@@ -27,7 +27,7 @@ const ProfilePage = () => {
     </div>
   );
 };
-// radio-buttons, input for calendar, dekstop - title,
+
 
 // ProfilePage.propTypes = {
 

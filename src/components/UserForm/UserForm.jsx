@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import DatePicker from 'react-datepicker';
+// import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import css from './UserForm.module.scss';
 import sprite from '../../images/svg/sprite.svg';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import {  fetchCalculateDailyMetrics } from '../../redux/operations';
+import { useDispatch } from 'react-redux';
+// import customWeekdayFormatter from './ustomWeekdayFormatter';
+
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Це поле обов'язкове"),
   email: Yup.string().email('Невірний формат Email'),
@@ -17,8 +23,31 @@ const validationSchema = Yup.object().shape({
 });
 
 const UserForm = () => {
-  const [dateRange, setDateRange] = useState([null, null]);
-  const [startDate, endDate] = dateRange;
+  const [calendarIsClicked, setCalendarIsClicked] = useState(false);
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const dispatch = useDispatch();
+  const showCalendar = () => {
+    setCalendarIsClicked(true);
+  };
+
+  const closeCalendar = () => {
+    setCalendarIsClicked(false);
+  };
+
+  const onClickDay = (value) => {
+    setCurrentDate(value);
+    closeCalendar(); // Закрити календар після вибору дати
+  };
+  const customWeekdayFormatter = (locale, date) => {
+    const weekdays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+    return weekdays[date.getDay()];
+  };
+
+
+const handleSubmit = (values) => {
+  // Отримайте дані з форми і відправте їх до Redux
+  dispatch(fetchCalculateDailyMetrics(values)); // або dispatch(fetchLogin(values)) для іншої форми
+};
 
   return (
     <Formik
@@ -34,9 +63,10 @@ const UserForm = () => {
         radioText: '1',
       }}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
-        alert(JSON.stringify(values, null, 2));
-      }}
+      
+      onSubmit={handleSubmit}
+      
+      
     >
       {({ errors, touched }) => (
         <Form>
@@ -114,26 +144,34 @@ const UserForm = () => {
                       <label htmlFor='date' className={`${css.label} ${css.none}`}>
                         Date:
                       </label>
-
-                      <Field name='date' id="date">
-                        {() => (
-                          <DatePicker
-                            id='date'
-                            selectsRange={true}
-                            startDate={startDate}
-                            endDate={endDate}
-                            className={css.inputDate}
-                            onChange={(update) => {
-                              setDateRange(update);
-                            }}
-                            placeholderText='00.00.0000'
-                            closeOnScroll={true}
-                          />
-                        )}
-                      </Field>
-                      <svg className={css.calendarIcon}>
+                      <Field
+                        type='date'
+                        id='date'
+                        name='date'
+                        onClick={showCalendar}
+                        placeholder="000"
+                        className={`${css.input} ${errors.date && touched.date ? css.error : ''}`}
+                        value={currentDate.toISOString().split('T')[0]} // Встановлюємо значення дати
+                        required
+                      />
+                      <svg onClick={closeCalendar} className={css.calendarIcon}>
                         <use href={sprite + '#calendar_icon'}></use>
                       </svg>
+                      {calendarIsClicked && (
+                        <Calendar
+                          onChange={onClickDay}
+                          value={currentDate}
+                          className={css.reactCalendar}
+                          next2Label={null}
+                          prev2Label={null}
+                          locale='en'
+                          defaultView='month'
+                          formatShortWeekday={customWeekdayFormatter}
+                          // minDate=
+                          minDetail='month'
+                          onClickDay={onClickDay}
+                        />
+                      )}
                       <ErrorMessage name='date' component='div' />
                     </div>
 

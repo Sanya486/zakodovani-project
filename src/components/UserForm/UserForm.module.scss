@@ -248,6 +248,12 @@
 .customRadio input[type='radio']:checked + span::after {
   opacity: 1;
 }
+.reactCalendar{
+  position: absolute;
+}
+.inputCalendar{
+  height: 45px;
+}
 
 @media screen and (min-width: index.$mobile-breakpoint) {
   .container {
@@ -323,6 +329,7 @@
     font-weight: 400;
     font-size: 20px;
     margin-top: 38px;
+    cursor: pointer;
   }
   .errorGroup2 {
     margin-top: 79px;
@@ -347,6 +354,9 @@
     line-height: 1.5;
     font-size: 16px;
     color: index.$white-color;
+  }
+  .inputCalendar{
+    height: 50px;
   }
 }
 
