@@ -87,6 +87,7 @@ export const ProductTableItem = ({ id, title, category, calories, weight, recomm
 };
 
 ProductTableItem.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   calories: PropTypes.number.isRequired,

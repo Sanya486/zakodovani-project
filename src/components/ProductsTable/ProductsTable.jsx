@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import css from './ProductsTable.module.scss';
 import { clsx } from 'clsx';
 
@@ -15,7 +15,7 @@ export const ProductTable = ({ products }) => {
           {products.map((product) => (
             <div key={product._id.$oid} className={css.tableElement}>
               <ProductTableItem
-                id={product.id}
+                id={product._id.$oid}
                 title={product.title}
                 category={product.category}
                 calories={product.calories}
@@ -31,6 +31,13 @@ export const ProductTable = ({ products }) => {
   );
 };
 
-// ProductTable.propTypes = {
-//   // products: PropTypes.arrayOf
-// }
+ProductTable.propTypes = {
+  _id: PropTypes.shape({
+    $oid: PropTypes.string.isRequired,
+  }).isRequired,
+  title: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  calories: PropTypes.number.isRequired,
+  weight: PropTypes.number.isRequired,
+  recommend: PropTypes.string.isRequired,
+};

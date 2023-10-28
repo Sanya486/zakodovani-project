@@ -1,12 +1,21 @@
 import React from 'react';
+// import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../images/svg/sprite.svg';
 
 import PropTypes from 'prop-types';
 import css from './DayProducts.module.scss';
 import { ProductTable } from 'components/ProductsTable/ProductsTable';
+// import { useDispatch } from 'react-redux';
+// import { fetchDiaryDateInfo } from 'redux/operations';
 
 export const DayProducts = ({ products }) => {
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(fetchDiaryDateInfo())
+  // }, [dispatch]);
+
   return (
     <>
       <div className={css.productsContainer}>
@@ -22,7 +31,7 @@ export const DayProducts = ({ products }) => {
           </Link>
         </div>
         <div className={css.productWrap}>
-        <ProductTable products={products} />
+          <ProductTable products={products} />
         </div>
       </div>
     </>

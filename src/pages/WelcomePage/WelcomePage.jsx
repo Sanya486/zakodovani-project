@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import { selectDiaryProducts } from "redux/selectors";
 
 // import { ProductTableItem } from 'components/ProductsTableItem/ProductsTableItem';
-import { ProductTable } from 'components/ProductsTable/ProductsTable';
-// import { DayProducts } from 'components/DayProdcuts/DayProducts';
+// import { ProductTable } from 'components/ProductsTable/ProductsTable';
+import { DayProducts } from 'components/DayProdcuts/DayProducts';
 
 // import Header from 'components/Header/Header';
 
@@ -19,8 +19,8 @@ const WelcomePage = () => {
     <div className={css.cont}>
           {/* <Header/> */}
     <div>
-            {/* <DayProducts products={products} /> */}
-      <ProductTable products={products}/>
+            <DayProducts products={products} />
+      {/* <ProductTable products={products}/> */}
       {/* <ProductTableItem 
           id='5d51694902b2373622ff5773'
               weight={100}

@@ -8,9 +8,9 @@
 }
 
 .tableList {
-  width: 100%;
   height: 100vh;
   overflow-y: scroll;
+  padding-right: 8px;
 }
 
 .tableList::-webkit-scrollbar {
@@ -25,8 +25,7 @@
   width: 6px;
   height: 203px;
   border-radius: 12px;
-  // background: rgba(index.$white-color, 0.1);
-  background: red;
+  background: rgba(index.$white-color, 0.1);
 }
 
 .tableList:hover::-webkit-scrollbar-thumb {
@@ -46,14 +45,6 @@
   .tableContainer {
     width: 311px;
   }
-
-  .tableList{
-    width: 303px;
-  }
-
-  .tableElement {
-    width: 297px;
-  }
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
@@ -63,18 +54,11 @@
 
   .tableList {
     height: 162px;
-    width: 648px;
+    padding-right: 18px;
   }
 
   .tableList::-webkit-scrollbar-thumb {
     height: 90px;
-    // background: rgba(index.$white-color, 0.1);
-    background: green;
-  }
-
-  .tableElement {
-    // width: 100%;
-    width: 656px;
   }
 
   .tableElement:not(:last-child) {
@@ -85,15 +69,5 @@
 @media screen and (min-width: index.$desktop-breakpoint) {
   .tableContainer {
     width: 786px;
-  }
-
-  .tableElement {
-    width: 764px;
-  }
-
-  .tableList::-webkit-scrollbar-thumb {
-    height: 90px;
-    // background: rgba(index.$white-color, 0.1);
-    background: yellow;
   }
 }
