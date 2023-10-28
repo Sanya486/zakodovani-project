@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import sprite from '../../images/svg/sprite.svg';
 import clsx from 'clsx';
 import css from './UserNav.module.scss';
@@ -7,38 +7,42 @@ import BurgerMenu from 'components/BurgerMenu/BurgerMenu';
 
 const UserNav = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Отримуємо поточний шлях та встановлюємо відповідне активне посилання
+    switch (location.pathname) {
+      case '/diary':
+        setActiveLink(0);
+        break;
+      case '/products':
+        setActiveLink(1);
+        break;
+      case '/exercises':
+        setActiveLink(2);
+        break;
+      default:
+        setActiveLink(null);
+        break;
+    }
+  }, [location.pathname]);
+
   const [activeLink, setActiveLink] = useState(null);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
 
-  const handleLinkClick = (index) => {
-    setActiveLink(index);
-  };
-
   return (
     <>
       <nav className={css.navWrapper}>
-        <NavLink
-          to='/diary'
-          className={clsx(css.NavLink, activeLink === 0 && css.active)}
-          onClick={() => handleLinkClick(0)}
-        >
+        <NavLink to='/diary' className={clsx(css.NavLink, activeLink === 0 && css.active)}>
           Diary
         </NavLink>
-        <NavLink
-          to='/products'
-          className={clsx(css.NavLink, activeLink === 1 && css.active)}
-          onClick={() => handleLinkClick(1)}
-        >
+        <NavLink to='/products' className={clsx(css.NavLink, activeLink === 1 && css.active)}>
           Products
         </NavLink>
-        <NavLink
-          to='/exercises'
-          className={clsx(css.NavLink, activeLink === 2 && css.active)}
-          onClick={() => handleLinkClick(2)}
-        >
+        <NavLink to='/exercises' className={clsx(css.NavLink, activeLink === 2 && css.active)}>
           Exercises
         </NavLink>
       </nav>
@@ -47,7 +51,7 @@ const UserNav = () => {
           <use href={sprite + '#burger_menu_icon'}></use>
         </svg>
       </button>
-      {isMenuOpen && <BurgerMenu switcher={toggleMenu} />}
+      {isMenuOpen && <BurgerMenu switcher={() => setMenuOpen(!isMenuOpen)} />}
     </>
   );
 };

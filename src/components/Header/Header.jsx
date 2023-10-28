@@ -12,12 +12,11 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
-
   return (
     <>
       {isLoggedIn ? (
         <div className={css.headerWrapper}>
-          <Link to={isLoggedIn ? '/diary' : '/welcome'} className={css.logoWrapper}>
+          <Link to={isLoggedIn ? '/diary' : '/'} className={css.logoWrapper}>
             <Logo />
           </Link>
           {isLoggedIn ? (
@@ -30,7 +29,9 @@ const Header = () => {
         </div>
       ) : (
         <div className={css.headerNoAuthenticatedWpapper}>
-          <Logo />
+          <Link to={isLoggedIn ? '/diary' : '/'} className={css.logoWrapper}>
+            <Logo />
+          </Link>
         </div>
       )}
     </>
