@@ -11,7 +11,7 @@ const validationSchema = Yup.object().shape({
   height: Yup.number().min(150, 'Мінімальна висота - 150 см').required("Це поле обов'язкове"),
   cur_height: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
   weight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
-  calendar: Yup.date().required("Це поле обов'язкове"),
+  date: Yup.date().required("Це поле обов'язкове"),
   number: Yup.string().required('Оберіть опцію Blood'),
   sex: Yup.string().required('Оберіть стать'),
 });
@@ -115,22 +115,22 @@ const UserForm = () => {
                         Date:
                       </label>
 
-                      <Field name='date'>
-  {() => (
-    <DatePicker
-      id='date'
-      selectsRange={true}
-      startDate={startDate}
-      endDate={endDate}
-      className={css.inputDate}
-      onChange={(update) => {
-        setDateRange(update);
-      }}
-      placeholderText='00.00.0000'
-      closeOnScroll={true}
-    />
-  )}
-</Field>
+                      <Field name='date' id="date">
+                        {() => (
+                          <DatePicker
+                            id='date'
+                            selectsRange={true}
+                            startDate={startDate}
+                            endDate={endDate}
+                            className={css.inputDate}
+                            onChange={(update) => {
+                              setDateRange(update);
+                            }}
+                            placeholderText='00.00.0000'
+                            closeOnScroll={true}
+                          />
+                        )}
+                      </Field>
                       <svg className={css.calendarIcon}>
                         <use href={sprite + '#calendar_icon'}></use>
                       </svg>
