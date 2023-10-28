@@ -1,12 +1,112 @@
 @use 'index';
 
-.element {
-    margin-bottom: 40px;
+// .tableContainer {
+//   width: 100%;
+//   height: auto;
+//   background: rgba(index.$black-color, 0.05);
+// }
+
+// .tableList {
+//   width: 100%;
+//   height: 500px;
+//   overflow-y: scroll;
+//   // padding-right: 8px;
+// }
+
+// .tableList::-webkit-scrollbar {
+//   width: 6px;
+//   height: 100%;
+//   padding-right: 200px;
+// }
+
+// .tableList::-webkit-scrollbar-track {
+//   border-radius: 12px;
+// }
+
+// .tableList::-webkit-scrollbar-thumb {
+//   width: 6px;
+//     height: 203px;
+//     border-radius: 12px;
+//     background: rgba(index.$white-color, 0.1);
+// }
+
+// // .tableList:hover::-webkit-scrollbar-thumb {
+
+// // }
+
+// .tableElement {
+//   width: 100%;
+// }
+
+// .tableElement:not(:last-child) {
+//   margin-bottom: 40px;
+// }
+
+//----------------------------------------------------
+.tableContainer {
+  // position: relative;
+  width: 100%;
+  height: auto;
+  background: rgba(index.$black-color, 0.05);
+  overflow: hidden;
 }
 
+.tableList {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  padding-right: 8px;
+}
+
+.tableList::-webkit-scrollbar {
+  width: 6px;
+  // padding-right: 8px;
+}
+
+.tableList::-webkit-scrollbar-track {
+  border-radius: 12px;
+  padding-top: 26px;
+}
+
+.tableList::-webkit-scrollbar-thumb {
+  width: 6px;
+  height: 203px;
+  border-radius: 12px;
+  // background: rgba(index.$white-color, 0.1);
+  background: red;
+  // padding-right: 8px;
+}
+
+.tableList:hover::-webkit-scrollbar-thumb {
+    background: rgba(index.$white-color, 0.10);
+    // background: green;
+}
+
+.tableElement {
+  width: 100%;
+}
+
+.tableElement:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: index.$mobile-breakpoint) {
+  .tableContainer {
+    width: 311px;
+  }
+
+  .tableElement {
+    width: 297px;
+  }
+}
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-    .element {
-        margin-bottom: 8px;
-    }
+  .tableContainer {
+    width: 680px;
+    height: 162px;
+  }
+
+  .tableElement {
+    margin-bottom: 8px;
+  }
 }

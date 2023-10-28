@@ -4,7 +4,7 @@ import './App.scss';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Layout from 'components/Layout/Layout';
+// import Layout from 'components/Layout/Layout';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import RestrictedRoute from 'components/Routes/RestrictedRoute';
 import SignUpPage from 'pages/SignUpPape/SignUpPage';
@@ -49,8 +49,8 @@ function App() {
   ) : (
     <>
       <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route index element={<WelcomePage />} />
+        <Route path='/' element={<WelcomePage />}>
+          {/* <Route index element={<WelcomePage />} /> */}
           <Route
             path='/signup'
             element={<RestrictedRoute component={SignUpPage} redirectTo='/diary' />}
