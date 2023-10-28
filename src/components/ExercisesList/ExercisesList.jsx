@@ -3,29 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ExercisesList.module.scss';
 
-const ExercisesList = ({ chosenExercise, exerciseList, activeFilter }) => {
-  console.log(chosenExercise);
-  console.log(exerciseList);
-
-  const getVisibleExercises = () => {
-    if (activeFilter === 'bodyParts') {
-      return exerciseList.filter((exercise) => exercise.bodyPart === chosenExercise);
-    } else if (activeFilter === 'equipment') {
-      return exerciseList.filter((exercise) => exercise.equipment === chosenExercise);
-    } else if (activeFilter === 'muscules') {
-      return exerciseList.filter((exercise) => exercise.target === chosenExercise);
-    }
-  };
-
-  const visibleExercises = getVisibleExercises();
-
+const ExercisesList = ({ exerciseList }) => {
   return (
     <ul className={styles['exercise-list']}>
-      {visibleExercises.map((exercise) => {
+      {exerciseList.map((exercise) => {
         const { _id, name, burnedCalories, bodyPart, target } = exercise;
         return (
           <ExercisesItem
-            key={_id.$oid}
+            key={_id}
             exerciseType={name}
             calories={burnedCalories}
             bodyPart={bodyPart}
@@ -38,7 +23,7 @@ const ExercisesList = ({ chosenExercise, exerciseList, activeFilter }) => {
 };
 
 ExercisesList.propTypes = {
-  chosenExercise: PropTypes.string.isRequired,
+  exerciseList: PropTypes.array.isRequired,
 };
 
 export default ExercisesList;

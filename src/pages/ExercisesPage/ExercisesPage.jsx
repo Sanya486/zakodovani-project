@@ -7,27 +7,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../images/svg/sprite.svg';
 import styles from './ExercisesPage.module.scss';
 import { selectExeciseFilter, selectExercises } from 'redux/selectors';
-import { fetchExercises, fetchExercisesTypes } from 'redux/operations';
+import { fetchExercisesByName, fetchExercisesTypes } from 'redux/operations';
+import Container from 'components/Container/Container';
 
 const ExercisesPage = () => {
   const dispatch = useDispatch();
   const filters = useSelector(selectExeciseFilter);
   const exercises = useSelector(selectExercises);
 
-  console.log(filters);
-  console.log(exercises);
+  const [activeFilter, setActiveFilter] = useState('bodyParts');
+  const [chosenCardName, setChosenCardName] = useState(null);
 
   useEffect(() => {
     dispatch(fetchExercisesTypes());
-    dispatch(fetchExercises());
-  }, [dispatch]);
+
+    if (chosenCardName) {
+      dispatch(fetchExercisesByName({ name: chosenCardName }));
+    }
+  }, [dispatch, chosenCardName]);
 
   const uniqueFilterValues = Object.keys(filters);
-  // console.log(uniqueFilterValues);
-
-  const [activeFilter, setActiveFilter] = useState('bodyParts');
-  const [chosenCardName, setChosenCardName] = useState(null);
-  console.log(activeFilter);
 
   const onBackBtnClick = () => {
     setChosenCardName(null);
@@ -36,13 +35,14 @@ const ExercisesPage = () => {
   return (
     <div>
       {!chosenCardName && (
-        <>
+        <Container>
           <div className={styles['category-flex']}>
             <TitlePage style={{ marginTop: '0px' }}>Exercises</TitlePage>
             <ExercisesCategories
               activeFilter={activeFilter}
               setActiveFilter={setActiveFilter}
               filterValues={uniqueFilterValues}
+              setChosenCard={setChosenCardName}
             />
           </div>
 
@@ -51,38 +51,39 @@ const ExercisesPage = () => {
             setChosenCard={setChosenCardName}
             exerciseFilters={filters}
           />
-        </>
+        </Container>
       )}
 
       {chosenCardName && (
-        <div className={styles['main']}>
-          <button type='button' onClick={() => onBackBtnClick()} className={styles['back-button']}>
-            <svg style={{ fill: 'orange', stroke: 'orange', width: '16px', height: '16px' }}>
-              <use href={sprite + '#icon-back-arrow'}></use>
-            </svg>{' '}
-            Back
-          </button>
-          <div className={styles['category-flex-secondary']}>
-            <TitlePage>{chosenCardName}</TitlePage>
-            <ExercisesCategories
-              activeFilter={activeFilter}
-              setActiveFilter={setActiveFilter}
-              filterValues={uniqueFilterValues}
-            />
-          </div>
-          <ExercisesList
-            chosenExercise={chosenCardName}
-            exerciseList={exercises}
-            activeFilter={activeFilter}
-          />
+        <div className={styles['page-wrapper']}>
+          <Container>
+            <button
+              type='button'
+              onClick={() => onBackBtnClick()}
+              className={styles['back-button']}
+            >
+              <svg className={styles['btn-svg']}>
+                <use href={sprite + '#icon-back-arrow'}></use>
+              </svg>{' '}
+              Back
+            </button>
+
+            <div className={styles['category-flex-secondary']}>
+              <TitlePage>{chosenCardName}</TitlePage>
+              <ExercisesCategories
+                activeFilter={activeFilter}
+                setActiveFilter={setActiveFilter}
+                filterValues={uniqueFilterValues}
+                setChosenCard={setChosenCardName}
+              />
+            </div>
+
+            <ExercisesList exerciseList={exercises} />
+          </Container>
         </div>
       )}
     </div>
   );
 };
-
-// ExercisesPage.propTypes = {
-
-// }
 
 export default ExercisesPage;

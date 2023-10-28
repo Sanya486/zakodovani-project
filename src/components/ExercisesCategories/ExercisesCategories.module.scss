@@ -1,6 +1,8 @@
 @use 'index';
 
 .category-list {
+  margin-top: 20px;
+  margin-bottom: 40px;
   display: flex;
   gap: 32px;
 }
@@ -18,4 +20,11 @@
   padding-bottom: 4px;
   border-bottom: 4px solid #ef8964;
   border-radius: 2px;
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .category-list {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }

@@ -9,9 +9,10 @@ const categoriesValues = {
   muscules: 'Muscles',
 };
 
-const ExercisesCategories = ({ activeFilter, setActiveFilter, filterValues }) => {
+const ExercisesCategories = ({ activeFilter, setActiveFilter, filterValues, setChosenCard }) => {
   const handleFilterClick = (filterValue) => {
     setActiveFilter(filterValue);
+    setChosenCard(null);
   };
 
   return (
