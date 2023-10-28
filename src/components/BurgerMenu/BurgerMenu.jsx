@@ -10,29 +10,31 @@ import { Link } from 'react-router-dom';
 const BurgerMenu = ({ switcher }) => {
   return (
     <div className={css.burgerMenu}>
-      <svg className={css.closeIcon} onClick={() => switcher(false)}>
+      <svg className={css.closeIcon} onClick={() => switcher()}>
         <use href={sprite + '#close_icon'}></use>
       </svg>
       <nav>
         <ul className={css.navList}>
           <li>
-            <Link onClick={() => switcher(false)} to='/diary'>
+            <Link onClick={() => switcher()} to='/diary'>
               <Button classes={[css.btn]} title='Diary' styled='transparent' />
             </Link>
           </li>
           <li>
-            <Link onClick={() => switcher(false)} to='/products'>
+            <Link onClick={() => switcher()} to='/products'>
               <Button classes={[css.btn]} title='Products' styled='transparent' />
             </Link>
           </li>
           <li>
-            <Link onClick={() => switcher(false)} to='/exercises'>
+            <Link onClick={() => switcher()} to='/exercises'>
               <Button classes={[css.btn]} title='Exercises' styled='transparent' />
             </Link>
           </li>
         </ul>
       </nav>
-      <LogoutBtn classes={[css.logoutBtn]} />
+      <div className={[css.logoutBtn]}>
+        <LogoutBtn />
+      </div>
     </div>
   );
 };

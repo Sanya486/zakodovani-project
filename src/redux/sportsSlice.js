@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { handlePending, handleReject } from './handlers';
-import { fetchExercises, fetchExercisesTypes } from './operations';
+import { fetchExercises, fetchExercisesByName, fetchExercisesTypes } from './operations';
 
 export const sportsSlice = createSlice({
   name: 'sports',
   initialState: {
     exercises: [],
-    filter: [],
+    filter: {},
     isLoading: false,
     error: null,
   },
@@ -19,6 +19,10 @@ export const sportsSlice = createSlice({
       })
       .addCase(fetchExercisesTypes.fulfilled, (state, { payload }) => {
         state.filter = payload;
+        state.isLoading = false;
+      })
+      .addCase(fetchExercisesByName.fulfilled, (state, { payload }) => {
+        state.exercises = payload;
         state.isLoading = false;
       })
       .addMatcher((action) => action.type.endsWith('/pending'), handlePending)

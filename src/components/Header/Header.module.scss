@@ -8,29 +8,12 @@
   background: transparent;
 }
 
-@media screen and (max-width: 375px) { 
-  .headerNoAuthenticatedWpapper {
-  position: absolute;
-  left: 20px;
-  display: flex;
-  height: 61px;
-  padding: 24px 0;
-  align-items: center;
-  background: transparent;
-  }
+.diaryHeader {
+  border-bottom: 1px solid rgba(index.$white-color, 0.2);
 }
 
-@media screen and (min-width: 375px) {
-  .headerNoAuthenticatedWpapper {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    display: flex;
-    height: 61px;
-    padding: 24px 0;
-    align-items: center;
-    background: transparent;
-  }
+.welcomeHeader {
+  border-bottom: transparent;
 }
 
 .userNavWrapper {
@@ -40,9 +23,33 @@
   margin-right: 16px;
 }
 
+@media screen and (max-width: index.$mobile-breakpoint) {
+  .headerNoAuthenticatedWpapper {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    height: 61px;
+    padding: 24px 0;
+    align-items: center;
+    background: transparent;
+  }
+}
+
+@media screen and (min-width: index.$mobile-breakpoint) {
+  .headerNoAuthenticatedWpapper {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    height: 61px;
+    padding: 24px 0;
+    align-items: center;
+    background: transparent;
+  }
+}
+
 @media screen and (min-width: index.$tablet-breakpoint) {
   .headerWrapper {
-    border-bottom: 1px solid rgba(index.$white-color, 0.2);
+    padding: 26px 32px;
   }
 
   .headerNoAuthenticatedWpapper {
@@ -52,10 +59,8 @@
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
-  .containerWrapper {
-    max-width: 1440px;
-    padding-left: 96px;
-    padding-right: 96px;
+  .headerWrapper {
+    padding: 30px 96px;
   }
 
   .headerNoAuthenticatedWpapper {

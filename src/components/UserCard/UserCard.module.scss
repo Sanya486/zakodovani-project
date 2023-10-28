@@ -6,6 +6,7 @@
   justify-content: center;
   text-align: center;
   margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .conteiner {
@@ -63,11 +64,12 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 40px;
 }
 .textDang {
   line-height: 1.29;
   font-size: 14px;
-  color: index.$white-color;
+  color: rgba(index.$white-color, 30%);
 }
 .mark_icon {
   max-width: 24px;
@@ -77,8 +79,14 @@
   stroke: index.$white-color;
 }
 @media screen and (min-width: index.$mobile-breakpoint) {
+  .group {
+    gap: 16px;
+    margin-bottom: 32px;
+    margin-top: 32px;
+  }
   .dang {
     width: 335px;
+    margin-bottom: 32px;
   }
 }
 
