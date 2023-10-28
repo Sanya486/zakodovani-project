@@ -3,13 +3,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ExercisesList.module.scss';
 
-import { useSelector } from 'react-redux';
-
-const ExercisesList = ({ chosenExercise }) => {
-  const exercises = useSelector((state) => state.sports.exercises);
+const ExercisesList = ({ chosenExercise, exerciseList, activeFilter }) => {
   console.log(chosenExercise);
+  console.log(exerciseList);
 
-  const visibleExercises = exercises.filter((exercise) => exercise.bodyPart === chosenExercise);
+  const getVisibleExercises = () => {
+    if (activeFilter === 'bodyParts') {
+      return exerciseList.filter((exercise) => exercise.bodyPart === chosenExercise);
+    } else if (activeFilter === 'equipment') {
+      return exerciseList.filter((exercise) => exercise.equipment === chosenExercise);
+    } else if (activeFilter === 'muscules') {
+      return exerciseList.filter((exercise) => exercise.target === chosenExercise);
+    }
+  };
+
+  const visibleExercises = getVisibleExercises();
 
   return (
     <ul className={styles['exercise-list']}>

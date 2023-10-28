@@ -1,0 +1,30 @@
+@use 'index';
+
+.category-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 64px;
+  margin-top: 72px;
+}
+
+.back-button {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  background-color: transparent;
+  color: #efede866;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.category-flex-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.main {
+}

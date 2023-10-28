@@ -3,6 +3,12 @@ import styles from './ExercisesCategories.module.scss';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
+const categoriesValues = {
+  bodyParts: 'Body parts',
+  equipment: 'Equipment',
+  muscules: 'Muscles',
+};
+
 const ExercisesCategories = ({ activeFilter, setActiveFilter, filterValues }) => {
   const handleFilterClick = (filterValue) => {
     setActiveFilter(filterValue);
@@ -19,7 +25,7 @@ const ExercisesCategories = ({ activeFilter, setActiveFilter, filterValues }) =>
             [styles['category-name']]: true,
           })}
         >
-          {filterValue}
+          {categoriesValues[filterValue]}
         </li>
       ))}
     </ul>

@@ -1,15 +1,23 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ExercisesSubcategoriesItem from 'components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
-import { useSelector } from 'react-redux';
 import 'swiper/css';
 import 'swiper/css/grid';
 import Swiper from 'swiper/bundle';
+// import { selectExeciseFilter } from 'redux/selectors';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { fetchExercisesTypes } from 'redux/operations';
 
-const ExercisesSubcategoriesList = ({ activeFilter, setChosenCard }) => {
-  const exerciseCards = useSelector((state) => state.sports.filter);
+const ExercisesSubcategoriesList = ({ activeFilter, setChosenCard, exerciseFilters }) => {
+  // const dispatch = useDispatch();
+  // const exerciseFilters = useSelector(selectExeciseFilter);
 
-  const visibleCards = exerciseCards.filter((card) => card.filter === activeFilter);
+  // useEffect(() => {
+  //   dispatch(fetchExercisesTypes());
+  // }, [dispatch]);
+  console.log(exerciseFilters);
+
+  const visibleCards = exerciseFilters[activeFilter];
 
   const onCardClick = (bodyPart) => {
     setChosenCard(bodyPart);
@@ -53,23 +61,24 @@ const ExercisesSubcategoriesList = ({ activeFilter, setChosenCard }) => {
         },
       });
     }
-  }, []);
+  }, [activeFilter]);
 
   return (
     <>
       {window.innerWidth >= 768 && (
         <div className='swiper'>
           <div className='swiper-wrapper'>
-            {visibleCards.map((filter) => (
-              <div key={filter._id.$oid} className='swiper-slide'>
-                <ExercisesSubcategoriesItem
-                  name={filter.name}
-                  category={filter.filter}
-                  imageURL={filter.imgURL}
-                  handleClick={onCardClick}
-                ></ExercisesSubcategoriesItem>
-              </div>
-            ))}
+            {visibleCards &&
+              visibleCards.map((filter) => (
+                <div key={filter._id.$oid} className='swiper-slide'>
+                  <ExercisesSubcategoriesItem
+                    name={filter.name}
+                    category={filter.filter}
+                    imageURL={filter.imgURL}
+                    handleClick={onCardClick}
+                  ></ExercisesSubcategoriesItem>
+                </div>
+              ))}
           </div>
           <div className='swiper-pagination'></div>
         </div>
@@ -77,15 +86,16 @@ const ExercisesSubcategoriesList = ({ activeFilter, setChosenCard }) => {
 
       {window.innerWidth < 768 && (
         <div>
-          {visibleCards.map((filter) => (
-            <ExercisesSubcategoriesItem
-              key={filter._id.$oid}
-              name={filter.name}
-              category={filter.filter}
-              imageURL={filter.imgURL}
-              handleClick={onCardClick}
-            ></ExercisesSubcategoriesItem>
-          ))}
+          {visibleCards &&
+            visibleCards.map((filter) => (
+              <ExercisesSubcategoriesItem
+                key={filter._id.$oid}
+                name={filter.name}
+                category={filter.filter}
+                imageURL={filter.imgURL}
+                handleClick={onCardClick}
+              ></ExercisesSubcategoriesItem>
+            ))}
         </div>
       )}
     </>
@@ -93,12 +103,8 @@ const ExercisesSubcategoriesList = ({ activeFilter, setChosenCard }) => {
 };
 
 ExercisesSubcategoriesList.propTypes = {
-  activeFilter: PropTypes.string.isRequired,
+  activeFilter: PropTypes.string,
   setChosenCard: PropTypes.func.isRequired,
 };
 
 export default ExercisesSubcategoriesList;
-
-ExercisesSubcategoriesList.propTypes = {
-  activeFilter: PropTypes.string.isRequired,
-};
