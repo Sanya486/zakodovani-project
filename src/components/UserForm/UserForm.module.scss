@@ -17,7 +17,7 @@
   font-size: 12px;
   margin-bottom: 4px;
 
-  color:rgba(index.$white-color, 30%);
+  color: rgba(index.$white-color, 30%);
 }
 .tabletInput {
   display: flex;
@@ -35,31 +35,28 @@
 .input {
   border-radius: 12px;
   border-color: rgba(index.$white-color, 30%);
-  color:index.$white-color;
+  color: index.$white-color;
   line-height: 1.29;
   font-size: 14px;
   padding: 14px 0 14px 14px;
   background-color: transparent;
- 
 }
 .inputBase {
   border-radius: 12px;
   border-color: rgba(index.$white-color, 30%);
-  color:index.$white-color;
+  color: index.$white-color;
   line-height: 1.29;
   font-size: 14px;
   margin-bottom: 16px;
   padding: 14px 0 14px 14px;
   background-color: transparent;
- 
 }
-
 
 .label {
   margin-bottom: 4px;
-  line-height: 1.5;
+  line-height: 1.3;
   font-size: 12px;
-  color:rgba(index.$white-color, 50%);
+  color: rgba(index.$white-color, 50%);
 }
 .column {
   display: flex;
@@ -75,53 +72,49 @@
 }
 .group2 {
   display: flex;
+  align-items: center;
   margin-bottom: 14px;
 }
 .group2 > *:not(:last-child) {
   margin-right: 12px;
 }
-.labelNone {
-  margin-bottom: 3px;
-  visibility: hidden;
-}
+
 .radio {
   display: flex;
   gap: 20px;
 }
 
-.labelMargin{
+.labelMargin {
   display: flex;
   align-items: center;
   margin-right: 5px;
-  color:index.$white-color;
+  color: index.$white-color;
   font-size: 14px;
   line-height: 1.29;
 }
-.inputRadio{
+.inputRadio {
   margin-right: 3px;
 }
 .inputRadioSex {
-  color:index.$radio-color;
+  color: index.$radio-color;
   margin-right: 3px;
- 
 }
 .radioText {
   display: flex;
-  
+  flex-direction: column;
   margin-top: 41px;
+  gap: 9px;
 }
-.labelText
- {display: flex;
+.labelText {
+  display: flex;
   align-items: center;
-
+  color: index.$white-color;
   margin-bottom: 8px;
-
 }
-.sex{
+.sex {
   display: flex;
   gap: 8px;
 }
-
 
 .btn {
   padding: 12px 40px;
@@ -177,16 +170,85 @@
   position: absolute;
   margin-top: 68px;
 }
-.radioNumber{
+.radioNumber {
   display: flex;
   gap: 8px;
 }
-.radioTextValue{
-  color: aqua;
+
+.inputRadioText {
+  display: block;
+  width: 20px;
+  margin-right: 8px;
 }
-.inputRadioText{
-  color: aqua;
+.none {
+  opacity: 0;
 }
+.labelDate {
+  margin-bottom: 4px !important;
+}
+.inputDate {
+  padding: 14px 14px 14px 14px !important;
+  border-color: rgba(index.$white-color, 30%);
+  color: index.$white-color;
+  width: 161px;
+}
+.forIcon {
+  position: relative;
+}
+
+.calendarIcon {
+  fill: none;
+  stroke: #fff;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 65%;
+  right: 30px;
+  transform: translateY(-65%);
+}
+.spanName {
+  line-height: 1.285;
+  font-size: 14px;
+  color: index.$white-color;
+}
+
+.customRadio span {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.customRadio input[type='radio'] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.customRadio span::before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  border: 2px solid index.$radio-color;
+  display: inline-block;
+  margin-right: 8px;
+  border-radius: 100%;
+}
+.customRadio span::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 52%;
+  transform: translateY(-52%);
+  width: 9px;
+  height: 9px;
+  background-color: index.$orange-secondary-color;
+  border-radius: 100%;
+  opacity: 0;
+}
+.customRadio input[type='radio']:checked + span::after {
+  opacity: 1;
+}
+
 @media screen and (min-width: index.$mobile-breakpoint) {
   .container {
     width: 375px;
@@ -199,23 +261,19 @@
   .inputBase {
     width: 340px;
   }
-
- 
 }
 
-@media screen and (min-width:index.$tablet-breakpoint) {
+@media screen and (min-width: index.$tablet-breakpoint) {
   .container {
     width: 768px;
   }
   .title {
     margin-bottom: 8px;
-    
   }
   .tabletInput {
     flex-direction: row;
     gap: 14px;
     margin-right: auto;
-    
   }
   .inputBase {
     width: 333px;
@@ -231,7 +289,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    gap: 14px;
   }
   .input {
     width: 159px;
@@ -246,7 +304,6 @@
   }
   .radio {
     margin-right: auto;
-   
   }
   .labelMargin {
     margin-right: 8px;
@@ -258,7 +315,6 @@
   .radioText {
     margin-top: 32px;
     margin-right: auto;
-  
   }
 
   .btn {
@@ -267,7 +323,6 @@
     font-weight: 400;
     font-size: 20px;
     margin-top: 38px;
-  
   }
   .errorGroup2 {
     margin-top: 79px;
@@ -287,6 +342,11 @@
   .labelText {
     font-size: 16px;
     line-height: 1.5;
+  }
+  .spanName {
+    line-height: 1.5;
+    font-size: 16px;
+    color: index.$white-color;
   }
 }
 

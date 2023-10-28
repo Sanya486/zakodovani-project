@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import css from './UserForm.module.scss';
-
+import sprite from '../../images/svg/sprite.svg';
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Це поле обов'язкове"),
   email: Yup.string().email('Невірний формат Email'),
@@ -16,6 +17,9 @@ const validationSchema = Yup.object().shape({
 });
 
 const UserForm = () => {
+  const [dateRange, setDateRange] = useState([null, null]);
+  const [startDate, endDate] = dateRange;
+
   return (
     <Formik
       initialValues={{
@@ -24,9 +28,10 @@ const UserForm = () => {
         height: 0,
         cur_height: 0,
         weight: 0,
-        calendar: null,
+        date: 0,
         number: '1',
         sex: 'Male',
+        radioText: '1',
       }}
       validationSchema={validationSchema}
       onSubmit={(values) => {
@@ -105,21 +110,44 @@ const UserForm = () => {
                     <ErrorMessage name='weight' component='div' className={css.error} />
                   </div>
                   <div className={css.column}>
-                    <label htmlFor='weight' className={css.label}>
-                      Calendar
-                    </label>
+                    <div className={css.forIcon}>
+                      <label htmlFor='date' className={`${css.label} ${css.none}`}>
+                        Date:
+                      </label>
+
+                      <Field name='date'>
+  {() => (
+    <DatePicker
+      id='date'
+      selectsRange={true}
+      startDate={startDate}
+      endDate={endDate}
+      className={css.inputDate}
+      onChange={(update) => {
+        setDateRange(update);
+      }}
+      placeholderText='00.00.0000'
+      closeOnScroll={true}
+    />
+  )}
+</Field>
+                      <svg className={css.calendarIcon}>
+                        <use href={sprite + '#calendar_icon'}></use>
+                      </svg>
+                      <ErrorMessage name='date' component='div' />
+                    </div>
+
                     <div></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
           <p className={css.blood}>Blood</p>
           <div className={css.radio}>
             <div className={css.radioNumber}>
               {[1, 2, 3, 4, 5].map((value) => (
-                <label key={value} className={css.labelMargin}>
+                <label key={value} className={`${css.labelMargin} ${css.customRadio}`}>
                   <Field
                     type='radio'
                     name='number'
@@ -128,108 +156,74 @@ const UserForm = () => {
                       errors.number && touched.number ? css.error : ''
                     }`}
                   />
-                  {value}
+                  <span>{value}</span>
                 </label>
               ))}
               <ErrorMessage name='number' component='div' className={css.error} />
             </div>
             <div className={css.sex}>
               {['Male', 'Female'].map((option) => (
-                <label key={option} className={css.labelMargin}>
+                <label key={option} className={`${css.labelMargin} ${css.customRadio}`}>
                   <Field
                     type='radio'
                     name='sex'
                     value={option}
                     className={`${css.inputRadioSex} ${errors.sex && touched.sex ? css.error : ''}`}
                   />
-                  {option}
+                  <span>{option}</span>
                 </label>
               ))}
               <ErrorMessage name='sex' component='div' className={css.error} />
             </div>
           </div>
           <div className={css.radioText}>
-            <label className={css.labelText}>
-              <Field
-                type='radio'
-                name='radioText'
-                value='Sedentary lifestyle (little or no physical activity)'
-                className={css.inputRadioText}
-              />
-              Sedentary lifestyle (little or no physical activity)
-            </label>
-            <label className={css.labelText}>
-              <Field
-                type='radio'
-                name='radioText'
-                value='Light activity (light exercises/sports 1-3 days per week)'
-                className={css.inputRadioText}
-              />
-              Light activity (light exercises/sports 1-3 days per week)
-            </label>
-            <label className={css.labelText}>
-              <Field
-                type='radio'
-                name='radioText'
-                value='Moderately active (moderate exercises/sports 3-5 days per week)'
-                className={css.inputRadioText}
-              />
-              Moderately active (moderate exercises/sports 3-5 days per week)
-            </label>
-            <label className={css.labelText}>
-              <Field
-                type='radio'
-                name='radioText'
-                value='Very active (intense exercises/sports 6-7 days per week)'
-                className={css.inputRadioText}
-              />
-              Very active (intense exercises/sports 6-7 days per week)
-            </label>
-            <label className={css.labelText}>
-              <Field
-                type='radio'
-                name='radioText'
-                value='Extremely active (very strenuous exercises/sports and physical work)'
-                className={css.inputRadioText}
-              />
-              Extremely active (very strenuous exercises/sports and physical work)
-            </label>
+            <div className={css.groupsLAbel}>
+              <label className={`${css.labelText} ${css.customRadio}`}>
+                <Field
+                  type='radio'
+                  name='radioText'
+                  value='1'
+                  className={css.inputRadioText}
+                  checked
+                />
+                <span className={css.spanName}>
+                  Sedentary lifestyle (little or no physical activity)
+                </span>
+              </label>
+            </div>
+            <div className={css.groupsLAbel}>
+              <label className={`${css.labelText} ${css.customRadio}`}>
+                <Field type='radio' name='radioText' value='2' className={css.inputRadioText} />
+                <span className={css.spanName}>
+                  Light activity (light exercises/sports 1-3 days per week)
+                </span>
+              </label>
+            </div>
+            <div className={css.groupsLAbel}>
+              <label className={`${css.labelText} ${css.customRadio}`}>
+                <Field type='radio' name='radioText' value='3' className={css.inputRadioText} />
+                <span className={css.spanName}>
+                  Moderately active (moderate exercises/sports 3-5 days per week)
+                </span>
+              </label>
+            </div>
+            <div className={css.groupsLAbel}>
+              <label className={`${css.labelText} ${css.customRadio}`}>
+                <Field type='radio' name='radioText' value='4' className={css.inputRadioText} />
+                <span className={css.spanName}>
+                  Very active (intense exercises/sports 6-7 days per week)
+                </span>
+              </label>
+            </div>
+            <div className={css.groupsLAbel}>
+              <label className={`${css.labelText} ${css.customRadio}`}>
+                <Field type='radio' name='radioText' value='5' className={css.inputRadioText} />
+                <span className={css.spanName}>
+                  Extremely active (very strenuous exercises/sports and physical work)
+                </span>
+              </label>
+            </div>
           </div>
-
-          <div>
-    <h1>Sign Up</h1>
-    <Formik
-      initialValues={{
-        picked: '',
-      }}
-      onSubmit={async (values) => {
-        await new Promise((r) => setTimeout(r, 500));
-        alert(JSON.stringify(values, null, 2));
-      }}
-    >
-      {({ values }) => (
-        <Form>
-          <div id="my-radio-group">Picked</div>
-          <div role="group" aria-labelledby="my-radio-group">
-            <label>
-              <Field type="radio" name="picked" value="One" />
-              One
-            </label>
-            <label>
-              <Field type="radio" name="picked" value="Two" />
-              Two
-            </label>
-            <div>Picked: {values.picked}</div>
-          </div>
-
-          <button type="submit">Submit</button>
-        </Form>
-      )}
-    </Formik>
-  </div>
-      
-
-
           <button type='submit' className={css.btn}>
             Save
           </button>
