@@ -1,28 +1,36 @@
 @use 'index';
 
 .productsContainer {
-  // padding: 16px;
   width: 100%;
   height: 100vh;
   background: rgba(index.$black-color, 0.05);
   overflow: hidden;
-
+  border: 1px solid rgba(index.$white-color, 0.2);
+  border-radius: 12px;
+  padding: 16px 8px 16px 16px;
 }
 
 .headBlock {
+  width: 100%;
+  height: auto;
   display: flex;
   justify-content: space-between;
+  padding-right: 8px;
+  padding-bottom: 22px;
 }
 
 .headTitle {
   font-size: 14px;
   line-height: calc(18 / 14);
+  // text-align: center;
   color: rgba(index.$white-color, 0.5);
 }
 
 .headLink {
-  font-weight: medium;
   font-size: 14px;
+  line-height: calc(18 / 14);
+  font-weight: medium;
+  // text-align: center;
   color: index.$orange-main-color;
 }
 
@@ -38,8 +46,35 @@
   stroke: index.$orange-main-color;
 }
 
-
 @media screen and (min-width: index.$mobile-breakpoint) {
+  .productsContainer {
+    width: 335px;
+  }
+}
 
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .productsContainer {
+    width: 704px;
+    height: 234px;
+  }
+
+  .headBlock {
+    padding-bottom: 16px;
+  }
+
+  .headLink {
+    font-size: 16px;
+    line-height: calc(24 / 16);
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .productsContainer {
+    width: 826px;
+  }
+
+  .productWrap {
+    padding-left: 16px;
+  }
 
 }

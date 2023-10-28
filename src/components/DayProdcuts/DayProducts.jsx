@@ -21,7 +21,9 @@ export const DayProducts = ({ products }) => {
             </div>
           </Link>
         </div>
+        <div className={css.productWrap}>
         <ProductTable products={products} />
+        </div>
       </div>
     </>
   );
