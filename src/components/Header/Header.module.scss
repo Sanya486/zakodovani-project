@@ -15,7 +15,7 @@
   border-bottom: transparent;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: index.$mobile-breakpoint) {
   .headerNoAuthenticatedWpapper {
     position: absolute;
     left: 20px;
@@ -27,7 +27,7 @@
   }
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: index.$mobile-breakpoint) {
   .headerNoAuthenticatedWpapper {
     position: absolute;
     left: 20px;
