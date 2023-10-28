@@ -19,16 +19,18 @@ const WelcomePage = () => {
   };
 
   return (
-    <Container>
-      <TitleMain />
-      <div className={css.buttonWrapper}>
-        <Button title='Sign Up' styled='accent' onClick={redirectToSignUp} />
-        <Button title='Sign In' styled='transparent' onClick={redirectToSignIn} />
-      </div>
-      <div>
-        <StatisticsInfo />
-      </div>
-    </Container>
+    <div className={css.background}>
+      <Container>
+        <TitleMain />
+        <div className={css.buttonWrapper}>
+          <Button title='Sign Up' styled='accent' onClick={redirectToSignUp} />
+          <Button title='Sign In' styled='transparent' onClick={redirectToSignIn} />
+        </div>
+        <div>
+          <StatisticsInfo />
+        </div>
+      </Container>
+    </div>
   );
 };
 
