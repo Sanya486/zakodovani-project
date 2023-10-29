@@ -1,19 +1,27 @@
 import React from 'react';
-import { useState } from 'react';
 import css from './User.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import Subtext from 'components/Subtext/Subtext';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { selectName } from 'redux/selectors';
+import { selectClient } from 'redux/selectors';
+import { fetchUpload } from "../../redux/operations";
+import { useDispatch } from 'react-redux';
+
 
 const User = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
-  const userName = useSelector(selectName);
+  const user = useSelector(selectClient);
+  const dispatch = useDispatch();
+  console.log(user);
+ 
+  
+ 
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setSelectedFile(URL.createObjectURL(file));
+    const formData = new FormData();
+    formData.append('file', e.target.files[0]);
+    dispatch(fetchUpload({avatar: {formData}}));
   };
+
 
   return (
     <div className={css.userWrapper}>
@@ -25,8 +33,8 @@ const User = () => {
           className='fileInput'
           hidden
         />
-        {selectedFile ? (
-          <img src={selectedFile} className={css.imageSelected} />
+        {user.client.avatar ? (
+          <img src={user.client.avatar} className={css.imageSelected} />
         ) : (
           <svg className={css.avatarDefault}>
             <use href={sprite + '#avatar_icon'}></use>
@@ -38,7 +46,7 @@ const User = () => {
           </svg>
         </label>
       </form>
-      <h3 className={css.userName}>{`${userName}`}</h3>
+      <h3 className={css.userName}>{`${user.client.name}`}</h3>
       <Subtext page='userPage' />
     </div>
   );
