@@ -19,13 +19,13 @@ import { useEffect } from 'react';
 const DiaryPage = () => {
 
    const dispatch = useDispatch();
-   const exercises = useSelector(selectDiaryExercises);
+   const exerciseDone = useSelector(selectDiaryExercises);
 
    useEffect(() => {
      dispatch(fetchDiaryDateInfo('2003-10-10'));
    }, [dispatch]);
   
-  console.log(exercises);
+  console.log(exerciseDone);
   
 
   return (

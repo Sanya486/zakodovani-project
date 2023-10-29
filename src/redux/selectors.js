@@ -6,7 +6,7 @@ export const selectIsRefreshing = (state) => state.auth.isRefreshing;
 
 // Diary selectors
 
-export const selectDiaryExercises = (state) => state.diary.exercises;
+export const selectDiaryExercises = (state) => state.diary.data.exerciseDone;
 export const selectDiaryProducts = (state) => state.diary.data.consumedProduct;
 
 // Products selectors

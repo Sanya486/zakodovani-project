@@ -231,7 +231,7 @@ export const fetchDiaryDateInfo = createAsyncThunk(
   '/diary/diary-date-info/{date}',
   async (date, thunkAPI) => {
     try {
-      const response = await axios.get(`diary/dairy-date-info/${date}`);
+      const response = await axios.get(`diary/diary-date-info/${date}`);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
