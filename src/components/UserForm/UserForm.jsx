@@ -17,10 +17,10 @@ const validationSchema = Yup.object().shape({
   name: Yup.string().min(3).required("Це поле обов'язкове"),
   email: Yup.string().email('Невірний формат Email'),
   height: Yup.number().min(150, 'Мінімальна висота - 150 см').required("Це поле обов'язкове"),
-  cur_height: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
-  weight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
-  date: Yup.date().required("Це поле обов'язкове"),
-  number: Yup.string().required('Оберіть опцію Blood'),
+  currentWeight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
+  desiredWeight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
+  birthday: Yup.date().required("Це поле обов'язкове"),
+  blood: Yup.string().required('Оберіть опцію Blood'),
   sex: Yup.string().required('Оберіть стать'),
 });
 
@@ -46,32 +46,22 @@ const UserForm = () => {
   };
 
   const handleSubmit = (values) => {
-    dispatch(fetchCalculateDailyMetrics( {
-
-      height:150 ,
-      cur_height: 55,
-      weight:55 ,
-      date: '2001-01-01',
-      number: '1',
-      sex: 'male',
-      radioText: '1'
-    }
-     ));
+    dispatch(fetchCalculateDailyMetrics);
     console.log('Form submitted with values:', values);
   };
-handleSubmit();
+  // handleSubmit();
   return (
     <Formik
       initialValues={{
         name: '',
         email: '',
         height: 0,
-        cur_height: 0,
-        weight: 0,
-        date: currentDate.toISOString().split('T')[0],
-        number: '1',
+        currentWeight: 0,
+        desiredWeight: 0,
+        birthday: currentDate.toISOString().split('T')[0],
+        blood: '1',
         sex: 'Male',
-        radioText: '1',
+        levelActivity: '1',
       }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
@@ -116,48 +106,60 @@ handleSubmit();
                     <ErrorMessage name='height' component='div' className={css.errorGroup1} />
                   </div>
                   <div className={css.column}>
-                    <label htmlFor='cur_height' className={css.label}>
+                    <label htmlFor='currentWeight' className={css.label}>
                       Desired Weight
                     </label>
                     <Field
                       type='number'
-                      id='cur_height'
-                      name='cur_height'
+                      id='currentWeight'
+                      name='currentWeight'
                       className={`${css.input} ${
                         errors.cur_height && touched.cur_height ? css.error : ''
                       }`}
                       min='35'
                       required
                     />
-                    <ErrorMessage name='cur_height' component='div' className={css.errorGroup1} />
+                    <ErrorMessage
+                      name='currentWeight'
+                      component='div'
+                      className={css.errorGroup1}
+                    />
                   </div>
                 </div>
                 <div className={css.group2}>
                   <div className={css.column}>
-                    <label htmlFor='weight' className={css.label}>
+                    <label htmlFor='desiredWeight' className={css.label}>
                       Current Weight
                     </label>
                     <Field
                       type='number'
-                      id='weight'
-                      name='weight'
-                      className={`${css.input} ${errors.weight && touched.weight ? css.error : ''}`}
+                      id='desiredWeight'
+                      name='desiredWeight'
+                      className={`${css.input} ${
+                        errors.currentWeight && touched.currentWeight ? css.error : ''
+                      }`}
                       min='35'
                       required
                     />
-                    <ErrorMessage name='weight' component='div' className={css.errorGroup2} />
+                    <ErrorMessage
+                      name='desiredWeight'
+                      component='div'
+                      className={css.errorGroup2}
+                    />
                   </div>
                   <div className={css.column}>
                     <div className={css.forIcon}>
-                      <label htmlFor='date' className={`${css.label} ${css.none}`}>
+                      <label  className={`${css.label} ${css.none}`}>
                         Date:
                       </label>
                       <Field
                         type='date'
-                        id='date'
-                        name='date'
+                        id='birthday'
+                        name='birthday'
                         onClick={showCalendar}
-                        className={`${css.input} ${css.inputDate} ${errors.date && touched.date ? css.error : ''}`}
+                        className={`${css.input} ${css.inputDate} ${
+                          errors.birthday && touched.birthday ? css.error : ''
+                        }`}
                         value={currentDate.toISOString().split('T')[0]}
                         required
                       />
@@ -180,7 +182,7 @@ handleSubmit();
                           onClickDay={onClickDay}
                         />
                       )}
-                      <ErrorMessage name='date' component='div' />
+                      <ErrorMessage name='birthday' component='div' />
                     </div>
 
                     <div></div>
@@ -196,16 +198,16 @@ handleSubmit();
                 <label key={value} className={`${css.labelMargin} ${css.customRadio}`}>
                   <Field
                     type='radio'
-                    name='number'
+                    name='blood'
                     value={value.toString()}
                     className={`${css.inputRadio} ${
-                      errors.number && touched.number ? css.error : ''
+                      errors.blood && touched.blood ? css.error : ''
                     }`}
                   />
                   <span>{value}</span>
                 </label>
               ))}
-              <ErrorMessage name='number' component='div' className={css.error} />
+              <ErrorMessage name='blood' component='div' className={css.error} />
             </div>
             <div className={css.sex}>
               {['Male', 'Female'].map((option) => (
@@ -227,7 +229,7 @@ handleSubmit();
               <label className={`${css.labelText} ${css.customRadio}`}>
                 <Field
                   type='radio'
-                  name='radioText'
+                  name='levelActivity'
                   value='1'
                   className={css.inputRadioText}
                   checked
@@ -239,7 +241,7 @@ handleSubmit();
             </div>
             <div className={css.groupsLAbel}>
               <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='radioText' value='2' className={css.inputRadioText} />
+                <Field type='radio' name='levelActivity' value='2' className={css.inputRadioText} />
                 <span className={css.spanName}>
                   Light activity (light exercises/sports 1-3 days per week)
                 </span>
@@ -247,7 +249,7 @@ handleSubmit();
             </div>
             <div className={css.groupsLAbel}>
               <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='radioText' value='3' className={css.inputRadioText} />
+                <Field type='radio' name='levelActivity' value='3' className={css.inputRadioText} />
                 <span className={css.spanName}>
                   Moderately active (moderate exercises/sports 3-5 days per week)
                 </span>
@@ -255,7 +257,7 @@ handleSubmit();
             </div>
             <div className={css.groupsLAbel}>
               <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='radioText' value='4' className={css.inputRadioText} />
+                <Field type='radio' name='levelActivity' value='4' className={css.inputRadioText} />
                 <span className={css.spanName}>
                   Very active (intense exercises/sports 6-7 days per week)
                 </span>
@@ -263,7 +265,7 @@ handleSubmit();
             </div>
             <div className={css.groupsLAbel}>
               <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='radioText' value='5' className={css.inputRadioText} />
+                <Field type='radio' name='levelActivity' value='5' className={css.inputRadioText} />
                 <span className={css.spanName}>
                   Extremely active (very strenuous exercises/sports and physical work)
                 </span>
