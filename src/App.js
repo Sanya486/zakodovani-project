@@ -18,6 +18,7 @@ import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import { fetchCurrentUser } from 'redux/operations';
 import { selectIsRefreshing } from 'redux/selectors';
 import { Puff } from 'react-loader-spinner';
+import Layout from 'components/Layout/Layout';
 
 function App() {
   const dispatch = useDispatch();
@@ -49,8 +50,8 @@ function App() {
   ) : (
     <>
       <Routes>
-        <Route path='/' element={<WelcomePage />}>
-          {/* <Route index element={<WelcomePage />} /> */}
+        <Route path='/' element={<Layout />}>
+          <Route index element={<WelcomePage />} />
           <Route
             path='/signup'
             element={<RestrictedRoute component={SignUpPage} redirectTo='/diary' />}
