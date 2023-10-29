@@ -246,7 +246,7 @@
   border-radius: 100%;
   opacity: 0;
 }
-.customRadio input[type='radio']:checked + span::after {
+.customRadio input[type='radio' ]:checked + span::after {
   opacity: 1;
 }
 .react-calendar {
@@ -260,9 +260,9 @@
 .inputDate:focus + .react-calendar {
   display: block;
 }
-.inputCalendar{
-  height: 45px;
-}
+// .inputCalendar{
+//   height: 45px;
+// }
 
 @media screen and (min-width: index.$mobile-breakpoint) {
   .container {
