@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { addYears, subYears } from 'date-fns';
 // import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import css from './UserForm.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import {  fetchCalculateDailyMetrics } from '../../redux/operations';
+
+import { fetchCalculateDailyMetrics } from '../../redux/operations';
 import { useDispatch } from 'react-redux';
 // import customWeekdayFormatter from './ustomWeekdayFormatter';
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required("Це поле обов'язкове"),
+  name: Yup.string().min(3).required("Це поле обов'язкове"),
   email: Yup.string().email('Невірний формат Email'),
   height: Yup.number().min(150, 'Мінімальна висота - 150 см').required("Це поле обов'язкове"),
   cur_height: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
@@ -43,12 +45,21 @@ const UserForm = () => {
     return weekdays[date.getDay()];
   };
 
+  const handleSubmit = (values) => {
+    dispatch(fetchCalculateDailyMetrics( {
 
-const handleSubmit = (values) => {
-  // Отримайте дані з форми і відправте їх до Redux
-  dispatch(fetchCalculateDailyMetrics(values)); // або dispatch(fetchLogin(values)) для іншої форми
-};
-
+      height:150 ,
+      cur_height: 55,
+      weight:55 ,
+      date: '2001-01-01',
+      number: '1',
+      sex: 'male',
+      radioText: '1'
+    }
+     ));
+    console.log('Form submitted with values:', values);
+  };
+handleSubmit();
   return (
     <Formik
       initialValues={{
@@ -57,16 +68,13 @@ const handleSubmit = (values) => {
         height: 0,
         cur_height: 0,
         weight: 0,
-        date: 0,
+        date: currentDate.toISOString().split('T')[0],
         number: '1',
         sex: 'Male',
         radioText: '1',
       }}
       validationSchema={validationSchema}
-      
       onSubmit={handleSubmit}
-      
-      
     >
       {({ errors, touched }) => (
         <Form>
@@ -81,7 +89,7 @@ const handleSubmit = (values) => {
                   className={`${css.inputBase} ${errors.name && touched.name ? css.error : ''}`}
                   required
                 />
-                <ErrorMessage name='name' component='div' className={css.error} />
+                <ErrorMessage name='name' component='div' className={css.errorName} />
 
                 <Field
                   type='email'
@@ -89,7 +97,7 @@ const handleSubmit = (values) => {
                   name='email'
                   className={`${css.inputBase} ${errors.email && touched.email ? css.error : ''}`}
                 />
-                <ErrorMessage name='email' component='div' className={css.error} />
+                <ErrorMessage name='email' component='div' className={css.errorEmail} />
               </div>
               <div className={css.groups}>
                 <div className={css.group1}>
@@ -105,7 +113,7 @@ const handleSubmit = (values) => {
                       min='150'
                       required
                     />
-                    <ErrorMessage name='height' component='div' className={css.error} />
+                    <ErrorMessage name='height' component='div' className={css.errorGroup1} />
                   </div>
                   <div className={css.column}>
                     <label htmlFor='cur_height' className={css.label}>
@@ -121,7 +129,7 @@ const handleSubmit = (values) => {
                       min='35'
                       required
                     />
-                    <ErrorMessage name='cur_height' component='div' className={css.error} />
+                    <ErrorMessage name='cur_height' component='div' className={css.errorGroup1} />
                   </div>
                 </div>
                 <div className={css.group2}>
@@ -137,7 +145,7 @@ const handleSubmit = (values) => {
                       min='35'
                       required
                     />
-                    <ErrorMessage name='weight' component='div' className={css.error} />
+                    <ErrorMessage name='weight' component='div' className={css.errorGroup2} />
                   </div>
                   <div className={css.column}>
                     <div className={css.forIcon}>
@@ -149,12 +157,11 @@ const handleSubmit = (values) => {
                         id='date'
                         name='date'
                         onClick={showCalendar}
-                        placeholder="000"
-                        className={`${css.input} ${errors.date && touched.date ? css.error : ''}`}
-                        value={currentDate.toISOString().split('T')[0]} // Встановлюємо значення дати
+                        className={`${css.input} ${css.inputDate} ${errors.date && touched.date ? css.error : ''}`}
+                        value={currentDate.toISOString().split('T')[0]}
                         required
                       />
-                      <svg onClick={closeCalendar} className={css.calendarIcon}>
+                      <svg onClick={showCalendar} className={css.calendarIcon}>
                         <use href={sprite + '#calendar_icon'}></use>
                       </svg>
                       {calendarIsClicked && (
@@ -167,8 +174,9 @@ const handleSubmit = (values) => {
                           locale='en'
                           defaultView='month'
                           formatShortWeekday={customWeekdayFormatter}
-                          // minDate=
                           minDetail='month'
+                          maxDate={addYears(new Date(), -18)} // Використовуємо addYears для вирахування 18 років назад
+                          minDate={subYears(new Date(), 100)}
                           onClickDay={onClickDay}
                         />
                       )}
