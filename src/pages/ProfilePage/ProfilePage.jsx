@@ -8,7 +8,7 @@ import css from './ProfilePage.module.scss';
 // import PropTypes from 'prop-types'
 
 const ProfilePage = () => {
- 
+
   return (
     <div className={css.container}>
       <div className={css.flexCont}>

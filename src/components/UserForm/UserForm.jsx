@@ -27,6 +27,8 @@ const validationSchema = Yup.object().shape({
 const UserForm = () => {
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
+  // const [responseData, setResponseData] = useState(null);
+  // const [date, setDate] = useState("")
   const dispatch = useDispatch();
   const showCalendar = () => {
     setCalendarIsClicked(true);
@@ -50,7 +52,10 @@ const UserForm = () => {
     values.blood = parseInt(values.blood);
     values.levelActivity = parseInt(values.levelActivity);
     dispatch(fetchCalculateDailyMetrics(values));
-    console.log('Form submitted with values:', values);
+    // .then((response) => setResponseData(response))
+    // // console.log(responseData)
+    // .catch((error) => console.error('Error:', error));
+    
   };
   // handleSubmit();
   return (

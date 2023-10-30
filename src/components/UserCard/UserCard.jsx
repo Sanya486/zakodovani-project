@@ -5,7 +5,8 @@ import {selectIsBMR, selectIsTimeForSport} from '../../redux/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 const UserCard = () => {
 const BMR = useSelector(selectIsBMR);
-const sport = useSelector(selectIsTimeForSport)
+const sport = useSelector(selectIsTimeForSport);
+
   return (
     <>
       <div className={css['group']}>
