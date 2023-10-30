@@ -43,6 +43,7 @@ const DiaryPage = () => {
       </div>
       <DayProducts products={consumedProduct} />
       <DayExercises exercises={exerciseDone} />
+      
     </Container>
   );
 };
