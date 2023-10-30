@@ -8,7 +8,15 @@ import { clsx } from 'clsx';
 import { useDispatch } from 'react-redux';
 import { fetchDeleteProduct } from 'redux/operations';
 
-export const ProductTableItem = ({ id, title, category, calories, weight, recommend, first }) => {
+export const ProductTableItem = ({
+  id,
+  title,
+  category,
+  calories,
+  weight,
+  groupBloodNotAllowed,
+  first,
+}) => {
   const [width, setWidth] = useState(window.innerWidth);
 
   const dispatch = useDispatch();
@@ -64,10 +72,10 @@ export const ProductTableItem = ({ id, title, category, calories, weight, recomm
                 <span
                   className={clsx(
                     css.recomendStatus,
-                    recommend !== 'Yes' && css.recommendFalseColor,
+                    groupBloodNotAllowed === false && css.recommendFalseColor,
                   )}
                 >
-                  {recommend}
+                  {groupBloodNotAllowed === false ? 'No' : 'Yes'}
                 </span>
               </p>
             </div>

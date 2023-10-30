@@ -20,7 +20,7 @@ export const ProductTable = ({ products }) => {
                 category={product.category}
                 calories={product.calories}
                 weight={product.amount}
-                recommend={product.recommend}
+                groupBloodNotAllowed={product.groupBloodNotAllowed}
                 first={products.indexOf(product) === 0 ? true : false}
               />
             </div>

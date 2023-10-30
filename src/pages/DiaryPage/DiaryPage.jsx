@@ -27,23 +27,31 @@ const DiaryPage = () => {
 
   return (
     <Container>
-      <div className={css.titlebox}>
-        <TitlePage classes={[css.title]}>Diary</TitlePage>
-        <DaySwitch />
+      <div className={css.coolCont}>
+        <div className={css.titlebox}>
+          <TitlePage classes={[css.title]}>Diary</TitlePage>
+          <DaySwitch />
+        </div>
+        <div className={css.changebox}>
+          <div className={css.changebox1}>
+            <DayDashboard />
+            <div className={css.exclamingbox}>
+              <svg className={css.icon}>
+                <use href={sprite + '#exclamation_mark_icon'}></use>
+              </svg>
+              <p className={css.exclamingtext}>
+                Record all your meals in a calorie diary every day. This will help me be aware of my
+                nutrition and make me responsible for my choices.
+              </p>
+            </div>
+          </div>
+          <div className={css.changebox2}>
+            <DayProducts products={consumedProduct} />
+
+            <DayExercises exercises={exerciseDone} />
+          </div>
+        </div>
       </div>
-      <DayDashboard />
-      <div className={css.exclamingbox}>
-        <svg className={css.icon}>
-          <use href={sprite + '#exclamation_mark_icon'}></use>
-        </svg>
-        <p className={css.exclamingtext}>
-          Record all your meals in a calorie diary every day. This will help me be aware of my
-          nutrition and make me responsible for my choices.
-        </p>
-      </div>
-      <DayProducts products={consumedProduct} />
-      <DayExercises exercises={exerciseDone} />
-      
     </Container>
   );
 };
