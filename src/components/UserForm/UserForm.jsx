@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { addYears, subYears } from 'date-fns';
@@ -7,11 +7,11 @@ import css from './UserForm.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { fetchCalculateDailyMetrics } from '../../redux/operations';
+import { fetchCalculateDailyMetrics, fetchCurrentUser } from '../../redux/operations';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import {selectNameS, selectEmail} from '../../redux/selectors';
-// import customWeekdayFormatter from './ustomWeekdayFormatter';
+import { selectName} from '../../redux/selectors';
+
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(3).required("Це поле обов'язкове"),
@@ -25,14 +25,21 @@ const validationSchema = Yup.object().shape({
   sex: Yup.string().required('Оберіть стать'),
 });
 
+
 const UserForm = () => {
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [submittedData, setSubmittedData] = useState(null);
-  const name = useSelector(selectNameS);
-  const email = useSelector(selectEmail);
+ 
+  const client = useSelector(selectName);
 
+ 
+  
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
   const showCalendar = () => {
     setCalendarIsClicked(true);
   };
@@ -41,54 +48,47 @@ const UserForm = () => {
     setCalendarIsClicked(false);
   };
 
-  const onClickDay = (date) => {
-    const isoDate = date.toISOString().split('T')[0];
-    setCurrentDate(isoDate);
-    closeCalendar();
-  };
+ 
   const customWeekdayFormatter = (locale, date) => {
     const weekdays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
     return weekdays[date.getDay()];
   };
 
+
+
   const handleSubmit = (values) => {
-    
+
     delete values.name;
     delete values.email;
     values.blood = parseInt(values.blood);
     values.levelActivity = parseInt(values.levelActivity);
-    dispatch(fetchCalculateDailyMetrics(values));
-    setSubmittedData(values);
-    // .then((response) => setResponseData(response))
-    // // console.log(responseData)
-    // .catch((error) => console.error('Error:', error));
-    
+    dispatch(fetchCalculateDailyMetrics(values))
+
   };
-  useEffect(() => {
-    // Виконувати цей ефект після оновлення submittedData
-    if (submittedData) {
-      // Тут ви можете відобразити або використати дані відправлені формою
-      console.log('Submitted Data:', submittedData);
-    }
-  }, [submittedData]);
-  // handleSubmit();
+  
   return (
     <Formik
       initialValues={{
-        email:{email},
-        name:{name},
-        birthday: null,
-        blood: 0,
-        currentWeight: 0,
-        desiredWeight: 0,
-        height: 0,
-        levelActivity: 0,
-        sex: '',
+        email:client.client.email,
+        name:client.client.name,
+        birthday: client.client.birthday,
+        blood: client.client.blood,
+        currentWeight: client.client.currentWeight,
+        desiredWeight: client.client.desiredWeight,
+        height: client.client.height,
+        levelActivity: client.client.levelActivity,
+        sex: client.client.sex,
       }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
+      validateOnChange={false}
+  enableReinitialize={true}
+  initialTouched={{}}
+  initialErrors={{}}
+  validateOnMount={true}
+      
     >
-      {({ errors, touched }) => (
+      {({ errors, touched, setFieldValue}) => (
         <Form>
           <div>
             <span className={css.title}>Basic info</span>
@@ -98,7 +98,8 @@ const UserForm = () => {
                   type='text'
                   id='name'
                   name='name'
-                  value={name}
+                  // value={name}
+                  onChange={(e) => setFieldValue('name', e.target.value)}
                   className={`${css.inputBase} ${errors.name && touched.name ? css.error : ''}`}
                   required
                 />
@@ -108,7 +109,7 @@ const UserForm = () => {
                   type='email'
                   id='email'
                   name='email'
-                  value={email}
+                
                   className={`${css.inputBase} ${errors.email && touched.email ? css.error : ''}`}
                 />
                 <ErrorMessage name='email' component='div' className={css.errorEmail} />
@@ -175,25 +176,28 @@ const UserForm = () => {
                     <div className={css.forIcon}>
                       <label className={`${css.label} ${css.none}`}>Date:</label>
                       <Field
-                        type='date'
-                        id='birthday'
-                        name='birthday'
                         // onClick={showCalendar}
                         className={`${css.input} ${css.inputDate} ${
                           errors.birthday && touched.birthday ? css.error : ''
                         }`}
                         value={currentDate}
-                        required
+                        id='birthday'
+                        name='birthday'
                       />
                       <svg onClick={showCalendar} className={css.calendarIcon}>
                         <use href={sprite + '#calendar_icon'}></use>
                       </svg>
                       {calendarIsClicked && (
                         <Calendar
-                          onChange={onClickDay}
-                          value={currentDate}
+                          onChange={async (date) => {
+                            const isoDate = await date.toISOString().split('T')[0];
+                            setCurrentDate(isoDate);
+                            closeCalendar();
+                            setFieldValue('birthday', isoDate);
+                          }}
                           // className={css.reactCalendar}
                           next2Label={null}
+                          value={currentDate}
                           prev2Label={null}
                           locale='en'
                           defaultView='month'
@@ -201,12 +205,10 @@ const UserForm = () => {
                           minDetail='month'
                           maxDate={addYears(new Date(), -18)} // Використовуємо addYears для вирахування 18 років назад
                           minDate={subYears(new Date(), 100)}
-                          onClickDay={onClickDay}
                         />
                       )}
                       <ErrorMessage name='birthday' component='div' />
                     </div>
-
                     <div></div>
                   </div>
                 </div>
@@ -220,8 +222,8 @@ const UserForm = () => {
                 <Field
                   type='radio'
                   name='blood'
-                  id="radio1"
-                  value="1"
+                  id='radio1'
+                  value='1'
                   className={`${css.inputRadio} ${errors.blood && touched.blood ? css.error : ''}`}
                 />
                 <span>1</span>
@@ -230,8 +232,8 @@ const UserForm = () => {
                 <Field
                   type='radio'
                   name='blood'
-                  value="2"
-                  id="radio2"
+                  value='2'
+                  id='radio2'
                   className={`${css.inputRadio} ${errors.blood && touched.blood ? css.error : ''}`}
                 />
                 <span>2</span>
@@ -240,8 +242,8 @@ const UserForm = () => {
                 <Field
                   type='radio'
                   name='blood'
-                  value="3"
-                  id="radio3"
+                  value='3'
+                  id='radio3'
                   className={`${css.inputRadio} ${errors.blood && touched.blood ? css.error : ''}`}
                 />
                 <span>3</span>
@@ -250,8 +252,8 @@ const UserForm = () => {
                 <Field
                   type='radio'
                   name='blood'
-                  id="radio4"
-                  value="4"
+                  id='radio4'
+                  value='4'
                   className={`${css.inputRadio} ${errors.blood && touched.blood ? css.error : ''}`}
                 />
                 <span>4</span>
@@ -283,7 +285,7 @@ const UserForm = () => {
                   name='levelActivity'
                   value="1"
                   className={css.inputRadioText}
-                  checked
+                  
                 />
                 <span className={css.spanName}>
                   Sedentary lifestyle (little or no physical activity)
