@@ -4,7 +4,7 @@ import './App.scss';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Layout from 'components/Layout/Layout';
+// import Layout from 'components/Layout/Layout';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import RestrictedRoute from 'components/Routes/RestrictedRoute';
 import SignUpPage from 'pages/SignUpPape/SignUpPage';
@@ -18,6 +18,7 @@ import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import { fetchCurrentUser } from 'redux/operations';
 import { selectIsRefreshing } from 'redux/selectors';
 import { Puff } from 'react-loader-spinner';
+import Layout from 'components/Layout/Layout';
 
 function App() {
   const dispatch = useDispatch();
