@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-right: 14px;
+  margin-right: 22px;
 }
 
 .settingsItem {
@@ -48,7 +48,7 @@
 @media screen and (min-width: index.$tablet-breakpoint) {
   .userBarWrapper {
     gap: 16px;
-    margin-right: 24px;
+    margin-right: 32px;
   }
 
   .settingsIcon {
@@ -69,5 +69,12 @@
   .avatarImage {
     width: 46px;
     height: 46px;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .userBarWrapper {
+    gap: 16px;
+    margin-right: 16px;
   }
 }

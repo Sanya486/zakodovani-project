@@ -58,6 +58,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
@@ -90,4 +91,15 @@
     padding: 0;
     margin-bottom: 8px;
   }
+  .userWrapper {
+   
+    margin-top: 64px;
+  }
 }
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .userWrapper {
+   
+    margin-top: 0;
+  }
+}
+

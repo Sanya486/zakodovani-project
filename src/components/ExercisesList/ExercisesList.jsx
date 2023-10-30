@@ -3,21 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ExercisesList.module.scss';
 
-import { useSelector } from 'react-redux';
-
-const ExercisesList = ({ chosenExercise }) => {
-  const exercises = useSelector((state) => state.sports.exercises);
-  console.log(chosenExercise);
-
-  const visibleExercises = exercises.filter((exercise) => exercise.bodyPart === chosenExercise);
-
+const ExercisesList = ({ exerciseList }) => {
   return (
     <ul className={styles['exercise-list']}>
-      {visibleExercises.map((exercise) => {
+      {exerciseList.map((exercise) => {
         const { _id, name, burnedCalories, bodyPart, target } = exercise;
         return (
           <ExercisesItem
-            key={_id.$oid}
+            key={_id}
             exerciseType={name}
             calories={burnedCalories}
             bodyPart={bodyPart}
@@ -30,7 +23,7 @@ const ExercisesList = ({ chosenExercise }) => {
 };
 
 ExercisesList.propTypes = {
-  chosenExercise: PropTypes.string.isRequired,
+  exerciseList: PropTypes.array.isRequired,
 };
 
 export default ExercisesList;
