@@ -9,7 +9,7 @@
   font-size: 38px;
   line-height: 1.05;
   color: $white-color;
-  width: 335px;
+  max-width: 335px;
   background-color: transparent;
   margin-top: 90px;
   margin-bottom: 40px;
@@ -28,17 +28,46 @@
   position: absolute;
 }
 
+@media (max-width: 347px) {
+  .spriteLine {
+    transform: translate(-15px, 3px);
+    width: 98px;
+    height: 35px;
+    stroke: $orange-secondary-color;
+    fill: transparent;
+  }
+
+  .spanAccent {
+    top: 42px;
+    left: 90px;
+    position: absolute;
+  }
+}
+
 @media screen and (min-width: $mobile-breakpoint) {
+  .spriteLine {
+    transform: translate(-5px);
+    width: 98px;
+    height: 35px;
+    stroke: $orange-secondary-color;
+    fill: transparent;
+  }
+
+  .spanAccent {
+    left: 0px;
+    position: absolute;
+  }
 }
 
 @media screen and (min-width: $tablet-breakpoint) {
   .titleMain {
     font-size: 70px;
     line-height: 1.11;
-    width: 600px;
+    max-width: 600px;
     margin-top: 140px;
     margin-bottom: 64px;
   }
+
   .spriteLine {
     left: -25px;
     width: 185px;
@@ -50,7 +79,7 @@
   .titleMain {
     font-size: 70px;
     line-height: 1.11;
-    width: 600px;
+    max-width: 600px;
     margin-top: 151px;
   }
 }

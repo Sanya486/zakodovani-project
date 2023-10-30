@@ -7,12 +7,20 @@
   align-items: center;
   background: transparent;
 }
+
 .diaryHeader {
   border-bottom: 1px solid rgba(index.$white-color, 0.2);
 }
 
 .welcomeHeader {
   border-bottom: transparent;
+}
+
+.userNavWrapper {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 16px;
 }
 
 @media screen and (max-width: index.$mobile-breakpoint) {
@@ -39,14 +47,11 @@
   }
 }
 
-.userNavWrapper {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  margin-right: 16px;
-}
-
 @media screen and (min-width: index.$tablet-breakpoint) {
+  .headerWrapper {
+    padding: 26px 32px;
+  }
+
   .headerNoAuthenticatedWpapper {
     transform: translate(0);
     left: 32px;
@@ -54,10 +59,8 @@
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
-  .containerWrapper {
-    max-width: 1440px;
-    padding-left: 96px;
-    padding-right: 96px;
+  .headerWrapper {
+    padding: 30px 96px;
   }
 
   .headerNoAuthenticatedWpapper {

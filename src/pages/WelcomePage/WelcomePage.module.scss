@@ -1,13 +1,13 @@
 @use 'index';
 
-body {
+.background {
   width: 100vw;
   min-height: 100vh;
   background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
     url('../../images/hero-mobl-1x.jpg');
   background-repeat: no-repeat;
   background-position: right bottom;
-  background-attachment: fixed;
+  background-size: contain;
 }
 
 @media (min-device-pixel-ratio: 2),
@@ -27,7 +27,7 @@ body {
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-  body {
+  .background {
     background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
       url('../../images/hero-tabl-1x.jpg');
     background-repeat: no-repeat;
@@ -51,7 +51,7 @@ body {
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
-  body {
+  .background {
     background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
       url('../../images/hero-deck-1x.jpg');
     background-position: 100% bottom;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from 'components/Logo/Logo';
 import UserNav from '../../components/UserNav/UserNav';
 import UserBar from '../../components/UserBar/UserBar';
@@ -11,11 +11,16 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const location = useLocation();
 
   return (
     <>
       {isLoggedIn ? (
-        <div className={css.headerWrapper}>
+        <div
+          className={`${css.headerWrapper} ${
+            location.pathname !== '/' ? css.diaryHeader : css.welcomeHeader
+          }`}
+        >
           <Link to={isLoggedIn ? '/diary' : '/'} className={css.logoWrapper}>
             <Logo />
           </Link>

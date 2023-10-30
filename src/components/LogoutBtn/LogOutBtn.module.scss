@@ -1,3 +1,5 @@
+@use 'index';
+
 .logoutBtn {
   display: flex;
   height: 20px;
@@ -7,29 +9,29 @@
   border: none;
   outline: none;
   background: none;
-  color: #efede8;
+  color: index.$white-color;
   font-size: 14px;
   cursor: pointer;
 }
 
-
-.logoutBtnHeader{
+.logoutBtnHeader {
   display: none;
 }
 
-.logoutBtnProfile{
+.logoutBtnProfile {
   margin-left: auto;
   margin-bottom: 40px;
 }
 
 .icon {
-  stroke: #efede8;
+  stroke: index.$white-color;
   width: 20px;
   height: 20px;
   fill: transparent;
 }
-.iconForProfile{
-  stroke: #e6533c;
+
+.iconForProfile {
+  stroke: index.$orange-main-color;
 }
 
 @media (min-width: 768px) {
@@ -37,25 +39,23 @@
     height: 24px;
     font-size: 16px;
   }
-  .logoutBtnProfile{
-    
+
+  .logoutBtnProfile {
     margin-bottom: 38px;
   }
-
-  
 }
 
 @media (min-width: 1440px) {
   .logoutBtn {
     display: flex;
   }
-  .logoutBtnHeader{
-  display: flex;
-}
-.logoutBtnProfile{
-  margin-bottom: 36px;
-}
+  .logoutBtnHeader {
+    display: flex;
+  }
+  .logoutBtnProfile {
+    margin-bottom: 36px;
+  }
   .icon {
-    stroke: #e6533c;
+    stroke: index.$orange-main-color;
   }
 }
