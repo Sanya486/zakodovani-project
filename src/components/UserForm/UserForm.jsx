@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { addYears, subYears } from 'date-fns';
@@ -7,14 +7,15 @@ import css from './UserForm.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-
 import { fetchCalculateDailyMetrics } from '../../redux/operations';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import {selectNameS, selectEmail} from '../../redux/selectors';
 // import customWeekdayFormatter from './ustomWeekdayFormatter';
 
 const validationSchema = Yup.object().shape({
-  // name: Yup.string().min(3).required("Це поле обов'язкове"),
-  // email: Yup.string().email('Невірний формат Email'),
+  name: Yup.string().min(3).required("Це поле обов'язкове"),
+  email: Yup.string().email('Невірний формат Email'),
   birthday: Yup.date().required("Це поле обов'язкове"),
   blood: Yup.number().required('Оберіть опцію Blood'),
    currentWeight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
@@ -27,8 +28,10 @@ const validationSchema = Yup.object().shape({
 const UserForm = () => {
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
-  // const [responseData, setResponseData] = useState(null);
-  // const [date, setDate] = useState("")
+  const [submittedData, setSubmittedData] = useState(null);
+  const name = useSelector(selectNameS);
+  const email = useSelector(selectEmail);
+
   const dispatch = useDispatch();
   const showCalendar = () => {
     setCalendarIsClicked(true);
@@ -49,18 +52,31 @@ const UserForm = () => {
   };
 
   const handleSubmit = (values) => {
+    
+    delete values.name;
+    delete values.email;
     values.blood = parseInt(values.blood);
     values.levelActivity = parseInt(values.levelActivity);
     dispatch(fetchCalculateDailyMetrics(values));
+    setSubmittedData(values);
     // .then((response) => setResponseData(response))
     // // console.log(responseData)
     // .catch((error) => console.error('Error:', error));
     
   };
+  useEffect(() => {
+    // Виконувати цей ефект після оновлення submittedData
+    if (submittedData) {
+      // Тут ви можете відобразити або використати дані відправлені формою
+      console.log('Submitted Data:', submittedData);
+    }
+  }, [submittedData]);
   // handleSubmit();
   return (
     <Formik
       initialValues={{
+        email:{email},
+        name:{name},
         birthday: null,
         blood: 0,
         currentWeight: 0,
@@ -78,22 +94,24 @@ const UserForm = () => {
             <span className={css.title}>Basic info</span>
             <div className={css.form}>
               <div className={css.tabletInput}>
-                {/* <Field
+                <Field
                   type='text'
                   id='name'
                   name='name'
+                  value={name}
                   className={`${css.inputBase} ${errors.name && touched.name ? css.error : ''}`}
                   required
-                /> */}
-                {/* <ErrorMessage name='name' component='div' className={css.errorName} /> */}
+                />
+                <ErrorMessage name='name' component='div' className={css.errorName} />
 
-                {/* <Field
+                <Field
                   type='email'
                   id='email'
                   name='email'
+                  value={email}
                   className={`${css.inputBase} ${errors.email && touched.email ? css.error : ''}`}
-                /> */}
-                {/* <ErrorMessage name='email' component='div' className={css.errorEmail} /> */}
+                />
+                <ErrorMessage name='email' component='div' className={css.errorEmail} />
               </div>
               <div className={css.groups}>
                 <div className={css.group1}>
@@ -290,7 +308,7 @@ const UserForm = () => {
             </div>
             <div className={css.groupsLAbel}>
               <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='levelActivity' value="4"className={css.inputRadioText} />
+                <Field type='radio' name='levelActivity' value="4" className={css.inputRadioText} />
                 <span className={css.spanName}>
                   Very active (intense exercises/sports 6-7 days per week)
                 </span>
@@ -298,7 +316,7 @@ const UserForm = () => {
             </div>
             <div className={css.groupsLAbel}>
               <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='levelActivity' value={5} className={css.inputRadioText} />
+                <Field type='radio' name='levelActivity' value="5" className={css.inputRadioText} />
                 <span className={css.spanName}>
                   Extremely active (very strenuous exercises/sports and physical work)
                 </span>

@@ -5,6 +5,9 @@ export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 export const selectIsRefreshing = (state) => state.auth.isRefreshing;
 export const selectIsBMR = (state) => state.auth.client.BMR;
 export const selectIsTimeForSport = (state) => state.auth.client.timeForSport;
+export const selectNameS = (state) => state.auth.client.name;
+export const selectEmail = (state) => state.auth.client.email;
+
 
 
 
