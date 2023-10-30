@@ -7,7 +7,6 @@
   gap: 32px;
 }
 .bodyboxTable {
-  padding-right: 16px;
   border-color: rgba(239, 237, 232, 0.2);
   border-width: 1px;
   border-radius: 12px;
@@ -95,25 +94,25 @@
     text-overflow: ellipsis;
   }
   .table {
-    overflow-x: hidden;
-    overflow-y: auto;
+     overflow-y: scroll;
   }
-  // ::-webkit-scrollbar {
-  //   padding-top: 8px;
-  //   padding-bottom: 8px;
-  //   padding-right: 8px;
-  //   width: 5px; /* Ширина полосы прокрутки */
-  //   background-color: #f0f0f0; /* Цвет фона полосы прокрутки */
-  //   scrollbar-color: #333 #585757;
-  //   scrollbar-track-color: #ad1414;
-  // }
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
 
-  // /* Стилизация ползунка прокрутки */
-  // ::-webkit-scrollbar-thumb {
-  //   scrollbar-track-color: #ad1414;
-  //   background-color: #333; /* Цвет ползунка прокрутки */
-  //   border-radius: 5px; /* Скругление углов ползунка */
-  // }
+  /* Стилизация ползунка прокрутки */
+  ::-webkit-scrollbar-thumb {
+    width: 6px;
+  height: 203px;
+  border-radius: 12px;
+  background: rgba(index.$white-color, 0.1);
+  }
+  ::-webkit-scrollbar-track {
+  border-radius: 12px;
+}
+:hover::-webkit-scrollbar-thumb {
+  background: rgba(index.$white-color, 0.1);
+}
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
