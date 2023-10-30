@@ -19,7 +19,7 @@ export const ProductTable = ({ products }) => {
                 title={product.title}
                 category={product.category}
                 calories={product.calories}
-                weight={product.weight}
+                weight={product.amount}
                 recommend={product.recommend}
                 first={products.indexOf(product) === 0 ? true : false}
               />

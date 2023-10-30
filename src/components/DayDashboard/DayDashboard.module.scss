@@ -1,6 +1,6 @@
 @use 'index';
 .container {
-  padding: 0 20px;
+
   margin: 0 auto;
 }
 
@@ -9,12 +9,14 @@
   flex-wrap: wrap;
   row-gap: 20px;
   column-gap: 13px;
+  justify-content: center;
+
+  // добавил lottor-Саша
+ 
 }
 
 @media screen and (min-width: index.$mobile-breakpoint) {
-  .container {
-    width: 375px;
-  }
+
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {

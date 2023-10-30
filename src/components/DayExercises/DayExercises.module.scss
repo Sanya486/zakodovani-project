@@ -22,6 +22,9 @@
   line-height: 1.5;
 }
 .bodybox {
+max-height: 824px;
+overflow: scroll;
+  padding: 16px 25px;
   border-width: 1px;
   gap: 32px;
   border-radius: 12px;
@@ -71,6 +74,12 @@
     min-height: 234px;
     gap: 32px;
   }
+  .bodybox {
+max-height: 232px;
+overflow-y: scroll;
+margin-top: 32px;
+padding: 16px 16px 16px 16px;
+}
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
