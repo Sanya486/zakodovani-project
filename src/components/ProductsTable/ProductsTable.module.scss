@@ -1,12 +1,73 @@
 @use 'index';
 
-.element {
-    margin-bottom: 40px;
+.tableContainer {
+  width: 100%;
+  height: auto;
+  background: rgba(index.$black-color, 0.05);
+  overflow: hidden;
 }
 
+.tableList {
+  height: 100vh;
+  overflow-y: scroll;
+  padding-right: 8px;
+}
+
+.tableList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tableList::-webkit-scrollbar-track {
+  border-radius: 12px;
+}
+
+.tableList::-webkit-scrollbar-thumb {
+  width: 6px;
+  height: 203px;
+  border-radius: 12px;
+  background: rgba(index.$white-color, 0.1);
+}
+
+.tableList:hover::-webkit-scrollbar-thumb {
+  background: rgba(index.$white-color, 0.1);
+}
+
+.tableElement {
+  width: 100%;
+  height: auto;
+}
+
+.tableElement:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: index.$mobile-breakpoint) {
+  .tableContainer {
+    width: 311px;
+  }
+}
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-    .element {
-        margin-bottom: 8px;
-    }
+  .tableContainer {
+    width: 680px;
+  }
+
+  .tableList {
+    height: 162px;
+    padding-right: 18px;
+  }
+
+  .tableList::-webkit-scrollbar-thumb {
+    height: 90px;
+  }
+
+  .tableElement:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (min-width: index.$desktop-breakpoint) {
+  .tableContainer {
+    width: 786px;
+  }
 }
