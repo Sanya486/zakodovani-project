@@ -10,11 +10,15 @@ export const productsSlice = createSlice({
     error: null,
     isLoading: false,
   },
-  reducers: {},
+  reducers: {
+    clearProduct(state) {
+      state.productList = [];
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(fetchProducts.fulfilled, (state, { payload }) => {
-        state.productList = payload;
+        state.productList = [...state.productList, ...payload];
         state.isLoading = false;
       })
       .addCase(fetchAvaibleBloodProducts.fulfilled, (state, { payload }) => {
@@ -28,3 +32,5 @@ export const productsSlice = createSlice({
       .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
       .addMatcher((action) => action.type.endsWith('/rejected'), handleReject),
 });
+
+export const { clearProduct } = productsSlice.actions;

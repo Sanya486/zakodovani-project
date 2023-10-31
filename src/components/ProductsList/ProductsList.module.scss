@@ -1,9 +1,11 @@
 @use 'index';
 
 .productsListContainer {
+  height: 500px;
   max-width: 335px;
   margin-left: auto;
   margin-right: auto;
+  overflow: auto;
 }
 
 .productList {
