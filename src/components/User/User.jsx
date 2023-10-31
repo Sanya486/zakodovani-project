@@ -46,7 +46,7 @@ return (
           </svg>
         </label>
       </form>
-      <h3 className={css.userName}>{`${user.client.name}`}</h3>
+      <h3 className={css.userName}>{`${user.name}`}</h3>
       <Subtext page='userPage' />
     </div>
   );

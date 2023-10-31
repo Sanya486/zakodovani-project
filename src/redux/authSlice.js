@@ -61,7 +61,7 @@ export const authSlice = createSlice({
         state.token = initialState.token;
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
-        state.client = payload;
+        state.client = payload.client;
         state.isLoading = false;
         state.isLoggedIn = true;
         state.isRefreshing = false;

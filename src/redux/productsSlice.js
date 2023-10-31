@@ -12,8 +12,8 @@ export const productsSlice = createSlice({
   },
   reducers: {
     clearProduct(state) {
-      state.productList = [];
-    },
+      state.productList = []
+    }
   },
   extraReducers: (builder) =>
     builder
@@ -26,11 +26,11 @@ export const productsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(fetchProductsCategories.fulfilled, (state, { payload }) => {
-        state.productsCategories = payload[0];
+        state.productsCategories = payload[0].items;
         state.isLoading = false;
       })
       .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
       .addMatcher((action) => action.type.endsWith('/rejected'), handleReject),
 });
 
-export const { clearProduct } = productsSlice.actions;
+export const {clearProduct}= productsSlice.actions
