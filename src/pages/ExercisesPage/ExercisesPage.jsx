@@ -9,14 +9,32 @@ import styles from './ExercisesPage.module.scss';
 import { selectExeciseFilter, selectExercises } from 'redux/selectors';
 import { fetchExercisesByName, fetchExercisesTypes } from 'redux/operations';
 import Container from 'components/Container/Container';
+import BasicModalWindow from 'components/BasicModalWindow/BasicModalWindow';
+import AddExerciseForm from 'components/AddExerciseForm/AddExerciseForm';
+import AddExerciseSuccess from 'components/AddExerciseSuccess/AddExerciseSuccess';
 
 const ExercisesPage = () => {
   const dispatch = useDispatch();
   const filters = useSelector(selectExeciseFilter);
   const exercises = useSelector(selectExercises);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [addedExercise, setAddedExercise] = useState(null);
   const [activeFilter, setActiveFilter] = useState('bodyParts');
   const [chosenCardName, setChosenCardName] = useState(null);
+  const [showSuccess, setShowSuccess] = useState(null);
+
+  const onSuccess = (time, burnedCalories) => {
+    setShowSuccess({
+      time,
+      burnedCalories,
+    });
+  };
+
+  const onModalCLose = () => {
+    setIsModalOpen(false);
+    setShowSuccess(null);
+  };
 
   useEffect(() => {
     dispatch(fetchExercisesTypes());
@@ -65,7 +83,7 @@ const ExercisesPage = () => {
               <svg className={styles['btn-svg']}>
                 <use href={sprite + '#icon-back-arrow'}></use>
               </svg>{' '}
-              Back
+              <span className={styles['btn-text']}>Back</span>
             </button>
 
             <div className={styles['category-flex-secondary']}>
@@ -78,7 +96,20 @@ const ExercisesPage = () => {
               />
             </div>
 
-            <ExercisesList exerciseList={exercises} />
+            <ExercisesList
+              exerciseList={exercises}
+              setIsModalOpen={setIsModalOpen}
+              setAddedExercise={setAddedExercise}
+            />
+            {isModalOpen && (
+              <BasicModalWindow onClose={onModalCLose}>
+                {!showSuccess ? (
+                  <AddExerciseForm data={addedExercise} onSuccess={onSuccess} />
+                ) : (
+                  <AddExerciseSuccess onClose={onModalCLose} data={showSuccess} />
+                )}
+              </BasicModalWindow>
+            )}
           </Container>
         </div>
       )}

@@ -26,6 +26,9 @@
   font-size: 24px;
   font-weight: 400;
   text-transform: capitalize;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .workout-tag {
@@ -72,6 +75,8 @@
 
 .stats-list {
   display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
   margin-top: 8px;
 }
 

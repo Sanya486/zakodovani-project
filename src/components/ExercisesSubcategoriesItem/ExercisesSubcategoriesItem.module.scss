@@ -2,6 +2,7 @@
 
 .exercise-card {
   display: flex;
+
   max-width: 335px;
 
   margin-left: auto;
@@ -23,6 +24,7 @@
 
 .exercise-card-subcategory {
   margin: 0;
+  text-align: center;
   color: index.$white-color;
   font-size: 20px;
   font-weight: 400;
