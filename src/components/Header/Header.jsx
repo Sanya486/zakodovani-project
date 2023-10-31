@@ -7,7 +7,6 @@ import LogoutBtn from '../../components/LogoutBtn/LogoutBtn';
 import css from './Header.module.scss';
 import { selectIsLoggedIn } from 'redux/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-// import PropTypes from 'prop-types'
 
 const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -34,7 +33,7 @@ const Header = () => {
         </div>
       ) : (
         <div className={css.headerNoAuthenticatedWpapper}>
-          <Link to={isLoggedIn ? '/diary' : '/'} className={css.logoWrapper}>
+          <Link to='/' className={css.logoWrapper}>
             <Logo />
           </Link>
         </div>
@@ -42,9 +41,5 @@ const Header = () => {
     </>
   );
 };
-
-// Header.propTypes = {
-
-// }
 
 export default Header;

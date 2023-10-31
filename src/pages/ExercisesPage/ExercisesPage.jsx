@@ -102,7 +102,7 @@ const ExercisesPage = () => {
               setAddedExercise={setAddedExercise}
             />
             {isModalOpen && (
-              <BasicModalWindow onClose={onModalCLose}>
+              <BasicModalWindow onClose={onModalCLose} showCloseBtn={showSuccess}>
                 {!showSuccess ? (
                   <AddExerciseForm data={addedExercise} onSuccess={onSuccess} />
                 ) : (

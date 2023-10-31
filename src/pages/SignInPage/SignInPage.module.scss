@@ -34,8 +34,20 @@
   background-size: cover;
 }
 
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+.background {
+    background-image: url("../../images/signUp-bgd-mobile@2x.jpg");
+}
+}
+
 
 @media screen and (min-width: index.$tablet-breakpoint) {
+  .signUpBlockWrapper {
+    padding-top: 189px;
+  } 
+
   .containerWrapper {
     max-width: 768px;
     padding-left: 32px;
@@ -51,6 +63,15 @@
     background-position-y: 15px;
     background-size: cover;
   }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .background {
+        background-image: url("../../images/signUp-bgd-tablet@2x.jpg");
+        background-size: cover;
+    }
+}
 
   @media (min-height: 1025px) {
     .containerWrapper {
@@ -68,7 +89,7 @@
 
   @media (max-height: 1023px) {
     .signUpBlockWrapper {
-      padding-top: px;
+      padding-top: 90px;
     }
 
     .background {
@@ -83,7 +104,7 @@
 
 @media screen and (min-width: index.$desktop-breakpoint) {
   .signUpBlockWrapper {
-    padding-top: 116px;
+    padding-top: 200px;
   }
 
   .containerWrapper {
@@ -99,4 +120,13 @@
     background-position-x: 100%;
     background-position-y: -130px;
   }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .background {
+        background-image: url("../../images/signUp-bgd-tablet@2x.jpg");
+        background-size: 670px 1005px;
+    }
+}
 }

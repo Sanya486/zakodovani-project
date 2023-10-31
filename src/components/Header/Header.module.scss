@@ -38,11 +38,13 @@
 @media screen and (min-width: index.$mobile-breakpoint) {
   .headerNoAuthenticatedWpapper {
     position: absolute;
-    left: 20px;
+    left: 50%;
+    transform: translate(-50%);
     display: flex;
     height: 61px;
     padding: 24px 0;
     align-items: center;
+    justify-content: center;
     background: transparent;
   }
 }
