@@ -94,7 +94,6 @@ const ProductsFilters = () => {
               </div>
             )}
           </div>
-
           <div className={css.recommendationWrap}>
             <input
               className={clsx(css.inputStyle)}
