@@ -8,7 +8,7 @@ import { ProductTable } from 'components/ProductsTable/ProductsTable';
 
 export const DayProducts = ({ products }) => {
   let empty = false;
-  products.length === 0 ? empty = true : empty = false;
+  products.length === 0 ? (empty = true) : (empty = false);
   return (
     <>
       <div className={css.productsContainer}>
@@ -23,16 +23,17 @@ export const DayProducts = ({ products }) => {
             </div>
           </Link>
         </div>
-          {empty === true ? (
-            <div className={css.productWrap}>
+        {empty === false ? (
+          <div className={css.productWrap}>
             <ProductTable products={products} />
-            </div>
-          ) : (
-            <div className={css.resultInfoTextWrap}>
+          </div>
+        ) : (
+          <div className={css.resultInfoTextWrap}>
             <p className={css.resultInfoText}>Not found products</p>
-            </div>
-          )}
+          </div>
+        )}
       </div>
+
     </>
   );
 };
@@ -40,9 +41,7 @@ export const DayProducts = ({ products }) => {
 DayProducts.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({
-      _id: PropTypes.shape({
-        $oid: PropTypes.string.isRequired,
-      }).isRequired,
+      id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       calories: PropTypes.number.isRequired,
       weight: PropTypes.number.isRequired,

@@ -8,6 +8,7 @@
   border: 1px solid rgba(index.$white-color, 0.2);
   border-radius: 12px;
   padding: 16px 8px 16px 16px;
+  position: relative;
 }
 
 .headBlock {
@@ -52,17 +53,18 @@
 
 .resultInfoTextWrap {
   width: 100%;
-  min-height: 301px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 301px;
 }
 
 .resultInfoText {
-  width: 100%;
+  width: 121px;
   font-size: 14px;
   line-height: calc(18 / 14);
   color: rgba(index.$white-color, 0.3);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media screen and (min-width: index.$mobile-breakpoint) {
@@ -72,12 +74,7 @@
 
   .productWrap {
     min-height: auto;
-    height: 301px;
-  }
-
-  .resultInfoTextWrap {
-    min-height: auto;
-    height: 301px;
+    height: 752px;
   }
 
   .resultInfoText {
@@ -88,6 +85,10 @@
 @media screen and (min-width: index.$tablet-breakpoint) {
   .productsContainer {
     width: 704px;
+    height: 234px;
+  }
+
+  .resultInfoContainer {
     height: 234px;
   }
 
@@ -105,7 +106,7 @@
   }
 
   .productWrap {
-    height: 194px;
+    height: 162px;
   }
 
   .resultInfoTextWrap {

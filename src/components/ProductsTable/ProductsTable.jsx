@@ -11,16 +11,16 @@ export const ProductTable = ({ products }) => {
   return (
     <>
       <div className={clsx(css.tableContainer)}>
-        <div className={css.tableList}>
+      <div className={css.tableList}>
           {products.map((product) => (
-            <div key={product._id.$oid} className={css.tableElement}>
+            <div key={product.id} className={css.tableElement}>
               <ProductTableItem
-                id={product._id.$oid}
+                id={product.id}
                 title={product.title}
                 category={product.category}
                 calories={product.calories}
                 weight={product.amount}
-                recommend={product.recommend}
+                groupBloodNotAllowed={product.groupBloodNotAllowed}
                 first={products.indexOf(product) === 0 ? true : false}
               />
             </div>
@@ -32,9 +32,7 @@ export const ProductTable = ({ products }) => {
 };
 
 ProductTable.propTypes = {
-  _id: PropTypes.shape({
-    $oid: PropTypes.string.isRequired,
-  }).isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   calories: PropTypes.number.isRequired,

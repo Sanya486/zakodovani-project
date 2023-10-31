@@ -23,15 +23,16 @@
 }
 
 .caloriesElement {
-  width: calc((100% - 60px) * 0.34177);
+  width: calc((100% - 28px) * 0.34177);
 }
 
 .weightElement {
-  width: calc((100% - 60px) * 0.33755);
+  width: calc((100% - 28px) * 0.33755);
 }
 
 .recommendElement {
-  width: calc((100% - 60px) * 0.32067);
+  width: calc((100% - 14px) * 0.32067);
+  // width: calc(100% * 0.32067);
 }
 
 .title {
@@ -88,7 +89,7 @@
 .subBlockWrap {
   display: flex;
   align-items: center;
-  column-gap: 16px;
+  column-gap: 8px;
   width: calc(100% - 28px);
   width: 100%;
 }
@@ -136,6 +137,10 @@
 
   .blockWrap {
     width: 269px;
+  }
+
+  .subBlockWrap {
+    column-gap: 16px;
   }
 }
 
