@@ -4,21 +4,10 @@ import './App.scss';
 import React, { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-// import WelcomePage from 'pages/WelcomePage/WelcomePage';
-// import RestrictedRoute from 'components/Routes/RestrictedRoute';
-// import SignUpPage from 'pages/SignUpPape/SignUpPage';
-// import SignInPage from 'pages/SignInPage/SignInPage';
-// import PrivateRoute from 'components/Routes/PrivateRoute';
-// import DiaryPage from 'pages/DiaryPage/DiaryPage';
-// import ProfilePage from 'pages/ProfilePage/ProfilePage';
-// import ProductsPage from 'pages/ProductsPage/ProductsPage';
-// import ExercisesPage from 'pages/ExercisesPage/ExercisesPage';
-// import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import { fetchCurrentUser } from 'redux/operations';
 import { selectIsRefreshing } from 'redux/selectors';
 import { Puff } from 'react-loader-spinner';
 import { Suspense } from 'react';
-// import Layout from 'components/Layout/Layout';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'))
 const RestrictedRoute = lazy(() => import('components/Routes/RestrictedRoute'))
