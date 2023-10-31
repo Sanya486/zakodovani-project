@@ -9,6 +9,7 @@ export const selectAvatar = (state) => state.auth.client.avatar;
 
 export const selectDiaryExercises = (state) => state.diary.data.exerciseDone;
 export const selectDiaryProducts = (state) => state.diary.data.consumedProduct;
+export const selectDiaryMetrics = (state) => state.diary.data;
 
 // Products selectors
 
