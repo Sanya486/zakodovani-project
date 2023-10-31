@@ -95,6 +95,8 @@
 }
 .inputRadio {
   margin-right: 3px;
+  width: 20px; /* Задайте більший розмір для всіх радіокнопок */
+  height: 20px; /* Задайте більший розмір для всіх радіокнопок */
 }
 .inputRadioSex {
   color: index.$radio-color;
@@ -213,42 +215,43 @@
   color: index.$white-color;
 }
 
-.customRadio span {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
+// .customRadio span {
+//   display: flex;
+//   align-items: center;
+//   position: relative;
+// }
 
-.customRadio input[type='radio'] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-}
-.customRadio span::before {
-  content: '';
-  width: 15px;
-  height: 15px;
-  border: 2px solid index.$radio-color;
-  display: inline-block;
-  margin-right: 8px;
-  border-radius: 100%;
-}
-.customRadio span::after {
-  content: '';
-  position: absolute;
-  left: 3px;
-  top: 52%;
-  transform: translateY(-52%);
-  width: 9px;
-  height: 9px;
-  background-color: index.$orange-secondary-color;
-  border-radius: 100%;
-  opacity: 0;
-}
-.customRadio input[type='radio' ]:checked + span::after {
-  opacity: 1;
-}
+// .customRadio input[type='radio'] {
+//   position: absolute;
+//   width: 1px;
+//   height: 1px;
+//   opacity: 0;
+// }
+// .customRadio span::before {
+//   content: '';
+//   width: 20px; /* Задайте більший розмір для круга */
+//   height: 20px; /* Задайте більший розмір для круга */
+//   border: 2px solid index.$radio-color;
+//   display: inline-block;
+//   margin-right: 8px;
+//   border-radius: 100%;
+// }
+
+// .customRadio span::after {
+//   content: '';
+//   position: absolute;
+//   left: 3px;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   width: 12px; /* Задайте більший розмір для обраного стану */
+//   height: 12px; /* Задайте більший розмір для обраного стану */
+//   background-color: index.$orange-secondary-color;
+//   border-radius: 100%;
+//   opacity: 0;
+// }
+// .customRadio input[type='radio' ]:checked + span::after {
+//   opacity: 1;
+// }
 .react-calendar {
   display: none;
   position: absolute !important;

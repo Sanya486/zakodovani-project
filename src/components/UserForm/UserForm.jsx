@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { addYears, subYears } from 'date-fns';
@@ -10,30 +10,30 @@ import 'react-calendar/dist/Calendar.css';
 import { fetchCalculateDailyMetrics, fetchCurrentUser } from '../../redux/operations';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { selectName} from '../../redux/selectors';
+import { selectClient } from '../../redux/selectors';
 
 
-const validationSchema = Yup.object().shape({
-  name: Yup.string().min(3).required("Це поле обов'язкове"),
-  email: Yup.string().email('Невірний формат Email'),
-  birthday: Yup.date().required("Це поле обов'язкове"),
-  blood: Yup.number().required('Оберіть опцію Blood'),
-   currentWeight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
-  desiredWeight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
-  height: Yup.number().min(150, 'Мінімальна висота - 150 см').required("Це поле обов'язкове"),
-  levelActivity: Yup.number().required('Оберіть опцію levelActivity'),
-  sex: Yup.string().required('Оберіть стать'),
-});
 
 
 const UserForm = () => {
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().min(3).required("Це поле обов'язкове"),
+    email: Yup.string().email('Невірний формат Email'),
+    birthday: Yup.date().required("Це поле обов'язкове"),
+    blood: Yup.number().required('Оберіть опцію Blood'),
+    currentWeight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
+    desiredWeight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
+    height: Yup.number().min(150, 'Мінімальна висота - 150 см').required("Це поле обов'язкове"),
+    levelActivity: Yup.number().required('Оберіть опцію levelActivity'),
+    sex: Yup.string().required('Оберіть стать'),
+  });
+
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
- 
-  const client = useSelector(selectName);
 
- 
-  
+  const client = useSelector(selectClient);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -48,47 +48,49 @@ const UserForm = () => {
     setCalendarIsClicked(false);
   };
 
- 
   const customWeekdayFormatter = (locale, date) => {
     const weekdays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
     return weekdays[date.getDay()];
   };
 
-
+const [newValues, setNewValues] = useState({})
 
   const handleSubmit = (values) => {
-
     delete values.name;
     delete values.email;
     values.blood = parseInt(values.blood);
     values.levelActivity = parseInt(values.levelActivity);
-    dispatch(fetchCalculateDailyMetrics(values))
-
+    setNewValues(values);
+    dispatch(fetchCalculateDailyMetrics(values));
+    console.log(values);
   };
-  
+
+    useEffect(() => {
+    dispatch(fetchCalculateDailyMetrics(newValues));
+  }, [dispatch, newValues]);
+
   return (
     <Formik
       initialValues={{
-        email:client.client.email,
-        name:client.client.name,
-        birthday: client.client.birthday,
-        blood: client.client.blood,
-        currentWeight: client.client.currentWeight,
-        desiredWeight: client.client.desiredWeight,
-        height: client.client.height,
-        levelActivity: client.client.levelActivity,
-        sex: client.client.sex,
+        email: client.email,
+        name: client.name,
+        birthday: client.birthday,
+        blood: client.blood,
+        currentWeight: client.currentWeight,
+        desiredWeight: client.desiredWeight,
+        height: client.height,
+        levelActivity: client.levelActivity,
+        sex: client.sex,
       }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
       validateOnChange={false}
-  enableReinitialize={true}
-  initialTouched={{}}
-  initialErrors={{}}
-  validateOnMount={true}
-      
+      enableReinitialize={true}
+      initialTouched={{}}
+      initialErrors={{}}
+      validateOnMount={true}
     >
-      {({ errors, touched, setFieldValue}) => (
+      {({ errors, touched, setFieldValue , handleChange}) => (
         <Form>
           <div>
             <span className={css.title}>Basic info</span>
@@ -99,7 +101,7 @@ const UserForm = () => {
                   id='name'
                   name='name'
                   // value={name}
-                  onChange={(e) => setFieldValue('name', e.target.value)}
+                  onChange={handleChange}
                   className={`${css.inputBase} ${errors.name && touched.name ? css.error : ''}`}
                   required
                 />
@@ -109,7 +111,7 @@ const UserForm = () => {
                   type='email'
                   id='email'
                   name='email'
-                
+                  onChange={handleChange}
                   className={`${css.inputBase} ${errors.email && touched.email ? css.error : ''}`}
                 />
                 <ErrorMessage name='email' component='div' className={css.errorEmail} />
@@ -180,7 +182,7 @@ const UserForm = () => {
                         className={`${css.input} ${css.inputDate} ${
                           errors.birthday && touched.birthday ? css.error : ''
                         }`}
-                        value={currentDate}
+                        value={currentDate === null ? '00.00.00' : currentDate}
                         id='birthday'
                         name='birthday'
                       />
@@ -224,9 +226,11 @@ const UserForm = () => {
                   name='blood'
                   id='radio1'
                   value='1'
+                  onChange={handleChange}
+                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${errors.blood && touched.blood ? css.error : ''}`}
                 />
-                <span>1</span>
+                <span></span>1
               </label>
               <label className={`${css.labelMargin} ${css.customRadio}`}>
                 <Field
@@ -234,9 +238,11 @@ const UserForm = () => {
                   name='blood'
                   value='2'
                   id='radio2'
+                  onChange={handleChange}
+                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${errors.blood && touched.blood ? css.error : ''}`}
                 />
-                <span>2</span>
+                <span></span>2
               </label>
               <label className={`${css.labelMargin} ${css.customRadio}`}>
                 <Field
@@ -244,9 +250,11 @@ const UserForm = () => {
                   name='blood'
                   value='3'
                   id='radio3'
+                  onChange={handleChange}
+                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${errors.blood && touched.blood ? css.error : ''}`}
                 />
-                <span>3</span>
+                <span></span>3
               </label>
               <label className={`${css.labelMargin} ${css.customRadio}`}>
                 <Field
@@ -254,39 +262,34 @@ const UserForm = () => {
                   name='blood'
                   id='radio4'
                   value='4'
+                  onChange={handleChange}
+                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${errors.blood && touched.blood ? css.error : ''}`}
                 />
-                <span>4</span>
+                <span></span>4
               </label>
             </div>
             <ErrorMessage name='blood' component='div' className={css.error} />
             <div className={css.sex}>
-            {['male', 'female'].map((option) => (
-              <label key={option} className={`${css.labelMargin} ${css.customRadio}`}>
-                <Field
-                  type='radio'
-                  name='sex'
-                  value={option}
-                  className={`${css.inputRadioSex} ${errors.sex && touched.sex ? css.error : ''}`}
-                />
-                <span>{option}</span>
-              </label>
-            ))}
-            <ErrorMessage name='sex' component='div' className={css.error} />
+              {['male', 'female'].map((option) => (
+                <label key={option} className={`${css.labelMargin} ${css.customRadio}`}>
+                  <Field
+                    type='radio'
+                    name='sex'
+                    value={option}
+                    className={`${css.inputRadioSex} ${errors.sex && touched.sex ? css.error : ''}`}
+                  />
+                  <span>{option}</span>
+                </label>
+              ))}
+              <ErrorMessage name='sex' component='div' className={css.error} />
+            </div>
           </div>
-          </div>
-          
 
           <div className={css.radioText}>
             <div className={css.groupsLAbel}>
               <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field
-                  type='radio'
-                  name='levelActivity'
-                  value="1"
-                  className={css.inputRadioText}
-                  
-                />
+                <Field type='radio' name='levelActivity' value='1' className={css.inputRadioText} chek/>
                 <span className={css.spanName}>
                   Sedentary lifestyle (little or no physical activity)
                 </span>
@@ -294,7 +297,7 @@ const UserForm = () => {
             </div>
             <div className={css.groupsLAbel}>
               <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='levelActivity' value="2" className={css.inputRadioText} />
+                <Field type='radio' name='levelActivity' value='2' className={css.inputRadioText} />
                 <span className={css.spanName}>
                   Light activity (light exercises/sports 1-3 days per week)
                 </span>
@@ -302,7 +305,7 @@ const UserForm = () => {
             </div>
             <div className={css.groupsLAbel}>
               <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='levelActivity' value="3" className={css.inputRadioText} />
+                <Field type='radio' name='levelActivity' value='3' className={css.inputRadioText} />
                 <span className={css.spanName}>
                   Moderately active (moderate exercises/sports 3-5 days per week)
                 </span>
@@ -310,7 +313,7 @@ const UserForm = () => {
             </div>
             <div className={css.groupsLAbel}>
               <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='levelActivity' value="4" className={css.inputRadioText} />
+                <Field type='radio' name='levelActivity' value='4' className={css.inputRadioText} />
                 <span className={css.spanName}>
                   Very active (intense exercises/sports 6-7 days per week)
                 </span>
@@ -318,7 +321,7 @@ const UserForm = () => {
             </div>
             <div className={css.groupsLAbel}>
               <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='levelActivity' value="5" className={css.inputRadioText} />
+                <Field type='radio' name='levelActivity' value='5' className={css.inputRadioText} />
                 <span className={css.spanName}>
                   Extremely active (very strenuous exercises/sports and physical work)
                 </span>

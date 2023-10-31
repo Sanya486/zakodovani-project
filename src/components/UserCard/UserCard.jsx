@@ -1,13 +1,16 @@
 import React from 'react';
 import css from './UserCard.module.scss';
 import sprite from '../../images/svg/sprite.svg';
-import {selectIsBMR, selectIsTimeForSport, selectName} from '../../redux/selectors';
+import { selectIsBMR, selectIsTimeForSport } from '../../redux/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-const UserCard = () => {
-const BMR = useSelector(selectIsBMR);
-const sport = useSelector(selectIsTimeForSport);
-const name  = useSelector(selectName);
 
+const UserCard = () => {
+  // const [userBMR, setUserBMR] = useState(0);
+  // const [userSport, setUserSport] = useState(0);
+  const BMR = useSelector(selectIsBMR);
+  const sport = useSelector(selectIsTimeForSport);
+
+ 
   return (
     <>
       <div className={css['group']}>
@@ -20,7 +23,7 @@ const name  = useSelector(selectName);
             </span>
             Daily calorie intake
           </p>
-          <span className={css.span1}>{ name.client.BMR ? BMR  || name.client.BMR : 0 }</span>
+          <span className={css.span1}>{BMR  || 0}</span>
         </div>
 
         <div className={css['conteiner']}>
@@ -32,7 +35,7 @@ const name  = useSelector(selectName);
             </span>
             Daily norm of sports
           </p>
-          <span className={css.span2}>{sport || name.client.timeForSport ? sport  || name.client.timeForSport : 0 } min</span>
+          <span className={css.span2}>{sport || 0} min</span>
         </div>
       </div>
       <div className={css.dang}>
@@ -49,4 +52,5 @@ const name  = useSelector(selectName);
     </>
   );
 };
+
 export default UserCard;

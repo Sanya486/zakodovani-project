@@ -5,27 +5,29 @@ import UserCard from 'components/UserCard/UserCard';
 import UserForm from 'components/UserForm/UserForm';
 import React from 'react';
 import css from './ProfilePage.module.scss';
+import Container from 'components/Container/Container';
 // import PropTypes from 'prop-types'
 
 const ProfilePage = () => {
-
-  return (
-    <div className={css.container}>
+  
+  return (<Container>
+     <TitlePage>Profile Settings</TitlePage>
       <div className={css.flexCont}>
         <div className={css.rightCont}>
-          <TitlePage block className={`${css.title} `}>Profile Settings</TitlePage>
+         
           <User />
-          <UserCard />
+          <UserCard  />
           <LogoutBtn profile className={`${css.iconForProfile} ${css.logoutBtnProfile}`} />
         </div>
         <div className={css.leftCont}>
-        <TitlePage none className= {`${css.title} `}>Profile Settings</TitlePage>
-          <UserForm />
+        
+          <UserForm  />
           
         </div>
       </div>
       ;
-    </div>
+  </Container>
+    
   );
 };
 
