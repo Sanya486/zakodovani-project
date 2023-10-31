@@ -9,13 +9,23 @@ import Button from 'components/Button/Button';
 
 const AddExerciseSuccess = ({ data, onClose }) => {
   const { time, burnedCalories } = data;
+
+  const formatTime = (seconds) => {
+    if (seconds >= 60) {
+      const minutes = Math.floor(seconds / 60);
+      return `${minutes} minute${minutes !== 1 ? 's' : ''}`;
+    } else {
+      return `${seconds} second${seconds !== 1 ? 's' : ''}`;
+    }
+  };
+
   return (
     <div className={css.container}>
       <img src={thumbUp} alt='thumb up' className={css.image} />
       <h2 className={css.title}>Well done</h2>
       <div className={css.infoText}>
         <p className={css.text}>
-          Your time: <span className={css.span}>{time}</span>
+          Your time: <span className={css.span}>{formatTime(time)}</span>
         </p>
         <p className={css.text}>
           Burned calories:
