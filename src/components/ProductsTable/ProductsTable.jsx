@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import css from './ProductsTable.module.scss';
 import { clsx } from 'clsx';
 
@@ -11,16 +11,16 @@ export const ProductTable = ({ products }) => {
   return (
     <>
       <div className={clsx(css.tableContainer)}>
-        <div className={css.tableList}>
+      <div className={css.tableList}>
           {products.map((product) => (
-            <div key={product._id.$oid} className={css.tableElement}>
+            <div key={product.id} className={css.tableElement}>
               <ProductTableItem
-                id={product._id.$oid}
+                id={product.id}
                 title={product.title}
                 category={product.category}
                 calories={product.calories}
-                weight={product.weight}
-                recommend={product.recommend}
+                weight={product.amount}
+                groupBloodNotAllowed={product.groupBloodNotAllowed}
                 first={products.indexOf(product) === 0 ? true : false}
               />
             </div>
@@ -31,13 +31,11 @@ export const ProductTable = ({ products }) => {
   );
 };
 
-ProductTable.propTypes = {
-  _id: PropTypes.shape({
-    $oid: PropTypes.string.isRequired,
-  }).isRequired,
-  title: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  calories: PropTypes.number.isRequired,
-  weight: PropTypes.number.isRequired,
-  recommend: PropTypes.string.isRequired,
-};
+// ProductTable.propTypes = {
+//   id: PropTypes.string.isRequired,
+//   title: PropTypes.string.isRequired,
+//   category: PropTypes.string.isRequired,
+//   calories: PropTypes.number.isRequired,
+//   weight: PropTypes.number.isRequired,
+//   groupBloodNotAllowed: PropTypes.string.isRequired,
+// };

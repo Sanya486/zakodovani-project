@@ -17,22 +17,22 @@ export const DayDashboard = () => {
     {
       name: 'Calories consumed',
       value: '707',
-      variant: '2',
+      variant: 'empty',
     },
     {
       name: 'Calories burned',
       value: '855',
-      variant: '2',
+      variant: 'empty',
     },
     {
       name: 'The rest of the calories',
       value: '-100',
-      variant: '3',
+      variant: 'error',
     },
     {
       name: 'The rest of sports',
       value: '+30 min',
-      variant: '4',
+      variant: 'success',
     },
   ];
 
