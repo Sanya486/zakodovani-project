@@ -134,7 +134,7 @@ export const fetchLogout = createAsyncThunk('/identification/logout', async (_, 
 
 // =========== Products fetches ===========
 
-export const fetchProducts = createAsyncThunk('/products', async ({page, limit}, thunkAPI) => {
+export const fetchProducts = createAsyncThunk('/products', async ({ page, limit }, thunkAPI) => {
   try {
     const response = await axios.get(`products?page=${page}&limit=${limit}`);
     return response.data;
@@ -239,7 +239,7 @@ export const fetchDeleteExercise = createAsyncThunk(
     } = thunkAPI.getState();
     try {
       await axios.delete(`diary/save-exercise/${id}`);
-       const filteredExerciseDone = exerciseDone.filter((exercise) => exercise.id !== id);
+      const filteredExerciseDone = exerciseDone.filter((exercise) => exercise.id !== id);
       return filteredExerciseDone;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -276,3 +276,11 @@ export const fetchDeleteProduct = createAsyncThunk(
     }
   },
 );
+export const fetchStatistic = createAsyncThunk('/statistics', async (_, thunkAPI) => {
+  try {
+    const response = await axios.get(`/statistics`);
+    return response.data;
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e.message);
+  }
+});

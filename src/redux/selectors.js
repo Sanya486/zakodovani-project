@@ -4,6 +4,7 @@ export const selectClient = (state) => state.auth.client;
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 export const selectIsRefreshing = (state) => state.auth.isRefreshing;
 export const selectAvatar = (state) => state.auth.client.avatar;
+export const selectBMR = (state) => state.auth.client.BMR
 
 // Diary selectors
 
@@ -20,3 +21,11 @@ export const selectProductsCategories = (state) => state.products.productsCatego
 
 export const selectExercises = (state) => state.sports.exercises;
 export const selectExeciseFilter = (state) => state.sports.filter;
+
+//statistic
+
+export const selectTrainingsQuantity = (state) => state.statistic.trainingsQuantity;
+export const selectBurnedAllUsersCalories = (state) => state.statistic.burnedAllUsersCalories;
+export const selectRegisteredUsersCount = (state) => state.statistic.registeredUsersCount;
+export const selectSpentAllUsersTime = (state) => state.statistic.spentAllUsersTime;
+export const selectTotalUsersExercisesCount = (state) => state.statistic.totalUsersExercisesCount;

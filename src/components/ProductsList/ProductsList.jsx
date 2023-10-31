@@ -1,6 +1,5 @@
 import { ProductsItem } from 'components/ProductsItem/ProductsItem';
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import css from './ProductsList.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectProducts } from 'redux/selectors';
@@ -107,8 +106,4 @@ const dispatch = useDispatch()
   );
 };
 
-ProductsList.propTypes = {
-  productByPage: PropTypes.array.isRequired,
-  setProductPage: PropTypes.func.isRequired,
-  productsTotalCount: PropTypes.number.isRequired,
-};
+
