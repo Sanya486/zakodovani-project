@@ -84,11 +84,7 @@ export const fetchCalculateDailyMetrics = createAsyncThunk(
 
 export const fetchUpload = createAsyncThunk('/identification/upload', async (data, thunkAPI) => {
   try {
-    const response = await axios.patch('identification/upload', data, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+    const response = await axios.patch('identification/upload', data);
     return response.data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);
