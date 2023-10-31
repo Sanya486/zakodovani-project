@@ -1,5 +1,5 @@
 import { ProductsItem } from 'components/ProductsItem/ProductsItem';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import css from './ProductsList.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,7 +9,7 @@ import { fetchProducts } from 'redux/operations';
  import InfiniteScroll from 'react-infinite-scroll-component';
 import { clearProduct } from 'redux/productsSlice';
 
-export const ProductsList = ({ productByPage, setProductPage, productsTotalCount }) => {
+export const ProductsList = () => {
   // const [products, setProducts] = useState([]);
   // const [page, setPage] = useState(1);
   // const [fetching, setFetching] = useState(true);

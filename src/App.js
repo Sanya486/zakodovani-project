@@ -1,24 +1,37 @@
 import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import './App.scss';
-import React, { useEffect } from 'react';
+import React, { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-// import Layout from 'components/Layout/Layout';
-import WelcomePage from 'pages/WelcomePage/WelcomePage';
-import RestrictedRoute from 'components/Routes/RestrictedRoute';
-import SignUpPage from 'pages/SignUpPape/SignUpPage';
-import SignInPage from 'pages/SignInPage/SignInPage';
-import PrivateRoute from 'components/Routes/PrivateRoute';
-import DiaryPage from 'pages/DiaryPage/DiaryPage';
-import ProfilePage from 'pages/ProfilePage/ProfilePage';
-import ProductsPage from 'pages/ProductsPage/ProductsPage';
-import ExercisesPage from 'pages/ExercisesPage/ExercisesPage';
-import ErrorPage from 'pages/ErrorPage/ErrorPage';
+// import WelcomePage from 'pages/WelcomePage/WelcomePage';
+// import RestrictedRoute from 'components/Routes/RestrictedRoute';
+// import SignUpPage from 'pages/SignUpPape/SignUpPage';
+// import SignInPage from 'pages/SignInPage/SignInPage';
+// import PrivateRoute from 'components/Routes/PrivateRoute';
+// import DiaryPage from 'pages/DiaryPage/DiaryPage';
+// import ProfilePage from 'pages/ProfilePage/ProfilePage';
+// import ProductsPage from 'pages/ProductsPage/ProductsPage';
+// import ExercisesPage from 'pages/ExercisesPage/ExercisesPage';
+// import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import { fetchCurrentUser } from 'redux/operations';
 import { selectIsRefreshing } from 'redux/selectors';
 import { Puff } from 'react-loader-spinner';
-import Layout from 'components/Layout/Layout';
+// import Layout from 'components/Layout/Layout';
+
+const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'))
+const RestrictedRoute = lazy(() => import('components/Routes/RestrictedRoute'))
+const PrivateRoute = lazy(()=> import('components/Routes/PrivateRoute'))
+const SignUpPage = lazy(() => import('pages/SignUpPape/SignUpPage'))
+const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'))
+const DiaryPage = lazy(() => import('pages/DiaryPage/DiaryPage'))
+const ProfilePage = lazy(() => import('pages/ProfilePage/ProfilePage'))
+const ProductsPage = lazy(() => import('pages/ProductsPage/ProductsPage'))
+const ExercisesPage = lazy(() => import('pages/ExercisesPage/ExercisesPage'))
+const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'))
+const Layout = lazy(()=> import('components/Layout/Layout'))
+
+
 
 function App() {
   const dispatch = useDispatch();
