@@ -100,6 +100,6 @@ ProductTableItem.propTypes = {
   category: PropTypes.string.isRequired,
   calories: PropTypes.number.isRequired,
   weight: PropTypes.number.isRequired,
-  recommend: PropTypes.string.isRequired,
+  groupBloodNotAllowed: PropTypes.bool.isRequired,
   first: PropTypes.bool.isRequired,
 };
