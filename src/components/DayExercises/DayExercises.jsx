@@ -9,7 +9,6 @@ import sprite from '../../images/svg/sprite.svg';
 
 
 const DayExercises = ({ exercises }) => {
-  console.log(exercises);
   if (exercises.length === 0) {
     return (
       <div className={css.bodybox}>
