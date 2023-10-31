@@ -36,31 +36,31 @@ export const ProductTableItem = ({ id, title, category, calories, weight, recomm
       <div className={css.container}>
         <div className={clsx(css.element, css.titleElement)}>
           <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>Title</p>
-          <p className={css.field}>{title}</p>
+          <p className={css.elementField}>{title}</p>
         </div>
 
         <div className={clsx(css.element, css.categoriesElement)}>
           <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>Category</p>
-          <p className={css.field}>{category}</p>
+          <p className={css.elementField}>{category}</p>
         </div>
 
         <div className={css.blockWrap}>
           <div className={css.subBlockWrap}>
             <div className={clsx(css.element, css.caloriesElement)}>
               <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>Calories</p>
-              <p className={css.field}>{calories}</p>
+              <p className={css.elementField}>{calories}</p>
             </div>
 
             <div className={clsx(css.element, css.weightElement)}>
               <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>Weight</p>
-              <p className={css.field}>{weight}</p>
+              <p className={css.elementField}>{weight}</p>
             </div>
 
             <div className={clsx(css.element, css.recommendElement)}>
               <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>
                 Recommend
               </p>
-              <p className={clsx(css.field, css.recommendField)}>
+              <p className={clsx(css.elementField, css.recommendField)}>
                 <span
                   className={clsx(
                     css.recomendStatus,
@@ -87,10 +87,11 @@ export const ProductTableItem = ({ id, title, category, calories, weight, recomm
 };
 
 ProductTableItem.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   calories: PropTypes.number.isRequired,
   weight: PropTypes.number.isRequired,
   recommend: PropTypes.string.isRequired,
-  first: PropTypes.string,
+  first: PropTypes.bool.isRequired,
 };

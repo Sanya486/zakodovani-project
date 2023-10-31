@@ -121,7 +121,7 @@ const SignUpFrom = () => {
             </div>
           </div>
 
-          <Button classes={[css.btn]} title='Sign Up' styled='accent' />
+          <Button classes={[css.btn]} title='Sign Up' styled='accent' type="submit"/>
         </Form>
       )}
     </Formik>
