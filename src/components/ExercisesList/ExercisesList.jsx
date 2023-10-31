@@ -3,18 +3,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ExercisesList.module.scss';
 
-const ExercisesList = ({ exerciseList }) => {
+const ExercisesList = ({ exerciseList, setIsModalOpen, setAddedExercise }) => {
   return (
     <ul className={styles['exercise-list']}>
       {exerciseList.map((exercise) => {
-        const { _id, name, burnedCalories, bodyPart, target } = exercise;
         return (
           <ExercisesItem
-            key={_id}
-            exerciseType={name}
-            calories={burnedCalories}
-            bodyPart={bodyPart}
-            targetMuscle={target}
+            key={exercise._id}
+            exercise={exercise}
+            setIsModalOpen={setIsModalOpen}
+            setAddedExercise={setAddedExercise}
           />
         );
       })}

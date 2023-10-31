@@ -26,11 +26,9 @@ const AddExerciseForm = ({ data, onSuccess }) => {
       return;
     }
 
-    const date = new Date().toLocaleDateString('en-GB');
     dispatch(
       fetchDiarySaveExercise({
-        date,
-        exerciseId: _id,
+        exercise: _id,
         time: currentTime,
         calories: calculatedCalories,
       }),
@@ -126,5 +124,5 @@ AddExerciseForm.propTypes = {
     burnedCalories: PropTypes.number.isRequired,
     time: PropTypes.number.isRequired,
   }).isRequired,
-  onClick: PropTypes.func.isRequired,
+  onSuccess: PropTypes.func.isRequired,
 };

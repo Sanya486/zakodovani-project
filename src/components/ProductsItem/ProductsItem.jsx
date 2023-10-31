@@ -7,7 +7,7 @@ import BasicModalWindow from 'components/BasicModalWindow/BasicModalWindow';
 import AddProductForm from 'components/AddProductForm/AddProductForm';
 import AddProductSuccess from 'components/AddProductSuccess/AddProductSuccess';
 
-export const ProductsItem = ({ product }) => {
+export const ProductsItem = ({ product, key }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [calories, setCalories] = useState(0);
@@ -23,7 +23,7 @@ export const ProductsItem = ({ product }) => {
   };
 
   return (
-    <li className={css.itemContainer}>
+    <div key={key} className={css.itemContainer}>
       <div className={css.wrap}>
         <div className={css.itemTop}>
           <div className={css.diet}>
@@ -82,7 +82,7 @@ export const ProductsItem = ({ product }) => {
           )}
         </BasicModalWindow>
       )}
-    </li>
+    </div>
   );
 };
 

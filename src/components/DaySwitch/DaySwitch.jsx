@@ -7,12 +7,11 @@ import { useState } from 'react';
 import formattingDate from './formattingDate';
 import customWeekdayFormatter from './ustomWeekdayFormatter';
 import { useSelector } from 'react-redux';
-import { selectName } from 'redux/selectors';
+import { selectClient } from 'redux/selectors';
 
-const DaySwitch = () => {
-  const user = useSelector(selectName);
+const DaySwitch = ({ currentDate = new Date(), setCurrentDate }) => {
+  const user = useSelector(selectClient);
   const [value, onChange] = useState(new Date());
-  const [currentDate, setCurrentDate] = useState(new Date());
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
 
   const formattedDate = formattingDate(currentDate);
@@ -20,7 +19,7 @@ const DaySwitch = () => {
   const incrementDate = () => {
     const newDate = new Date(currentDate);
     newDate.setDate(currentDate.getDate() + 1);
-    setCurrentDate(newDate);
+    setCurrentDate(newDate)
   };
 
   const decrementDate = () => {
@@ -42,7 +41,7 @@ const DaySwitch = () => {
   }, [currentDate]);
 
   const onClickDay = (value) => {
-    setCurrentDate(value);
+    setCurrentDate(() => value);
   };
 
   return (

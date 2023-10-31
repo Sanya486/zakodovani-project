@@ -1,21 +1,19 @@
 import React from 'react';
 import css from './DayExercises.module.scss';
-import { selectDiaryExercises } from 'redux/selectors';
-import { useSelector } from 'react-redux';
+// import { selectDiaryExercises } from 'redux/selectors';
+
 import ExercisesTable from 'components/ExercisesTable/ExercisesTable';
 import { Link } from 'react-router-dom';
 import sprite from '../../images/svg/sprite.svg';
 
 
-const DayExercises = () => {
 
-  const exercises = useSelector(selectDiaryExercises);
-
+const DayExercises = ({ exercises }) => {
   if (exercises.length === 0) {
     return (
       <div className={css.bodybox}>
         <div className={css.container}>
-          <h3 className={css.exercisesepmty}>Not found exercises</h3>
+          <h3>Not found exercises</h3>
         </div>
       </div>
     );
@@ -31,10 +29,10 @@ const DayExercises = () => {
             </svg>
           </Link>
         </div>
-        <ExercisesTable />
+        <ExercisesTable exercises={exercises} />
       </div>
     );
   }
-};
+}
 
 export default DayExercises;
