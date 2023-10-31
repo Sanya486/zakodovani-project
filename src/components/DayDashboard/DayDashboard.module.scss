@@ -20,29 +20,29 @@
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .container {
-    width: 768px;
+    // width: 768px;
     margin-left: 0;
   }
 
   .dayDashboard {
     flex-direction: column;
+    width: 593px;
     align-content: flex-start;
     height: 248px;
-    row-gap: 16px;
-    column-gap: 16px;
+    gap: 16px;
   }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
   .container {
-    width: 390px;
+    // width: 390px;
     height: auto;
     padding: 0;
   }
 
   .dayDashboard {
     flex-direction: row;
-    
+    width: 390px;
     // Єто добавил Саша-lottor
     height: 100%;
   }
