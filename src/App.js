@@ -11,7 +11,8 @@ import { Suspense } from 'react';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'))
 const RestrictedRoute = lazy(() => import('components/Routes/RestrictedRoute'))
-const PrivateRoute = lazy(()=> import('components/Routes/PrivateRoute'))
+const PrivateRoute = lazy(() => import('components/Routes/PrivateRoute'))
+const PrivateRouteExtended = lazy(()=> import('components/Routes/PrivateRouteExtended'))
 const SignUpPage = lazy(() => import('pages/SignUpPape/SignUpPage'))
 const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'))
 const DiaryPage = lazy(() => import('pages/DiaryPage/DiaryPage'))
@@ -85,7 +86,7 @@ function App() {
           <Route index element={<RestrictedRoute component={WelcomePage} redirectTo='/diary' />} />
           <Route
             path='/signup'
-            element={<RestrictedRoute component={SignUpPage} redirectTo='/diary' />}
+            element={<RestrictedRoute component={SignUpPage} redirectTo='/profile' />}
           />
           <Route
             path='/signin'
@@ -97,15 +98,15 @@ function App() {
           />
           <Route
             path='/diary'
-            element={<PrivateRoute component={DiaryPage} redirectTo='/signin' />}
+            element={<PrivateRouteExtended component={DiaryPage} redirectTo='/signin' />}
           />
           <Route
             path='/products'
-            element={<PrivateRoute component={ProductsPage} redirectTo='/signin' />}
+            element={<PrivateRouteExtended component={ProductsPage} redirectTo='/signin' />}
           />
           <Route
             path='/exercises'
-            element={<PrivateRoute component={ExercisesPage} redirectTo='/signin' />}
+            element={<PrivateRouteExtended component={ExercisesPage} redirectTo='/signin' />}
           />
         </Route>
         <Route path='*' element={<ErrorPage />} />
