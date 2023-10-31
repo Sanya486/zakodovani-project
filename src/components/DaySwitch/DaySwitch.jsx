@@ -19,7 +19,7 @@ const DaySwitch = ({ currentDate = new Date(), setCurrentDate }) => {
   const incrementDate = () => {
     const newDate = new Date(currentDate);
     newDate.setDate(currentDate.getDate() + 1);
-    setCurrentDate(newDate)
+    setCurrentDate(newDate);
   };
 
   const decrementDate = () => {
@@ -73,7 +73,7 @@ const DaySwitch = ({ currentDate = new Date(), setCurrentDate }) => {
             formatShortWeekday={customWeekdayFormatter}
             minDetail='month'
             onClickDay={onClickDay}
-            minDate={new Date(user.client.registrationDate)}
+            minDate={new Date(user.registrationDate)}
           />
         )}
       </div>

@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCurrentUser } from 'redux/operations';
 import { selectIsRefreshing } from 'redux/selectors';
 import { Puff } from 'react-loader-spinner';
+import { Suspense } from 'react';
 // import Layout from 'components/Layout/Layout';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'))
@@ -63,7 +64,35 @@ function App() {
   ) : (
     <>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route
+          path='/'
+          element={
+            <Suspense
+              fallback={
+                <Puff
+                  height='100'
+                  width='100'
+                  color='#e6533c'
+                  ariaLabel='line-wave'
+                  wrapperStyle={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: '100%',
+                    height: '100vh',
+                  }}
+                  wrapperClass=''
+                  visible={true}
+                  firstLineColor=''
+                  middleLineColor=''
+                  lastLineColor=''
+                />
+              }
+            >
+              <Layout />
+            </Suspense>
+          }
+        >
           <Route index element={<RestrictedRoute component={WelcomePage} redirectTo='/diary' />} />
           <Route
             path='/signup'
