@@ -4,24 +4,28 @@ import sprite from '../../images/svg/sprite.svg';
 import Subtext from 'components/Subtext/Subtext';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { selectClient } from 'redux/selectors';
-import { fetchUpload } from "../../redux/operations";
+import { fetchUpload, fetchCurrentUser } from "../../redux/operations";
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
 
 
 const User = () => {
   const user = useSelector(selectClient);
   const dispatch = useDispatch();
-  console.log(user);
- 
   
- 
-
   const handleFileChange = (e) => {
+    const file = e.target.files[0]; 
+    if (file) {
     const formData = new FormData();
-    formData.append('file', e.target.files[0]);
-    dispatch(fetchUpload({avatar: {formData}}));
-  };
+    formData.append('avatar', file, file.name);
+    dispatch(fetchUpload(formData));
+    } 
+}
 
+useEffect(() => {
+    fetchCurrentUser();
+}, [dispatch])
 
   return (
     <div className={css.userWrapper}>
