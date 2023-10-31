@@ -3,27 +3,26 @@ import css from './User.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import Subtext from 'components/Subtext/Subtext';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { selectClient } from 'redux/selectors';
+import { selectClient, selectAvatar } from 'redux/selectors';
 import { fetchUpload } from "../../redux/operations";
 import { useDispatch } from 'react-redux';
 
 
 const User = () => {
   const user = useSelector(selectClient);
+  const avatar = useSelector(selectAvatar);
   const dispatch = useDispatch();
-  console.log(user);
- 
-  
- 
 
   const handleFileChange = (e) => {
+    const file = e.target.files[0]; 
+    if (file) {
     const formData = new FormData();
-    formData.append('file', e.target.files[0]);
-    dispatch(fetchUpload({avatar: {formData}}));
-  };
+    formData.append('avatar', e.target.files[0]);
+    dispatch(fetchUpload(formData));
+  }
+}
 
-
-  return (
+return (
     <div className={css.userWrapper}>
       <form className={css.form} onClick={() => document.querySelector('.fileInput').click()}>
         <input
@@ -33,14 +32,15 @@ const User = () => {
           className='fileInput'
           hidden
         />
-        {user.client.avatar ? (
-          <img src={user.client.avatar} className={css.imageSelected} />
+        {avatar ? (
+          <img src={avatar} className={css.imageSelected} />
         ) : (
           <svg className={css.avatarDefault}>
             <use href={sprite + '#avatar_icon'}></use>
           </svg>
         )}
         <label htmlFor='fileInput'>
+          <span className={css.iconBackground}></span>
           <svg className={css.iconToChooseFile}>
             <use href={sprite + '#check_mark_icon'}></use>
           </svg>

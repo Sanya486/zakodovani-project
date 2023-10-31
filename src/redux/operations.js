@@ -84,11 +84,21 @@ export const fetchCalculateDailyMetrics = createAsyncThunk(
 
 export const fetchUpload = createAsyncThunk('/identification/upload', async (data, thunkAPI) => {
   try {
-    const response = await axios.patch('identification/upload', data, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
+    const fetchPromise = axios.patch('identification/upload', data);
+    toast.promise(
+      fetchPromise,
+      {
+        loading: 'Loading your avatar 🙂',
+        success: `Avatar changed successfully 👍`,
+        error: 'Error with your avatar. Please check your file 😓',
       },
-    });
+      {
+        error: {
+          duration: 5000,
+        },
+      },
+    );
+    const response = await fetchPromise;
     return response.data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);
