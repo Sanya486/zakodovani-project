@@ -2,11 +2,8 @@
 @use 'index';
 
 .bodybox {
-  border-color: rgba(239, 237, 232, 0.2);
-  border-width: 1px;
-  border-radius: 12px;
-  gap: 32px;
-  margin-bottom: 50px;
+
+  margin-bottom: 30px;
 }
 .bodyboxTable {
   padding-right: 16px;
@@ -49,8 +46,12 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-bottom: 8px;
+  padding-top: 20px;
 }
-
+.exercisename:not(:first-child){
+  
+}
 .exercisetitleitem {
   color: #efede8;
   font-weight: 400;
@@ -81,7 +82,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 20px;
+  gap: 10px;
   flex: 1;
 }
 .rowtextitems {
@@ -94,7 +95,7 @@
 
 .icon {
   position: relative;
-  top: +40px;
+  top: +55px;
   display: flex;
   flex-direction: column;
   stroke: #ef8964;
@@ -122,7 +123,7 @@
 
 @media screen and (min-width: index.$mobile-breakpoint) {
   .rowtext {
-    gap: 25px;
+    gap: 10px;
     
   }
 

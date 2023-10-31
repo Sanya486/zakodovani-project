@@ -1,76 +1,44 @@
 import { ProductsItem } from 'components/ProductsItem/ProductsItem';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import css from './ProductsList.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectProducts } from 'redux/selectors';
-import { fetchProducts } from 'redux/operations';
 
-export const ProductsList = () => {
-  //   const exampleProductArr = [
-  //     {
-  //       isRecommend: true,
-  //       title: 'Rice semolina Garnets gluten-free',
-  //       calories: '340',
-  //       category: 'Cereals',
-  //       weight: '100',
-  //     },
-  //     {
-  //       isRecommend: false,
-  //       title: 'Venison . stew Special',
-  //       calories: '81',
-  //       category: 'Meat',
-  //       weight: '100',
-  //     },
-  //     {
-  //       isRecommend: true,
-  //       title: 'Rice semolina Garnets gluten-free',
-  //       calories: '300',
-  //       category: 'Cereals',
-  //       weight: '100',
-  //     },
-  //     {
-  //       isRecommend: true,
-  //       title: 'Rice semolina Garnets gluten-free',
-  //       calories: '300',
-  //       category: 'Cereals',
-  //       weight: '100',
-  //     },
-  //     {
-  //       isRecommend: true,
-  //       title: 'Rice semolina Garnets gluten-free',
-  //       calories: '340',
-  //       category: 'Cereals',
-  //       weight: '100',
-  //     },
-  //     {
-  //       isRecommend: false,
-  //       title: 'Venison . stew Special',
-  //       calories: '81',
-  //       category: 'Meat',
-  //       weight: '100',
-  //     },
-  //     {
-  //       isRecommend: true,
-  //       title: 'Rice semolina Garnets gluten-free',
-  //       calories: '340',
-  //       category: 'Cereals',
-  //       weight: '100',
-  //     },
-  //     {
-  //       isRecommend: false,
-  //       title: 'Venison . stew Special',
-  //       calories: '81',
-  //       category: 'Meat',
-  //       weight: '100',
-  //     },
-  //   ];
-
-  const dispatch = useDispatch();
-  const products = useSelector(selectProducts);
+export const ProductsList = ({ productByPage, setProductPage, productsTotalCount }) => {
+  const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(1);
+  const [fetching, setFetching] = useState(true);
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+    const fetchData = async () => {
+      await setProductPage(page);
+      setPage((prev) => prev + 1);
+      setProducts((prev) => [...prev, ...productByPage]);
+      setFetching(false);
+    };
+
+    if (fetching) {
+      fetchData();
+    }
+  }, [fetching]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHandler);
+
+    return function () {
+      window.removeEventListener('scroll', scrollHandler);
+    };
+  }, []);
+
+  const scrollHandler = (e) => {
+    if (
+      e.target.documentElement.scrollHeight -
+        (e.target.documentElement.scrollTop + window.innerHeight) <
+        100 &&
+      products.length < productsTotalCount
+    ) {
+      setFetching(true);
+    }
+  };
 
   return (
     <div className={css.productsListContainer}>
@@ -81,4 +49,10 @@ export const ProductsList = () => {
       </ul>
     </div>
   );
+};
+
+ProductsList.propTypes = {
+  productByPage: PropTypes.array.isRequired,
+  setProductPage: PropTypes.func.isRequired,
+  productsTotalCount: PropTypes.number.isRequired,
 };

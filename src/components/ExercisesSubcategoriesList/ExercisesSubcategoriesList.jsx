@@ -6,10 +6,7 @@ import 'swiper/css/grid';
 import Swiper from 'swiper/bundle';
 
 const ExercisesSubcategoriesList = ({ activeFilter, setChosenCard, exerciseFilters }) => {
-  console.log(exerciseFilters);
-
   const visibleCards = exerciseFilters[activeFilter];
-  console.log(visibleCards);
 
   const onCardClick = (bodyPart) => {
     setChosenCard(bodyPart);

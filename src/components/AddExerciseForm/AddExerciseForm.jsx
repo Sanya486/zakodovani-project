@@ -126,5 +126,5 @@ AddExerciseForm.propTypes = {
     burnedCalories: PropTypes.number.isRequired,
     time: PropTypes.number.isRequired,
   }).isRequired,
-  onClick: PropTypes.func.isRequired,
+  onSuccess: PropTypes.func.isRequired,
 };
