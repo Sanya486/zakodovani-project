@@ -35,11 +35,12 @@ const DiaryPage = () => {
 
   return (
     <Container>
-      {/* <div className={css.coolCont}> */}
         <div>
         <div className={css.titlebox}>
-          <TitlePage classes={[css.title]}>Diary</TitlePage>
+        <h2 className={css.pageTitle}>Diary</h2>
+          <div className={css.daySwitchWrap}>
           <DaySwitch currentDate={currentDate} setCurrentDate={setCurrentDate} />
+          </div>
         </div>
         <div className={css.changebox}>
           <div className={css.changebox1}>
