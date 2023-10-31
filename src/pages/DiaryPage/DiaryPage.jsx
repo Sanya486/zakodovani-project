@@ -6,7 +6,8 @@ import DayExercises from 'components/DayExercises/DayExercises';
 import DaySwitch from 'components/DaySwitch/DaySwitch';
 import { DayDashboard } from 'components/DayDashboard/DayDashboard';
 import css from './DiaryPage.module.scss';
-import { selectDiaryExercises, selectDiaryProducts } from 'redux/selectors';
+// import { selectDiaryExercises, selectDiaryProducts } from 'redux/selectors';
+import { selectDiaryExercises, selectDiaryProducts, selectDiaryMetrics } from 'redux/selectors';
 import { fetchDiaryDateInfo } from 'redux/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -27,6 +28,7 @@ const DiaryPage = () => {
   const dispatch = useDispatch();
   const exerciseDone = useSelector(selectDiaryExercises);
   const consumedProduct = useSelector(selectDiaryProducts);
+  const {timeForSport, BMR, caloriesBurned, caloriesConsumed, caloriesRest, restSport} = useSelector(selectDiaryMetrics);
   const [currentDate, setCurrentDate] = useState(new Date());
   useEffect(() => {
     dispatch(fetchDiaryDateInfo(formattingDate(currentDate)));
@@ -44,7 +46,14 @@ const DiaryPage = () => {
         </div>
         <div className={css.changebox}>
           <div className={css.changebox1}>
-            <DayDashboard />
+            <DayDashboard 
+              BMR={BMR}
+              timeOfSport={timeForSport}
+              caloriesConsumed={caloriesConsumed}
+              caloriesBurned={caloriesBurned}
+              caloriesRest={caloriesRest}
+              restSport={restSport}
+            />
             <div className={css.exclamingbox}>
               <svg className={css.icon}>
                 <use href={sprite + '#exclamation_mark_icon'}></use>
