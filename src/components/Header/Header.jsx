@@ -34,7 +34,7 @@ const Header = () => {
         </div>
       ) : (
         <div className={css.headerNoAuthenticatedWpapper}>
-          <Link to={isLoggedIn ? '/diary' : '/'} className={css.logoWrapper}>
+          <Link to='/' className={css.logoWrapper}>
             <Logo />
           </Link>
         </div>
