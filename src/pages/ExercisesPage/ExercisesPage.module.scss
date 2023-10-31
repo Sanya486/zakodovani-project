@@ -17,12 +17,10 @@
   margin-right: 8px;
 }
 
-// .category-flex-secondary {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   margin-bottom: 32px;
-// }
+.btn-text {
+  color: #efede866;
+  font-size: 16px;
+}
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .category-flex-secondary {

@@ -83,7 +83,7 @@ const ExercisesPage = () => {
               <svg className={styles['btn-svg']}>
                 <use href={sprite + '#icon-back-arrow'}></use>
               </svg>{' '}
-              Back
+              <span className={styles['btn-text']}>Back</span>
             </button>
 
             <div className={styles['category-flex-secondary']}>

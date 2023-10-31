@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ExercisesSubcategoriesItem.module.scss';
-// import clsx from 'clsx';
-// import { SwiperSlide } from 'swiper/react';
 
 const ExercisesSubcategoriesItem = ({ name, category, imageURL, handleClick }) => {
   const cardStyle = {

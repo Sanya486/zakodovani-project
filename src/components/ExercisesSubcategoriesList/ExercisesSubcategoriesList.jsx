@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ExercisesSubcategoriesItem from 'components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 import 'swiper/css';
 import 'swiper/css/grid';
+
 import Swiper from 'swiper/bundle';
 
 const ExercisesSubcategoriesList = ({ activeFilter, setChosenCard, exerciseFilters }) => {
@@ -11,9 +12,14 @@ const ExercisesSubcategoriesList = ({ activeFilter, setChosenCard, exerciseFilte
   const onCardClick = (bodyPart) => {
     setChosenCard(bodyPart);
   };
+  let mySwiper;
 
   useEffect(() => {
-    new Swiper('.swiper', {
+    if (mySwiper) {
+      mySwiper.destroy(true, true);
+    }
+
+    mySwiper = new Swiper('.mySwiper', {
       slidesPerView: 1,
       spaceBetween: 20,
       grid: {
@@ -50,9 +56,17 @@ const ExercisesSubcategoriesList = ({ activeFilter, setChosenCard, exerciseFilte
     });
   }, [activeFilter]);
 
+  useEffect(() => {
+    return () => {
+      if (mySwiper) {
+        mySwiper.destroy(true, true);
+      }
+    };
+  }, [activeFilter]);
+
   return (
     <>
-      <div className='swiper'>
+      <div className='swiper mySwiper'>
         <div className='swiper-wrapper'>
           {visibleCards &&
             visibleCards.map((filter) => (
