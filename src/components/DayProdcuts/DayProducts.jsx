@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../images/svg/sprite.svg';
 
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import css from './DayProducts.module.scss';
 import { ProductTable } from 'components/ProductsTable/ProductsTable';
 
@@ -38,14 +38,14 @@ export const DayProducts = ({ products }) => {
   );
 };
 
-DayProducts.propTypes = {
-  products: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      calories: PropTypes.number.isRequired,
-      weight: PropTypes.number.isRequired,
-      recommend: PropTypes.string.isRequired,
-    }),
-  ),
-};
+// DayProducts.propTypes = {
+//   products: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string.isRequired,
+//       title: PropTypes.string.isRequired,
+//       calories: PropTypes.number.isRequired,
+//       weight: PropTypes.number.isRequired,
+//       groupBloodNotAllowed: PropTypes.string.isRequired,
+//     }),
+//   ),
+// };

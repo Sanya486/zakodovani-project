@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import css from './ProductsTable.module.scss';
 import { clsx } from 'clsx';
 
@@ -31,11 +31,11 @@ export const ProductTable = ({ products }) => {
   );
 };
 
-ProductTable.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  calories: PropTypes.number.isRequired,
-  weight: PropTypes.number.isRequired,
-  recommend: PropTypes.string.isRequired,
-};
+// ProductTable.propTypes = {
+//   id: PropTypes.string.isRequired,
+//   title: PropTypes.string.isRequired,
+//   category: PropTypes.string.isRequired,
+//   calories: PropTypes.number.isRequired,
+//   weight: PropTypes.number.isRequired,
+//   groupBloodNotAllowed: PropTypes.string.isRequired,
+// };
