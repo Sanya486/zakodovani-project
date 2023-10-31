@@ -51,7 +51,7 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<WelcomePage />} />
+          <Route index element={<RestrictedRoute component={WelcomePage} redirectTo='/diary' />} />
           <Route
             path='/signup'
             element={<RestrictedRoute component={SignUpPage} redirectTo='/diary' />}
