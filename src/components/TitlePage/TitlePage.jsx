@@ -4,8 +4,8 @@ import css from './TitlePage.module.scss';
 import clsx from 'clsx';
 
 
-const TitlePage = ({ children, marg, classes=[]}) => {
-  return <h2 className={clsx(css.titlePage, marg && css.place,  ...classes)}>{children}</h2>;
+const TitlePage = ({ children, none, block, classes=[]}) => {
+  return <h2 className={clsx(css.titlePage, none && css.none, block && css.block,  ...classes)}>{children}</h2>;
 };
 
 export default TitlePage;

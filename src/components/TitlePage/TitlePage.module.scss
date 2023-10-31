@@ -7,13 +7,26 @@
   line-height: 1.16;
   text-transform: capitalize;
 }
-// .place{
-//  visibility:  hidden;
-// }
+.none{
+  display: none;
+ opacity: 0;
+}
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .titlePage {
     font-size: 32px;
     line-height: 1.37;
+  }
+  @media screen and (min-width: index.$desktop-breakpoint){
+    .none{
+      display: block;
+      opacity: 1;
+      margin-bottom: 32px;
+
+     }
+     .block{
+      opacity: 0;
+      margin-bottom: 32px;
+     }
   }
 }

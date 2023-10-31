@@ -1,7 +1,13 @@
 import React from 'react';
 import css from './UserCard.module.scss';
 import sprite from '../../images/svg/sprite.svg';
+import {selectIsBMR, selectIsTimeForSport, selectName} from '../../redux/selectors';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 const UserCard = () => {
+const BMR = useSelector(selectIsBMR);
+const sport = useSelector(selectIsTimeForSport);
+const name  = useSelector(selectName);
+
   return (
     <>
       <div className={css['group']}>
@@ -14,7 +20,7 @@ const UserCard = () => {
             </span>
             Daily calorie intake
           </p>
-          <span className={css.span1}>0</span>
+          <span className={css.span1}>{ name.client.BMR ? BMR  || name.client.BMR : 0 }</span>
         </div>
 
         <div className={css['conteiner']}>
@@ -26,7 +32,7 @@ const UserCard = () => {
             </span>
             Daily norm of sports
           </p>
-          <span className={css.span2}>0 min</span>
+          <span className={css.span2}>{sport || name.client.timeForSport ? sport  || name.client.timeForSport : 0 } min</span>
         </div>
       </div>
       <div className={css.dang}>
