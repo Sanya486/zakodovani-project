@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { selectIsLoggedIn, selectIsRefreshing } from 'redux/selectors';
@@ -11,9 +11,9 @@ const RestrictedRoute = ({ component: Component, redirectTo = '/' }) => {
   return isRedirect ? <Navigate to={redirectTo}/> : <Component/> 
 };
 
-// RestrictedRoute.propTypes = {
-//   component: PropTypes.func.isRequired,
-//   redirectTo: PropTypes.string,
-// };
+RestrictedRoute.propTypes = {
+  component: PropTypes.node.isRequired,
+  redirectTo: PropTypes.string,
+};
 
 export default RestrictedRoute;
