@@ -11,6 +11,7 @@
   height: 100vh;
   overflow-y: scroll;
   padding-right: 8px;
+  max-height: 824px;
 }
 
 .tableList::-webkit-scrollbar {
@@ -19,6 +20,7 @@
 
 .tableList::-webkit-scrollbar-track {
   border-radius: 12px;
+  margin-top:26px;
 }
 
 .tableList::-webkit-scrollbar-thumb {
@@ -44,6 +46,10 @@
 @media screen and (min-width: index.$mobile-breakpoint) {
   .tableContainer {
     width: 311px;
+  }
+
+  .tableList {
+    height: 752px;
   }
 }
 

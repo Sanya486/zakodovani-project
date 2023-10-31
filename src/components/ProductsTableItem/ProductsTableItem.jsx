@@ -8,7 +8,15 @@ import { clsx } from 'clsx';
 import { useDispatch } from 'react-redux';
 import { fetchDeleteProduct } from 'redux/operations';
 
-export const ProductTableItem = ({ id, title, category, calories, weight, recommend, first }) => {
+export const ProductTableItem = ({
+  id,
+  title,
+  category,
+  calories,
+  weight,
+  groupBloodNotAllowed,
+  first,
+}) => {
   const [width, setWidth] = useState(window.innerWidth);
 
   const dispatch = useDispatch();
@@ -64,17 +72,17 @@ export const ProductTableItem = ({ id, title, category, calories, weight, recomm
                 <span
                   className={clsx(
                     css.recomendStatus,
-                    recommend !== 'Yes' && css.recommendFalseColor,
+                    groupBloodNotAllowed === false && css.recommendFalseColor,
                   )}
                 >
-                  {recommend}
+                  {groupBloodNotAllowed === false ? 'No' : 'Yes'}
                 </span>
               </p>
             </div>
           </div>
 
           <div className={css.buttonWrap}>
-            <button type='submit' className={css.button} onClick={deleteHandler}>
+            <button type='click' className={css.button} onClick={deleteHandler}>
               <svg className={css.icon}>
                 <use href={sprite + '#trash_icon'}></use>
               </svg>
@@ -92,6 +100,6 @@ ProductTableItem.propTypes = {
   category: PropTypes.string.isRequired,
   calories: PropTypes.number.isRequired,
   weight: PropTypes.number.isRequired,
-  recommend: PropTypes.string.isRequired,
+  groupBloodNotAllowed: PropTypes.bool.isRequired,
   first: PropTypes.bool.isRequired,
 };
