@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { authSlice } from './authSlice';
 import { sportsSlice } from './sportsSlice';
 import { productsSlice } from './productsSlice';
+import { statisticsSlice } from './statistics';
 
 import {
   persistReducer,
@@ -31,6 +32,7 @@ export const store = configureStore({
     diary: diarySlice.reducer,
     products: productsSlice.reducer,
     sports: sportsSlice.reducer,
+    statistic: statisticsSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

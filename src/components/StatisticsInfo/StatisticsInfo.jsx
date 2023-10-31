@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import css from './StatisticsInfo.module.scss';
 import sprite from '../../images/svg/sprite.svg';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchStatistic } from 'redux/operations';
 // marginTopUp, marginTopIn, marginTopProfile
-
+import { selectBurnedAllUsersCalories } from 'redux/selectors';
 const StatisticsInfo = () => {
   //   const containerClass = `
   //   ${css.container}
@@ -12,6 +13,11 @@ const StatisticsInfo = () => {
   //   ${marginTopIn && css.marginTopIn}
   //   ${marginTopProfile && css.marginTopProfile}
   // `;
+  const calories = useSelector(selectBurnedAllUsersCalories);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchStatistic());
+  }, []);
   const location = useLocation();
 
   return (
@@ -41,7 +47,7 @@ const StatisticsInfo = () => {
             </svg>
           </div>
           <div className={css.textGroup2}>
-            <p className={css.quantity}>500</p>
+            <p className={css.quantity}>{calories}</p>
             <p className={css.cal}>cal</p>
           </div>
         </div>
