@@ -10,7 +10,6 @@ const UserNav = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Отримуємо поточний шлях та встановлюємо відповідне активне посилання
     switch (location.pathname) {
       case '/diary':
         setActiveLink(0);

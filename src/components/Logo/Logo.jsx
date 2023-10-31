@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import sprite from '../../images/svg/sprite.svg';
 import css from './Logo.module.scss';
 
@@ -23,6 +24,10 @@ const Logo = ({ iconColor }) => {
       </svg>
     </div>
   );
+};
+
+Logo.propTypes = {
+  iconColor: PropTypes.string,
 };
 
 export default Logo;

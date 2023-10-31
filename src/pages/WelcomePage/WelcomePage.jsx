@@ -5,7 +5,6 @@ import TitleMain from 'components/TitleMain/TitleMain';
 import Button from 'components/Button/Button';
 import Container from 'components/Container/Container';
 import StatisticsInfo from 'components/StatisticsInfo/StatisticsInfo';
-// import PropTypes from 'prop-types'
 
 const WelcomePage = () => {
   const navigate = useNavigate();
@@ -33,9 +32,5 @@ const WelcomePage = () => {
     </div>
   );
 };
-
-// WelcomePage.propTypes = {
-
-// }
 
 export default WelcomePage;

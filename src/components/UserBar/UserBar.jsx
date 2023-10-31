@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { selectAvatar } from 'redux/selectors';
 import sprite from '../../images/svg/sprite.svg';
 import css from './UserBar.module.scss';
 
-const UserBar = ({ avatarUrl }) => {
+const UserBar = () => {
+  const avatar = useSelector(selectAvatar);
+  console.log(avatar);
   return (
     <ul className={css.userBarWrapper}>
       <li className={css.settingsItem}>
@@ -17,7 +21,7 @@ const UserBar = ({ avatarUrl }) => {
         <svg className={css.avatarIcon}>
           <use href={sprite + '#avatar_icon'}></use>
         </svg>
-        {avatarUrl ? <img src={avatarUrl} alt='User Avatar' className={css.avatarImage} /> : null}
+        {avatar ? <img src={avatar} alt='User Avatar' className={css.avatarImage} /> : null}
       </li>
     </ul>
   );
