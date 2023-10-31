@@ -3,8 +3,6 @@
 export const selectClient = (state) => state.auth.client;
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 export const selectIsRefreshing = (state) => state.auth.isRefreshing;
-
-
 export const selectAvatar = (state) => state.auth.client.avatar;
 
 // Diary selectors
