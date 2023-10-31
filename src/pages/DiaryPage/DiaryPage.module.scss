@@ -1,21 +1,29 @@
 @use 'index';
+
+.coolCont {
+  display: flex;
+  flex-direction: column;
+}
+
 .titlebox {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 40px;
 }
+
 .exclamingbox {
   display: flex;
   padding: 20px 0 40px 0px;
   gap: 8px;
-
 }
+
 .icon {
   max-width: 24px;
   max-height: 24px;
   stroke: #ef8964;
 }
+
 .exclamingtext {
   color: rgba(239, 237, 232, 0.3);
   font-size: 14px;
@@ -28,35 +36,32 @@
   display: flex;
   padding: 20px 0 40px 0px;
   gap: 8px;
-
 }
 
-.coolCont{
-display: flex;
-flex-direction: column;    
-}
+
 @media screen and (min-width: index.$tablet-breakpoint) {
- .changebox{
-  display: flex;
-  flex-direction: column;
- }
-  .changebox1{
+  .changebox {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .changebox1 {
     order: 2;
     display: flex;
     flex-direction: column;
     max-width: 600px;
- }
-.changebox2{
+  }
+
+  .changebox2 {
     order: 1;
     display: flex;
     flex-direction: column;
- }
+  }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
- .changebox{
-  display: flex;
-  flex-direction: row;
- }
- 
+  .changebox {
+    display: flex;
+    flex-direction: row;
+  }
 }

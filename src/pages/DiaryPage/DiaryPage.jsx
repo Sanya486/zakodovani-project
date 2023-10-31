@@ -18,12 +18,10 @@ const DiaryPage = () => {
   const dispatch = useDispatch();
   const exerciseDone = useSelector(selectDiaryExercises);
   const consumedProduct = useSelector(selectDiaryProducts);
+
   useEffect(() => {
     dispatch(fetchDiaryDateInfo('2003-10-10'));
   }, [dispatch]);
-
-  console.log(exerciseDone);
-  console.log(consumedProduct);
 
   return (
     <Container>
