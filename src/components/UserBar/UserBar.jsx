@@ -7,7 +7,7 @@ import css from './UserBar.module.scss';
 
 const UserBar = () => {
   const avatar = useSelector(selectAvatar);
-  console.log(avatar);
+
   return (
     <ul className={css.userBarWrapper}>
       <li className={css.settingsItem}>
