@@ -19,7 +19,9 @@ export const diarySlice = createSlice({
       _id: '',
       clientId: '',
       _v: null,
-      consumedProduct: [],
+      consumedProduct: [
+          
+      ],
       exerciseDone: [],
     },
     message: '',

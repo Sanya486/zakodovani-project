@@ -7,16 +7,7 @@ import { fetchDeleteExercise } from 'redux/operations';
 import { useDispatch } from 'react-redux';
 
 
-const ExercisesTableItem = ({
-  id,
-  bodyPart,
-  equipment,
-  name,
-  target,
-  burnedCalories,
-  time,
-  calories,
-}) => {
+const ExercisesTableItem = ({ id, bodyPart, equipment, name, target, time, burnedCalories }) => {
   const dispatch = useDispatch();
 
   const onDeleteExercise = (id) => {
@@ -51,9 +42,7 @@ const ExercisesTableItem = ({
             </div>
             <div className={css.subrowtext}>
               <h2 className={css.exercisename}>Burned Calories</h2>
-              <h3 className={css.exercisetipe}>
-                {burnedCalories}. {calories}
-              </h3>
+              <h3 className={css.exercisetipe}>{burnedCalories}</h3>
             </div>
             <div className={css.subrowtext}>
               <h2 className={css.exercisename}>Time</h2>
@@ -70,9 +59,7 @@ const ExercisesTableItem = ({
         <td className={css.exercisetipe}>{equipment}</td>
         <td className={css.exercisetipe}>{name}</td>
         <td className={css.exercisetipe}>{target}</td>
-        <td className={css.exercisetipe}>
-          {burnedCalories}|| {calories}
-        </td>
+        <td className={css.exercisetipe}>{burnedCalories}</td>
         <td className={css.exercisetipe}>{time}</td>
         <svg className={css.icon2} onClick={deleteHandler}>
           <use href={sprite + '#trash_icon'}></use>
