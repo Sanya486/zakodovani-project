@@ -370,7 +370,7 @@ export const fetchDeleteExercise = createAsyncThunk(
       },
     } = thunkAPI.getState();
     try {
-      const promise = axios.delete(`diary/save-exercise/${id}`);
+      const promise = axios.delete(`diary/delete-exercise/${id}`);
       toast.promise(
         promise,
         {
