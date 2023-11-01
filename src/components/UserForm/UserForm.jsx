@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { addYears, subYears } from 'date-fns';
-import 'react-datepicker/dist/react-datepicker.css';
 import css from './UserForm.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import Calendar from 'react-calendar';
@@ -53,21 +52,15 @@ const UserForm = () => {
     return weekdays[date.getDay()];
   };
 
-const [newValues, setNewValues] = useState({})
-
   const handleSubmit = (values) => {
     delete values.name;
     delete values.email;
     values.blood = parseInt(values.blood);
     values.levelActivity = parseInt(values.levelActivity);
-    setNewValues(values);
     dispatch(fetchCalculateDailyMetrics(values));
     console.log(values);
   };
 
-    useEffect(() => {
-    dispatch(fetchCalculateDailyMetrics(newValues));
-  }, [dispatch, newValues]);
 
   return (
     <Formik
@@ -220,7 +213,7 @@ const [newValues, setNewValues] = useState({})
           <p className={css.blood}>Blood</p>
           <div className={css.radio}>
             <div className={css.radioNumber}>
-              <label className={`${css.labelMargin} ${css.customRadio}`}>
+              <label className={`${css.labelMargin} `}>
                 <Field
                   type='radio'
                   name='blood'
@@ -228,11 +221,12 @@ const [newValues, setNewValues] = useState({})
                   value='1'
                   onChange={handleChange}
                   // onChange={(e) => setFieldValue('blood', e.target.value)}
-                  className={`${css.inputRadio} ${errors.blood && touched.blood ? css.error : ''}`}
+                  className={`${css.inputRadio} ${css.realRadio} ${errors.blood && touched.blood ? css.error : ''}`}
+                  
                 />
-                <span></span>1
+                <span className={css.customRadio}></span>1
               </label>
-              <label className={`${css.labelMargin} ${css.customRadio}`}>
+              <label className={`${css.labelMargin} `}>
                 <Field
                   type='radio'
                   name='blood'
@@ -240,11 +234,12 @@ const [newValues, setNewValues] = useState({})
                   id='radio2'
                   onChange={handleChange}
                   // onChange={(e) => setFieldValue('blood', e.target.value)}
-                  className={`${css.inputRadio} ${errors.blood && touched.blood ? css.error : ''}`}
+                  className={`${css.inputRadio} ${css.realRadio} ${errors.blood && touched.blood ? css.error : ''}`}
+                  
                 />
-                <span></span>2
+                <span className={css.customRadio}></span>2
               </label>
-              <label className={`${css.labelMargin} ${css.customRadio}`}>
+              <label className={`${css.labelMargin} `}>
                 <Field
                   type='radio'
                   name='blood'
@@ -252,11 +247,12 @@ const [newValues, setNewValues] = useState({})
                   id='radio3'
                   onChange={handleChange}
                   // onChange={(e) => setFieldValue('blood', e.target.value)}
-                  className={`${css.inputRadio} ${errors.blood && touched.blood ? css.error : ''}`}
+                  className={`${css.inputRadio} ${css.realRadio} ${errors.blood && touched.blood ? css.error : ''}`}
+                  
                 />
-                <span></span>3
+                <span className={css.customRadio}></span>3
               </label>
-              <label className={`${css.labelMargin} ${css.customRadio}`}>
+              <label className={`${css.labelMargin} `}>
                 <Field
                   type='radio'
                   name='blood'
@@ -264,22 +260,25 @@ const [newValues, setNewValues] = useState({})
                   value='4'
                   onChange={handleChange}
                   // onChange={(e) => setFieldValue('blood', e.target.value)}
-                  className={`${css.inputRadio} ${errors.blood && touched.blood ? css.error : ''}`}
+                  className={`${css.inputRadio} ${css.realRadio} ${errors.blood && touched.blood ? css.error : ''}`}
                 />
-                <span></span>4
+                <span className={css.customRadio}></span>4
               </label>
             </div>
             <ErrorMessage name='blood' component='div' className={css.error} />
             <div className={css.sex}>
               {['male', 'female'].map((option) => (
-                <label key={option} className={`${css.labelMargin} ${css.customRadio}`}>
+                <label key={option} className={`${css.labelMargin} `}>
                   <Field
                     type='radio'
                     name='sex'
                     value={option}
-                    className={`${css.inputRadioSex} ${errors.sex && touched.sex ? css.error : ''}`}
+                    className={`${css.inputRadioSex} ${css.realRadio}${errors.sex && touched.sex ? css.error : ''}`}
+                  
                   />
+                  <span className={css.customRadio}></span>
                   <span>{option}</span>
+                  
                 </label>
               ))}
               <ErrorMessage name='sex' component='div' className={css.error} />
@@ -288,43 +287,52 @@ const [newValues, setNewValues] = useState({})
 
           <div className={css.radioText}>
             <div className={css.groupsLAbel}>
-              <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='levelActivity' value='1' className={css.inputRadioText} chek/>
+              <label className={`${css.labelText} `}>
+                <Field type='radio' name='levelActivity' value='1' className={`${css.inputRadioText} ${css.realRadio}`} />
+                <span className={css.customRadio}></span>
                 <span className={css.spanName}>
                   Sedentary lifestyle (little or no physical activity)
                 </span>
+               
               </label>
             </div>
             <div className={css.groupsLAbel}>
-              <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='levelActivity' value='2' className={css.inputRadioText} />
-                <span className={css.spanName}>
+              <label className={`${css.labelText} `}>
+                <Field type='radio' name='levelActivity' value='2' className={`${css.inputRadioText} ${css.realRadio}`} />
+                
+                <span className={css.customRadio}></span><span className={css.spanName}>
                   Light activity (light exercises/sports 1-3 days per week)
                 </span>
+                
               </label>
             </div>
             <div className={css.groupsLAbel}>
-              <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='levelActivity' value='3' className={css.inputRadioText} />
-                <span className={css.spanName}>
+              <label className={`${css.labelText} `}>
+                <Field type='radio' name='levelActivity' value='3' className={`${css.inputRadioText} ${css.realRadio}`} />
+                
+                <span className={css.customRadio}></span><span className={css.spanName}>
                   Moderately active (moderate exercises/sports 3-5 days per week)
                 </span>
+               
               </label>
             </div>
             <div className={css.groupsLAbel}>
-              <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='levelActivity' value='4' className={css.inputRadioText} />
-                <span className={css.spanName}>
+              <label className={`${css.labelText} `}>
+                <Field type='radio' name='levelActivity' value='4' className={`${css.inputRadioText} ${css.realRadio}`} />
+                <span className={css.customRadio}></span><span className={css.spanName}>
                   Very active (intense exercises/sports 6-7 days per week)
                 </span>
+                
               </label>
             </div>
             <div className={css.groupsLAbel}>
-              <label className={`${css.labelText} ${css.customRadio}`}>
-                <Field type='radio' name='levelActivity' value='5' className={css.inputRadioText} />
+              <label className={`${css.labelText} `}>
+                <Field type='radio' name='levelActivity' value='5' className={`${css.inputRadioText} ${css.realRadio}`} />
+                <span className={css.customRadio}></span>
                 <span className={css.spanName}>
                   Extremely active (very strenuous exercises/sports and physical work)
                 </span>
+                
               </label>
             </div>
           </div>

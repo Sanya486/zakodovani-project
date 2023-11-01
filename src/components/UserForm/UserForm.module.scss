@@ -214,6 +214,41 @@
   font-size: 14px;
   color: index.$white-color;
 }
+.realRadio{
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.customRadio {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid index.$radio-color;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: text-top;
+}
+.customRadio::before {
+  content: '';
+  display: inline-block;
+  width: 10px; 
+  height: 10px; 
+  background-color:index.$orange-secondary-color;
+ 
+  margin-right: 8px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.realRadio:checked + .customRadio::before{
+  display: block;
+}
 
 // .customRadio span {
 //   display: flex;
