@@ -17,7 +17,6 @@
 }
 
 .userNavWrapper {
-  position: relative;
   display: flex;
   align-items: center;
   margin-left: auto;
@@ -26,58 +25,47 @@
 
 @media screen and (max-width: index.$mobile-breakpoint) {
   .headerNoAuthenticatedWpapper {
-    position: fixed;
-    margin: 0 auto;
-    padding: 24px 20px;
+    position: absolute;
+    left: 20px;
+    display: flex;
+    height: 61px;
+    padding: 24px 0;
+    align-items: center;
     background: transparent;
   }
 }
 
 @media screen and (min-width: index.$mobile-breakpoint) {
-  .headerWrapper {
-    width: 375px;
-    margin: 0 auto;
-    padding: 24px 20px;
-  }
-
   .headerNoAuthenticatedWpapper {
-    position: fixed;
+    position: absolute;
     left: 50%;
     transform: translate(-50%);
-    width: 375px;
-    padding: 24px 20px;
+    display: flex;
+    height: 61px;
+    padding: 24px 0;
+    align-items: center;
+    justify-content: center;
     background: transparent;
   }
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .headerWrapper {
-    width: 768px;
-    margin: 0 auto;
     padding: 26px 32px;
   }
 
   .headerNoAuthenticatedWpapper {
-    position: fixed;
-    width: 768px;
-    left: 50%;
-    transform: translate(-50%);
-    padding: 26px 32px;
-    background: transparent;
+    transform: translate(0);
+    left: 32px;
   }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
   .headerWrapper {
-    width: 1440px;
-    margin: 0 auto;
     padding: 30px 96px;
   }
 
   .headerNoAuthenticatedWpapper {
-    position: fixed;
-    width: 1440px;
-    padding: 30px 96px;
-    background: transparent;
+    left: 96px;
   }
 }

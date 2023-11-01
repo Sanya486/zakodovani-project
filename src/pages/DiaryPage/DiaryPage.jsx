@@ -6,21 +6,17 @@ import DayExercises from 'components/DayExercises/DayExercises';
 import DaySwitch from 'components/DaySwitch/DaySwitch';
 import { DayDashboard } from 'components/DayDashboard/DayDashboard';
 import css from './DiaryPage.module.scss';
-// import { selectDiaryExercises, selectDiaryProducts } from 'redux/selectors';
-import {
-  selectDiaryExercises,
-  selectDiaryProducts,
-  selectDiaryMetrics,
-  selectClient,
-} from 'redux/selectors';
+import { selectDiaryExercises, selectDiaryProducts } from 'redux/selectors';
 import { fetchDiaryDateInfo } from 'redux/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import sprite from '../../images/svg/sprite.svg';
 import { DayProducts } from 'components/DayProdcuts/DayProducts';
+// import { clsx } from 'clsx';
+// import { LoaderIcon } from 'react-hot-toast';
 
 const formattingDate = (currentDate) => {
-  const day = currentDate.getDate().toString().padStart(2, '0');
+  const day = currentDate.getDate();
   const month = currentDate.getMonth() + 1;
   const year = currentDate.getFullYear();
   const formattedDate = `${year}-${month}-${day}`;
@@ -31,34 +27,24 @@ const DiaryPage = () => {
   const dispatch = useDispatch();
   const exerciseDone = useSelector(selectDiaryExercises);
   const consumedProduct = useSelector(selectDiaryProducts);
-  const { caloriesBurned, caloriesConsumed, caloriesRest, restSport } =
-    useSelector(selectDiaryMetrics);
-  const { BMR, timeForSport } = useSelector(selectClient);
-
   const [currentDate, setCurrentDate] = useState(new Date());
   useEffect(() => {
     dispatch(fetchDiaryDateInfo(formattingDate(currentDate)));
   }, [dispatch, currentDate]);
 
+
   return (
     <Container>
-      <div>
+        <div>
         <div className={css.titlebox}>
-          <h2 className={css.pageTitle}>Diary</h2>
+        <h2 className={css.pageTitle}>Diary</h2>
           <div className={css.daySwitchWrap}>
-            <DaySwitch currentDate={currentDate} setCurrentDate={setCurrentDate} />
+          <DaySwitch currentDate={currentDate} setCurrentDate={setCurrentDate} />
           </div>
         </div>
         <div className={css.changebox}>
           <div className={css.changebox1}>
-            <DayDashboard
-              BMR={BMR}
-              timeOfSport={timeForSport}
-              caloriesConsumed={caloriesConsumed}
-              caloriesBurned={caloriesBurned}
-              caloriesRest={caloriesRest}
-              restSport={restSport}
-            />
+            <DayDashboard />
             <div className={css.exclamingbox}>
               <svg className={css.icon}>
                 <use href={sprite + '#exclamation_mark_icon'}></use>

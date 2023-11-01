@@ -1,5 +1,8 @@
 @use 'index';
 
+.formWrapper {
+}
+
 .inputsWrapper {
   display: flex;
   flex-direction: column;
@@ -42,12 +45,12 @@
   display: block;
   height: 46px;
   padding: 14px;
-  color: rgba(index.$white-color, 0.6);
+  color: #efede899;
   font-size: 14px;
   line-height: 1.28571;
   background-color: transparent;
   border-radius: 12px;
-  border: 1px solid rgba(index.$white-color, 0.3);
+  border: 1px solid #efede84d;
   outline: none;
   width: 100%;
 
@@ -83,17 +86,17 @@
   fill: index.$success-color;
 }
 
-.passwordWrapper {
+.passwordWrapper{
   position: relative;
 }
 
-.eyeIcon {
+.eyeIcon{
   position: absolute;
   top: 14px;
   right: 16px;
   width: 20px;
   height: 20px;
-  stroke: index.$white-color;
+  stroke: index.$white-color
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
@@ -114,7 +117,7 @@
     width: 192px;
   }
 
-  .passwordWrapper {
+   .passwordWrapper {
     width: 364px;
   }
   .eyeIcon {

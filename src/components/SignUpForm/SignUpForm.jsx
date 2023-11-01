@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 import { fetchSignup } from 'redux/operations';
 
 const SignUpFrom = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   return (
     <Formik
@@ -121,7 +121,7 @@ const SignUpFrom = () => {
             </div>
           </div>
 
-          <Button classes={[css.btn]} title='Sign Up' styled='accent' type='submit' />
+          <Button classes={[css.btn]} title='Sign Up' styled='accent' type="submit"/>
         </Form>
       )}
     </Formik>

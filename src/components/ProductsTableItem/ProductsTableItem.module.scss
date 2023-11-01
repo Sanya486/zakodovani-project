@@ -32,6 +32,7 @@
 
 .recommendElement {
   width: calc((100% - 14px) * 0.32067);
+  // width: calc(100% * 0.32067);
 }
 
 .title {
@@ -44,6 +45,7 @@
 
 .elementField {
   padding: 9.2px 14px;
+  // background: inherit;
   color: index.$white-color;
   border-radius: 12px;
   border: 1px solid rgba(index.$white-color, 0.3);

@@ -1,233 +1,161 @@
+
 @use 'index';
 
+.bodybox {
+
+  margin-bottom: 30px;
+}
+.bodyboxTable {
+  padding-right: 16px;
+  border-color: rgba(239, 237, 232, 0.2);
+  border-width: 1px;
+  border-radius: 12px;
+  gap: 32px;
+  display: none;
+}
+
 .container {
-  background: rgba(index.$black-color, 0.05);
-  width: 100%;
-  height: auto;
-}
-
-.element {
   display: flex;
-  flex-direction: column;
-  row-gap: 8px;
-  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(239, 237, 232, 0);
+}
+.itembox {
+  margin-bottom: 60px;
 }
 
-.element:not(:last-child) {
-  margin-bottom: 16px;
+.exercisetitle {
+  color: rgba(239, 237, 232, 0.5);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.3;
 }
 
-.titleElement,
-.categoriesElement {
-  width: 100%;
+.addexercisetitle {
+  color: index.$orange-main-color;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
 }
 
-.caloriesElement {
-  width: calc((100% - 28px) * 0.25);
-}
-.caloriesElement1 {
-  width: calc((100% - 28px) * 0.25);
-}
-.weightElement {
-  width: calc((100% - 28px) * 0.25);
-}
-
-.recommendElement {
-  width: calc((100% - 14px) * 0.25);
-}
-
-.title {
-  color: index.$orange-secondary-color;
-  max-height: 18px;
-  max-width: 100%;
+.exercisename {
+  color: #ef8964;
+  font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
-  overflow: hidden;
   white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
+  padding-bottom: 8px;
+  padding-top: 20px;
+}
+.exercisename:not(:first-child){
+  
+}
+.exercisetitleitem {
+  color: #efede8;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
 }
 
-.elementField {
-  padding: 9.2px 14px;
+.exercisetipe {
+  color: index.$white-color;
+  border-color: rgba(239, 237, 232, 0.3);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+  border: solid;
+  border-width: 1px;
+  border-radius: 12px;
+  padding: 10px 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+.subrowtext{ flex-grow: 1;
+  
 }
 
-.recommendField {
-  padding-left: 36px;
-  position: relative;
-}
-
-.recomendStatus::before {
-  content: '';
-  position: absolute;
-  left: 14px;
-  top: 30%;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: index.$variant-success-color;
-}
-
-.recommendFalseColor::before {
-  background-color: index.$variant-error-color;
-}
-
-.blockWrap {
+.rowtext {
   display: flex;
-  align-items: flex-end;
-  column-gap: 8px;
-  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  flex: 1;
 }
-
-.subBlockWrap {
+.rowtextitems {
   display: flex;
-  align-items: center;
-  column-gap: 8px;
-  width: calc(100% - 28px);
-  width: 100%;
-}
-
-.blockWrap .element {
-  margin-bottom: 0;
-}
-
-.buttonWrap {
-  width: 20px;
-  height: 20px;
-  margin-bottom: 9px;
-}
-
-.button {
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  border: 0;
-  background-color: inherit;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  overflow: hidden;
 }
 
 .icon {
+  position: relative;
+  top: +55px;
+  display: flex;
+  flex-direction: column;
+  stroke: #ef8964;
   width: 20px;
   height: 20px;
-  stroke: index.$orange-secondary-color;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.icon2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  stroke: #ef8964;
+  width: 20px;
+  height: 20px;
+  top: +10px;
+  cursor: pointer;
+}
+
+.tablehide {
+  display: none;
 }
 
 @media screen and (min-width: index.$mobile-breakpoint) {
-  .container {
-    width: 297px;
+  .rowtext {
+    gap: 10px;
+    
   }
 
-  .caloriesElement {
-    width: 81px;
-  }
-
-  .weightElement {
-    width: 80px;
-  }
-
-  .recommendElement {
-    width: 76px;
-  }
-
-  .blockWrap {
-    width: 269px;
-  }
-
-  .subBlockWrap {
-    column-gap: 16px;
-  }
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-  .container {
-    max-width: 100%;
-    width: 656px;
-    display: flex;
-    flex-direction: row;
-    column-gap: 8px;
+  .bodybox {
+    display: none;
   }
-
-  .element:not(:last-child) {
-    margin-bottom: 0;
+  .bodyboxTable {
+    display: block;
   }
-
-  .titleElement {
-    width: 110px;
-  }
-
-  .categoriesElement {
-    width: 128px;
-  }
-
-  .caloriesElement {
-    width: 80px;
-  }
-  .weightElement {
-    width: 50px;
-  }
-
-  .recommendElement {
-    width: 100px;
-  }
-
-  .elementField {
-    padding: 8px 14px;
-    height: 40px;
+  .exercisestablehead {
+    flex: 1;
+    width: 100%;
+    text-align: left;
     font-size: 16px;
+    border-collapse: separate;
+    border-spacing: 10px;
   }
 
-  .recommendField {
-    padding-left: 36px;
+  .exercisestablehead th,
+  .exercisestablehead td {
+    padding: 10px;
   }
-
-  .blockWrap {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .subBlockWrap {
-    column-gap: 8px;
-  }
-
-  .blockWrap:last-child {
-    align-items: flex-end;
-  }
-
-  .blockWrap .element {
-    margin-bottom: 0;
+  .tablehide{
+  display: block;
+}
+  .tablehide {
+    display: table-row;
   }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
-  .container {
-    width: 762px;
-  }
-
-  .titleElement {
-    width: 212px;
-  }
-
-  .categoriesElement {
-    width: 120px;
-  }
-
-  .caloriesElement,
-  .weightElement {
-    width: 80px;
-  }
-
-  .recommendElement {
-    width: 110px;
-  }
-
-  .blockWrap {
-    width: 368px;
-  }
-
-  .blockWrap:last-child {
-    column-gap: 8px;
-  }
-
-  .blockWrap .element {
-    margin-bottom: 0;
-  }
 }

@@ -1,10 +1,10 @@
 @use 'index';
 
 .back-button {
-  margin-top: -30px;
-  margin-bottom: 12px;
+  margin-top: -40px;
+  margin-bottom: 16px;
   background-color: transparent;
-
+  color: #efede866;
   border: none;
   display: flex;
   align-items: center;
@@ -18,16 +18,11 @@
 }
 
 .btn-text {
-  color: rgba(index.$white-color, 0.4);
+  color: #efede866;
   font-size: 16px;
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-  .back-button {
-    margin-top: -40px;
-    margin-bottom: 16px;
-  }
-
   .category-flex-secondary {
     display: flex;
     align-items: center;
