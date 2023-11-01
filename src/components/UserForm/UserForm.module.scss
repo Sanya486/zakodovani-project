@@ -78,9 +78,6 @@
   gap: 12px;
   align-items: flex-end;
 }
-// .group2 > *:not(:last-child) {
-//   margin-right: 12px;
-// }
 
 .radio {
   display: flex;
@@ -139,7 +136,7 @@
 }
 
 .inputSuccess {
-  border: 1px solid green;
+  border: 1px solid index.$success-color;
 }
 .error {
   color: index.$error-color;
@@ -289,6 +286,7 @@
 // .customRadio input[type='radio' ]:checked + span::after {
 //   opacity: 1;
 // }
+
 .react-calendar {
   display: none;
   position: absolute !important;
