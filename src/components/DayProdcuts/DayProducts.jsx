@@ -23,7 +23,7 @@ export const DayProducts = ({ products }) => {
             </div>
           </Link>
         </div>
-        {empty === true ? (
+        {empty === false ? (
           <div className={css.productWrap}>
             <ProductTable products={products} />
           </div>

@@ -17,6 +17,7 @@
 }
 
 .userNavWrapper {
+  position: relative;
   display: flex;
   align-items: center;
   margin-left: auto;
@@ -25,47 +26,58 @@
 
 @media screen and (max-width: index.$mobile-breakpoint) {
   .headerNoAuthenticatedWpapper {
-    position: absolute;
-    left: 20px;
-    display: flex;
-    height: 61px;
-    padding: 24px 0;
-    align-items: center;
+    position: fixed;
+    margin: 0 auto;
+    padding: 24px 20px;
     background: transparent;
   }
 }
 
 @media screen and (min-width: index.$mobile-breakpoint) {
+  .headerWrapper {
+    width: 375px;
+    margin: 0 auto;
+    padding: 24px 20px;
+  }
+
   .headerNoAuthenticatedWpapper {
-    position: absolute;
+    position: fixed;
     left: 50%;
     transform: translate(-50%);
-    display: flex;
-    height: 61px;
-    padding: 24px 0;
-    align-items: center;
-    justify-content: center;
+    width: 375px;
+    padding: 24px 20px;
     background: transparent;
   }
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .headerWrapper {
+    width: 768px;
+    margin: 0 auto;
     padding: 26px 32px;
   }
 
   .headerNoAuthenticatedWpapper {
-    transform: translate(0);
-    left: 32px;
+    position: fixed;
+    width: 768px;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 26px 32px;
+    background: transparent;
   }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
   .headerWrapper {
+    width: 1440px;
+    margin: 0 auto;
     padding: 30px 96px;
   }
 
   .headerNoAuthenticatedWpapper {
-    left: 96px;
+    position: fixed;
+    width: 1440px;
+    padding: 30px 96px;
+    background: transparent;
   }
 }
