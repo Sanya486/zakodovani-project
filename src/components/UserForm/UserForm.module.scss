@@ -75,10 +75,12 @@
   display: flex;
   align-items: center;
   margin-bottom: 14px;
+  gap: 12px;
+  align-items: flex-end;
 }
-.group2 > *:not(:last-child) {
-  margin-right: 12px;
-}
+// .group2 > *:not(:last-child) {
+//   margin-right: 12px;
+// }
 
 .radio {
   display: flex;
@@ -202,11 +204,11 @@
 .calendarIcon {
   fill: none;
   stroke: #fff;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   position: absolute;
-  top: 65%;
-  right: 30px;
+  top: 27px;
+  right: 14px;
   transform: translateY(-65%);
 }
 .spanName {
@@ -314,6 +316,8 @@
   .inputBase {
     width: 340px;
   }
+
+  
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
@@ -326,7 +330,6 @@
   .tabletInput {
     flex-direction: row;
     gap: 14px;
-    margin-right: auto;
     position: relative;
   }
   .inputBase {
@@ -406,6 +409,10 @@
   }
   .inputCalendar {
     height: 50px;
+  }
+
+  .calendarIcon{
+    top: 30px
   }
 }
 

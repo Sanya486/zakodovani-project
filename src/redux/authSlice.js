@@ -69,7 +69,7 @@ export const authSlice = createSlice({
         state.isRefreshing = false
       })
       .addCase(fetchCalculateDailyMetrics.fulfilled, (state, { payload }) => {
-        state.client = payload;
+        state.client = payload.client;
         state.isLoading = false;
       })
       .addCase(fetchUpload.fulfilled, (state, { payload }) => {

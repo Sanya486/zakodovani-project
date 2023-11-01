@@ -11,6 +11,15 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { selectClient } from '../../redux/selectors';
 
+
+const formattingDate = (currentDate) => {
+  const day = currentDate.getDate().toString().padStart(2, '0');
+  const month = currentDate.getMonth() + 1;
+  const year = currentDate.getFullYear();
+  const formattedDate = `${day}-${month}-${year}`;
+  return formattedDate;
+};
+
 const UserForm = () => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(3).required("Це поле обов'язкове"),
@@ -25,7 +34,7 @@ const UserForm = () => {
   });
 
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState(formattingDate(new Date()));
 
   const client = useSelector(selectClient);
 
@@ -63,11 +72,11 @@ const UserForm = () => {
         email: client.email,
         name: client.name,
         birthday: client.birthday,
-        blood: client.blood,
+        blood: client.blood.toString(),
         currentWeight: client.currentWeight,
         desiredWeight: client.desiredWeight,
         height: client.height,
-        levelActivity: client.levelActivity,
+        levelActivity: client.levelActivity.toString(),
         sex: client.sex,
       }}
       validationSchema={validationSchema}
@@ -164,7 +173,6 @@ const UserForm = () => {
                   </div>
                   <div className={css.column}>
                     <div className={css.forIcon}>
-                      <label className={`${css.label} ${css.none}`}>Date:</label>
                       <Field
                         // onClick={showCalendar}
                         className={`${css.input} ${css.inputDate} ${

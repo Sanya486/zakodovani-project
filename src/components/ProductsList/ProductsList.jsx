@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectProducts } from 'redux/selectors';
 import { fetchProducts } from 'redux/operations';
 
- import InfiniteScroll from 'react-infinite-scroll-component';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import { clearProduct } from 'redux/productsSlice';
 
 export const ProductsList = () => {
@@ -45,9 +45,9 @@ export const ProductsList = () => {
   //   }
   // };
 
-  const limit = 10
+  const limit = 10;
 
-const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const products = useSelector(selectProducts);
 
@@ -59,12 +59,12 @@ const dispatch = useDispatch()
   //   const [entry] = entries
   //   console.log(entry)
   // }
-  
+
   // const observerOptions = {
   //   root: null,
   //   rootMargin: '0px',
   //   threshold: 1.0
-  // } 
+  // }
 
   // useEffect(() => {
   //   const observer = new IntersectionObserver(observerHandler, observerOptions)
@@ -75,23 +75,22 @@ const dispatch = useDispatch()
   // }, [anchorRef, observerOptions])
 
   useEffect(() => {
-    dispatch(fetchProducts({ page, limit }))
-    return () => {
-      dispatch(clearProduct())
-    }
-  },[])
-  
-  const infiniteScrollHandler = () => {
-    setPage(prev => prev + 1)
-    console.log(page)
     dispatch(fetchProducts({ page, limit }));
-  }
+    return () => {
+      dispatch(clearProduct());
+    };
+  }, []);
 
+  const infiniteScrollHandler = () => {
+    setPage((prev) => prev + 1);
+    console.log(page);
+    dispatch(fetchProducts({ page, limit }));
+  };
 
   return (
     <div className={css.productsListContainer} id='scrollableDiv'>
       <InfiniteScroll
-        dataLength={ products && products.length}
+        dataLength={products && products.length}
         next={infiniteScrollHandler}
         hasMore={true}
         loader={<h4>Loading...</h4>}
@@ -105,5 +104,3 @@ const dispatch = useDispatch()
     </div>
   );
 };
-
-

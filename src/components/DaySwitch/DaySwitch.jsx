@@ -4,7 +4,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import css from './DaySwitch.module.scss';
 import { useState } from 'react';
-import formattingDate from './formattingDate';
+import formattingDate from '../../utils/formattingDate';
 import customWeekdayFormatter from './ustomWeekdayFormatter';
 import { useSelector } from 'react-redux';
 import { selectClient } from 'redux/selectors';
@@ -17,7 +17,7 @@ const DaySwitch = ({ currentDate = new Date(), setCurrentDate }) => {
   const formattedDate = formattingDate(currentDate);
 
   const incrementDate = () => {
-    if(currentDate.toLocaleDateString() === new Date ().toLocaleDateString()) return
+    if (currentDate.toLocaleDateString() === new Date().toLocaleDateString()) return;
     const newDate = new Date(currentDate);
     newDate.setDate(currentDate.getDate() + 1);
     setCurrentDate(newDate);
