@@ -26,10 +26,11 @@ const ProductsPage = () => {
     });
     setCurrentProducts([]);
     setPage(1);
+    dispatch(fetchProducts({ page: 1, limit, category, recommendation }));
   };
   useEffect(() => {
     console.log(formdata);
-    dispatch(fetchProducts({ page, limit }));
+    dispatch(fetchProducts({ page, limit, category, recommendation }));
   }, [page, limit]);
 
   useEffect(() => {
