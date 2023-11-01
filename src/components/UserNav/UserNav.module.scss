@@ -6,8 +6,8 @@
 
 .navBurgerMenu {
   position: absolute;
-  top: 18px;
-  right: 20px;
+  top: 5px;
+  right: -16px;
   display: flex;
   justify-content: center;
   padding: 0;
@@ -26,8 +26,8 @@
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .navBurgerMenu {
-    top: 15px;
-    right: 32px;
+    top: 5px;
+    right: -16px;
   }
 
   .navBurgerMenuIcon {

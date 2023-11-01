@@ -9,20 +9,18 @@ import { selectIsRefreshing } from 'redux/selectors';
 import { Puff } from 'react-loader-spinner';
 import { Suspense } from 'react';
 
-const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'))
-const RestrictedRoute = lazy(() => import('components/Routes/RestrictedRoute'))
-const PrivateRoute = lazy(() => import('components/Routes/PrivateRoute'))
-const PrivateRouteExtended = lazy(()=> import('components/Routes/PrivateRouteExtended'))
-const SignUpPage = lazy(() => import('pages/SignUpPape/SignUpPage'))
-const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'))
-const DiaryPage = lazy(() => import('pages/DiaryPage/DiaryPage'))
-const ProfilePage = lazy(() => import('pages/ProfilePage/ProfilePage'))
-const ProductsPage = lazy(() => import('pages/ProductsPage/ProductsPage'))
-const ExercisesPage = lazy(() => import('pages/ExercisesPage/ExercisesPage'))
-const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'))
-const Layout = lazy(()=> import('components/Layout/Layout'))
-
-
+const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
+const RestrictedRoute = lazy(() => import('components/Routes/RestrictedRoute'));
+const PrivateRoute = lazy(() => import('components/Routes/PrivateRoute'));
+const PrivateRouteExtended = lazy(() => import('components/Routes/PrivateRouteExtended'));
+const SignUpPage = lazy(() => import('pages/SignUpPape/SignUpPage'));
+const SignInPage = lazy(() => import('pages/SignInPage/SignInPage'));
+const DiaryPage = lazy(() => import('pages/DiaryPage/DiaryPage'));
+const ProfilePage = lazy(() => import('pages/ProfilePage/ProfilePage'));
+const ProductsPage = lazy(() => import('pages/ProductsPage/ProductsPage'));
+const ExercisesPage = lazy(() => import('pages/ExercisesPage/ExercisesPage'));
+const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
+const Layout = lazy(() => import('components/Layout/Layout'));
 
 function App() {
   const dispatch = useDispatch();
@@ -111,7 +109,27 @@ function App() {
         </Route>
         <Route path='*' element={<ErrorPage />} />
       </Routes>
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          // Define default options
+          className: '',
+          duration: 5000,
+          style: {
+            background: '#000',
+            color: '#fff',
+            border: '1px solid #e6533c',
+          },
+
+          // Default options for specific types
+          success: {
+            duration: 3000,
+            theme: {
+              primary: 'green',
+              secondary: 'black',
+            },
+          },
+        }}
+      />
     </>
   );
 }
