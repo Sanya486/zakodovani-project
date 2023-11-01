@@ -1,12 +1,12 @@
 import React from 'react';
 import css from './UserCard.module.scss';
 import sprite from '../../images/svg/sprite.svg';
-import {selectIsBMR, selectIsTimeForSport, selectName} from '../../redux/selectors';
+import {selectIsBMR, selectIsTimeForSport, selectNameS} from '../../redux/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 const UserCard = () => {
 const BMR = useSelector(selectIsBMR);
 const sport = useSelector(selectIsTimeForSport);
-const name  = useSelector(selectName);
+const name  = useSelector(selectNameS);
 
   return (
     <>
