@@ -17,7 +17,7 @@
   border: 1px solid rgba(index.$white-color, 0.2);
   background: #10100f;
   position: relative;
-  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
   overflow-y: auto;
   z-index: 100;
 }

@@ -6,10 +6,10 @@ import { InfoItem } from 'components/InfoItem/InfoItem';
 export const DayDashboard = ({
   BMR = 0,
   timeOfSport = 0,
-  caloriesConsumed= 0,
+  caloriesConsumed = 0,
   caloriesBurned = 0,
-  caloriesRest= 0,
-  restSport =0,
+  caloriesRest = 0,
+  restSport = 0,
 }) => {
 
   const changedArr = [
@@ -59,8 +59,8 @@ export const DayDashboard = ({
 DayDashboard.propTypes = {
   BMR: PropTypes.number.isRequired,
   timeOfSport: PropTypes.number.isRequired,
-  caloriesConsumed: PropTypes.number.isRequired,
-  caloriesBurned: PropTypes.number.isRequired,
-  caloriesRest: PropTypes.number.isRequired,
-  restSport: PropTypes.number.isRequired,
+  caloriesConsumed: PropTypes.number,
+  caloriesBurned: PropTypes.number,
+  caloriesRest: PropTypes.number,
+  restSport: PropTypes.number,
 };

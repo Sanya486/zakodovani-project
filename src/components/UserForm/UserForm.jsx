@@ -61,8 +61,8 @@ const UserForm = () => {
     delete values.email;
     values.blood = parseInt(values.blood);
     values.levelActivity = parseInt(values.levelActivity);
+
     dispatch(fetchCalculateDailyMetrics(values));
-    console.log(values);
   };
 
   return (
@@ -86,7 +86,7 @@ const UserForm = () => {
       initialErrors={{}}
       validateOnMount={true}
     >
-      {({ errors, touched, setFieldValue, handleChange }) => (
+      {({ errors, touched, setFieldValue, handleChange, isValid }) => (
         <Form>
           <div>
             <span className={css.title}>Basic info</span>
@@ -96,7 +96,6 @@ const UserForm = () => {
                   type='text'
                   id='name'
                   name='name'
-                  // value={name}
                   onChange={handleChange}
                   className={`${css.inputBase} ${errors.name && touched.name ? css.error : ''}`}
                   required
@@ -122,7 +121,9 @@ const UserForm = () => {
                       type='number'
                       id='height'
                       name='height'
-                      className={`${css.input} ${errors.height && touched.height ? css.error : ''}`}
+                      className={`${css.input} ${css.height} ${
+                        errors.height && touched.height ? css.error : ''
+                      }`}
                       min='150'
                       required
                     />
@@ -158,7 +159,7 @@ const UserForm = () => {
                       type='number'
                       id='desiredWeight'
                       name='desiredWeight'
-                      className={`${css.input} ${
+                      className={`${css.input} ${css.desirInput} ${
                         errors.currentWeight && touched.currentWeight ? css.error : ''
                       }`}
                       min='35'
@@ -173,8 +174,7 @@ const UserForm = () => {
                   <div className={css.column}>
                     <div className={css.forIcon}>
                       <Field
-                        // onClick={showCalendar}
-                        className={`${css.input} ${css.inputDate} ${
+                        className={`${css.input} ${css.inputDate} ${css.calendarInput} ${
                           errors.birthday && touched.birthday ? css.error : ''
                         }`}
                         value={currentDate === null ? '00.00.00' : currentDate}
@@ -187,12 +187,13 @@ const UserForm = () => {
                       {calendarIsClicked && (
                         <Calendar
                           onChange={async (date) => {
+                            date.setDate(date.getDate());
                             const isoDate = await date.toISOString().split('T')[0];
                             setCurrentDate(isoDate);
+
                             closeCalendar();
                             setFieldValue('birthday', isoDate);
                           }}
-                          // className={css.reactCalendar}
                           next2Label={null}
                           value={currentDate}
                           prev2Label={null}
@@ -200,11 +201,11 @@ const UserForm = () => {
                           defaultView='month'
                           formatShortWeekday={customWeekdayFormatter}
                           minDetail='month'
-                          maxDate={addYears(new Date(), -18)} // Використовуємо addYears для вирахування 18 років назад
+                          maxDate={addYears(new Date(), -18)}
                           minDate={subYears(new Date(), 100)}
                         />
                       )}
-                      <ErrorMessage name='birthday' component='div' />
+                      <ErrorMessage name='birthday' component='div' className={css.calendarError} />
                     </div>
                     <div></div>
                   </div>
@@ -222,7 +223,6 @@ const UserForm = () => {
                   id='radio1'
                   value='1'
                   onChange={handleChange}
-                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${css.realRadio} ${
                     errors.blood && touched.blood ? css.error : ''
                   }`}
@@ -236,7 +236,6 @@ const UserForm = () => {
                   value='2'
                   id='radio2'
                   onChange={handleChange}
-                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${css.realRadio} ${
                     errors.blood && touched.blood ? css.error : ''
                   }`}
@@ -250,7 +249,6 @@ const UserForm = () => {
                   value='3'
                   id='radio3'
                   onChange={handleChange}
-                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${css.realRadio} ${
                     errors.blood && touched.blood ? css.error : ''
                   }`}
@@ -264,7 +262,6 @@ const UserForm = () => {
                   id='radio4'
                   value='4'
                   onChange={handleChange}
-                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${css.realRadio} ${
                     errors.blood && touched.blood ? css.error : ''
                   }`}
@@ -315,7 +312,6 @@ const UserForm = () => {
                   value='2'
                   className={`${css.inputRadioText} ${css.realRadio}`}
                 />
-
                 <span className={css.customRadio}></span>
                 <span className={css.spanName}>
                   Light activity (light exercises/sports 1-3 days per week)
@@ -330,7 +326,6 @@ const UserForm = () => {
                   value='3'
                   className={`${css.inputRadioText} ${css.realRadio}`}
                 />
-
                 <span className={css.customRadio}></span>
                 <span className={css.spanName}>
                   Moderately active (moderate exercises/sports 3-5 days per week)
@@ -366,7 +361,7 @@ const UserForm = () => {
               </label>
             </div>
           </div>
-          <button type='submit' className={css.btn}>
+          <button type='submit' className={css.btn} disabled={!isValid}>
             Save
           </button>
         </Form>

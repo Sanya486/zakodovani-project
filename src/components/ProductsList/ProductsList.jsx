@@ -9,70 +9,13 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { clearProduct } from 'redux/productsSlice';
 
 export const ProductsList = () => {
-  // const [products, setProducts] = useState([]);
-  // const [page, setPage] = useState(1);
-  // const [fetching, setFetching] = useState(true);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await setProductPage(page);
-  //     setPage((prev) => prev + 1);
-  //     setProducts((prev) => [...prev, ...productByPage]);
-  //     setFetching(false);
-  //   };
-
-  //   if (fetching) {
-  //     fetchData();
-  //   }
-  // }, [fetching]);
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll', scrollHandler);
-
-  //   return function () {
-  //     window.removeEventListener('scroll', scrollHandler);
-  //   };
-  // }, []);
-
-  // const scrollHandler = (e) => {
-  //   if (
-  //     e.target.documentElement.scrollHeight -
-  //       (e.target.documentElement.scrollTop + window.innerHeight) <
-  //       100 &&
-  //     products.length < productsTotalCount
-  //   ) {
-  //     setFetching(true);
-  //   }
-  // };
-
   const limit = 10;
 
   const dispatch = useDispatch();
 
   const products = useSelector(selectProducts);
 
-  // const anchorRef = useRef(null)
-
   const [page, setPage] = useState(1);
-
-  // const observerHandler = (entries) => {
-  //   const [entry] = entries
-  //   console.log(entry)
-  // }
-
-  // const observerOptions = {
-  //   root: null,
-  //   rootMargin: '0px',
-  //   threshold: 1.0
-  // }
-
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(observerHandler, observerOptions)
-  //   if (anchorRef.current) observer.observe(anchorRef.current)
-  //   return () => {
-  //   if(anchorRef.current) observer.unobserve(anchorRef.current)
-  //   }
-  // }, [anchorRef, observerOptions])
 
   useEffect(() => {
     dispatch(fetchProducts({ page, limit }));
@@ -83,7 +26,7 @@ export const ProductsList = () => {
 
   const infiniteScrollHandler = () => {
     setPage((prev) => prev + 1);
-    console.log(page);
+
     dispatch(fetchProducts({ page, limit }));
   };
 

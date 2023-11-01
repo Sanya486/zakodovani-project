@@ -5,16 +5,9 @@ import sprite from '../../images/svg/sprite.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchStatistic } from 'redux/operations';
 import { Puff } from 'react-loader-spinner';
-
-// marginTopUp, marginTopIn, marginTopProfile
 import { selectBurnedAllUsersCalories } from 'redux/selectors';
+
 const StatisticsInfo = () => {
-  //   const containerClass = `
-  //   ${css.container}
-  //   ${marginTopUp && css.marginTopUp}
-  //   ${marginTopIn && css.marginTopIn}
-  //   ${marginTopProfile && css.marginTopProfile}
-  // `;
   const calories = useSelector(selectBurnedAllUsersCalories);
   const dispatch = useDispatch();
   useEffect(() => {
