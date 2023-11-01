@@ -7,7 +7,7 @@ import BasicModalWindow from 'components/BasicModalWindow/BasicModalWindow';
 import AddProductForm from 'components/AddProductForm/AddProductForm';
 import AddProductSuccess from 'components/AddProductSuccess/AddProductSuccess';
 
-export const ProductsItem = ({ product, recomendeProduct }) => {
+export const ProductsItem = ({ product, key }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [calories, setCalories] = useState(0);
@@ -88,8 +88,9 @@ export const ProductsItem = ({ product, recomendeProduct }) => {
 
 ProductsItem.propTypes = {
   product: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    calories: PropTypes.number.isRequired,
+    isRecommend: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+    calories: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     weight: PropTypes.number.isRequired,
     _id: PropTypes.string.isRequired,

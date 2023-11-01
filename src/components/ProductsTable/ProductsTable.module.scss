@@ -22,7 +22,7 @@
 
 .tableList::-webkit-scrollbar-track {
   border-radius: 12px;
-  margin-top:26px;
+  margin-top: 26px;
 }
 
 .tableList::-webkit-scrollbar-thumb {
@@ -49,10 +49,6 @@
   .tableContainer {
     width: 311px;
   }
-
-  // .tableList {
-  //   max-height: 752px;
-  // }
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {

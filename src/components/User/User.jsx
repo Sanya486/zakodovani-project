@@ -4,9 +4,8 @@ import sprite from '../../images/svg/sprite.svg';
 import Subtext from 'components/Subtext/Subtext';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { selectClient, selectAvatar } from 'redux/selectors';
-import { fetchUpload } from "../../redux/operations";
+import { fetchUpload } from '../../redux/operations';
 import { useDispatch } from 'react-redux';
-
 
 const User = () => {
   const user = useSelector(selectClient);
@@ -14,15 +13,15 @@ const User = () => {
   const dispatch = useDispatch();
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0]; 
+    const file = e.target.files[0];
     if (file) {
-    const formData = new FormData();
-    formData.append('avatar', e.target.files[0]);
-    dispatch(fetchUpload(formData));
-  }
-}
+      const formData = new FormData();
+      formData.append('avatar', e.target.files[0]);
+      dispatch(fetchUpload(formData));
+    }
+  };
 
-return (
+  return (
     <div className={css.userWrapper}>
       <form className={css.form} onClick={() => document.querySelector('.fileInput').click()}>
         <input

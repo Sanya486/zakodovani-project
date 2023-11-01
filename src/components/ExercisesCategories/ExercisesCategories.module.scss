@@ -9,16 +9,16 @@
 
 .category-name {
   font-size: 16px;
-  color: #efede866;
+  color: rgba(index.$white-color, 0.4);
   line-height: 1.5;
   font-weight: normal;
   cursor: pointer;
 }
 
 .active {
-  color: #efede8;
+  color: index.$white-color;
   padding-bottom: 4px;
-  border-bottom: 4px solid #ef8964;
+  border-bottom: 4px solid index.$orange-secondary-color;
   border-radius: 2px;
 }
 

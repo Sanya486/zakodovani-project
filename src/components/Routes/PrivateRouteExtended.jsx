@@ -1,6 +1,6 @@
 import React from 'react';
 import toast from 'react-hot-toast';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { selectBMR, selectIsLoggedIn, selectIsRefreshing } from 'redux/selectors';
@@ -19,9 +19,9 @@ const PrivateRouteExtended = ({ component: Component, redirectTo = '/' }) => {
   }
 };
 
-// PrivateRoute.propTypes = {
-//   component: PropTypes.func.isRequired,
-//   redirectTo: PropTypes.string,
-// };
+PrivateRouteExtended.propTypes = {
+  component: PropTypes.object.isRequired,
+  redirectTo: PropTypes.string,
+};
 
 export default PrivateRouteExtended;

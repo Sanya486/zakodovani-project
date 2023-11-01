@@ -6,19 +6,16 @@ import { selectProductsCategories } from 'redux/selectors';
 import clsx from 'clsx';
 import { fetchProductsCategories } from 'redux/operations';
 
-const ProductsFilters = ({
-  handleSubmit,
-  recommendation,
-  search,
-  category,
-  setReccomendation,
-  setCategory,
-  setSearch,
-}) => {
+const ProductsFilters = () => {
   const dispatch = useDispatch();
+
+  const [reccomendation, setReccomendation] = useState('All');
+  const [category, setCategory] = useState('');
+  const [search, setSearch] = useState('');
   const [isCloseIconShown, setIsCloseIconShown] = useState(false);
   const [isRecOpen, setIsRecOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+
   const productCategories = useSelector(selectProductsCategories);
   useEffect(() => {
     if (search) setIsCloseIconShown(true);
@@ -55,19 +52,28 @@ const ProductsFilters = ({
           </button>
         </div>
         <div className={css.selectorWrapper}>
-          <div className={css.categoryWrap}>
-            <input
-              className={clsx(css.inputStyle, css.categorySelector)}
-              name='categories'
-              placeholder='Categories'
-              value={category}
-              disabled
-            />
+          <div
+            className={css.categoryWrap}
+            onMouseEnter={() => setIsCategoryOpen(true)}
+            onMouseLeave={() => setIsCategoryOpen(false)}
+          >
+            <div
+              style={{ position: 'relative', zIndex: 100, backgroundColor: 'transparent' }}
+              onMouseOver={() => setIsCategoryOpen(true)}
+            >
+              <input
+                className={clsx(css.inputStyle, css.categorySelector)}
+                name='categories'
+                placeholder='Categories'
+                value={category}
+                disabled
+              />
+            </div>
             <svg onClick={() => setIsCategoryOpen((prev) => !prev)} className={css.chevronDownIcon}>
               <use href={sprite + '#icon-chevron-down'}></use>
             </svg>
             {isCategoryOpen && productCategories && (
-              <div className={css.categoryOptionWrap}>
+              <div className={css.categoryOptionWrap} onMouseLeave={() => setIsCategoryOpen(false)}>
                 <div className={css.scrollWrap}>
                   <ul className={css.categoryOptionWrapList}>
                     {productCategories.map((category, index) => {
@@ -95,7 +101,7 @@ const ProductsFilters = ({
             <input
               className={clsx(css.inputStyle)}
               disabled
-              value={recommendation}
+              value={reccomendation}
               name='recommendation'
               placeholder='All'
             />
