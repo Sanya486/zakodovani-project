@@ -10,7 +10,7 @@ import 'react-calendar/dist/Calendar.css';
 import { fetchCalculateDailyMetrics, fetchCurrentUser } from '../../redux/operations';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { selectName} from '../../redux/selectors';
+import { selectNameS} from '../../redux/selectors';
 
 
 const validationSchema = Yup.object().shape({
@@ -30,7 +30,7 @@ const UserForm = () => {
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
  
-  const client = useSelector(selectName);
+  const client = useSelector(selectNameS);
 
  
   
