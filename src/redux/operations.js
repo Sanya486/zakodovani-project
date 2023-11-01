@@ -434,7 +434,7 @@ export const fetchDiaryDateInfo = createAsyncThunk(
         {
           loading: 'Loading Your Diary 🙂',
           success: `Well done. Let's check our notes 👍`,
-          error: 'Error when loading diary. Please try later 😓',
+          error: 'Error when loading diary. Please try another date 😓',
         },
         {
           error: {
