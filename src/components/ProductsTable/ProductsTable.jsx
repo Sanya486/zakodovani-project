@@ -11,7 +11,7 @@ export const ProductTable = ({ products }) => {
   return (
     <>
       <div className={clsx(css.tableContainer)}>
-      <div className={css.tableList}>
+        <div className={css.tableList}>
           {products.map((product) => (
             <div key={product.id} className={css.tableElement}>
               <ProductTableItem

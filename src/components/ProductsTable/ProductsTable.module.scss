@@ -3,12 +3,14 @@
 .tableContainer {
   width: 100%;
   height: auto;
+  max-height: 301px;
   background: rgba(index.$black-color, 0.05);
   overflow: hidden;
 }
 
 .tableList {
-  height: 100vh;
+  height: 100%;
+  max-height: 3;
   overflow-y: scroll;
   padding-right: 8px;
   max-height: 824px;
@@ -20,7 +22,7 @@
 
 .tableList::-webkit-scrollbar-track {
   border-radius: 12px;
-  margin-top:26px;
+  margin-top: 26px;
 }
 
 .tableList::-webkit-scrollbar-thumb {
@@ -48,9 +50,9 @@
     width: 311px;
   }
 
-  .tableList {
-    height: 752px;
-  }
+  // .tableList {
+  //   max-height: 752px;
+  // }
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {

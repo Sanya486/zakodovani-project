@@ -56,7 +56,7 @@
       url('../../images/hero-deck-1x.jpg');
     background-position: 100% bottom;
     background-repeat: no-repeat;
-    background-size: 84vh;
+    background-size: contain;
   }
 
   @media (min-device-pixel-ratio: 2),

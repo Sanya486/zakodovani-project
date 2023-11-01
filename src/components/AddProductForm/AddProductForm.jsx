@@ -19,12 +19,10 @@ const AddProductForm = ({ data, onClose, onSuccess }) => {
       toast.error('The entered value should be greater than 0');
       return;
     }
-    const date = new Date().toLocaleDateString('en-GB');
     dispatch(
       fetchDiarySaveProduct({
-        date,
-        productId: _id,
-        amount: amount,
+        product: _id,
+        amount: Number(amount),
         calories: calculatedCalories,
       }),
     )

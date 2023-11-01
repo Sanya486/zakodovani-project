@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import sprite from '../../images/svg/sprite.svg';
 import css from './LogOutBtn.module.scss';
 import clsx from 'clsx';
@@ -32,6 +33,12 @@ const LogoutBtn = ({ classes = [], header, profile }) => {
       </svg>
     </button>
   );
+};
+
+LogoutBtn.propTypes = {
+  classes: PropTypes.array,
+  header: PropTypes.bool,
+  profile: PropTypes.bool,
 };
 
 export default LogoutBtn;

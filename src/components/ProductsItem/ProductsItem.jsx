@@ -23,7 +23,7 @@ export const ProductsItem = ({ product }) => {
   };
 
   return (
-    <li className={css.itemContainer}>
+    <div className={css.itemContainer}>
       <div className={css.wrap}>
         <div className={css.itemTop}>
           <div className={css.diet}>
@@ -82,17 +82,15 @@ export const ProductsItem = ({ product }) => {
           )}
         </BasicModalWindow>
       )}
-    </li>
+    </div>
   );
 };
 
 ProductsItem.propTypes = {
   product: PropTypes.shape({
-    isRecommend: PropTypes.bool.isRequired,
-    name: PropTypes.string.isRequired,
-    calories: PropTypes.string.isRequired,
+    calories: PropTypes.number.isRequired,
     category: PropTypes.string.isRequired,
-    weight: PropTypes.string.isRequired,
+    weight: PropTypes.number.isRequired,
     _id: PropTypes.string.isRequired,
   }).isRequired,
 };

@@ -33,7 +33,6 @@ export const DayProducts = ({ products }) => {
           </div>
         )}
       </div>
-
     </>
   );
 };

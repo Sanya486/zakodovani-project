@@ -86,17 +86,17 @@
   fill: index.$success-color;
 }
 
-.passwordWrapper{
+.passwordWrapper {
   position: relative;
 }
 
-.eyeIcon{
+.eyeIcon {
   position: absolute;
   top: 14px;
   right: 16px;
   width: 20px;
   height: 20px;
-  stroke: index.$white-color
+  stroke: index.$white-color;
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
@@ -117,7 +117,7 @@
     width: 192px;
   }
 
-   .passwordWrapper {
+  .passwordWrapper {
     width: 364px;
   }
   .eyeIcon {

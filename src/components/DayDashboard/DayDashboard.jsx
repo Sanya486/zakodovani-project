@@ -49,7 +49,6 @@ export const DayDashboard = ({
       name: 'The rest of sports',
       value: `${typeOfNumber(restSport) === 'success' ? '+' : ''}${restSport}min`,
       variant: typeOfNumber(restSport),
-
     },
   ];
 

@@ -6,34 +6,34 @@ import ExercisesTable from 'components/ExercisesTable/ExercisesTable';
 import { Link } from 'react-router-dom';
 import sprite from '../../images/svg/sprite.svg';
 
-
-
-const DayExercises = ({ exercises }) => {
-  console.log(exercises);
-  if (exercises.length === 0) {
-    return (
-      <div className={css.bodybox}>
-        <div className={css.container}>
-          <h3>Not found exercises</h3>
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className={css.bodybox}>
-        <div className={css.container}>
-          <h2 className={css.exercisetitle}>Execrcises</h2>
-          <Link to='/exercises' className={`${css.addexercisetitle} ${css.linkStyles}`}>
-            Add exercises
-            <svg className={css.iconarrow}>
-              <use href={sprite + '#arrow_add_icon'}></use>
-            </svg>
+export const DayExercises = ({ exercises }) => {
+  let empty = false;
+  exercises.length === 0 ? (empty = true) : (empty = false);
+  return (
+    <>
+      <div className={css.productsContainer}>
+        <div className={css.headBlock}>
+          <p className={css.headTitle}>Execrcises</p>
+          <Link to='/exercises' className={css.headLink}>
+            <div className={css.linkWraper}>
+              <p>Add exercises</p>
+              <svg className={css.icon}>
+                <use href={sprite + '#icon-arrow-right'}></use>
+              </svg>
+            </div>
           </Link>
         </div>
-        <ExercisesTable exercises={exercises} />
+        {empty === false ? (
+          <div className={css.productWrap}>
+            <ExercisesTable exercises={exercises} />
+          </div>
+        ) : (
+          <div className={css.resultInfoTextWrap}>
+            <p className={css.resultInfoText}>Not found products</p>
+          </div>
+        )}
       </div>
-    );
-  }
-}
-
+    </>
+  );
+};
 export default DayExercises;

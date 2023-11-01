@@ -24,9 +24,21 @@
   position: absolute;
   transform: translate(-50%, -50%);
   fill: index.$orange-main-color;
-  stroke: index.$white-color;
   width: 24px;
   height: 24px;
+  top: 100%;
+  left: 50%;
+  z-index: 3;
+}
+
+.iconBackground {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  background-color: index.$white-color;
   top: 100%;
   left: 50%;
 }
@@ -92,14 +104,11 @@
     margin-bottom: 8px;
   }
   .userWrapper {
-   
     margin-top: 64px;
   }
 }
 @media screen and (min-width: index.$desktop-breakpoint) {
   .userWrapper {
-   
     margin-top: 0;
   }
 }
-

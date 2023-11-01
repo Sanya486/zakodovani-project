@@ -19,9 +19,7 @@ export const diarySlice = createSlice({
       _id: '',
       clientId: '',
       _v: null,
-      consumedProduct: [
-          
-      ],
+      consumedProduct: [],
       exerciseDone: [],
     },
     message: '',
@@ -31,13 +29,19 @@ export const diarySlice = createSlice({
   extraReducers: (builder) =>
     builder
       .addCase(fetchDiaryDateInfo.fulfilled, (state, { payload }) => {
-        state.data = payload.diary;
+        state.data = { ...payload.diary };
         state.isLoading = false;
       })
       .addCase(fetchDiarySaveProduct.fulfilled, handleMessage)
       .addCase(fetchDiarySaveExercise.fulfilled, handleMessage)
-      .addCase(fetchDeleteProduct.fulfilled, handleMessage)
-      .addCase(fetchDeleteExercise.fulfilled, handleMessage)
+      .addCase(fetchDeleteProduct.fulfilled, (state, { payload }) => {
+        state.data.consumedProduct = payload;
+        state.isLoading = false;
+      })
+      .addCase(fetchDeleteExercise.fulfilled, (state, { payload }) => {
+        state.data.exerciseDone = payload;
+        state.isLoading = false;
+      })
       .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
       .addMatcher((action) => action.type.endsWith('/rejected'), handleReject),
 });
