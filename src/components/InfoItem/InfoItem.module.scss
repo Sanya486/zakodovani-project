@@ -1,6 +1,9 @@
 @use 'index';
 
 .infoItemContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 14px;
   border-radius: 12px;
   max-width: calc(50% - 10px);
@@ -32,7 +35,7 @@
   column-gap: 8px;
   row-gap: 0px;
   align-items: flex-start;
-  //   margin-bottom: 28px;
+
   width: 100%;
 }
 
@@ -56,7 +59,7 @@
   font-weight: bold;
   font-size: 18px;
   line-height: 1.11;
-  // width: 42px;
+
   height: 20px;
 }
 

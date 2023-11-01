@@ -3,7 +3,11 @@
 .background {
   width: 100vw;
   min-height: 100vh;
-  background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
+  background-image: linear-gradient(
+      to top right,
+      rgba(index.$black-color, 1),
+      rgba(index.$black-color, 0)
+    ),
     url('../../images/hero-mobl-1x.jpg');
   background-repeat: no-repeat;
   background-position: right bottom;
@@ -15,7 +19,11 @@
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   .box {
-    background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
+    background-image: linear-gradient(
+        to top right,
+        rgba(index.$black-color, 1),
+        rgba(index.$black-color, 0)
+      ),
       url('../../images/hero-mobl-2x.jpg');
   }
 }
@@ -28,7 +36,11 @@
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .background {
-    background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
+    background-image: linear-gradient(
+        to top right,
+        rgba(index.$black-color, 1),
+        rgba(index.$black-color, 0)
+      ),
       url('../../images/hero-tabl-1x.jpg');
     background-repeat: no-repeat;
     background-position: right bottom;
@@ -40,7 +52,11 @@
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .box {
-      background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
+      background-image: linear-gradient(
+          to top right,
+          rgba(index.$black-color, 1),
+          rgba(index.$black-color, 0)
+        ),
         url('../../images/hero-tabl-2x.jpg');
     }
   }
@@ -52,11 +68,15 @@
 
 @media screen and (min-width: index.$desktop-breakpoint) {
   .background {
-    background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
+    background-image: linear-gradient(
+        to top right,
+        rgba(index.$black-color, 1),
+        rgba(index.$black-color, 0)
+      ),
       url('../../images/hero-deck-1x.jpg');
     background-position: 100% bottom;
     background-repeat: no-repeat;
-    background-size: 84vh;
+    background-size: contain;
   }
 
   @media (min-device-pixel-ratio: 2),
@@ -64,7 +84,11 @@
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .box {
-      background-image: linear-gradient(to top right, rgba(4, 4, 4, 1), rgba(4, 4, 4, 0)),
+      background-image: linear-gradient(
+          to top right,
+          rgba(index.$black-color, 1),
+          rgba(index.$black-color, 0)
+        ),
         url('../../images/hero-deck-2x.jpg');
     }
   }

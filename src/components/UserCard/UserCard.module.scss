@@ -10,8 +10,6 @@
 }
 
 .conteiner {
-  display: flex;
-  justify-content: center;
   width: 165px;
   height: 96px;
   background-color: index.$orange-main-color;
@@ -20,10 +18,11 @@
   position: relative;
 }
 .text {
-  color: index.$white-color;
+  color: rgba(index.$white-color, 80%);
   line-height: 1.33;
   font-size: 12px;
   margin-top: 16px;
+  margin-left: 10px;
   text-align: center;
 }
 .spans {
@@ -49,7 +48,7 @@
 .span1 {
   position: absolute;
   bottom: 14px;
-  left: 16px;
+  left: 18px;
   color: index.$white-color;
 }
 .span2 {
@@ -99,9 +98,9 @@
   }
 
   .text {
-    line-height: 1.2;
-    font-size: 15px;
+    line-height: 1.5;
     margin-top: 15px;
+    margin-right: 40px;
   }
   .textDang {
     line-height: 1.5;
