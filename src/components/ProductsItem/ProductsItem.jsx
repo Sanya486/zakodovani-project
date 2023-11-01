@@ -88,10 +88,7 @@ export const ProductsItem = ({ product, recomendeProduct }) => {
 
 ProductsItem.propTypes = {
   product: PropTypes.shape({
-<<<<<<< HEAD
     title: PropTypes.string.isRequired,
-=======
->>>>>>> f129874f2a45d48afe3f5b6c917f962722fee977
     calories: PropTypes.number.isRequired,
     category: PropTypes.string.isRequired,
     weight: PropTypes.number.isRequired,
