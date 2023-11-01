@@ -1,5 +1,4 @@
 @use 'index';
-
 .tableContainer {
   width: 100%;
   height: auto;
@@ -20,7 +19,7 @@
 
 .tableList::-webkit-scrollbar-track {
   border-radius: 12px;
-  margin-top: 26px;
+  margin-top:26px;
 }
 
 .tableList::-webkit-scrollbar-thumb {
