@@ -11,7 +11,7 @@ const BurgerMenu = ({ switcher }) => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.code === 'Escape') {
-      switcher()
+        switcher();
       }
     };
 

@@ -33,7 +33,7 @@ const Header = () => {
         </div>
       ) : (
         <div className={css.headerNoAuthenticatedWpapper}>
-          <Link to='/' className={css.logoWrapper}>
+          <Link to='/'>
             <Logo />
           </Link>
         </div>

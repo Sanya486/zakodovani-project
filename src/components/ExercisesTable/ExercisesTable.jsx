@@ -1,56 +1,28 @@
 import React from 'react';
 import css from './ExercisesTable.module.scss';
-
 import ExercisesTableItem from 'components/ExercisesTableItem/ExercisesTableItem';
 import clsx from 'clsx';
-// import sport from '../../redux-example.json';
 
-// import React from 'react';
-
-const ExercisesTable = ({ exercises }) => {
-  console.log(exercises);
-  
+export const ExercisesTable = ({ exercises }) => {
   return (
     <>
-      <div className={clsx(css.bodybox)}>
-        {exercises.map((exercise) => (
-          <ExercisesTableItem
-            key={exercise.id}
-            bodyPart={exercise.bodyPart}
-            equipment={exercise.equipment}
-            name={exercise.name}
-            target={exercise.target}
-            burnedCalories={exercise.burnedCalories}
-            time={exercise.time}
-          />
-        ))}
-      </div>
-      <div className={clsx(css.bodyboxTable)}>
-        <table className={css.exercisestablehead}>
-          <thead>
-            <tr className={css.exercisename}>
-              <th>Body Part</th>
-              <th>Equipment</th>
-              <th>Name</th>
-              <th>Target</th>
-              <th>Burned Calories</th>
-              <th>Time</th>
-            </tr>
-          </thead>
-          <tbody className={css.exercisestablebody}>
-            {exercises.map((exercise) => (
+      <div className={clsx(css.tableContainer)}>
+        <div className={css.tableList}>
+          {exercises.map((exercise) => (
+            <div key={exercise.id} className={css.tableElement}>
               <ExercisesTableItem
-                key={exercise.id}
+                id={exercise.id}
                 bodyPart={exercise.bodyPart}
                 equipment={exercise.equipment}
                 name={exercise.name}
                 target={exercise.target}
-                burnedCalories={exercise.burnedCalories}
                 time={exercise.time}
+                burnedCalories={exercise.burnedCalories}
+                first={exercises.indexOf(exercise) === 0 ? true : false}
               />
-            ))}
-          </tbody>
-        </table>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

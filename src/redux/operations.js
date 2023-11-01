@@ -74,7 +74,21 @@ export const fetchCalculateDailyMetrics = createAsyncThunk(
   '/identification/calculateDailyMetrics',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.post('identification/calculateDailyMetrics', data);
+      const calculationPromise = axios.post('identification/calculateDailyMetrics', data);
+      toast.promise(
+        calculationPromise,
+        {
+          loading: 'Calculate all data..',
+          success: `Successful calculatation your data. Let's do some exercise 👍`,
+          error: 'Error when calculate. Please try later 😓',
+        },
+        {
+          error: {
+            duration: 5000,
+          },
+        },
+      );
+      const response = await calculationPromise;
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -88,9 +102,9 @@ export const fetchUpload = createAsyncThunk('/identification/upload', async (dat
     toast.promise(
       fetchPromise,
       {
-        loading: 'Loading your avatar 🙂',
-        success: `Avatar changed successfully 👍`,
-        error: 'Error with your avatar. Please check your file 😓',
+        loading: 'Updating your data 🙂',
+        success: `Update your data successfully 👍`,
+        error: 'Error with update. Please check all data and try again 😓',
       },
       {
         error: {
@@ -114,7 +128,21 @@ export const fetchCurrentUser = createAsyncThunk(
     }
     setAuthorization(state.auth.token);
     try {
-      const response = await axios.get('identification/currentUser');
+      const currentUserPromise = axios.get('identification/currentUser');
+      toast.promise(
+        currentUserPromise,
+        {
+          loading: 'Regain your data 🙂',
+          success: `Successfuly regain your data. Let's do some exercise 👍`,
+          error: 'Error when regain. Please try later 😓',
+        },
+        {
+          error: {
+            duration: 5000,
+          },
+        },
+      );
+      const response = await currentUserPromise;
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -124,8 +152,22 @@ export const fetchCurrentUser = createAsyncThunk(
 
 export const fetchLogout = createAsyncThunk('/identification/logout', async (_, thunkAPI) => {
   try {
-    const response = await axios.post('identification/logout');
+    const logoutPromise = axios.post('identification/logout');
+    toast.promise(
+      logoutPromise,
+      {
+        loading: 'See you soon 🙂',
+        success: `Good Bye 🤗`,
+        error: 'Error when logout. Please try later 😓',
+      },
+      {
+        error: {
+          duration: 5000,
+        },
+      },
+    );
     clearAuthorization();
+    const response = await logoutPromise;
     return response.data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);
@@ -164,7 +206,22 @@ export const fetchAvaibleBloodProducts = createAsyncThunk(
   '/products/available-blood-products/:type',
   async (type, thunkAPI) => {
     try {
-      const response = await axios.get(`products/categories/${type}`);
+      const promise = axios.get(`products/categories/${type}`);
+      toast.promise(
+        promise,
+        {
+          loading: 'Finding some suitable food for You 🙂',
+          success: `Here your products. Let's find something to eat 👍`,
+          error: 'Error when searchung products. Please try later 😓',
+        },
+        {
+          error: {
+            duration: 5000,
+          },
+        },
+      );
+
+      const response = await promise;
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -176,7 +233,22 @@ export const fetchAvaibleBloodProducts = createAsyncThunk(
 
 export const fetchExercises = createAsyncThunk('/exercises', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('exercises');
+    const promise = axios.get('exercises');
+    toast.promise(
+      promise,
+      {
+        loading: 'Finding some easy exercises for You 🙂',
+        success: `Here your exercises. Let's rock 🤘`,
+        error: 'Error when searchung products. Please try later 😓',
+      },
+      {
+        error: {
+          duration: 5000,
+        },
+      },
+    );
+
+    const response = await promise;
     return response.data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);
@@ -196,11 +268,26 @@ export const fetchExercisesByName = createAsyncThunk(
   '/exercises/{exerciseName}',
   async ({ name, filter }, thunkAPI) => {
     try {
-      const response = await axios.get(`exercises/${name}`, {
+      const evercisePromise = axios.get(`exercises/${name}`, {
         params: {
           filter,
         },
       });
+      toast.promise(
+        evercisePromise,
+        {
+          loading: 'Loading your exercise...🤔',
+          success: 'Let`s go!',
+          error: 'Error loading your exercise. Please try later.',
+        },
+        {
+          error: {
+            duration: 5000,
+          },
+        },
+      );
+
+      const response = await evercisePromise;
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -214,7 +301,22 @@ export const fetchDiarySaveProduct = createAsyncThunk(
   '/diary/save-product',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.post('diary/save-product', data);
+      const promise = axios.post('diary/save-product', data);
+      toast.promise(
+        promise,
+        {
+          loading: 'Saving your meal 🙂',
+          success: `Well done. Your meal was added to Diary 👍`,
+          error: 'Error when saving meal. Please try later 😓',
+        },
+        {
+          error: {
+            duration: 5000,
+          },
+        },
+      );
+
+      const response = await promise;
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -226,7 +328,22 @@ export const fetchDiarySaveExercise = createAsyncThunk(
   '/diary/save-exercise',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.post('diary/save-exercise', data);
+      const promise = axios.post('diary/save-exercise', data);
+      toast.promise(
+        promise,
+        {
+          loading: 'Saving your exercise 🙂',
+          success: `Well done. Your exercise was added to Diary 👍`,
+          error: 'Error when saving exercises. Please try later 😓',
+        },
+        {
+          error: {
+            duration: 5000,
+          },
+        },
+      );
+
+      const response = await promise;
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -243,7 +360,22 @@ export const fetchDeleteExercise = createAsyncThunk(
       },
     } = thunkAPI.getState();
     try {
-      await axios.delete(`diary/save-exercise/${id}`);
+      const promise = axios.delete(`diary/delete-exercise/${id}`);
+      toast.promise(
+        promise,
+        {
+          loading: 'Deleting your exercise 🙂',
+          success: `Well done. Your exercise was deleted from Diary 👍`,
+          error: 'Error when deleting exercise. Please try later 😓',
+        },
+        {
+          error: {
+            duration: 5000,
+          },
+        },
+      );
+
+      await promise;
       const filteredExerciseDone = exerciseDone.filter((exercise) => exercise.id !== id);
       return filteredExerciseDone;
     } catch (e) {
@@ -256,7 +388,22 @@ export const fetchDiaryDateInfo = createAsyncThunk(
   '/diary/diary-date-info/{date}',
   async (date, thunkAPI) => {
     try {
-      const response = await axios.get(`diary/diary-date-info/${date}`);
+      const promise = axios.get(`diary/diary-date-info/${date}`);
+      toast.promise(
+        promise,
+        {
+          loading: 'Loading Your Diary 🙂',
+          success: `Well done. Let's check our notes 👍`,
+          error: 'Error when loading diary. Please try another date 😓',
+        },
+        {
+          error: {
+            duration: 5000,
+          },
+        },
+      );
+
+      const response = await promise;
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -273,7 +420,22 @@ export const fetchDeleteProduct = createAsyncThunk(
       },
     } = thunkAPI.getState();
     try {
-      await axios.delete(`diary/delete-product/${productId}`);
+      const promise = axios.delete(`diary/delete-product/${productId}`);
+      toast.promise(
+        promise,
+        {
+          loading: 'Deleting your meal 🙂',
+          success: `Well done. Your meal was deleted from Diary 👍`,
+          error: 'Error when deleting meal. Please try later 😓',
+        },
+        {
+          error: {
+            duration: 5000,
+          },
+        },
+      );
+
+      await promise;
       const filteredConsumedProduct = consumedProduct.filter((product) => product.id !== productId);
       return filteredConsumedProduct;
     } catch (e) {

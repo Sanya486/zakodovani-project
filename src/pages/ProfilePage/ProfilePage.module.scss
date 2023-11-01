@@ -7,10 +7,11 @@
   max-width: 375px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 66px;
+  padding-bottom: 66px;
 }
-.title {
-  margin-top: 40px;
+
+.none {
+  opacity: 0;
 }
 
 @media (min-width: index.$tablet-breakpoint) {
@@ -18,27 +19,45 @@
     padding-left: 40px;
     padding-right: 40px;
     max-width: 768px;
-    margin-bottom: 54px;
+    padding-bottom: 54px;
+    padding-top: 72px;
+  }
+  .title {
+    font-size: 32px;
+    line-height: 1.375;
   }
 }
 @media (min-width: index.$desktop-breakpoint) {
   .container {
     padding-left: 96px;
     padding-right: 96px;
-    margin-bottom: 36px;
+    padding-bottom: 36px;
     max-width: 1440px;
   }
   .flexCont {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: center;
     align-items: center;
+    margin-top: 32px;
   }
   .leftCont {
     margin-right: 64px;
-    border-right: solid 1px rgba(index.$white-color, 20%);
   }
+  .rightCont::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -49px;
+    width: 2px;
+    background: rgba(index.$white-color, 20%);
+  }
+
   .rightCont {
     margin-left: 49px;
+    position: relative;
+  }
+  .title {
+    margin-bottom: 32px;
   }
 }
