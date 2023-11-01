@@ -269,7 +269,7 @@
   }
 
   .inputBase {
-    width: 340px;
+    width: 335px;
   }
 }
 
@@ -286,10 +286,13 @@
     position: relative;
   }
   .inputBase {
-    width: 333px;
+    width: 341px;
     font-weight: 400;
     line-height: 1.5;
     font-size: 16px;
+  }
+  .form{
+    align-items:baseline;
   }
   .calendar {
     margin-top: 23px;
@@ -334,6 +337,21 @@
     font-size: 20px;
     margin-top: 38px;
     cursor: pointer;
+  }
+  .group2{
+    gap:14px;
+  }
+  .height{
+    width: 168px;
+  }
+  .group1 > *:not(:last-child) {
+    margin-right: 14px;
+  }
+  .desirInput{
+    width: 140px;
+  }
+  .calendarInput{
+    width: 187px;
   }
 
   .errorGroup2 {

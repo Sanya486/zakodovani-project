@@ -122,7 +122,7 @@ const UserForm = () => {
                       type='number'
                       id='height'
                       name='height'
-                      className={`${css.input} ${errors.height && touched.height ? css.error : ''}`}
+                      className={`${css.input} ${css.height} ${errors.height && touched.height ? css.error : ''}`}
                       min='150'
                       required
                     />
@@ -158,7 +158,7 @@ const UserForm = () => {
                       type='number'
                       id='desiredWeight'
                       name='desiredWeight'
-                      className={`${css.input} ${
+                      className={`${css.input} ${css.desirInput} ${
                         errors.currentWeight && touched.currentWeight ? css.error : ''
                       }`}
                       min='35'
@@ -173,7 +173,7 @@ const UserForm = () => {
                   <div className={css.column}>
                     <div className={css.forIcon}>
                       <Field
-                        className={`${css.input} ${css.inputDate} ${
+                        className={`${css.input} ${css.inputDate} ${css.calendarInput} ${
                           errors.birthday && touched.birthday ? css.error : ''
                         }`}
                         value={currentDate === null ? '00.00.00' : currentDate}
