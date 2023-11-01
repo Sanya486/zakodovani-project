@@ -10,7 +10,7 @@ import 'react-calendar/dist/Calendar.css';
 import { fetchCalculateDailyMetrics, fetchCurrentUser } from '../../redux/operations';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { selectNameS} from '../../redux/selectors';
+import { selectClient } from '../../redux/selectors';
 
 
 const validationSchema = Yup.object().shape({
@@ -30,7 +30,7 @@ const UserForm = () => {
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
  
-  const client = useSelector(selectNameS);
+  const client = useSelector(selectClient);
 
  
   
@@ -69,15 +69,15 @@ const UserForm = () => {
   return (
     <Formik
       initialValues={{
-        email:client.client.email,
-        name:client.client.name,
-        birthday: client.client.birthday,
-        blood: client.client.blood,
-        currentWeight: client.client.currentWeight,
-        desiredWeight: client.client.desiredWeight,
-        height: client.client.height,
-        levelActivity: client.client.levelActivity,
-        sex: client.client.sex,
+        email:client.email,
+        name:client.name,
+        birthday: client.birthday,
+        blood: client.blood,
+        currentWeight: client.currentWeight,
+        desiredWeight: client.desiredWeight,
+        height: client.height,
+        levelActivity: client.levelActivity,
+        sex: client.sex,
       }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
