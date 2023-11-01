@@ -7,7 +7,12 @@ import DaySwitch from 'components/DaySwitch/DaySwitch';
 import { DayDashboard } from 'components/DayDashboard/DayDashboard';
 import css from './DiaryPage.module.scss';
 // import { selectDiaryExercises, selectDiaryProducts } from 'redux/selectors';
-import { selectDiaryExercises, selectDiaryProducts, selectDiaryMetrics } from 'redux/selectors';
+import {
+  selectDiaryExercises,
+  selectDiaryProducts,
+  selectDiaryMetrics,
+  selectClient,
+} from 'redux/selectors';
 import { fetchDiaryDateInfo } from 'redux/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -26,8 +31,10 @@ const DiaryPage = () => {
   const dispatch = useDispatch();
   const exerciseDone = useSelector(selectDiaryExercises);
   const consumedProduct = useSelector(selectDiaryProducts);
-  const { timeForSport, BMR, caloriesBurned, caloriesConsumed, caloriesRest, restSport } =
+  const { caloriesBurned, caloriesConsumed, caloriesRest, restSport } =
     useSelector(selectDiaryMetrics);
+  const { BMR, timeForSport } = useSelector(selectClient);
+
   const [currentDate, setCurrentDate] = useState(new Date());
   useEffect(() => {
     dispatch(fetchDiaryDateInfo(formattingDate(currentDate)));
