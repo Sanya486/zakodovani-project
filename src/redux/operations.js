@@ -267,7 +267,7 @@ export const fetchExercises = createAsyncThunk('/exercises', async (_, thunkAPI)
 
 export const fetchExercisesTypes = createAsyncThunk('/exercises/all-types', async (_, thunkAPI) => {
   try {
-     const response = await axios.get('exercises/all-types');
+    const response = await axios.get('exercises/all-types');
     return response.data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);

@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import { fetchProductsCategories } from 'redux/operations';
 
 const ProductsFilters = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [reccomendation, setReccomendation] = useState('All');
   const [category, setCategory] = useState('');
@@ -15,7 +15,7 @@ const ProductsFilters = () => {
   const [isCloseIconShown, setIsCloseIconShown] = useState(false);
   const [isRecOpen, setIsRecOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
-  
+
   const productCategories = useSelector(selectProductsCategories);
 
   useEffect(() => {

@@ -22,7 +22,6 @@ const formattingDate = (currentDate) => {
   return formattedDate;
 };
 
-
 const DiaryPage = () => {
   const dispatch = useDispatch();
   const exerciseDone = useSelector(selectDiaryExercises);

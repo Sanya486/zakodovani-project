@@ -11,7 +11,6 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { selectClient } from '../../redux/selectors';
 
-
 const formattingDate = (currentDate) => {
   const day = currentDate.getDate().toString().padStart(2, '0');
   const month = currentDate.getMonth() + 1;

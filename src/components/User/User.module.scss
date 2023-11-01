@@ -32,7 +32,7 @@
 }
 
 .iconBackground {
-  content: "";
+  content: '';
   position: absolute;
   z-index: 2;
   transform: translate(-50%, -50%);
@@ -104,14 +104,11 @@
     margin-bottom: 8px;
   }
   .userWrapper {
-   
     margin-top: 64px;
   }
 }
 @media screen and (min-width: index.$desktop-breakpoint) {
   .userWrapper {
-   
     margin-top: 0;
   }
 }
-

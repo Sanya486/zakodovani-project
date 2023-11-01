@@ -8,13 +8,11 @@
   text-transform: capitalize;
 }
 
-
 @media screen and (min-width: index.$tablet-breakpoint) {
   .titlePage {
     font-size: 32px;
     line-height: 1.37;
   }
-  @media screen and (min-width: index.$desktop-breakpoint){
-
+  @media screen and (min-width: index.$desktop-breakpoint) {
   }
 }

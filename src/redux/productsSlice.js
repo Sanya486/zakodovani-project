@@ -12,8 +12,8 @@ export const productsSlice = createSlice({
   },
   reducers: {
     clearProduct(state) {
-      state.productList = []
-    }
+      state.productList = [];
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -33,4 +33,4 @@ export const productsSlice = createSlice({
       .addMatcher((action) => action.type.endsWith('/rejected'), handleReject),
 });
 
-export const {clearProduct}= productsSlice.actions
+export const { clearProduct } = productsSlice.actions;
