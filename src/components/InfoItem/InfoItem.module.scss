@@ -1,6 +1,9 @@
 @use 'index';
 
 .infoItemContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 14px;
   border-radius: 12px;
   max-width: calc(50% - 10px);
