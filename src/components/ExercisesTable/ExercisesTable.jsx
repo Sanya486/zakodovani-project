@@ -3,13 +3,8 @@ import css from './ExercisesTable.module.scss';
 
 import ExercisesTableItem from 'components/ExercisesTableItem/ExercisesTableItem';
 import clsx from 'clsx';
-// import sport from '../../redux-example.json';
-
-// import React from 'react';
 
 const ExercisesTable = ({ exercises }) => {
-  console.log(exercises);
-  
   return (
     <>
       <div className={clsx(css.bodybox)}>

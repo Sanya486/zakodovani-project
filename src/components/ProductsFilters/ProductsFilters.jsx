@@ -23,7 +23,6 @@ const ProductsFilters = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formdata = { search, category, reccomendation };
-    console.log(formdata);
   };
   return (
     <>

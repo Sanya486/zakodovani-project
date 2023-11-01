@@ -1,4 +1,3 @@
-
 import React from 'react';
 import css from './ExercisesTableItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
@@ -6,13 +5,11 @@ import clsx from 'clsx';
 import { fetchDeleteExercise } from 'redux/operations';
 import { useDispatch } from 'react-redux';
 
-
 const ExercisesTableItem = ({ id, bodyPart, equipment, name, target, time, burnedCalories }) => {
   const dispatch = useDispatch();
 
   const onDeleteExercise = (id) => {
     dispatch(fetchDeleteExercise(id));
-    console.log('Удалить по йади');
   };
 
   const deleteHandler = () => {
@@ -70,5 +67,3 @@ const ExercisesTableItem = ({ id, bodyPart, equipment, name, target, time, burne
 };
 
 export default ExercisesTableItem;
-
-// import React from 'react';

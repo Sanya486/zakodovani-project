@@ -15,7 +15,7 @@
   line-height: 1.5;
   font-size: 12px;
 
-  color:rgba(index.$white-color, 30%);
+  color: rgba(index.$white-color, 30%);
 }
 .tabletInput {
   display: flex;
@@ -33,31 +33,28 @@
 .input {
   border-radius: 12px;
   border-color: rgba(index.$white-color, 30%);
-  color:index.$white-color;
+  color: index.$white-color;
   line-height: 1.29;
   font-size: 14px;
   padding: 14px 0 14px 14px;
   background-color: transparent;
- 
 }
 .inputBase {
   border-radius: 12px;
   border-color: rgba(index.$white-color, 30%);
-  color:index.$white-color;
+  color: index.$white-color;
   line-height: 1.29;
   font-size: 14px;
   margin-bottom: 16px;
   padding: 14px 0 14px 14px;
   background-color: transparent;
- 
 }
-
 
 .label {
   margin-bottom: 4px;
   line-height: 1.5;
   font-size: 12px;
-  color:rgba(index.$white-color, 50%);
+  color: rgba(index.$white-color, 50%);
 }
 .column {
   display: flex;
@@ -89,14 +86,14 @@
 
 .labelMargin {
   margin-right: 5px;
-  color:index.$white-color;
+  color: index.$white-color;
   font-size: 14px;
   line-height: 1.29;
 }
 .inputRadio {
   line-height: 1.29;
   font-size: 14px;
-  color:index.$radio-color;
+  color: index.$radio-color;
   background-color: transparent;
   margin-right: 8px;
 }
@@ -107,11 +104,10 @@
 }
 .labelText {
   margin-bottom: 8px;
-  color:index.$white-color;
+  color: index.$white-color;
   font-size: 14px;
   line-height: 1.29;
 }
-
 
 .btn {
   padding: 12px 40px;
@@ -131,7 +127,7 @@
 }
 
 .inputSuccess {
-  border: 1px solid green;
+  border: 1px solid index.$success-color;
 }
 .error {
   color: index.$error-color;
@@ -167,7 +163,7 @@
   position: absolute;
   margin-top: 68px;
 }
-.radioNumber{
+.radioNumber {
   display: flex;
 }
 @media screen and (min-width: index.$mobile-breakpoint) {
@@ -189,19 +185,17 @@
   }
 }
 
-@media screen and (min-width:index.$tablet-breakpoint) {
+@media screen and (min-width: index.$tablet-breakpoint) {
   .container {
     width: 768px;
   }
   .title {
     margin-bottom: 8px;
-    
   }
   .tabletInput {
     flex-direction: row;
     gap: 14px;
     margin-right: auto;
-    
   }
   .inputBase {
     width: 333px;
@@ -217,7 +211,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
   .input {
     width: 159px;
@@ -232,7 +225,6 @@
   }
   .radio {
     margin-right: auto;
-   
   }
   .labelMargin {
     margin-right: 8px;
@@ -244,7 +236,6 @@
   .radioText {
     margin-top: 32px;
     margin-right: auto;
-  
   }
 
   .btn {
@@ -253,7 +244,6 @@
     font-weight: 400;
     font-size: 20px;
     margin-top: 38px;
-  
   }
   .errorGroup2 {
     margin-top: 79px;

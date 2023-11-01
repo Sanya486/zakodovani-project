@@ -1,6 +1,5 @@
 @use 'index';
 .container {
-
   margin: 0 auto;
 }
 
@@ -10,13 +9,6 @@
   row-gap: 20px;
   column-gap: 13px;
   justify-content: center;
-
-  // добавил lottor-Саша
- 
-}
-
-@media screen and (min-width: index.$mobile-breakpoint) {
-
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
@@ -43,8 +35,6 @@
 
   .dayDashboard {
     flex-direction: row;
-    
-    // Єто добавил Саша-lottor
     height: 100%;
   }
 }

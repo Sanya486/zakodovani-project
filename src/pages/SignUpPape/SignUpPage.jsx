@@ -5,7 +5,6 @@ import Text from 'components/Text/Text';
 import TitlePage from 'components/TitlePage/TitlePage';
 import React from 'react';
 import css from './SignUpPage.module.scss';
-// import Container from 'components/Container/Container';
 
 const SignUpPage = () => {
   return (

@@ -3,15 +3,7 @@ import { useLocation } from 'react-router-dom';
 import css from './StatisticsInfo.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 
-// marginTopUp, marginTopIn, marginTopProfile
-
 const StatisticsInfo = () => {
-  //   const containerClass = `
-  //   ${css.container}
-  //   ${marginTopUp && css.marginTopUp}
-  //   ${marginTopIn && css.marginTopIn}
-  //   ${marginTopProfile && css.marginTopProfile}
-  // `;
   const location = useLocation();
 
   return (

@@ -1,13 +1,13 @@
 @use 'index';
 
 .bodybox {
-  border-color: rgba(239, 237, 232, 0.2);
+  border-color: rgba(index.$white-color, 0.2);
   border-width: 1px;
   border-radius: 12px;
   gap: 32px;
 }
 .bodyboxTable {
-  border-color: rgba(239, 237, 232, 0.2);
+  border-color: rgba(index.$white-color, 0.2);
   border-width: 1px;
   border-radius: 12px;
   gap: 32px;
@@ -15,7 +15,7 @@
 }
 
 .exercisename {
-  color: #ef8964;
+  color: index.$orange-secondary-color;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
@@ -26,7 +26,7 @@
 
 .exercisetipe {
   color: index.$white-color;
-  border-color: rgba(239, 237, 232, 0.3);
+  border-color: rgba(index.$white-color, 0.3);
   font-weight: 400;
   font-size: 14px;
   line-height: 1.3;
@@ -37,14 +37,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.extrabigwidth {
-  // max-width: 150px;
-}
-
-.extrasmallwidth {
-  // max-width: 60px;
 }
 
 .rowtext {
@@ -94,7 +86,7 @@
     text-overflow: ellipsis;
   }
   .table {
-     overflow-y: scroll;
+    overflow-y: scroll;
   }
   ::-webkit-scrollbar {
     width: 6px;
@@ -103,17 +95,14 @@
   /* Стилизация ползунка прокрутки */
   ::-webkit-scrollbar-thumb {
     width: 6px;
-  height: 203px;
-  border-radius: 12px;
-  background: rgba(index.$white-color, 0.1);
+    height: 203px;
+    border-radius: 12px;
+    background: rgba(index.$white-color, 0.1);
   }
   ::-webkit-scrollbar-track {
-  border-radius: 12px;
-}
-:hover::-webkit-scrollbar-thumb {
-  background: rgba(index.$white-color, 0.1);
-}
-}
-
-@media screen and (min-width: index.$desktop-breakpoint) {
+    border-radius: 12px;
+  }
+  :hover::-webkit-scrollbar-thumb {
+    background: rgba(index.$white-color, 0.1);
+  }
 }
