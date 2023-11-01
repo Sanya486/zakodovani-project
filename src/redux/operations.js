@@ -176,14 +176,19 @@ export const fetchLogout = createAsyncThunk('/identification/logout', async (_, 
 
 // =========== Products fetches ===========
 
-export const fetchProducts = createAsyncThunk('/products', async ({ page, limit }, thunkAPI) => {
-  try {
-    const response = await axios.get(`products?page=${page}&limit=${limit}`);
-    return response.data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e.message);
-  }
-});
+export const fetchProducts = createAsyncThunk(
+  'products/',
+  async ({ page, limit, recommendation = 'all', category = '' }, thunkAPI) => {
+    try {
+      const response = await axios.get(
+        `products?page=${page}&limit=${limit}&recommendation=${recommendation}&category=${category}`,
+      );
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  },
+);
 
 export const fetchProductsCategories = createAsyncThunk(
   '/products/categories',

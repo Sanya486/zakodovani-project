@@ -18,7 +18,7 @@ export const productsSlice = createSlice({
   extraReducers: (builder) =>
     builder
       .addCase(fetchProducts.fulfilled, (state, { payload }) => {
-        state.productList = [...state.productList, ...payload];
+        state.productList = [...payload];
         state.isLoading = false;
       })
       .addCase(fetchAvaibleBloodProducts.fulfilled, (state, { payload }) => {
