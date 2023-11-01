@@ -19,7 +19,7 @@ const DiaryPage = lazy(() => import('pages/DiaryPage/DiaryPage'));
 const ProfilePage = lazy(() => import('pages/ProfilePage/ProfilePage'));
 const ProductsPage = lazy(() => import('pages/ProductsPage/ProductsPage'));
 const ExercisesPage = lazy(() => import('pages/ExercisesPage/ExercisesPage'));
-// const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
+const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
 const Layout = lazy(() => import('components/Layout/Layout'));
 
 function App() {
@@ -107,7 +107,8 @@ function App() {
             element={<PrivateRouteExtended component={ExercisesPage} redirectTo='/signin' />}
           />
         </Route>
-        <Route path='*' element={<Navigate to="/"/>} />
+        <Route path='/error' element={<ErrorPage />} />
+        <Route path='*' element={<Navigate to='/error' />} />
       </Routes>
       <Toaster
         toastOptions={{
