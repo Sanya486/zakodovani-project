@@ -5,7 +5,6 @@ import { addYears, subYears } from 'date-fns';
 import css from './UserForm.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
 import { fetchCalculateDailyMetrics, fetchCurrentUser } from '../../redux/operations';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
