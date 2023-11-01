@@ -3,8 +3,14 @@
 export const selectClient = (state) => state.auth.client;
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 export const selectIsRefreshing = (state) => state.auth.isRefreshing;
+
+export const selectIsBMR = (state) => state.auth.client.BMR;
+export const selectIsTimeForSport = (state) => state.auth.client.timeForSport;
+export const selectNameS = (state) => state.auth.client.name;
+export const selectEmail = (state) => state.auth.client.email;
 export const selectAvatar = (state) => state.auth.client.avatar;
 export const selectBMR = (state) => state.auth.client.BMR
+
 
 // Diary selectors
 
