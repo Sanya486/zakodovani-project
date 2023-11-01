@@ -204,22 +204,7 @@ export const fetchProductsCategories = createAsyncThunk(
   '/products/categories',
   async (_, thunkAPI) => {
     try {
-      const productPromise = axios.get('products/categories');
-      toast.promise(
-        productPromise,
-        {
-          loading: 'Finding products` categories for You 🙂',
-          success: `Here your products' categories. Let's find something to eat 👍`,
-          error: 'Error when searchung products` categories. Please try later 😓',
-        },
-        {
-          error: {
-            duration: 5000,
-          },
-        },
-      );
-
-      const response = await productPromise;
+      const response = await axios.get('products/categories');
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -282,22 +267,7 @@ export const fetchExercises = createAsyncThunk('/exercises', async (_, thunkAPI)
 
 export const fetchExercisesTypes = createAsyncThunk('/exercises/all-types', async (_, thunkAPI) => {
   try {
-    const promise = axios.get('exercises/all-types');
-    toast.promise(
-      promise,
-      {
-        loading: 'Finding exercises` categories for You 🙂',
-        success: 'Here your exercises` categories. Choose one you prefer 👍',
-        error: 'Error when searching exercises` categories. Please try later 😓',
-      },
-      {
-        error: {
-          duration: 5000,
-        },
-      },
-    );
-
-    const response = await promise;
+     const response = await axios.get('exercises/all-types');
     return response.data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);
