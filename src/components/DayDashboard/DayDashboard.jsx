@@ -4,12 +4,12 @@ import css from './DayDashboard.module.scss';
 import { InfoItem } from 'components/InfoItem/InfoItem';
 
 export const DayDashboard = ({
-  BMR,
-  timeOfSport,
-  caloriesConsumed,
-  caloriesBurned,
-  caloriesRest,
-  restSport,
+  BMR = 0,
+  timeOfSport = 0,
+  caloriesConsumed= 0,
+  caloriesBurned = 0,
+  caloriesRest= 0,
+  restSport =0,
 }) => {
   const typeOfNumber = (number) => {
     if (number < 0) {
