@@ -7,30 +7,29 @@ import { ProductsList } from 'components/ProductsList/ProductsList';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectProducts } from 'redux/selectors';
 import { fetchProducts } from 'redux/operations';
+import { Puff } from 'react-loader-spinner';
+
 const ProductsPage = () => {
   const limit = 20;
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
   const [page, setPage] = useState(1);
   const [currentProducts, setCurrentProducts] = useState([]);
-  const [recommendation, setReccomendation] = useState('all');
+  const [recommendation, setReccomendation] = useState('All');
   const [category, setCategory] = useState('');
   const [search, setSearch] = useState('');
-  const [formdata, setFormData] = useState({ search, category, recommendation });
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormData({
-      search,
-      category,
-      recommendation,
-    });
     setCurrentProducts([]);
     setPage(1);
-    dispatch(fetchProducts({ page: 1, limit, category, recommendation }));
+    dispatch(
+      fetchProducts({ page: 1, limit, category: category.toLocaleLowerCase(), recommendation }),
+    );
   };
   useEffect(() => {
-    console.log(formdata);
-    dispatch(fetchProducts({ page, limit, category, recommendation }));
+    dispatch(
+      fetchProducts({ page, limit, category: category.toLocaleLowerCase(), recommendation }),
+    );
   }, [page, limit]);
 
   useEffect(() => {
@@ -62,12 +61,39 @@ const ProductsPage = () => {
             setSearch={setSearch}
           />
         </div>
-        <div className={css.listWrapper}>
-          <ProductsList
-            infiniteScrollHandler={infiniteScrollHandler}
-            currentProducts={currentProducts}
+        {currentProducts.length ? (
+          <div className={css.listWrapper}>
+            <ProductsList
+              infiniteScrollHandler={infiniteScrollHandler}
+              currentProducts={
+                search
+                  ? currentProducts.filter((e) => {
+                      return e.title.toLocaleLowerCase().includes(search.toLocaleLowerCase());
+                    })
+                  : currentProducts
+              }
+            />
+          </div>
+        ) : (
+          <Puff
+            height='100'
+            width='100'
+            color='#e6533c'
+            ariaLabel='line-wave'
+            wrapperStyle={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%',
+              height: '50vh',
+            }}
+            wrapperClass=''
+            visible={true}
+            firstLineColor=''
+            middleLineColor=''
+            lastLineColor=''
           />
-        </div>
+        )}
       </div>
     </Container>
   );

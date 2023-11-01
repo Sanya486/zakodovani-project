@@ -78,7 +78,7 @@ const ProductsFilters = ({
                           <p
                             onClick={() => {
                               setIsCategoryOpen(false);
-                              setCategory(formattedCategory.toLocaleLowerCase);
+                              setCategory(formattedCategory);
                             }}
                           >
                             {formattedCategory}
