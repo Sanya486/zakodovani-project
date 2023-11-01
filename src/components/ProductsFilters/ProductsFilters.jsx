@@ -58,7 +58,11 @@ const ProductsFilters = () => {
           </button>
         </div>
         <div className={css.selectorWrapper}>
-          <div className={css.categoryWrap}>
+          <div
+            className={css.categoryWrap}
+            onMouseEnter={() => setIsCategoryOpen(true)}
+            onMouseLeave={() => setIsCategoryOpen(false)}
+          >
             <div
               style={{ position: 'relative', zIndex: 100, backgroundColor: 'transparent' }}
               onMouseOver={() => setIsCategoryOpen(true)}
@@ -99,11 +103,12 @@ const ProductsFilters = () => {
               </div>
             )}
           </div>
-          <div className={css.recommendationWrap}>
-            <div
-              style={{ position: 'relative', zIndex: 100, backgroundColor: 'transparent' }}
-              onMouseOver={() => setIsRecOpen(true)}
-            >
+          <div
+            className={css.recommendationWrap}
+            onMouseEnter={() => setIsRecOpen(true)}
+            onMouseLeave={() => setIsRecOpen(false)}
+          >
+            <div style={{ position: 'relative', zIndex: 100, backgroundColor: 'transparent' }}>
               <input
                 className={clsx(css.inputStyle)}
                 disabled
@@ -118,7 +123,6 @@ const ProductsFilters = () => {
             {isRecOpen && (
               <div
                 className={css.recommendationOptionWrap}
-                onMouseLeave={() => setIsRecOpen(false)}
               >
                 <ul className={css.recommendationOptionWrapList}>
                   <li>
