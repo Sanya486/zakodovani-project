@@ -87,7 +87,7 @@ const UserForm = () => {
       initialErrors={{}}
       validateOnMount={true}
     >
-      {({ errors, touched, setFieldValue, handleChange }) => (
+      {({ errors, touched, setFieldValue, handleChange, isValid  }) => (
         <Form>
           <div>
             <span className={css.title}>Basic info</span>
@@ -361,7 +361,7 @@ const UserForm = () => {
               </label>
             </div>
           </div>
-          <button type='submit' className={css.btn}>
+          <button type='submit' className={css.btn} disabled={!isValid}>
             Save
           </button>
         </Form>

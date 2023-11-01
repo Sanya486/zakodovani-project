@@ -9,10 +9,11 @@
   line-height: 1.5;
   font-size: 12px;
   color: rgba(index.$white-color, 50%);
+  display: block;
 }
 
 .blood {
-  display: inline;
+  display: inline-block;
   line-height: 1.5;
   font-size: 12px;
   margin-bottom: 4px;
@@ -43,6 +44,7 @@
   background-color: transparent;
 }
 .inputBase {
+  width: 100%;
   border-radius: 12px;
   border-color: rgba(index.$white-color, 30%);
   color: index.$white-color;
