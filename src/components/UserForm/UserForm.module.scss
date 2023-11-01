@@ -143,7 +143,7 @@
 }
 
 .inputSuccess {
-  border: 1px solid green;
+  border: 1px solid index.$success-color;
 }
 .error {
   color: index.$error-color;
@@ -260,6 +260,7 @@
 .realRadio:checked + .customRadio::before {
   display: block;
 }
+
 
 @media screen and (min-width: index.$mobile-breakpoint) {
   .container {

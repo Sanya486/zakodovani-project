@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import './App.scss';
 import React, { lazy, useEffect } from 'react';
@@ -107,7 +107,8 @@ function App() {
             element={<PrivateRouteExtended component={ExercisesPage} redirectTo='/signin' />}
           />
         </Route>
-        <Route path='*' element={<ErrorPage />} />
+        <Route path='/error' element={<ErrorPage />} />
+        <Route path='*' element={<Navigate to='/error' />} />
       </Routes>
       <Toaster
         toastOptions={{

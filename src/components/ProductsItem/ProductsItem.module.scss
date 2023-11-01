@@ -77,7 +77,7 @@
 }
 
 .redIndicator {
-  background-color: #e9101d;
+  background-color: index.$variant-error-color;
 }
 
 .recommendText {
@@ -112,6 +112,7 @@
 
 .itemBottom {
   display: flex;
+  gap: 8px;
   flex-direction: column;
 }
 
