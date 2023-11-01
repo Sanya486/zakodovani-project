@@ -1,7 +1,5 @@
 import React from 'react';
 import css from './DayExercises.module.scss';
-// import { selectDiaryExercises } from 'redux/selectors';
-
 import ExercisesTable from 'components/ExercisesTable/ExercisesTable';
 import { Link } from 'react-router-dom';
 import sprite from '../../images/svg/sprite.svg';
