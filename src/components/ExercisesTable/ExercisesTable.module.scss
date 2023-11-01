@@ -1,119 +1,159 @@
 @use 'index';
 
-.bodybox {
-  border-color: rgba(239, 237, 232, 0.2);
-  border-width: 1px;
-  border-radius: 12px;
-  gap: 32px;
-}
-.bodyboxTable {
-  border-color: rgba(239, 237, 232, 0.2);
-  border-width: 1px;
-  border-radius: 12px;
-  gap: 32px;
-  display: none;
-}
-
-.exercisename {
-  color: #ef8964;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.5;
-  white-space: nowrap;
+.tableContainer {
+  width: 100%;
+  height: auto;
+  background: rgba(index.$black-color, 0.05);
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.exercisetipe {
-  color: index.$white-color;
-  border-color: rgba(239, 237, 232, 0.3);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.3;
-  border: solid;
-  border-width: 1px;
+.tableList {
+  height: 100vh;
+  overflow-y: scroll;
+  padding-right: 8px;
+  max-height: 824px;
+}
+
+.tableList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tableList::-webkit-scrollbar-track {
   border-radius: 12px;
-  padding: 10px 14px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-top:26px;
 }
 
-.extrabigwidth {
-  // max-width: 150px;
+.tableList::-webkit-scrollbar-thumb {
+  width: 6px;
+  height: 203px;
+  border-radius: 12px;
+  background: rgba(index.$white-color, 0.1);
 }
 
-.extrasmallwidth {
-  // max-width: 60px;
+.tableList:hover::-webkit-scrollbar-thumb {
+  background: rgba(index.$white-color, 0.1);
 }
 
-.rowtext {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  gap: 10px;
-  flex: 1;
+.tableElement {
+  width: 100%;
+  height: auto;
 }
-.rowtextitems {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-  overflow: hidden;
+
+.tableElement:not(:last-child) {
+  margin-bottom: 40px;
 }
 
 @media screen and (min-width: index.$mobile-breakpoint) {
-  .rowtext {
-    gap: 25px;
+  .tableContainer {
+    width: 311px;
+  }
+
+  .tableList {
+    height: 752px;
   }
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-  .bodybox {
-    display: none;
-  }
-  .bodyboxTable {
-    display: block;
-  }
-  .exercisestablehead {
-    flex: 1;
-    width: 100%;
-    text-align: left;
-    font-size: 16px;
-    border-collapse: separate;
-    border-spacing: 10px;
+  .tableContainer {
+    width: 680px;
   }
 
-  .exercisestablehead th,
-  .exercisestablehead td {
-    max-width: 100px;
-    padding: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .table {
-     overflow-y: scroll;
-  }
-  ::-webkit-scrollbar {
-    width: 6px;
+  .tableList {
+    height: 162px;
+    padding-right: 18px;
   }
 
-  /* Стилизация ползунка прокрутки */
-  ::-webkit-scrollbar-thumb {
-    width: 6px;
-  height: 203px;
-  border-radius: 12px;
-  background: rgba(index.$white-color, 0.1);
+  .tableList::-webkit-scrollbar-thumb {
+    height: 90px;
   }
-  ::-webkit-scrollbar-track {
-  border-radius: 12px;
-}
-:hover::-webkit-scrollbar-thumb {
-  background: rgba(index.$white-color, 0.1);
-}
+
+  .tableElement:not(:last-child) {
+    margin-bottom: 8px;
+  }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
+  .tableContainer {
+    width: 786px;
+  }
 }
+
+// @use 'index';
+
+// .tableContainer {
+//   width: 100%;
+//   height: auto;
+//   background: rgba(index.$black-color, 0.05);
+//   overflow: hidden;
+// }
+
+// .tableList {
+//   height: 100vh;
+//   overflow-y: scroll;
+//   padding-right: 8px;
+//   max-height: 824px;
+// }
+
+// .tableList::-webkit-scrollbar {
+//   width: 6px;
+// }
+
+// .tableList::-webkit-scrollbar-track {
+//   border-radius: 12px;
+//   margin-top:26px;
+// }
+
+// .tableList::-webkit-scrollbar-thumb {
+//   width: 6px;
+//   height: 203px;
+//   border-radius: 12px;
+//   background: rgba(index.$white-color, 0.1);
+// }
+
+// .tableList:hover::-webkit-scrollbar-thumb {
+//   background: rgba(index.$white-color, 0.1);
+// }
+
+// .tableElement {
+//   width: 100%;
+//   height: auto;
+// }
+
+// .tableElement:not(:last-child) {
+//   margin-bottom: 40px;
+// }
+
+// @media screen and (min-width: index.$mobile-breakpoint) {
+//   .tableContainer {
+//     width: 311px;
+//   }
+
+//   .tableList {
+//     height: 752px;
+//   }
+// }
+
+// @media screen and (min-width: index.$tablet-breakpoint) {
+//   .tableContainer {
+//     width: 680px;
+//   }
+
+//   .tableList {
+//     height: 162px;
+//     padding-right: 18px;
+//   }
+
+//   .tableList::-webkit-scrollbar-thumb {
+//     height: 90px;
+//   }
+
+//   .tableElement:not(:last-child) {
+//     margin-bottom: 8px;
+//   }
+// }
+
+// @media screen and (min-width: index.$desktop-breakpoint) {
+//   .tableContainer {
+//     width: 786px;
+//   }
+// }
