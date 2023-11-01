@@ -1,6 +1,8 @@
 import React from 'react';
 import css from './TitleMain.module.scss';
+// import sprite from '../../images/svg/line_accent.svg';
 import sprite from '../../images/svg/sprite.svg';
+// ПРосто текст и спрайт в херо без пропсов с адаптивкой
 
 const TitleMain = () => {
   return (

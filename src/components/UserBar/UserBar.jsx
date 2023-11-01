@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { selectAvatar, selectIsBMR } from 'redux/selectors';
+import { selectAvatar } from 'redux/selectors';
 import sprite from '../../images/svg/sprite.svg';
 import css from './UserBar.module.scss';
 
 const UserBar = () => {
   const avatar = useSelector(selectAvatar);
-  const bmr = useSelector(selectIsBMR);
 
   return (
-    <ul className={bmr ? css.userBarWrapper : css.userBarWrapperNoBmr}>
+    <ul className={css.userBarWrapper}>
       <li className={css.settingsItem}>
         <Link to='/profile'>
           <svg className={css.settingsIcon}>

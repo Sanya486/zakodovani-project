@@ -36,9 +36,9 @@ const LogoutBtn = ({ classes = [], header, profile }) => {
 };
 
 LogoutBtn.propTypes = {
-  classes: PropTypes.array,
-  header: PropTypes.bool,
-  profile: PropTypes.bool,
+  classes: PropTypes.arrow,
+  header: PropTypes.string,
+  profile: PropTypes.string,
 };
 
 export default LogoutBtn;

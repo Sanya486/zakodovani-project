@@ -26,16 +26,16 @@
     overflow-y: auto;
   }
 
-  .productsListContainer::-webkit-scrollbar {
+  .productList::-webkit-scrollbar {
     width: 8px;
   }
 
-  .productsListContainer::-webkit-scrollbar-thumb {
+  .productList::-webkit-scrollbar-thumb {
     background-color: index.$orange-secondary-color;
     border-radius: 12px;
   }
 
-  .productsListContainer::-webkit-scrollbar-track {
+  .productList::-webkit-scrollbar-track {
     background-color: rgba(index.$white-color, 0.1);
     border-radius: 12px;
   }

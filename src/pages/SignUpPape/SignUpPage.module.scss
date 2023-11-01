@@ -34,23 +34,26 @@
   background-size: cover;
 }
 
-@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-  .background {
-    background-image: url('../../images/signUp-bgd-mobile@2x.jpg');
-  }
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+.background {
+    background-image: url("../../images/signUp-bgd-mobile@2x.jpg");
 }
+}
+
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .signUpBlockWrapper {
     padding-top: 189px;
-  }
+  } 
 
   .containerWrapper {
     max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .background {
@@ -61,12 +64,15 @@
     background-size: cover;
   }
 
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
     .background {
-      background-image: url('../../images/signUp-bgd-tablet@2x.jpg');
-      background-size: cover;
+        background-image: url("../../images/signUp-bgd-tablet@2x.jpg");
+        background-size: cover;
     }
-  }
+}
+
 
   @media (min-height: 1025px) {
     .containerWrapper {
@@ -96,11 +102,9 @@
 
   .containerWrapper {
     height: 100vh;
-    max-width: 1440px;
+    max-width: 100%;
     padding-left: 96px;
     padding-right: 96px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .background {
@@ -109,12 +113,14 @@
     background-position-x: 100%;
     background-position-y: -130px;
     background-size: auto;
-  }
+}
 
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
     .background {
-      background-image: url('../../images/signUp-bgd-tablet@2x.jpg');
-      background-size: 670px 1005px;
+        background-image: url("../../images/signUp-bgd-tablet@2x.jpg");
+        background-size: 670px 1005px;
     }
-  }
+}
 }

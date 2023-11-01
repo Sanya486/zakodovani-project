@@ -4,17 +4,15 @@ import css from './DayDashboard.module.scss';
 import { InfoItem } from 'components/InfoItem/InfoItem';
 
 export const DayDashboard = ({
-  BMR = 0,
-  timeOfSport = 0,
-  caloriesConsumed = 0,
-  caloriesBurned = 0,
-  caloriesRest = 0,
-  restSport = 0,
+  BMR,
+  timeOfSport,
+  caloriesConsumed,
+  caloriesBurned,
+  caloriesRest,
+  restSport,
 }) => {
-  console.log(BMR, timeOfSport, caloriesConsumed, caloriesBurned, caloriesRest, restSport);
-
-  const typeOfNumber = (number, targetNumber = 0) => {
-    if (number < targetNumber) {
+  const typeOfNumber = (number) => {
+    if (number < 0) {
       return 'error';
     } else {
       return 'success';
@@ -49,8 +47,9 @@ export const DayDashboard = ({
     },
     {
       name: 'The rest of sports',
-      value: `${typeOfNumber(restSport, 1) === 'success' ? '+' : ''}${restSport}min`,
-      variant: typeOfNumber(restSport, 110),
+      value: `${typeOfNumber(restSport) === 'success' ? '+' : ''}${restSport}min`,
+      variant: typeOfNumber(restSport),
+
     },
   ];
 
@@ -68,8 +67,8 @@ export const DayDashboard = ({
 DayDashboard.propTypes = {
   BMR: PropTypes.number.isRequired,
   timeOfSport: PropTypes.number.isRequired,
-  caloriesConsumed: PropTypes.number,
-  caloriesBurned: PropTypes.number,
-  caloriesRest: PropTypes.number,
-  restSport: PropTypes.number,
+  caloriesConsumed: PropTypes.number.isRequired,
+  caloriesBurned: PropTypes.number.isRequired,
+  caloriesRest: PropTypes.number.isRequired,
+  restSport: PropTypes.number.isRequired,
 };

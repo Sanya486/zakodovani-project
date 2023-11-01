@@ -15,12 +15,12 @@
   }
 
   .exercise-list::-webkit-scrollbar-thumb {
-    background: index.$orange-secondary-color;
+    background: #ef8964;
     border-radius: 12px;
   }
 
   .exercise-list::-webkit-scrollbar-track {
-    background: rgba(index.$white-color, 0.1);
+    background: #efede81a;
     border-radius: 12px;
   }
 }

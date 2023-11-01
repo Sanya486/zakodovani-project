@@ -5,9 +5,9 @@
   margin-left: auto;
   margin-bottom: 20px;
   padding: 16px;
-  border: 1px solid rgba(index.$white-color, 0.2);
+  border: 1px #efede833 solid;
   border-radius: 12px;
-  background-color: rgba(index.$white-color, 0.05);
+  background-color: rgba(239, 237, 232, 0.05);
   color: index.$white-color;
   cursor: pointer;
 }
@@ -37,7 +37,7 @@
   font-size: 12px;
   font-weight: 700;
   padding: 5px 7.5px;
-  background-color: rgba(index.$white-color, 0.05);
+  background-color: rgba(239, 237, 232, 0.05);
   border-radius: 4px;
 }
 
@@ -84,7 +84,7 @@
   margin-right: 16px;
   font-size: 12px;
   line-height: 1.5;
-  color: rgba(index.$white-color, 0.4);
+  color: rgba(239, 237, 232, 0.4);
   text-transform: capitalize;
 }
 

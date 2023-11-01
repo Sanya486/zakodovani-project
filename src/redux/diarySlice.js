@@ -29,7 +29,7 @@ export const diarySlice = createSlice({
   extraReducers: (builder) =>
     builder
       .addCase(fetchDiaryDateInfo.fulfilled, (state, { payload }) => {
-        state.data = { ...payload.diary };
+        state.data = {...payload.diary};
         state.isLoading = false;
       })
       .addCase(fetchDiarySaveProduct.fulfilled, handleMessage)

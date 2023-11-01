@@ -23,7 +23,7 @@ input {
   width: 100%;
   padding: 8px 14px;
   background-color: inherit;
-  color: rgba(index.$white-color, 0.3);
+  color: rgba(239, 237, 232, 0.3);
   font-size: 14px;
   line-height: 18px;
   outline: none;
@@ -38,13 +38,13 @@ input {
   top: 50%;
   right: 14px;
   transform: translateY(-50%);
-  color: rgba(index.$white-color, 0.4);
+  color: rgba(239, 237, 232, 0.4);
   font-size: 12px;
   line-height: 1.5;
 }
 
 .calories {
-  color: rgba(index.$white-color, 0.4);
+  color: rgba(239, 237, 232, 0.4);
   font-size: 12px;
   line-height: 1.5;
   margin-bottom: 24px;

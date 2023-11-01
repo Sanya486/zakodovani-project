@@ -17,6 +17,7 @@
 }
 
 .logoIconColor {
+  composes: logoIcon;
   fill: index.$white-color;
 }
 

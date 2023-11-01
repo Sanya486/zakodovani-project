@@ -1,133 +1,102 @@
 @use 'index';
 
-.productsContainer {
-  width: 100%;
-
-  background: rgba(index.$white-color, 0.05);
-  overflow: hidden;
-  border: 1px solid rgba(index.$white-color, 0.2);
-  border-radius: 12px;
-  padding: 16px 8px 16px 16px;
-  position: relative;
-  margin-bottom: 40px;
-}
-
-.headBlock {
-  width: 100%;
-  height: auto;
+.container {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  padding-right: 8px;
+  background-color: rgba(239, 237, 232, 0);
+}
+.exercisetitle {
   padding-bottom: 22px;
-}
-
-.headTitle {
+  color: rgba(239, 237, 232, 0.5);
+  font-weight: 400;
   font-size: 14px;
-  line-height: calc(18 / 14);
-  vertical-align: center;
-  color: rgba(index.$white-color, 0.5);
+  line-height: 1.3;
 }
-
-.headLink {
-  font-size: 14px;
-  line-height: calc(18 / 14);
-  font-weight: medium;
-  color: index.$orange-main-color;
-}
-
-.linkWraper {
+.addexercisetitle {
   display: flex;
-  column-gap: 8px;
-  width: 100%;
+  gap: 8px;
+  color: index.$orange-main-color;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.bodybox {
+  max-height: 824px;
+  overflow: scroll;
+  padding: 16px 25px;
+  border-width: 1px;
+  gap: 32px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  background: rgba(239, 237, 232, 0.05);
 }
 
-.icon {
+.exercisesepmty {
+  color: rgba(239, 237, 232, 0.5);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+}
+.iconarrow {
+  stroke: index.$orange-main-color;
   width: 16px;
   height: 16px;
-  stroke: index.$orange-main-color;
 }
-
-.productWrap {
-  width: 100%;
-  min-height: 301px;
-}
-
-.resultInfoTextWrap {
-  width: 100%;
-  height: 301px;
-}
-
-.resultInfoText {
-  width: 121px;
+.exercisesepmty {
+  font-weight: 400;
   font-size: 14px;
-  line-height: calc(18 / 14);
-  color: rgba(index.$white-color, 0.3);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  line-height: 1.3;
 }
-
+.emptycontainer {
+  display: flex;
+  min-height: 335px;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
 @media screen and (min-width: index.$mobile-breakpoint) {
-  .productsContainer {
-    width: 335px;
-  }
-
-  .productWrap {
-    min-height: auto;
-    height: 752px;
-  }
-
-  .resultInfoText {
-    width: 121px;
-  }
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
-  .productsContainer {
-    width: 704px;
-    height: 234px;
-    margin-bottom: 0;
-  }
-
-  .resultInfoContainer {
-    height: 234px;
-  }
-
-  .headBlock {
-    padding-bottom: 16px;
-  }
-
-  .headTitle {
-    padding: 3px 0;
-  }
-
-  .headLink {
+  .addexercisetitle {
     font-size: 16px;
-    line-height: calc(24 / 16);
+    line-height: 1.5;
   }
-
-  .productWrap {
-    height: 162px;
-  }
-
-  .resultInfoTextWrap {
-    height: 194px;
-  }
-
-  .resultInfoText {
-    width: 139px;
+  .exercisesepmty {
+    font-weight: 400;
     font-size: 16px;
-    line-height: calc(24 / 16);
+    line-height: 1.5;
+  }
+  .emptycontainer {
+    display: flex;
+    min-height: 234px;
+    gap: 32px;
+  }
+  .bodybox {
+    max-height: 100%;
+    height: 234px;
+    overflow-y: scroll;
+    // margin-top: 32px;
+    padding: 16px 8px 8px 16px;
   }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
-  .productsContainer {
-    width: 826px;
+  .emptycontainer {
+    min-height: 234px;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
   }
-
-  .productWrap {
-    padding-left: 16px;
+  .exercisesepmty {
+    display: flex;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .bodybox {
+    max-width: 826px;
   }
 }

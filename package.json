@@ -2,7 +2,6 @@
   "name": "power-pulse-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Sanya486.github.io/zakodovani-project/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.17.0",
@@ -17,7 +16,6 @@
     "react": "^18.2.0",
     "react-calendar": "^4.6.1",
     "react-countdown-circle-timer": "^3.2.1",
-    "react-datepicker": "^4.21.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-infinite-scroll-component": "^6.1.0",
