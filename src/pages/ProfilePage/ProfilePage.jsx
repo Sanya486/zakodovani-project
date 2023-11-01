@@ -9,28 +9,23 @@ import Container from 'components/Container/Container';
 // import PropTypes from 'prop-types'
 
 const ProfilePage = () => {
-  
-  return (<Container>
-     <TitlePage>Profile Settings</TitlePage>
+  return (
+    <Container>
+      <TitlePage>Profile Settings</TitlePage>
       <div className={css.flexCont}>
         <div className={css.rightCont}>
-         
           <User />
-          <UserCard  />
+          <UserCard />
           <LogoutBtn profile className={`${css.iconForProfile} ${css.logoutBtnProfile}`} />
         </div>
         <div className={css.leftCont}>
-        
-          <UserForm  />
-          
+          <UserForm />
         </div>
       </div>
       ;
-  </Container>
-    
+    </Container>
   );
 };
-
 
 // ProfilePage.propTypes = {
 

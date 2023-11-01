@@ -5,12 +5,9 @@ import { selectIsBMR, selectIsTimeForSport } from '../../redux/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 const UserCard = () => {
-  // const [userBMR, setUserBMR] = useState(0);
-  // const [userSport, setUserSport] = useState(0);
   const BMR = useSelector(selectIsBMR);
   const sport = useSelector(selectIsTimeForSport);
 
- 
   return (
     <>
       <div className={css['group']}>
@@ -23,7 +20,7 @@ const UserCard = () => {
             </span>
             Daily calorie intake
           </p>
-          <span className={css.span1}>{BMR  || 0}</span>
+          <span className={css.span1}>{BMR || 0}</span>
         </div>
 
         <div className={css['conteiner']}>
