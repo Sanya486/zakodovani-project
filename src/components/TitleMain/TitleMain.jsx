@@ -2,7 +2,6 @@ import React from 'react';
 import css from './TitleMain.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 
-
 const TitleMain = () => {
   return (
     <div className={css.titleWrapper}>

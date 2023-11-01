@@ -3,7 +3,6 @@ import css from './ExercisesTable.module.scss';
 import ExercisesTableItem from 'components/ExercisesTableItem/ExercisesTableItem';
 import clsx from 'clsx';
 
-
 export const ExercisesTable = ({ exercises }) => {
   return (
     <>

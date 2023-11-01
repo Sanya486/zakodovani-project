@@ -10,11 +10,10 @@ import { useSelector } from 'react-redux';
 import { selectClient, selectRegistrationDate } from 'redux/selectors';
 
 const DaySwitch = ({ currentDate = new Date(), setCurrentDate }) => {
-  const user = useSelector(selectClient)
-  const registrationDate = useSelector(selectRegistrationDate)
+  const user = useSelector(selectClient);
+  const registrationDate = useSelector(selectRegistrationDate);
   const [value, onChange] = useState(new Date());
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
-
 
   const formattedDate = formattingDate(currentDate);
 
@@ -26,7 +25,7 @@ const DaySwitch = ({ currentDate = new Date(), setCurrentDate }) => {
   };
 
   const decrementDate = () => {
-    if(currentDate.toLocaleDateString() <= new Date(registrationDate).toLocaleDateString()) return
+    if (currentDate.toLocaleDateString() <= new Date(registrationDate).toLocaleDateString()) return;
     const newDate = new Date(currentDate);
     newDate.setDate(currentDate.getDate() - 1);
     setCurrentDate(newDate);

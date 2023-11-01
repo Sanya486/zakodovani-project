@@ -6,8 +6,6 @@ import { clsx } from 'clsx';
 import { ProductTableItem } from 'components/ProductsTableItem/ProductsTableItem';
 
 export const ProductTable = ({ products }) => {
-
-
   return (
     <>
       <div className={clsx(css.tableContainer)}>

@@ -121,9 +121,7 @@ const ProductsFilters = () => {
               <use href={sprite + '#icon-chevron-down'}></use>
             </svg>
             {isRecOpen && (
-              <div
-                className={css.recommendationOptionWrap}
-              >
+              <div className={css.recommendationOptionWrap}>
                 <ul className={css.recommendationOptionWrapList}>
                   <li>
                     <p

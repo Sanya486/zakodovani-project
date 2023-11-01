@@ -61,9 +61,8 @@ const UserForm = () => {
     delete values.email;
     values.blood = parseInt(values.blood);
     values.levelActivity = parseInt(values.levelActivity);
-  
+
     dispatch(fetchCalculateDailyMetrics(values));
-    
   };
 
   return (
@@ -87,7 +86,7 @@ const UserForm = () => {
       initialErrors={{}}
       validateOnMount={true}
     >
-      {({ errors, touched, setFieldValue, handleChange, isValid  }) => (
+      {({ errors, touched, setFieldValue, handleChange, isValid }) => (
         <Form>
           <div>
             <span className={css.title}>Basic info</span>
@@ -122,7 +121,9 @@ const UserForm = () => {
                       type='number'
                       id='height'
                       name='height'
-                      className={`${css.input} ${css.height} ${errors.height && touched.height ? css.error : ''}`}
+                      className={`${css.input} ${css.height} ${
+                        errors.height && touched.height ? css.error : ''
+                      }`}
                       min='150'
                       required
                     />
@@ -189,7 +190,7 @@ const UserForm = () => {
                             date.setDate(date.getDate());
                             const isoDate = await date.toISOString().split('T')[0];
                             setCurrentDate(isoDate);
-                            
+
                             closeCalendar();
                             setFieldValue('birthday', isoDate);
                           }}
@@ -200,7 +201,7 @@ const UserForm = () => {
                           defaultView='month'
                           formatShortWeekday={customWeekdayFormatter}
                           minDetail='month'
-                          maxDate={addYears(new Date(), -18)} 
+                          maxDate={addYears(new Date(), -18)}
                           minDate={subYears(new Date(), 100)}
                         />
                       )}
@@ -221,7 +222,6 @@ const UserForm = () => {
                   name='blood'
                   id='radio1'
                   value='1'
-                
                   onChange={handleChange}
                   className={`${css.inputRadio} ${css.realRadio} ${
                     errors.blood && touched.blood ? css.error : ''

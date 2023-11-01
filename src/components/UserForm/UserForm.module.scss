@@ -95,23 +95,19 @@
   line-height: 1.29;
 }
 .inputRadio {
-  
   margin-right: 3px;
   width: 20px;
-  height: 20px; 
-
+  height: 20px;
 }
 .inputRadioSex {
   color: index.$radio-color;
   margin-right: 3px;
-  
 }
 .radioText {
   display: flex;
   flex-direction: column;
   margin-top: 41px;
   gap: 9px;
-  
 }
 
 .labelText {
@@ -215,7 +211,7 @@
   right: 14px;
   transform: translateY(-65%);
 }
-.calendarError{
+.calendarError {
   color: aqua;
 }
 .spanName {
@@ -261,7 +257,6 @@
   display: block;
 }
 
-
 @media screen and (min-width: index.$mobile-breakpoint) {
   .container {
     width: 375px;
@@ -294,8 +289,8 @@
     line-height: 1.5;
     font-size: 16px;
   }
-  .form{
-    align-items:baseline;
+  .form {
+    align-items: baseline;
   }
   .calendar {
     margin-top: 23px;
@@ -341,19 +336,19 @@
     margin-top: 38px;
     cursor: pointer;
   }
-  .group2{
-    gap:14px;
+  .group2 {
+    gap: 14px;
   }
-  .height{
+  .height {
     width: 168px;
   }
   .group1 > *:not(:last-child) {
     margin-right: 14px;
   }
-  .desirInput{
+  .desirInput {
     width: 140px;
   }
-  .calendarInput{
+  .calendarInput {
     width: 187px;
   }
 
