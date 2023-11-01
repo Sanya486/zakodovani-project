@@ -11,13 +11,6 @@ export const DayDashboard = ({
   caloriesRest= 0,
   restSport =0,
 }) => {
-  const typeOfNumber = (number) => {
-    if (number < 0) {
-      return 'error';
-    } else {
-      return 'success';
-    }
-  };
 
   const changedArr = [
     {
@@ -43,12 +36,12 @@ export const DayDashboard = ({
     {
       name: 'The rest of the calories',
       value: `${caloriesRest}`,
-      variant: typeOfNumber(caloriesRest),
+      variant: `${caloriesRest <0 ? "error": "empty"}`,
     },
     {
       name: 'The rest of sports',
-      value: `${typeOfNumber(restSport) === 'success' ? '+' : ''}${restSport}min`,
-      variant: typeOfNumber(restSport),
+      value: `${(restSport - timeOfSport) >= 0 ? '+' : ''}${Math.abs(restSport - timeOfSport)}min`,
+      variant: `${(restSport - timeOfSport) >= 0 ? 'success' : 'empty'}`,
     },
   ];
 
