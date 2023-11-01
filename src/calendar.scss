@@ -13,6 +13,7 @@ body .react-calendar {
   border-radius: 8px;
   padding: 10px;
   border: 0;
+  z-index: 100;
 }
 
 body .react-calendar__navigation {
@@ -104,7 +105,8 @@ body .react-calendar__tile {
 }
 
 body .react-calendar__tile:disabled {
-  background-color: #f0f0f0;
+  background-color: index.$orange-secondary-color;
+  color: #EF9D7E;
 }
 
 body .react-calendar__tile:enabled:hover,

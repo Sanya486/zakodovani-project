@@ -8,57 +8,76 @@
   background: transparent;
 }
 
-@media screen and (max-width: 375px) { 
-  .headerNoAuthenticatedWpapper {
-  position: absolute;
-  left: 20px;
-  display: flex;
-  height: 61px;
-  padding: 24px 0;
-  align-items: center;
-  background: transparent;
-  }
+.diaryHeader {
+  border-bottom: 1px solid rgba(index.$white-color, 0.2);
 }
 
-@media screen and (min-width: 375px) {
-  .headerNoAuthenticatedWpapper {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    display: flex;
-    height: 61px;
-    padding: 24px 0;
-    align-items: center;
-    background: transparent;
-  }
+.welcomeHeader {
+  border-bottom: transparent;
 }
 
 .userNavWrapper {
+  position: relative;
   display: flex;
   align-items: center;
   margin-left: auto;
   margin-right: 16px;
 }
 
-@media screen and (min-width: index.$tablet-breakpoint) {
+@media screen and (max-width: index.$mobile-breakpoint) {
+  .headerNoAuthenticatedWpapper {
+    position: fixed;
+    margin: 0 auto;
+    padding: 24px 20px;
+    background: transparent;
+  }
+}
+
+@media screen and (min-width: index.$mobile-breakpoint) {
   .headerWrapper {
-    border-bottom: 1px solid rgba(index.$white-color, 0.2);
+    width: 375px;
+    margin: 0 auto;
+    padding: 24px 20px;
   }
 
   .headerNoAuthenticatedWpapper {
-    transform: translate(0);
-    left: 32px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    width: 375px;
+    padding: 24px 20px;
+    background: transparent;
+  }
+}
+
+@media screen and (min-width: index.$tablet-breakpoint) {
+  .headerWrapper {
+    width: 768px;
+    margin: 0 auto;
+    padding: 26px 32px;
+  }
+
+  .headerNoAuthenticatedWpapper {
+    position: fixed;
+    width: 768px;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 26px 32px;
+    background: transparent;
   }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
-  .containerWrapper {
-    max-width: 1440px;
-    padding-left: 96px;
-    padding-right: 96px;
+  .headerWrapper {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 30px 96px;
   }
 
   .headerNoAuthenticatedWpapper {
-    left: 96px;
+    position: fixed;
+    width: 1440px;
+    padding: 30px 96px;
+    background: transparent;
   }
 }

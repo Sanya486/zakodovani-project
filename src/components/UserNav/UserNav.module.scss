@@ -6,8 +6,8 @@
 
 .navBurgerMenu {
   position: absolute;
-  top: 18px;
-  right: 20px;
+  top: 5px;
+  right: -16px;
   display: flex;
   justify-content: center;
   padding: 0;
@@ -26,8 +26,8 @@
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .navBurgerMenu {
-    top: 15px;
-    right: 20px;
+    top: 5px;
+    right: -16px;
   }
 
   .navBurgerMenuIcon {
@@ -54,13 +54,23 @@
     border: 1px solid rgba(index.$white-color, 0.2);
     border-radius: 12px;
     padding: 10px 27px;
-    color: #efede8;
+    color: index.$white-color;
     background-color: transparent;
     font-size: 16px;
+    transition: index.$transition-dur-and-fun;
 
     &.active {
       border-color: transparent;
       background-color: index.$orange-main-color;
+
+      &:hover {
+        background-color: index.$orange-secondary-color;
+        border-color: transparent;
+      }
+    }
+
+    &:hover {
+      border-color: index.$orange-main-color;
     }
   }
 }

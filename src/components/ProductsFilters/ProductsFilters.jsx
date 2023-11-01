@@ -1,24 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import css from './ProductsFilters.module.scss';
 import sprite from '../../images/svg/sprite.svg';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectProductsCategories } from 'redux/selectors';
 import clsx from 'clsx';
+import { fetchProductsCategories } from 'redux/operations';
 
 const ProductsFilters = () => {
+  const dispatch = useDispatch()
+
   const [reccomendation, setReccomendation] = useState('All');
   const [category, setCategory] = useState('');
   const [search, setSearch] = useState('');
   const [isCloseIconShown, setIsCloseIconShown] = useState(false);
+  const [isRecOpen, setIsRecOpen] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  
+  const productCategories = useSelector(selectProductsCategories);
 
   useEffect(() => {
     if (search) setIsCloseIconShown(true);
     else setIsCloseIconShown(false);
   }, [search]);
 
-  const [isRecOpen, setIsRecOpen] = useState(false);
-  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
-  const productCategories = useSelector(selectProductsCategories);
+  useEffect(() => {
+    dispatch(fetchProductsCategories());
+  }, [dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -87,7 +94,6 @@ const ProductsFilters = () => {
               </div>
             )}
           </div>
-
           <div className={css.recommendationWrap}>
             <input
               className={clsx(css.inputStyle)}

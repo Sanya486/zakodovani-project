@@ -1,72 +1,92 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import css from './ExercisesTableItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import clsx from 'clsx';
-
-
+import { fetchDeleteExercise } from 'redux/operations';
+import { useDispatch } from 'react-redux';
 
 const ExercisesTableItem = ({
-  bodyPart ,
+  id,
+  bodyPart,
   equipment,
-  name  ,
-  target ,
-  burnedCalories ,
+  name,
+  target,
   time,
+  burnedCalories,
+  first,
 }) => {
-  const onClick = () => {
-    console.log("Удалить по йади");
-  }
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const dispatch = useDispatch();
+
+  const onDeleteProduct = (id) => {
+    dispatch(fetchDeleteExercise(id));
+  };
+
+  const deleteHandler = () => {
+    onDeleteProduct(id);
+  };
+
+  useEffect(() => {
+    const handleResize = (event) => {
+      setWidth(event.target.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <>
-      <div className={clsx(css.bodybox)}>
-        <div>
-          <div>
-            <h2 className={css.exercisename}>Body Part</h2>
-            <h3 className={css.exercisetipe}>{bodyPart}</h3>
+      <>
+        <div className={css.container}>
+          <div className={clsx(css.element, css.titleElement)}>
+            <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>Body Part</p>
+            <p className={css.elementField}>{bodyPart}</p>
           </div>
-          <div>
-            <h2 className={css.exercisename}>Equipment</h2>
-            <h3 className={css.exercisetipe}>{equipment}</h3>
+
+          <div className={clsx(css.element, css.categoriesElement)}>
+            <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>Equipment</p>
+            <p className={css.elementField}>{equipment}</p>
           </div>
-          <div>
-            <h2 className={css.exercisename}>Name</h2>
-            <h3 className={css.exercisetipe}>{name}</h3>
+
+          <div className={clsx(css.element, css.categoriesElement)}>
+            <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>Name</p>
+            <p className={css.elementField}>{name}</p>
           </div>
-          <div className={css.rowtext}>
-            <div className={css.subrowtext}>
-              <h2 className={css.exercisename}>Target</h2>
-              <h3 className={css.exercisetipe}>{target}</h3>
+
+          <div className={css.blockWrap}>
+            <div className={css.subBlockWrap}>
+              <div className={clsx(css.element, css.recommendElement)}>
+                <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>Target</p>
+                <p className={css.elementField}>{target}</p>
+              </div>
+
+              <div className={clsx(css.element, css.caloriesElement)}>
+                <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>
+                  Burned Calories
+                </p>
+                <p className={css.elementField}>{burnedCalories}</p>
+              </div>
+
+              <div className={clsx(css.element, css.weightElement)}>
+                <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>Time</p>
+                <p className={css.elementField}>{time}</p>
+              </div>
             </div>
-            <div className={css.subrowtext}>
-              <h2 className={css.exercisename}>Burned Calories</h2>
-              <h3 className={css.exercisetipe}>{burnedCalories}</h3>
+
+            <div className={css.buttonWrap}>
+              <button type='click' className={css.button} onClick={deleteHandler}>
+                <svg className={css.icon}>
+                  <use href={sprite + '#trash_icon'}></use>
+                </svg>
+              </button>
             </div>
-            <div className={css.subrowtext}>
-              <h2 className={css.exercisename}>Time</h2>
-              <h3 className={css.exercisetipe}>{time}</h3>
-            </div>
-            <svg className={css.icon} onClick={onClick}>
-              <use href={sprite + '#trash_icon'}></use>
-            </svg>
           </div>
         </div>
-      </div>
-      <tr className={clsx(css.exercisestablebody, css.tablehide)}>
-        <td className={css.exercisetipe}>{bodyPart}</td>
-        <td className={css.exercisetipe}>{equipment}</td>
-        <td className={css.exercisetipe}>{name}</td>
-        <td className={css.exercisetipe}>{target}</td>
-        <td className={css.exercisetipe}>{burnedCalories}</td>
-        <td className={css.exercisetipe}>{time}</td>
-        <svg className={css.icon2} onClick={onClick}>
-          <use href={sprite + '#trash_icon'}></use>
-        </svg>
-      </tr>
+      </>
     </>
   );
 };
-
 export default ExercisesTableItem;
-
-// import React from 'react';

@@ -124,6 +124,7 @@
   font-weight: bold;
   padding-top: 8px;
 }
+
 @media (min-width: index.$tablet-breakpoint) {
   @media (min-height: 600px) {
     .container {
@@ -136,12 +137,22 @@
       margin-top: 0;
     }
 
+    .containerWelcomePage {
+      right: 12%;
+      bottom: 14%;
+    }
+
     .containerCal {
       position: absolute;
       bottom: -4%;
       right: 3%;
       width: 180px;
       height: 110px;
+    }
+
+    .containerCalWelcomePage {
+      bottom: -15%;
+      right: 3%;
     }
   }
 
@@ -217,6 +228,7 @@
     margin-top: 171px;
   }
 }
+
 @media (min-width: index.$desktop-breakpoint) {
   .container {
     position: absolute;

@@ -3,6 +3,12 @@
 .accentButton {
   background-color: index.$orange-main-color;
   border-color: transparent;
+  transition: index.$transition-dur-and-fun;
+}
+
+.accentButton:hover {
+  background-color: index.$orange-secondary-color;
+  border-color: transparent;
 }
 
 .btn {
@@ -19,11 +25,17 @@
   font-style: normal;
   font-weight: 500;
   line-height: 1.125;
+  cursor: pointer;
 }
 
 .transparentButton {
   background-color: transparent;
   border: 1px solid #efede84d;
+  transition: index.$transition-dur-and-fun;
+}
+
+.transparentButton:hover {
+  border-color: index.$orange-main-color;
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {

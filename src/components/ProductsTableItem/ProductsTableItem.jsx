@@ -8,7 +8,15 @@ import { clsx } from 'clsx';
 import { useDispatch } from 'react-redux';
 import { fetchDeleteProduct } from 'redux/operations';
 
-export const ProductTableItem = ({ id, title, category, calories, weight, recommend, first }) => {
+export const ProductTableItem = ({
+  id,
+  title,
+  category,
+  calories,
+  weight,
+  groupBloodNotAllowed,
+  first,
+}) => {
   const [width, setWidth] = useState(window.innerWidth);
 
   const dispatch = useDispatch();
@@ -36,45 +44,45 @@ export const ProductTableItem = ({ id, title, category, calories, weight, recomm
       <div className={css.container}>
         <div className={clsx(css.element, css.titleElement)}>
           <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>Title</p>
-          <p className={css.field}>{title}</p>
+          <p className={css.elementField}>{title}</p>
         </div>
 
         <div className={clsx(css.element, css.categoriesElement)}>
           <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>Category</p>
-          <p className={css.field}>{category}</p>
+          <p className={css.elementField}>{category}</p>
         </div>
 
         <div className={css.blockWrap}>
           <div className={css.subBlockWrap}>
             <div className={clsx(css.element, css.caloriesElement)}>
               <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>Calories</p>
-              <p className={css.field}>{calories}</p>
+              <p className={css.elementField}>{calories}</p>
             </div>
 
             <div className={clsx(css.element, css.weightElement)}>
               <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>Weight</p>
-              <p className={css.field}>{weight}</p>
+              <p className={css.elementField}>{weight}</p>
             </div>
 
             <div className={clsx(css.element, css.recommendElement)}>
               <p className={clsx(css.title, width > 767 && first !== true && 'hidden')}>
                 Recommend
               </p>
-              <p className={clsx(css.field, css.recommendField)}>
+              <p className={clsx(css.elementField, css.recommendField)}>
                 <span
                   className={clsx(
                     css.recomendStatus,
-                    recommend !== 'Yes' && css.recommendFalseColor,
+                    groupBloodNotAllowed === false && css.recommendFalseColor,
                   )}
                 >
-                  {recommend}
+                  {groupBloodNotAllowed === false ? 'No' : 'Yes'}
                 </span>
               </p>
             </div>
           </div>
 
           <div className={css.buttonWrap}>
-            <button type='submit' className={css.button} onClick={deleteHandler}>
+            <button type='click' className={css.button} onClick={deleteHandler}>
               <svg className={css.icon}>
                 <use href={sprite + '#trash_icon'}></use>
               </svg>
@@ -87,10 +95,11 @@ export const ProductTableItem = ({ id, title, category, calories, weight, recomm
 };
 
 ProductTableItem.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   calories: PropTypes.number.isRequired,
   weight: PropTypes.number.isRequired,
-  recommend: PropTypes.string.isRequired,
-  first: PropTypes.string,
+  groupBloodNotAllowed: PropTypes.bool.isRequired,
+  first: PropTypes.bool.isRequired,
 };

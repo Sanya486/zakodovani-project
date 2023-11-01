@@ -4,17 +4,20 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import css from './DaySwitch.module.scss';
 import { useState } from 'react';
-import formattingDate from './formattingDate';
+import formattingDate from '../../utils/formattingDate';
 import customWeekdayFormatter from './ustomWeekdayFormatter';
+import { useSelector } from 'react-redux';
+import { selectClient } from 'redux/selectors';
 
-const DaySwitch = () => {
+const DaySwitch = ({ currentDate = new Date(), setCurrentDate }) => {
+  const user = useSelector(selectClient);
   const [value, onChange] = useState(new Date());
-  const [currentDate, setCurrentDate] = useState(new Date());
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
 
   const formattedDate = formattingDate(currentDate);
 
   const incrementDate = () => {
+    if (currentDate.toLocaleDateString() === new Date().toLocaleDateString()) return;
     const newDate = new Date(currentDate);
     newDate.setDate(currentDate.getDate() + 1);
     setCurrentDate(newDate);
@@ -39,7 +42,7 @@ const DaySwitch = () => {
   }, [currentDate]);
 
   const onClickDay = (value) => {
-    setCurrentDate(value);
+    setCurrentDate(() => value);
   };
 
   return (
@@ -69,9 +72,10 @@ const DaySwitch = () => {
             locale='en'
             defaultView='month'
             formatShortWeekday={customWeekdayFormatter}
-            // minDate=
             minDetail='month'
             onClickDay={onClickDay}
+            minDate={new Date(user.registrationDate)}
+            maxDate={new Date()}
           />
         )}
       </div>

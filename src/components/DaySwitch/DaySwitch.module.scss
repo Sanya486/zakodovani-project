@@ -12,7 +12,7 @@
   font-size: 18px;
   font-weight: bold;
   color: index.$white-color;
-  line-height: 1.25;
+  line-height: calc(20 / 18);
 }
 
 .calendarIcon {
@@ -66,7 +66,7 @@ button {
 
   .date {
     font-size: 24px;
-    line-height: 2;
+    line-height: calc(32 / 24);
   }
 
   .calendarIcon {
