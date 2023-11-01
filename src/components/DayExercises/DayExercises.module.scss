@@ -2,7 +2,7 @@
 
 .productsContainer {
   width: 100%;
-
+  // height: 100vh;
   background: rgba(index.$white-color, 0.05);
   overflow: hidden;
   border: 1px solid rgba(index.$white-color, 0.2);
@@ -71,6 +71,7 @@
 @media screen and (min-width: index.$mobile-breakpoint) {
   .productsContainer {
     width: 335px;
+   
   }
 
   .productWrap {
@@ -87,7 +88,7 @@
   .productsContainer {
     width: 704px;
     height: 234px;
-    margin-bottom: 0;
+     margin-bottom: 0;
   }
 
   .resultInfoContainer {
@@ -131,3 +132,4 @@
     padding-left: 16px;
   }
 }
+
