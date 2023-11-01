@@ -67,6 +67,7 @@ const UserForm = () => {
     values.blood = parseInt(values.blood);
     values.levelActivity = parseInt(values.levelActivity);
     values.birthday = formattingDateForBackEnd(values.birthday);
+
     dispatch(fetchCalculateDailyMetrics(values));
   };
 
@@ -91,7 +92,7 @@ const UserForm = () => {
       initialErrors={{}}
       validateOnMount={true}
     >
-      {({ errors, touched, setFieldValue, handleChange }) => (
+      {({ errors, touched, setFieldValue, handleChange, isValid }) => (
         <Form>
           <div>
             <span className={css.title}>Basic info</span>
@@ -224,7 +225,6 @@ const UserForm = () => {
                   id='radio1'
                   value='1'
                   onChange={handleChange}
-                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${css.realRadio} ${
                     errors.blood && touched.blood ? css.error : ''
                   }`}
@@ -238,7 +238,6 @@ const UserForm = () => {
                   value='2'
                   id='radio2'
                   onChange={handleChange}
-                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${css.realRadio} ${
                     errors.blood && touched.blood ? css.error : ''
                   }`}
@@ -252,7 +251,6 @@ const UserForm = () => {
                   value='3'
                   id='radio3'
                   onChange={handleChange}
-                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${css.realRadio} ${
                     errors.blood && touched.blood ? css.error : ''
                   }`}
@@ -266,7 +264,6 @@ const UserForm = () => {
                   id='radio4'
                   value='4'
                   onChange={handleChange}
-                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${css.realRadio} ${
                     errors.blood && touched.blood ? css.error : ''
                   }`}
@@ -317,7 +314,6 @@ const UserForm = () => {
                   value='2'
                   className={`${css.inputRadioText} ${css.realRadio}`}
                 />
-
                 <span className={css.customRadio}></span>
                 <span className={css.spanName}>
                   Light activity (light exercises/sports 1-3 days per week)
@@ -332,7 +328,6 @@ const UserForm = () => {
                   value='3'
                   className={`${css.inputRadioText} ${css.realRadio}`}
                 />
-
                 <span className={css.customRadio}></span>
                 <span className={css.spanName}>
                   Moderately active (moderate exercises/sports 3-5 days per week)
@@ -368,7 +363,7 @@ const UserForm = () => {
               </label>
             </div>
           </div>
-          <button type='submit' className={css.btn}>
+          <button type='submit' className={css.btn} disabled={!isValid}>
             Save
           </button>
         </Form>

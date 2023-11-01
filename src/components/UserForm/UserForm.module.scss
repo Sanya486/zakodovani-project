@@ -9,10 +9,11 @@
   line-height: 1.5;
   font-size: 12px;
   color: rgba(index.$white-color, 50%);
+  display: block;
 }
 
 .blood {
-  display: inline;
+  display: inline-block;
   line-height: 1.5;
   font-size: 12px;
   margin-bottom: 4px;
@@ -47,6 +48,7 @@
 }
 
 .inputBase {
+  width: 100%;
   border-radius: 12px;
   border-color: rgba(index.$white-color, 30%);
   color: index.$white-color;
@@ -83,9 +85,6 @@
   gap: 12px;
   align-items: flex-end;
 }
-// .group2 > *:not(:last-child) {
-//   margin-right: 12px;
-// }
 
 .radio {
   display: flex;
@@ -102,8 +101,8 @@
 }
 .inputRadio {
   margin-right: 3px;
-  width: 20px; /* Задайте більший розмір для всіх радіокнопок */
-  height: 20px; /* Задайте більший розмір для всіх радіокнопок */
+  width: 20px;
+  height: 20px;
 }
 .inputRadioSex {
   color: index.$radio-color;
@@ -115,6 +114,7 @@
   margin-top: 41px;
   gap: 9px;
 }
+
 .labelText {
   display: flex;
   align-items: center;
@@ -144,7 +144,7 @@
 }
 
 .inputSuccess {
-  border: 1px solid green;
+  border: 1px solid index.$success-color;
 }
 .error {
   color: index.$error-color;
@@ -230,6 +230,9 @@
   stroke: index.$orange-main-color;
 }
 
+.calendarError {
+  color: aqua;
+}
 .spanName {
   line-height: 1.285;
   font-size: 14px;
@@ -244,6 +247,7 @@
 }
 .customRadio {
   position: relative;
+  cursor: pointer;
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -252,6 +256,7 @@
   margin-right: 8px;
   vertical-align: text-top;
 }
+
 .customRadio::before {
   content: '';
   display: inline-block;
@@ -271,58 +276,6 @@
   display: block;
 }
 
-// .customRadio span {
-//   display: flex;
-//   align-items: center;
-//   position: relative;
-// }
-
-// .customRadio input[type='radio'] {
-//   position: absolute;
-//   width: 1px;
-//   height: 1px;
-//   opacity: 0;
-// }
-// .customRadio span::before {
-//   content: '';
-//   width: 20px; /* Задайте більший розмір для круга */
-//   height: 20px; /* Задайте більший розмір для круга */
-//   border: 2px solid index.$radio-color;
-//   display: inline-block;
-//   margin-right: 8px;
-//   border-radius: 100%;
-// }
-
-// .customRadio span::after {
-//   content: '';
-//   position: absolute;
-//   left: 3px;
-//   top: 50%;
-//   transform: translateY(-50%);
-//   width: 12px; /* Задайте більший розмір для обраного стану */
-//   height: 12px; /* Задайте більший розмір для обраного стану */
-//   background-color: index.$orange-secondary-color;
-//   border-radius: 100%;
-//   opacity: 0;
-// }
-// .customRadio input[type='radio' ]:checked + span::after {
-//   opacity: 1;
-// }
-.react-calendar {
-  display: none;
-  position: absolute !important;
-  background: white;
-  z-index: 1000; /* Забезпечує поверхність над іншими елементами */
-}
-
-/* Покажіть календар під час кліку на інпут */
-.inputDate:focus + .react-calendar {
-  display: block;
-}
-// .inputCalendar{
-//   height: 45px;
-// }
-
 @media screen and (min-width: index.$mobile-breakpoint) {
   .container {
     width: 375px;
@@ -333,7 +286,7 @@
   }
 
   .inputBase {
-    width: 340px;
+    width: 335px;
   }
 }
 
@@ -354,6 +307,9 @@
     font-weight: 400;
     line-height: 1.5;
     font-size: 16px;
+  }
+  .form {
+    align-items: baseline;
   }
   .calendar {
     margin-top: 23px;
@@ -420,6 +376,21 @@
     margin-top: 38px;
     cursor: pointer;
   }
+  .group2 {
+    gap: 14px;
+  }
+  .height {
+    width: 168px;
+  }
+  .group1 > *:not(:last-child) {
+    margin-right: 14px;
+  }
+  .desirInput {
+    width: 140px;
+  }
+  .calendarInput {
+    width: 187px;
+  }
 
   .errorGroup2 {
     margin-top: 79px;
@@ -458,9 +429,4 @@
   .container {
     width: 1440px;
   }
-  // .errorName {
-  //   margin-top: 53px;
-  //   margin-left: 185px;
-
-  // }
 }
