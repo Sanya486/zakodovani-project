@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { addYears, subYears } from 'date-fns';
+import { addYears } from 'date-fns';
 import css from './UserForm.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import Calendar from 'react-calendar';
@@ -10,20 +10,14 @@ import { fetchCalculateDailyMetrics, fetchCurrentUser } from '../../redux/operat
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { selectClient } from '../../redux/selectors';
-
-const formattingDate = (currentDate) => {
-  const day = currentDate.getDate().toString().padStart(2, '0');
-  const month = currentDate.getMonth() + 1;
-  const year = currentDate.getFullYear();
-  const formattedDate = `${day}-${month}-${year}`;
-  return formattedDate;
-};
+import formattingDate from 'utils/formattingDate';
+import formattingDateForBackEnd from 'utils/formattingDateForBackEnd';
 
 const UserForm = () => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(3).required("Це поле обов'язкове"),
     email: Yup.string().email('Невірний формат Email'),
-    birthday: Yup.date().required("Це поле обов'язкове"),
+    birthday: Yup.string().required("Це поле обов'язкове"),
     blood: Yup.number().required('Оберіть опцію Blood'),
     currentWeight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
     desiredWeight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
@@ -32,15 +26,26 @@ const UserForm = () => {
     sex: Yup.string().required('Оберіть стать'),
   });
 
+  const allowedUserAge = addYears(new Date(), -18);
+
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
-  const [currentDate, setCurrentDate] = useState(formattingDate(new Date()));
+  const [currentDate, setCurrentDate] = useState(formattingDate(allowedUserAge));
+  
 
   const client = useSelector(selectClient);
-
   const dispatch = useDispatch();
 
+
   useEffect(() => {
-    dispatch(fetchCurrentUser());
+    dispatch(fetchCurrentUser())
+      .then((response) => {
+        const dateFromBackEnd = new Date(response.data.birthday);
+        const formattedBirthday = formattingDate(dateFromBackEnd);
+        setCurrentDate(formattedBirthday);
+      })
+      .catch((error) => {
+        console.error('Помилка завантаження користувача:', error);
+      });
   }, [dispatch]);
 
   const showCalendar = () => {
@@ -61,6 +66,7 @@ const UserForm = () => {
     delete values.email;
     values.blood = parseInt(values.blood);
     values.levelActivity = parseInt(values.levelActivity);
+    values.birthday = formattingDateForBackEnd(values.birthday);
 
     dispatch(fetchCalculateDailyMetrics(values));
   };
@@ -121,9 +127,7 @@ const UserForm = () => {
                       type='number'
                       id='height'
                       name='height'
-                      className={`${css.input} ${css.height} ${
-                        errors.height && touched.height ? css.error : ''
-                      }`}
+                      className={`${css.inputHeight} ${errors.height && touched.height ? css.error : ''}`}
                       min='150'
                       required
                     />
@@ -137,7 +141,7 @@ const UserForm = () => {
                       type='number'
                       id='currentWeight'
                       name='currentWeight'
-                      className={`${css.input} ${
+                      className={`${css.inputWeight} ${
                         errors.cur_height && touched.cur_height ? css.error : ''
                       }`}
                       min='35'
@@ -159,7 +163,7 @@ const UserForm = () => {
                       type='number'
                       id='desiredWeight'
                       name='desiredWeight'
-                      className={`${css.input} ${css.desirInput} ${
+                      className={`${css.inputDesireWeight} ${
                         errors.currentWeight && touched.currentWeight ? css.error : ''
                       }`}
                       min='35'
@@ -172,42 +176,40 @@ const UserForm = () => {
                     />
                   </div>
                   <div className={css.column}>
-                    <div className={css.forIcon}>
-                      <Field
-                        className={`${css.input} ${css.inputDate} ${css.calendarInput} ${
+                    <Field
+                        className={`${css.inputBirthday} ${css.inputDate} ${
                           errors.birthday && touched.birthday ? css.error : ''
                         }`}
-                        value={currentDate === null ? '00.00.00' : currentDate}
                         id='birthday'
                         name='birthday'
+                        value={currentDate}
                       />
                       <svg onClick={showCalendar} className={css.calendarIcon}>
                         <use href={sprite + '#calendar_icon'}></use>
                       </svg>
+                      <ErrorMessage name='birthday' className={css.errorGroup3} component='div' />
                       {calendarIsClicked && (
                         <Calendar
                           onChange={async (date) => {
-                            date.setDate(date.getDate());
-                            const isoDate = await date.toISOString().split('T')[0];
-                            setCurrentDate(isoDate);
-
+                            const correctDate = formattingDate(date);
+                            setCurrentDate(correctDate);
                             closeCalendar();
-                            setFieldValue('birthday', isoDate);
+                            setFieldValue('birthday', correctDate);
                           }}
                           next2Label={null}
-                          value={currentDate}
+                          value={allowedUserAge}
                           prev2Label={null}
                           locale='en'
                           defaultView='month'
                           formatShortWeekday={customWeekdayFormatter}
-                          minDetail='month'
-                          maxDate={addYears(new Date(), -18)}
-                          minDate={subYears(new Date(), 100)}
+                          minDetail='decade'
+                          maxDate={new Date(allowedUserAge)} 
+                          formatMonth={(locale, date) => {
+                            const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                            return monthNames[date.getMonth()];
+                          }}
                         />
                       )}
-                      <ErrorMessage name='birthday' component='div' className={css.calendarError} />
-                    </div>
-                    <div></div>
                   </div>
                 </div>
               </div>
