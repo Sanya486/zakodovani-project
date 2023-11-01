@@ -9,7 +9,7 @@
   display: block;
   padding: 14px;
   background-color: transparent;
-  border: 1px solid #efede84d;
+  border: 1px solid rgba(index.$white-color, 0.3);
   border-radius: 12px;
   outline: none;
 
@@ -129,11 +129,7 @@
 .scrollWrap {
   height: 100%;
   overflow: scroll;
-  //   &::-webkit-scrollbar {
-  //     display: none;
-  //   }
-  //   -ms-overflow-style: none;
-  //   scrollbar-width: none;
+
   &::-webkit-scrollbar {
     margin-top: 10px;
     width: 6px;

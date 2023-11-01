@@ -7,6 +7,13 @@
   margin-right: 22px;
 }
 
+.userBarWrapperNoBmr {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-right: -18px;
+}
+
 .settingsItem {
   display: flex;
   justify-content: center;
@@ -51,6 +58,13 @@
     margin-right: 32px;
   }
 
+  .userBarWrapperNoBmr {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-right: -18px;
+  }
+
   .settingsIcon {
     width: 28px;
     height: 28px;
@@ -76,5 +90,12 @@
   .userBarWrapper {
     gap: 16px;
     margin-right: 16px;
+  }
+
+  .userBarWrapperNoBmr {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-right: 22px;
   }
 }

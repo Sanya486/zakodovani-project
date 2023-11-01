@@ -9,16 +9,10 @@
   row-gap: 20px;
   column-gap: 13px;
   justify-content: center;
-
-  // добавил lottor-Саша
-}
-
-@media screen and (min-width: index.$mobile-breakpoint) {
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
   .container {
-    // width: 768px;
     margin-left: 0;
   }
 
@@ -33,7 +27,6 @@
 
 @media screen and (min-width: index.$desktop-breakpoint) {
   .container {
-    // width: 390px;
     height: auto;
     padding: 0;
   }
@@ -41,7 +34,7 @@
   .dayDashboard {
     flex-direction: row;
     width: 390px;
-    // Єто добавил Саша-lottor
+
     height: 100%;
   }
 }
