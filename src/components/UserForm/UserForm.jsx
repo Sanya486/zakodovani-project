@@ -71,11 +71,11 @@ const UserForm = () => {
         email: client.email,
         name: client.name,
         birthday: client.birthday,
-        blood: client.blood.toString(),
+        blood: client.blood?.toString(),
         currentWeight: client.currentWeight,
         desiredWeight: client.desiredWeight,
         height: client.height,
-        levelActivity: client.levelActivity.toString(),
+        levelActivity: client.levelActivity?.toString(),
         sex: client.sex,
       }}
       validationSchema={validationSchema}
