@@ -22,7 +22,7 @@ const AddProductForm = ({ data, onClose, onSuccess }) => {
     dispatch(
       fetchDiarySaveProduct({
         product: _id,
-        amount: amount,
+        amount: Number(amount),
         calories: calculatedCalories,
       }),
     )

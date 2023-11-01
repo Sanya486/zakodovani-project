@@ -178,22 +178,7 @@ export const fetchLogout = createAsyncThunk('/identification/logout', async (_, 
 
 export const fetchProducts = createAsyncThunk('/products', async ({ page, limit }, thunkAPI) => {
   try {
-    const productPromise = axios.get(`products?page=${page}&limit=${limit}`);
-    toast.promise(
-      productPromise,
-      {
-        loading: 'Finding some healthy food for You 🙂',
-        success: `Here your products. Let's find something to eat 👍`,
-        error: 'Error when searchung products. Please try later 😓',
-      },
-      {
-        error: {
-          duration: 5000,
-        },
-      },
-    );
-
-    const response = await productPromise;
+    const response = await axios.get(`products?page=${page}&limit=${limit}`);
     return response.data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);
