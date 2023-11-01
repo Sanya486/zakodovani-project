@@ -6,18 +6,20 @@ import { selectProductsCategories } from 'redux/selectors';
 import clsx from 'clsx';
 import { fetchProductsCategories } from 'redux/operations';
 
-const ProductsFilters = () => {
-  const dispatch = useDispatch()
-
-  const [reccomendation, setReccomendation] = useState('All');
-  const [category, setCategory] = useState('');
-  const [search, setSearch] = useState('');
+const ProductsFilters = ({
+  handleSubmit,
+  recommendation,
+  search,
+  category,
+  setReccomendation,
+  setCategory,
+  setSearch,
+}) => {
+  const dispatch = useDispatch();
   const [isCloseIconShown, setIsCloseIconShown] = useState(false);
   const [isRecOpen, setIsRecOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
-  
   const productCategories = useSelector(selectProductsCategories);
-
   useEffect(() => {
     if (search) setIsCloseIconShown(true);
     else setIsCloseIconShown(false);
@@ -27,11 +29,6 @@ const ProductsFilters = () => {
     dispatch(fetchProductsCategories());
   }, [dispatch]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formdata = { search, category, reccomendation };
-    console.log(formdata);
-  };
   return (
     <>
       <form className={css.formStyle} onSubmit={handleSubmit}>
@@ -98,7 +95,7 @@ const ProductsFilters = () => {
             <input
               className={clsx(css.inputStyle)}
               disabled
-              value={reccomendation}
+              value={recommendation}
               name='recommendation'
               placeholder='All'
             />
