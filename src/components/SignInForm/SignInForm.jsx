@@ -68,7 +68,7 @@ const SignInForm = () => {
                   className={clsx(
                     css.inputStyle,
                     errors.password && touched.password && css.errorInput,
-                    touched.email && !errors.email && css.successInput,
+                    touched.password && !errors.password && css.successInput,
                   )}
                 />
                 {isPasswordVisible ? (
