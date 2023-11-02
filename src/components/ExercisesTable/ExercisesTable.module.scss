@@ -5,28 +5,29 @@
   background: rgba(index.$black-color, 0.05);
   overflow: hidden;
 }
-.tableList {
-  height: 100vh;
+.exerciseTableList {
+  height: 100%;
+  // max-height: 752px;
   overflow-y: scroll;
   padding-right: 8px;
-  max-height: 824px;
+  max-height: 1064px;
 }
-.tableList::-webkit-scrollbar {
+.exerciseTableList::-webkit-scrollbar {
   width: 6px;
 }
 
-.tableList::-webkit-scrollbar-track {
+.exerciseTableList::-webkit-scrollbar-track {
   border-radius: 12px;
   margin-top: 26px;
 }
 
-.tableList::-webkit-scrollbar-thumb {
+.exerciseTableList::-webkit-scrollbar-thumb {
   width: 6px;
   height: 203px;
   border-radius: 12px;
   background: rgba(index.$white-color, 0.1);
 }
-.tableList:hover::-webkit-scrollbar-thumb {
+.exerciseTableList:hover::-webkit-scrollbar-thumb {
   background: rgba(index.$white-color, 0.1);
 }
 .tableElement {
@@ -40,19 +41,17 @@
   .tableContainer {
     width: 311px;
   }
-  .tableList {
-    height: 752px;
-  }
 }
+
 @media screen and (min-width: index.$tablet-breakpoint) {
   .tableContainer {
     width: 680px;
   }
-  .tableList {
+  .exerciseTableList {
     height: 162px;
     padding-right: 18px;
   }
-  .tableList::-webkit-scrollbar-thumb {
+  .exerciseTableList::-webkit-scrollbar-thumb {
     height: 90px;
   }
   .tableElement:not(:last-child) {

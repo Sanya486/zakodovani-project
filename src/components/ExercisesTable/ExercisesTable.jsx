@@ -9,7 +9,7 @@ export const ExercisesTable = ({ exercises }) => {
   return (
     <>
       <div className={clsx(css.tableContainer)}>
-        <div className={css.tableList}>
+        <div className={css.exerciseTableList}>
           {exercises.map((exercise) => (
             <div key={exercise.id} className={css.tableElement}>
               <ExercisesTableItem

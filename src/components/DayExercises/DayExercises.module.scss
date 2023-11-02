@@ -8,11 +8,11 @@
   border-radius: 12px;
   padding: 16px 8px 16px 16px;
   position: relative;
-  margin-bottom: 40px;
+  // margin-bottom: 40px;
 }
 
 .dayProductsContainer {
-  height: 824px;
+  height: 1064px;
 }
 
 .resultInfoContainer {
@@ -51,7 +51,7 @@
 }
 .productWrap {
   width: 100%;
-  min-height: 301px;
+  height: auto;
 }
 .resultInfoTextWrap {
   width: 100%;
@@ -74,7 +74,6 @@
 
   .productWrap {
     min-height: auto;
-    height: 752px;
   }
   .resultInfoText {
     width: 121px;

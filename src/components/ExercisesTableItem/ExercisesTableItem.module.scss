@@ -1,34 +1,41 @@
 @use 'index';
+
 .container {
   background: rgba(index.$black-color, 0.05);
   width: 100%;
   height: auto;
 }
-.element {
+
+.element1 {
   display: flex;
   flex-direction: column;
   row-gap: 8px;
   width: 100%;
 }
-.element:not(:last-child) {
+
+.element1:not(:last-child) {
   margin-bottom: 16px;
 }
+
 .bodyPartsElement,
 .equipmentElement,
 .nameElement {
   width: 100%;
 }
-.burnedCaloriesElement {
+
+.targetElement {
   width: calc((100% - 28px) * 0.34177);
 }
-.timeElement {
+
+.burnedCaloriesElement {
   width: calc((100% - 28px) * 0.33755);
 }
-.targetElement {
+
+.timeElement {
   width: calc((100% - 14px) * 0.32067);
 }
 
-.title {
+.title1 {
   color: index.$orange-secondary-color;
   max-height: 18px;
   max-width: 100%;
@@ -39,7 +46,7 @@
   text-overflow: ellipsis;
 }
 
-.elementField {
+.elementField1 {
   padding: 9.2px 14px;
   color: index.$white-color;
   border-radius: 12px;
@@ -54,59 +61,71 @@
   text-overflow: ellipsis;
 }
 
-.blockWrap {
+.blockWrap1 {
   display: flex;
   align-items: flex-end;
   column-gap: 8px;
   width: 100%;
 }
-.subBlockWrap {
+
+.subBlockWrap1 {
   display: flex;
   align-items: center;
   column-gap: 8px;
   width: calc(100% - 28px);
   width: 100%;
 }
-.blockWrap .element {
+
+.blockWrap1 .element1 {
   margin-bottom: 0;
 }
-.buttonWrap {
+
+.buttonWrap1 {
   width: 20px;
   height: 20px;
   margin-bottom: 9px;
 }
-.button {
+
+.button1 {
   width: 20px;
   height: 20px;
   padding: 0;
   border: 0;
   background-color: inherit;
 }
-.icon {
+
+.icon1 {
   width: 20px;
   height: 20px;
   stroke: index.$orange-secondary-color;
 }
+
 @media screen and (min-width: index.$mobile-breakpoint) {
   .container {
     width: 297px;
   }
+
   .targetElement {
     width: 81px;
   }
+
   .burnedCaloriesElement {
     width: 80px;
   }
+
   .timeElement {
     width: 76px;
   }
-  .blockWrap {
+
+  .blockWrap1 {
     width: 269px;
   }
-  .subBlockWrap {
+
+  .subBlockWrap1 {
     column-gap: 16px;
   }
 }
+
 @media screen and (min-width: index.$tablet-breakpoint) {
   .container {
     max-width: 100%;
@@ -115,36 +134,47 @@
     flex-direction: row;
     column-gap: 8px;
   }
-  .element:not(:last-child) {
+
+  .element1 {
+    width: 100%;
+  }
+
+  .element1:not(:last-child) {
     margin-bottom: 0;
   }
+
   .bodyPartsElement {
     width: 90px;
   }
+
   .equipmentElement {
     width: 132px;
   }
-  .nameElement{
+
+  .nameElement {
     width: 128px;
   }
+
   .targetElement {
     width: 84px;
   }
+
   .burnedCaloriesElement {
     width: 78px;
   }
+
   .timeElement {
     width: 72px;
   }
 
-  .elementField {
+  .elementField1 {
     padding: 8px 14px;
     height: 40px;
     font-size: 16px;
     line-height: calc(24 / 16);
   }
 
-  .blockWrap {
+  .blockWrap1 {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -152,13 +182,15 @@
     width: 282px;
   }
 
-  .subBlockWrap {
+  .subBlockWrap1 {
     column-gap: 8px;
   }
-  .blockWrap:last-child {
+
+  .blockWrap1:last-child {
     align-items: flex-end;
   }
-  .blockWrap .element {
+
+  .blockWrap1 .element1 {
     margin-bottom: 0;
   }
 }
@@ -170,30 +202,36 @@
   .bodyPartsElement {
     width: 115px;
   }
+
   .equipmentElement {
     width: 157px;
   }
-  .nameElement{
+
+  .nameElement {
     width: 131px;
   }
+
   .targetElement {
     width: 106px;
   }
+
   .burnedCaloriesElement {
     width: 91px;
   }
+
   .timeElement {
     width: 82px;
   }
 
-  .blockWrap {
-    width: 368px;
+  .blockWrap1 {
+    width: 335px;
+  }
+
+  .blockWrap1:last-child {
     column-gap: 20px;
   }
-  .blockWrap:last-child {
-    column-gap: 8px;
-  }
-  .blockWrap .element {
+
+  .blockWrap1 .element1 {
     margin-bottom: 0;
   }
 }

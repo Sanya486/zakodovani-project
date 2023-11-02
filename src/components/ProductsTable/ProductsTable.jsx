@@ -8,8 +8,8 @@ import { ProductTableItem } from 'components/ProductsTableItem/ProductsTableItem
 export const ProductTable = ({ products }) => {
   return (
     <>
-      <div className={clsx(css.tableContainer)}>
-        <div className={css.tableList}>
+      <div className={clsx(css.productsTableContainer)}>
+        <div className={css.productTableList}>
           {products.map((product) => (
             <div key={product.id} className={css.tableElement}>
               <ProductTableItem
