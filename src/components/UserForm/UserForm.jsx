@@ -106,7 +106,15 @@ const UserForm = () => {
                   className={`${css.inputBase} ${errors.name && touched.name ? css.error : ''}`}
                   required
                 />
-                <ErrorMessage name='name' component='div' className={css.errorName} />
+
+                {errors.name && touched.name && (
+                  <div className={css.errorName}>
+                    <svg width={16} height={16} fill='red'>
+                      <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                    </svg>
+                    <ErrorMessage name='name' component='div' />
+                  </div>
+                )}
 
                 <Field
                   type='email'
@@ -115,7 +123,15 @@ const UserForm = () => {
                   onChange={handleChange}
                   className={`${css.inputBase} ${errors.email && touched.email ? css.error : ''}`}
                 />
-                <ErrorMessage name='email' component='div' className={css.errorEmail} />
+
+                {errors.email && touched.email && (
+                  <div className={css.errorEmail}>
+                    <svg width={16} height={16} fill='red'>
+                      <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                    </svg>
+                    <ErrorMessage name='email' component='div' />
+                  </div>
+                )}
               </div>
               <div className={css.groups}>
                 <div className={css.group1}>
@@ -127,89 +143,126 @@ const UserForm = () => {
                       type='number'
                       id='height'
                       name='height'
-                      className={`${css.inputHeight} ${errors.height && touched.height ? css.error : ''}`}
+                      className={`${css.inputHeight} ${
+                        errors.height && touched.height && css.error
+                      }`}
                       min='150'
                       required
                     />
-                    <ErrorMessage name='height' component='div' className={css.errorGroup1} />
+                    {errors.height && touched.height && (
+                      <div className={css.errorGroup1}>
+                        <svg width={16} height={16} fill='red'>
+                          <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                        </svg>
+                        <ErrorMessage name='height' component='div' />
+                      </div>
+                    )}
                   </div>
-                  <div className={css.column}>
-                    <label htmlFor='currentWeight' className={css.label}>
-                      Desired Weight
-                    </label>
-                    <Field
-                      type='number'
-                      id='currentWeight'
-                      name='currentWeight'
-                      className={`${css.inputWeight} ${
-                        errors.cur_height && touched.cur_height ? css.error : ''
-                      }`}
-                      min='35'
-                      required
-                    />
-                    <ErrorMessage
-                      name='currentWeight'
-                      component='div'
-                      className={css.errorGroup1}
-                    />
-                  </div>
-                </div>
-                <div className={css.group2}>
                   <div className={css.column}>
                     <label htmlFor='desiredWeight' className={css.label}>
-                      Current Weight
+                      Desired Weight
                     </label>
                     <Field
                       type='number'
                       id='desiredWeight'
                       name='desiredWeight'
-                      className={`${css.inputDesireWeight} ${
-                        errors.currentWeight && touched.currentWeight ? css.error : ''
+                      className={`${css.inputWeight} ${
+                        errors.desiredWeight && touched.desiredWeight && css.error
                       }`}
                       min='35'
                       required
                     />
-                    <ErrorMessage
-                      name='desiredWeight'
-                      component='div'
-                      className={css.errorGroup2}
+                    {errors.desiredWeight && touched.desiredWeight && (
+                      <div className={css.errorGroup1}>
+                        <svg width={16} height={16} fill='red'>
+                          <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                        </svg>
+                        <ErrorMessage name='desiredWeight' component='div' />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className={css.group2}>
+                  <div className={css.column}>
+                    <label htmlFor='currentWeight' className={css.label}>
+                      Current Weight
+                    </label>
+                    <Field
+                      type='number'
+                      id='currentWeight'
+                      name='currentWeight'
+                      className={`${css.inputDesireWeight} ${
+                        errors.currentWeight && touched.currentWeight && css.error
+                      }`}
+                      min='35'
+                      required
                     />
+                    {errors.currentWeight && touched.currentWeight && (
+                      <div className={css.errorGroup1}>
+                        <svg width={16} height={16} fill='red'>
+                          <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                        </svg>
+                        <ErrorMessage name='currentWeight' component='div' />
+                      </div>
+                    )}
                   </div>
                   <div className={css.column}>
                     <Field
-                        className={`${css.inputBirthday} ${css.inputDate} ${
-                          errors.birthday && touched.birthday ? css.error : ''
-                        }`}
-                        id='birthday'
-                        name='birthday'
-                        value={currentDate}
+                      className={`${css.inputBirthday} ${css.inputDate} ${
+                        errors.birthday && touched.birthday && css.error 
+                      }`}
+                      id='birthday'
+                      name='birthday'
+                      value={currentDate}
+                    />
+                    <svg onClick={showCalendar} className={css.calendarIcon}>
+                      <use href={sprite + '#calendar_icon'}></use>
+                    </svg>
+
+                    {errors.birthday && touched.birthday && (
+                      <div className={css.errorGroup3}>
+                        <svg width={16} height={16} fill='red'>
+                          <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                        </svg>
+                        <ErrorMessage name='birthday' component='div' />
+                      </div>
+                    )}
+    
+                    {calendarIsClicked && (
+                      <Calendar
+                        onChange={async (date) => {
+                          const correctDate = formattingDate(date);
+                          setCurrentDate(correctDate);
+                          closeCalendar();
+                          setFieldValue('birthday', correctDate);
+                        }}
+                        next2Label={null}
+                        value={allowedUserAge}
+                        prev2Label={null}
+                        locale='en'
+                        defaultView='month'
+                        formatShortWeekday={customWeekdayFormatter}
+                        minDetail='decade'
+                        maxDate={new Date(allowedUserAge)}
+                        formatMonth={(locale, date) => {
+                          const monthNames = [
+                            'Jan',
+                            'Feb',
+                            'Mar',
+                            'Apr',
+                            'May',
+                            'Jun',
+                            'Jul',
+                            'Aug',
+                            'Sep',
+                            'Oct',
+                            'Nov',
+                            'Dec',
+                          ];
+                          return monthNames[date.getMonth()];
+                        }}
                       />
-                      <svg onClick={showCalendar} className={css.calendarIcon}>
-                        <use href={sprite + '#calendar_icon'}></use>
-                      </svg>
-                      <ErrorMessage name='birthday' className={css.errorGroup3} component='div' />
-                      {calendarIsClicked && (
-                        <Calendar
-                          onChange={async (date) => {
-                            const correctDate = formattingDate(date);
-                            setCurrentDate(correctDate);
-                            closeCalendar();
-                            setFieldValue('birthday', correctDate);
-                          }}
-                          next2Label={null}
-                          value={allowedUserAge}
-                          prev2Label={null}
-                          locale='en'
-                          defaultView='month'
-                          formatShortWeekday={customWeekdayFormatter}
-                          minDetail='decade'
-                          maxDate={new Date(allowedUserAge)} 
-                          formatMonth={(locale, date) => {
-                            const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-                            return monthNames[date.getMonth()];
-                          }}
-                        />
-                      )}
+                    )}
                   </div>
                 </div>
               </div>
@@ -271,7 +324,7 @@ const UserForm = () => {
                 <span className={css.customRadio}></span>4
               </label>
             </div>
-            <ErrorMessage name='blood' component='div' className={css.error} />
+
             <div className={css.sex}>
               {['Male', 'Female'].map((option) => (
                 <label key={option} className={`${css.labelMargin} `}>
@@ -279,15 +332,12 @@ const UserForm = () => {
                     type='radio'
                     name='sex'
                     value={option}
-                    className={`${css.inputRadioSex} ${css.realRadio}${
-                      errors.sex && touched.sex ? css.error : ''
-                    }`}
+                    className={`${css.inputRadioSex} ${css.realRadio}`}
                   />
                   <span className={css.customRadio}></span>
                   <span>{option}</span>
                 </label>
               ))}
-              <ErrorMessage name='sex' component='div' className={css.error} />
             </div>
           </div>
 

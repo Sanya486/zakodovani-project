@@ -40,8 +40,10 @@
 .inputDesireWeight,
 .inputBirthday {
   width: 100%;
+  outline: none;
   border-radius: 12px;
   border-color: rgba(index.$white-color, 30%);
+  border-width: 1px;
   color: index.$white-color;
   line-height: 1.29;
   font-size: 14px;
@@ -50,6 +52,7 @@
 }
 
 .inputBase {
+  outline: none;
   width: 100%;
   border-radius: 12px;
   border-color: rgba(index.$white-color, 30%);
@@ -146,10 +149,7 @@
 .inputSuccess {
   border: 1px solid index.$success-color;
 }
-.error {
-  color: index.$error-color;
-  font-size: 10px;
-}
+
 .columnName {
   display: flex;
   align-items: center;
@@ -157,22 +157,33 @@
 }
 .errorName {
   color: index.$error-color;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   font-size: 10px;
   position: absolute;
-  margin-top: -20px;
+  top: 47px;
+  left: 0px;
 }
 .errorEmail {
   color: index.$error-color;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   font-size: 10px;
   position: absolute;
-  margin-top: 110px;
+  left: 0px;
+  top: 111px;
 }
 
 .errorGroup1 {
   color: index.$error-color;
   font-size: 10px;
   position: absolute;
-  margin-top: 70px;
+  top: 67px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
 }
 .errorGroup2 {
   color: index.$error-color;
@@ -185,7 +196,10 @@
   color: index.$error-color;
   font-size: 10px;
   position: absolute;
-  margin-top: 59px;
+  top: 47px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .radioNumber {
@@ -206,9 +220,9 @@
 }
 .inputDate {
   padding: 14px 14px 14px 14px !important;
-  border-color: rgba(index.$white-color, 30%);
+  border: 1px solid rgba(index.$white-color, 30%);
   color: index.$white-color;
-  width:100%;
+  width: 100%;
   cursor: pointer;
 }
 .forIcon {
@@ -277,6 +291,10 @@
   display: block;
 }
 
+.error {
+  border: 1px solid index.$error-color;
+}
+
 @media screen and (min-width: index.$mobile-breakpoint) {
   .container {
     width: 375px;
@@ -290,7 +308,7 @@
     width: 335px;
   }
 
-  .radio{
+  .radio {
     flex-direction: row;
   }
 }
@@ -322,7 +340,7 @@
   }
   .groups {
     display: flex;
-   gap: 22px;
+    gap: 22px;
     align-items: center;
   }
 
@@ -415,19 +433,23 @@
   }
 
   .errorGroup2 {
-    margin-top: 79px;
+    top: 79px;
   }
   .errorGroup1 {
-    margin-top: 79px;
+    top: 79px;
+  }
+
+  .errorGroup3 {
+    top: 59px;
   }
 
   .errorName {
-    margin-top: 53px;
-    margin-right: 326px;
+    top: 56px;
+    left: 0px;
   }
   .errorEmail {
-    margin-top: 8%;
-    margin-left: 50%;
+    top: 56px;
+    left: 362px;
   }
   .labelText {
     font-size: 16px;
@@ -445,7 +467,7 @@
   .calendarIcon {
     top: 30px;
   }
-  .column{
+  .column {
     margin: 0;
   }
 }
@@ -454,8 +476,10 @@
   .container {
     width: 1440px;
   }
-  .groups{
+  .groups {
     gap: 14px;
   }
-
+  .errorEmail {
+    left: 354px;
+  }
 }
