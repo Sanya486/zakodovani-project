@@ -2,14 +2,20 @@
 
 .productsContainer {
   width: 100%;
-  // height: 100vh;
   background: rgba(index.$white-color, 0.05);
   overflow: hidden;
   border: 1px solid rgba(index.$white-color, 0.2);
   border-radius: 12px;
   padding: 16px 8px 16px 16px;
   position: relative;
-  margin-bottom: 40px;
+}
+
+.dayProductsContainer {
+  height: 1064px;
+}
+
+.resultInfoContainer {
+  height: 335px;
 }
 
 .headBlock {
@@ -20,43 +26,36 @@
   padding-right: 8px;
   padding-bottom: 22px;
 }
-
 .headTitle {
   font-size: 14px;
   line-height: calc(18 / 14);
   vertical-align: center;
   color: rgba(index.$white-color, 0.5);
 }
-
 .headLink {
   font-size: 14px;
   line-height: calc(18 / 14);
   font-weight: medium;
   color: index.$orange-main-color;
 }
-
 .linkWraper {
   display: flex;
   column-gap: 8px;
   width: 100%;
 }
-
 .icon {
   width: 16px;
   height: 16px;
   stroke: index.$orange-main-color;
 }
-
 .productWrap {
   width: 100%;
-  min-height: 301px;
+  height: auto;
 }
-
 .resultInfoTextWrap {
   width: 100%;
   height: 301px;
 }
-
 .resultInfoText {
   width: 121px;
   font-size: 14px;
@@ -67,69 +66,55 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 @media screen and (min-width: index.$mobile-breakpoint) {
   .productsContainer {
     width: 335px;
-   
   }
 
   .productWrap {
     min-height: auto;
-    height: 752px;
   }
-
   .resultInfoText {
     width: 121px;
   }
 }
-
 @media screen and (min-width: index.$tablet-breakpoint) {
   .productsContainer {
     width: 704px;
     height: 234px;
-     margin-bottom: 0;
+    margin-bottom: 0;
   }
 
   .resultInfoContainer {
     height: 234px;
   }
-
   .headBlock {
     padding-bottom: 16px;
   }
-
   .headTitle {
     padding: 3px 0;
   }
-
   .headLink {
     font-size: 16px;
     line-height: calc(24 / 16);
   }
-
   .productWrap {
     height: 162px;
   }
-
   .resultInfoTextWrap {
     height: 194px;
   }
-
   .resultInfoText {
     width: 139px;
     font-size: 16px;
     line-height: calc(24 / 16);
   }
 }
-
 @media screen and (min-width: index.$desktop-breakpoint) {
   .productsContainer {
     width: 826px;
   }
-
   .productWrap {
     padding-left: 16px;
   }
 }
-

@@ -11,7 +11,6 @@ export const DayDashboard = ({
   caloriesRest = 0,
   restSport = 0,
 }) => {
-
   const changedArr = [
     {
       name: 'Daily calorie intake',
@@ -36,12 +35,12 @@ export const DayDashboard = ({
     {
       name: 'The rest of the calories',
       value: `${caloriesRest}`,
-      variant: `${caloriesRest <0 ? "error": "empty"}`,
+      variant: `${caloriesRest < 0 ? 'error' : 'empty'}`,
     },
     {
       name: 'The rest of sports',
-      value: `${(restSport - timeOfSport) >= 0 ? '+' : ''}${Math.abs(restSport - timeOfSport)}min`,
-      variant: `${(restSport - timeOfSport) >= 0 ? 'success' : 'empty'}`,
+      value: `${restSport - timeOfSport >= 0 ? '+' : ''}${Math.abs(restSport - timeOfSport)}min`,
+      variant: `${restSport - timeOfSport >= 0 ? 'success' : 'empty'}`,
     },
   ];
 

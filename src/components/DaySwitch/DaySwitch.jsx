@@ -26,7 +26,8 @@ const DaySwitch = ({ currentDate = new Date(), setCurrentDate }) => {
   };
 
   const decrementDate = () => {
-    if (currentDate.toLocaleDateString() === new Date(registrationDate).toLocaleDateString()) return;
+    if (currentDate.toLocaleDateString() === new Date(registrationDate).toLocaleDateString())
+      return;
     const newDate = new Date(currentDate);
     newDate.setDate(currentDate.getDate() - 1);
     setCurrentDate(newDate);
@@ -47,7 +48,6 @@ const DaySwitch = ({ currentDate = new Date(), setCurrentDate }) => {
   const onClickDay = (value) => {
     setCurrentDate(() => value);
   };
-
 
   return (
     <div className={css.wrapper}>
