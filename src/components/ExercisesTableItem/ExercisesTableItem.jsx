@@ -89,4 +89,5 @@ const ExercisesTableItem = ({
     </>
   );
 };
+
 export default ExercisesTableItem;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import PropTypes from 'prop-types'
 import Container from 'components/Container/Container';
-import DayExercises from 'components/DayExercises/DayExercises';
+import {DayExercises} from 'components/DayExercises/DayExercises';
 // import TitlePage from 'components/TitlePage/TitlePage';
 import DaySwitch from 'components/DaySwitch/DaySwitch';
 import { DayDashboard } from 'components/DayDashboard/DayDashboard';

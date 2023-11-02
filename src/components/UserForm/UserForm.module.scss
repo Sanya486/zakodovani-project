@@ -34,7 +34,10 @@
   flex-direction: column;
 }
 
-.input {
+.inputHeight,
+.inputWeight, 
+.inputDesireWeight,
+.inputBirthday {
   border-radius: 12px;
   border-color: rgba(index.$white-color, 30%);
   color: index.$white-color;
@@ -43,6 +46,7 @@
   padding: 14px 0 14px 14px;
   background-color: transparent;
 }
+
 .inputBase {
   width: 100%;
   border-radius: 12px;
@@ -62,6 +66,7 @@
   color: rgba(index.$white-color, 50%);
 }
 .column {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -175,6 +180,14 @@
   position: absolute;
   margin-top: 68px;
 }
+
+.errorGroup3 {
+  color: index.$error-color;
+  font-size: 10px;
+  position: absolute;
+  margin-top: 59px;
+}
+
 .radioNumber {
   display: flex;
   gap: 8px;
@@ -196,6 +209,7 @@
   border-color: rgba(index.$white-color, 30%);
   color: index.$white-color;
   width: 161px;
+  cursor: pointer;
 }
 .forIcon {
   position: relative;
@@ -211,6 +225,11 @@
   right: 14px;
   transform: translateY(-65%);
 }
+
+.calendarIcon:hover {
+  stroke: index.$orange-main-color;
+}
+
 .calendarError {
   color: aqua;
 }
@@ -302,12 +321,33 @@
     align-items: center;
     gap: 14px;
   }
-  .input {
-    width: 159px;
+
+  .inputHeight {
+    width: 168px;
     font-weight: 400;
     line-height: 1.5;
     font-size: 16px;
   }
+   
+  .inputWeight {
+    width: 159px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 16px;
+} 
+.inputDesireWeight {
+    width: 140px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 16px;
+}
+.inputBirthday {
+    width: 187px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 16px;
+}
+  
   .blood {
     margin-right: auto;
 

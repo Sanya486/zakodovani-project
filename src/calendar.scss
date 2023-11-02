@@ -1,12 +1,13 @@
 @use 'index';
 @import 'react-calendar/dist/Calendar.css';
-// CALENDAR
+
+
 body .react-calendar {
   position: absolute;
   top: 125%;
   left: 50%;
   transform: translate(-50%);
-  width: 215px;
+  width: 159px;
   max-width: 100%;
   background: index.$orange-secondary-color;
   font-family: 'Roboto', sans-serif;
@@ -18,11 +19,11 @@ body .react-calendar {
 
 body .react-calendar__navigation {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
 }
 
 body .react-calendar__navigation button {
-  min-width: 35px;
+  min-width: 20px;
   background: none;
 }
 
@@ -50,7 +51,7 @@ body .react-calendar__month-view__weekdays {
   text-align: center;
   text-transform: capitalize;
   font-family: inherit;
-  font-size: 14;
+  font-size: 11px;
   font-weight: normal;
   color: #efbba6;
   margin-bottom: 3px;
@@ -65,7 +66,7 @@ body .react-calendar__month-view__weekdays__weekday {
 }
 
 body .react-calendar__navigation__label__labelText {
-  font-size: 16px;
+  font-size: 13px;
   color: index.$white-color;
 }
 
@@ -74,7 +75,7 @@ body .react-calendar__month-view__weekNumbers .react-calendar__tile {
   align-items: center;
   justify-content: center;
   font-family: inherit;
-  font-size: 14;
+  font-size: 12px;
   font-weight: normal;
 }
 
@@ -89,17 +90,19 @@ body .react-calendar__month-view__days__day--neighboringMonth {
 body .react-calendar__year-view .react-calendar__tile,
 body .react-calendar__decade-view .react-calendar__tile,
 body .react-calendar__century-view .react-calendar__tile {
-  padding: 0;
+  padding: 5px;
+  font-size: 12px;
+  color: index.$white-color;
 }
 
 body .react-calendar__tile {
   max-width: 100%;
-  padding: 7px;
+  padding: 4px;
   background: none;
   text-align: center;
   line-height: 1.125;
   font-family: inherit;
-  font-size: 14;
+  font-size: 12px;
   letter-spacing: -0.0175rem;
   font-weight: normal;
 }
@@ -132,7 +135,7 @@ body .react-calendar__tile--hasActive {
 
 body .react-calendar__tile--hasActive:enabled:hover,
 body .react-calendar__tile--hasActive:enabled:focus {
-  background: #a9d4ff;
+  background: black;
 }
 
 body .react-calendar__tile--active {
@@ -141,8 +144,8 @@ body .react-calendar__tile--active {
   color: white;
 }
 
-body .react-calendar__tile--active:enabled:hover,
-body .react-calendar__tile--active:enabled:focus {
+body #birthday .react-calendar__tile--active:enabled:hover,
+body #birthday .react-calendar__tile--active:enabled:focus {
   background: black;
   border-radius: 50%;
 }
@@ -157,11 +160,23 @@ body .react-calendar--selectRange .react-calendar__tile--hover {
     top: 100%;
     left: 49%;
     transform: translate(-50%);
-    width: 215px;
+    width: 185px;
     max-width: 100%;
     background: index.$orange-secondary-color;
     font-family: 'Roboto', sans-serif;
     border-radius: 8px;
     padding: 10px;
+  }
+
+  body .react-calendar__tile {
+    max-width: 100%;
+    padding: 4px;
+    background: none;
+    text-align: center;
+    line-height: 1.125;
+    font-family: inherit;
+    font-size: 13px;
+    letter-spacing: -0.0175rem;
+    font-weight: normal;
   }
 }
