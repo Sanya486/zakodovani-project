@@ -7,11 +7,11 @@ import { ProductTable } from 'components/ProductsTable/ProductsTable';
 import { clsx } from 'clsx';
 
 export const DayProducts = ({ products }) => {
-  let empty = false;
+  let empty = '';
   products.length === 0 ? (empty = true) : (empty = false);
   return (
     <>
-      <div className={clsx(css.productsContainer, (empty == true ? css.resultInfoContainer : css.dayProductsContainer))}>
+      <div className={clsx(css.productsContainer, (empty === false ? css.dayProductsContainer : css.resultInfoContainer))}>
         <div className={css.headBlock}>
           <p className={css.headTitle}>Products</p>
           <Link to='/products' className={css.headLink}>
