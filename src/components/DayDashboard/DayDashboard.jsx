@@ -11,15 +11,6 @@ export const DayDashboard = ({
   caloriesRest = 0,
   restSport = 0,
 }) => {
-  console.log(BMR, timeOfSport, caloriesConsumed, caloriesBurned, caloriesRest, restSport);
-
-  const typeOfNumber = (number, targetNumber = 0) => {
-    if (number < targetNumber) {
-      return 'error';
-    } else {
-      return 'success';
-    }
-  };
 
   const changedArr = [
     {
@@ -45,12 +36,12 @@ export const DayDashboard = ({
     {
       name: 'The rest of the calories',
       value: `${caloriesRest}`,
-      variant: typeOfNumber(caloriesRest),
+      variant: `${caloriesRest <0 ? "error": "empty"}`,
     },
     {
       name: 'The rest of sports',
-      value: `${typeOfNumber(restSport, 1) === 'success' ? '+' : ''}${restSport}min`,
-      variant: typeOfNumber(restSport, 110),
+      value: `${(restSport - timeOfSport) >= 0 ? '+' : ''}${Math.abs(restSport - timeOfSport)}min`,
+      variant: `${(restSport - timeOfSport) >= 0 ? 'success' : 'empty'}`,
     },
   ];
 
