@@ -4,13 +4,14 @@ import sprite from '../../images/svg/sprite.svg';
 import PropTypes from 'prop-types';
 import css from './DayProducts.module.scss';
 import { ProductTable } from 'components/ProductsTable/ProductsTable';
+import { clsx } from 'clsx';
 
 export const DayProducts = ({ products }) => {
   let empty = false;
   products.length === 0 ? (empty = true) : (empty = false);
   return (
     <>
-      <div className={css.productsContainer}>
+      <div className={clsx(css.productsContainer, (empty == true ? css.resultInfoContainer : css.dayProductsContainer))}>
         <div className={css.headBlock}>
           <p className={css.headTitle}>Products</p>
           <Link to='/products' className={css.headLink}>
