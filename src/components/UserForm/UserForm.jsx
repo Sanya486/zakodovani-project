@@ -209,7 +209,7 @@ const UserForm = () => {
                   <div className={css.column}>
                     <Field
                       className={`${css.inputBirthday} ${css.inputDate} ${
-                        errors.birthday && touched.birthday && css.error 
+                        errors.birthday && touched.birthday && css.error
                       }`}
                       id='birthday'
                       name='birthday'
@@ -227,7 +227,7 @@ const UserForm = () => {
                         <ErrorMessage name='birthday' component='div' />
                       </div>
                     )}
-    
+
                     {calendarIsClicked && (
                       <Calendar
                         onChange={async (date) => {
@@ -331,7 +331,7 @@ const UserForm = () => {
                   <Field
                     type='radio'
                     name='sex'
-                    value={option}
+                    value={option.charAt(0).toLowerCase() + option.slice(1)}
                     className={`${css.inputRadioSex} ${css.realRadio}`}
                   />
                   <span className={css.customRadio}></span>
