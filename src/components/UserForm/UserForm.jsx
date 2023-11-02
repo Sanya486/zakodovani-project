@@ -67,7 +67,7 @@ const formikRef = useRef()
       initialValues={{
         email: client.email,
         name: client.name,
-        birthday: client.birthday ? formattingDate(new Date(client.birthday)) : '' ,
+        birthday: client.birthday ? formattingDate(new Date(client.birthday)) : '',
         blood: client.blood?.toString(),
         currentWeight: client.currentWeight,
         desiredWeight: client.desiredWeight,
@@ -96,6 +96,7 @@ const formikRef = useRef()
                   onChange={handleChange}
                   className={`${css.inputBase} ${errors.name && touched.name ? css.error : ''}`}
                   required
+                  disabled
                 />
 
                 {errors.name && touched.name && (
@@ -113,6 +114,7 @@ const formikRef = useRef()
                   name='email'
                   onChange={handleChange}
                   className={`${css.inputBase} ${errors.email && touched.email ? css.error : ''}`}
+                  disabled
                 />
 
                 {errors.email && touched.email && (
@@ -225,7 +227,9 @@ const formikRef = useRef()
                           const correctDate = formattingDate(date);
                           closeCalendar();
                           setFieldValue('birthday', correctDate);
-                          setTimeout(()=> {validateField('birthday')},1)
+                          setTimeout(() => {
+                            validateField('birthday');
+                          }, 1);
                         }}
                         next2Label={null}
                         value={allowedUserAge}
