@@ -15,15 +15,15 @@ import formattingDateForBackEnd from 'utils/formattingDateForBackEnd';
 
 const UserForm = () => {
   const validationSchema = Yup.object().shape({
-    name: Yup.string().min(3).required("Це поле обов'язкове"),
-    email: Yup.string().email('Невірний формат Email'),
-    birthday: Yup.string().required("Це поле обов'язкове"),
-    blood: Yup.number().required('Оберіть опцію Blood'),
-    currentWeight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
-    desiredWeight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
-    height: Yup.number().min(150, 'Мінімальна висота - 150 см').required("Це поле обов'язкове"),
-    levelActivity: Yup.number().required('Оберіть опцію levelActivity'),
-    sex: Yup.string().required('Оберіть стать'),
+    name: Yup.string().min(3).required('Required'),
+    email: Yup.string().email('Invalid Email format'),
+    birthday: Yup.string().required('Required'),
+    blood: Yup.number().required('Choose your blood'),
+    currentWeight: Yup.number().min(35, 'Min weight - 35 kg').required('Required'),
+    desiredWeight: Yup.number().min(35, 'Min weight - 35 kg').required('Required'),
+    height: Yup.number().min(150, 'Min height - 150 sm').required('Required'),
+    levelActivity: Yup.number().required('Choose your activity level'),
+    sex: Yup.string().required('Choose your sex'),
   });
 
   const allowedUserAge = addYears(new Date(), -18);
@@ -273,7 +273,7 @@ const UserForm = () => {
             </div>
             <ErrorMessage name='blood' component='div' className={css.error} />
             <div className={css.sex}>
-              {['male', 'female'].map((option) => (
+              {['Male', 'Female'].map((option) => (
                 <label key={option} className={`${css.labelMargin} `}>
                   <Field
                     type='radio'

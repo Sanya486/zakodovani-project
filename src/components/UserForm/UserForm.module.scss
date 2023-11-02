@@ -26,6 +26,7 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
+  width: 100%;
 }
 .form {
   display: flex;
@@ -35,9 +36,10 @@
 }
 
 .inputHeight,
-.inputWeight, 
+.inputWeight,
 .inputDesireWeight,
 .inputBirthday {
+  width: 100%;
   border-radius: 12px;
   border-color: rgba(index.$white-color, 30%);
   color: index.$white-color;
@@ -73,11 +75,9 @@
 .group1 {
   display: flex;
   margin-bottom: 14px;
+  gap: 14px;
 }
 
-.group1 > *:not(:last-child) {
-  margin-right: 12px;
-}
 .group2 {
   display: flex;
   align-items: center;
@@ -88,13 +88,13 @@
 
 .radio {
   display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
 .labelMargin {
   display: flex;
   align-items: center;
-  margin-right: 5px;
   color: index.$white-color;
   font-size: 14px;
   line-height: 1.29;
@@ -158,7 +158,7 @@
 .errorName {
   color: index.$error-color;
   font-size: 10px;
-  position: fixed;
+  position: absolute;
   margin-top: -20px;
 }
 .errorEmail {
@@ -208,7 +208,7 @@
   padding: 14px 14px 14px 14px !important;
   border-color: rgba(index.$white-color, 30%);
   color: index.$white-color;
-  width: 161px;
+  width:100%;
   cursor: pointer;
 }
 .forIcon {
@@ -253,8 +253,9 @@
   height: 20px;
   border: 2px solid index.$radio-color;
   border-radius: 50%;
-  margin-right: 8px;
   vertical-align: text-top;
+  flex-shrink: 0;
+  margin-right: 8px;
 }
 
 .customRadio::before {
@@ -288,6 +289,10 @@
   .inputBase {
     width: 335px;
   }
+
+  .radio{
+    flex-direction: row;
+  }
 }
 
 @media screen and (min-width: index.$tablet-breakpoint) {
@@ -299,7 +304,7 @@
   }
   .tabletInput {
     flex-direction: row;
-    gap: 14px;
+    justify-content: space-between;
     position: relative;
   }
   .inputBase {
@@ -317,9 +322,8 @@
   }
   .groups {
     display: flex;
-    justify-content: center;
+   gap: 22px;
     align-items: center;
-    gap: 14px;
   }
 
   .inputHeight {
@@ -328,26 +332,44 @@
     line-height: 1.5;
     font-size: 16px;
   }
-   
+  .inputHeight::-webkit-outer-spin-button,
+  .inputHeight::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   .inputWeight {
     width: 159px;
     font-weight: 400;
     line-height: 1.5;
     font-size: 16px;
-} 
-.inputDesireWeight {
+  }
+  .inputWeight::-webkit-outer-spin-button,
+  .inputWeight::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .inputDesireWeight {
     width: 140px;
     font-weight: 400;
     line-height: 1.5;
     font-size: 16px;
-}
-.inputBirthday {
+  }
+
+  .inputDesireWeight::-webkit-outer-spin-button,
+  .inputDesireWeight::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .inputBirthday {
     width: 187px;
     font-weight: 400;
     line-height: 1.5;
     font-size: 16px;
-}
-  
+  }
+
   .blood {
     margin-right: auto;
 
@@ -382,9 +404,9 @@
   .height {
     width: 168px;
   }
-  .group1 > *:not(:last-child) {
-    margin-right: 14px;
-  }
+  // .group1 > *:not(:last-child) {
+  //   margin-right: 14px;
+  // }
   .desirInput {
     width: 140px;
   }
@@ -423,10 +445,17 @@
   .calendarIcon {
     top: 30px;
   }
+  .column{
+    margin: 0;
+  }
 }
 
 @media screen and (min-width: index.$desktop-breakpoint) {
   .container {
     width: 1440px;
   }
+  .groups{
+    gap: 14px;
+  }
+
 }
