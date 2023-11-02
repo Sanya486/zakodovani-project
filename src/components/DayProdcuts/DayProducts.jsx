@@ -11,7 +11,12 @@ export const DayProducts = ({ products }) => {
   products.length === 0 ? (empty = true) : (empty = false);
   return (
     <>
-      <div className={clsx(css.productsContainer, (empty === false ? css.dayProductsContainer : css.resultInfoContainer))}>
+      <div
+        className={clsx(
+          css.productsContainer,
+          empty === false ? css.dayProductsContainer : css.resultInfoContainer,
+        )}
+      >
         <div className={css.headBlock}>
           <p className={css.headTitle}>Products</p>
           <Link to='/products' className={css.headLink}>

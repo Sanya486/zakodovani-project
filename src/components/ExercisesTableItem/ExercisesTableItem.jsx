@@ -23,7 +23,7 @@ const ExercisesTableItem = ({
   const dispatch = useDispatch();
   const onDeleteProduct = (id) => {
     dispatch(fetchDeleteExercise(id));
-    setTimeout(()=>  dispatch(fetchDiaryDateInfo(currentDate)), 3000)
+    setTimeout(() => dispatch(fetchDiaryDateInfo(currentDate)), 3000);
   };
   const deleteHandler = () => {
     onDeleteProduct(id);

@@ -30,11 +30,9 @@ const UserForm = () => {
 
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
   const [currentDate, setCurrentDate] = useState(formattingDate(allowedUserAge));
-  
 
   const client = useSelector(selectClient);
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     dispatch(fetchCurrentUser())
