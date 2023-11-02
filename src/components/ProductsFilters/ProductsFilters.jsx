@@ -62,7 +62,7 @@ const ProductsFilters = ({
             onMouseLeave={() => setIsCategoryOpen(false)}
           >
             <div
-              style={{ position: 'relative', zIndex: 100, backgroundColor: 'transparent' }}
+              style={{ position: 'relative', backgroundColor: 'transparent' }}
               onMouseOver={() => setIsCategoryOpen(true)}
             >
               <input
@@ -106,7 +106,7 @@ const ProductsFilters = ({
             onMouseEnter={() => setIsRecOpen(true)}
             onMouseLeave={() => setIsRecOpen(false)}
           >
-            <div style={{ position: 'relative', zIndex: 100, backgroundColor: 'transparent' }}>
+            <div style={{ position: 'relative', backgroundColor: 'transparent' }}>
               <input
                 className={clsx(css.inputStyle)}
                 disabled

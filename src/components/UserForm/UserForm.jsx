@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { addYears } from 'date-fns';
@@ -6,12 +6,13 @@ import css from './UserForm.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { fetchCalculateDailyMetrics, fetchCurrentUser } from '../../redux/operations';
+import { fetchCalculateDailyMetrics } from '../../redux/operations';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { selectClient } from '../../redux/selectors';
 import formattingDate from 'utils/formattingDate';
 import formattingDateForBackEnd from 'utils/formattingDateForBackEnd';
+
 
 const UserForm = () => {
   const validationSchema = Yup.object().shape({
@@ -25,26 +26,15 @@ const UserForm = () => {
     levelActivity: Yup.number().required('Choose your activity level'),
     sex: Yup.string().required('Choose your sex'),
   });
-
+const formikRef = useRef()
+  
   const allowedUserAge = addYears(new Date(), -18);
 
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
-  const [currentDate, setCurrentDate] = useState(formattingDate(allowedUserAge));
+  // const [currentDate, setCurrentDate] = useState(formattingDate(allowedUserAge));
 
   const client = useSelector(selectClient);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCurrentUser())
-      .then((response) => {
-        const dateFromBackEnd = new Date(response.data.birthday);
-        const formattedBirthday = formattingDate(dateFromBackEnd);
-        setCurrentDate(formattedBirthday);
-      })
-      .catch((error) => {
-        console.error('Помилка завантаження користувача:', error);
-      });
-  }, [dispatch]);
 
   const showCalendar = () => {
     setCalendarIsClicked(true);
@@ -60,21 +50,24 @@ const UserForm = () => {
   };
 
   const handleSubmit = (values) => {
-    delete values.name;
-    delete values.email;
-    values.blood = parseInt(values.blood);
-    values.levelActivity = parseInt(values.levelActivity);
-    values.birthday = formattingDateForBackEnd(values.birthday);
+    const backendValue = {...values}
+    delete backendValue.name;
+    delete backendValue.email;
+    backendValue.blood = parseInt(values.blood);
+    backendValue.levelActivity = parseInt(values.levelActivity);
+    backendValue.birthday = formattingDateForBackEnd(backendValue.birthday);
 
-    dispatch(fetchCalculateDailyMetrics(values));
+    dispatch(fetchCalculateDailyMetrics(backendValue));
   };
 
+  
   return (
     <Formik
+      innerRef={formikRef}
       initialValues={{
         email: client.email,
         name: client.name,
-        birthday: client.birthday,
+        birthday: client.birthday ? formattingDate(new Date(client.birthday)) : '' ,
         blood: client.blood?.toString(),
         currentWeight: client.currentWeight,
         desiredWeight: client.desiredWeight,
@@ -90,7 +83,7 @@ const UserForm = () => {
       initialErrors={{}}
       validateOnMount={true}
     >
-      {({ errors, touched, setFieldValue, handleChange, isValid }) => (
+      {({ errors, touched, setFieldValue, handleChange, isValid, validateField }) => (
         <Form>
           <div>
             <span className={css.title}>Basic info</span>
@@ -211,7 +204,7 @@ const UserForm = () => {
                       }`}
                       id='birthday'
                       name='birthday'
-                      value={currentDate}
+                      placeholder='dd/mm/yyyy'
                     />
                     <svg onClick={showCalendar} className={css.calendarIcon}>
                       <use href={sprite + '#calendar_icon'}></use>
@@ -230,9 +223,9 @@ const UserForm = () => {
                       <Calendar
                         onChange={async (date) => {
                           const correctDate = formattingDate(date);
-                          setCurrentDate(correctDate);
                           closeCalendar();
                           setFieldValue('birthday', correctDate);
+                          setTimeout(()=> {validateField('birthday')},1)
                         }}
                         next2Label={null}
                         value={allowedUserAge}

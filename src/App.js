@@ -3,7 +3,6 @@ import { Toaster } from 'react-hot-toast';
 import './App.scss';
 import React, { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { fetchCurrentUser } from 'redux/operations';
 import { selectIsRefreshing } from 'redux/selectors';
 import { Puff } from 'react-loader-spinner';
