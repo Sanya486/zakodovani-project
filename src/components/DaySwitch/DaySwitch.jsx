@@ -11,6 +11,7 @@ import { selectClient, selectRegistrationDate } from 'redux/selectors';
 
 const DaySwitch = ({ currentDate = new Date(), setCurrentDate }) => {
   const user = useSelector(selectClient);
+
   const registrationDate = useSelector(selectRegistrationDate);
   const [value, onChange] = useState(new Date());
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
@@ -46,6 +47,7 @@ const DaySwitch = ({ currentDate = new Date(), setCurrentDate }) => {
   const onClickDay = (value) => {
     setCurrentDate(() => value);
   };
+
 
   return (
     <div className={css.wrapper}>
