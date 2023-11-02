@@ -29,7 +29,7 @@ const AddExerciseForm = ({ data, onSuccess }) => {
     dispatch(
       fetchDiarySaveExercise({
         exercise: _id,
-        time: currentTime,
+        time: Math.ceil(currentTime / 60),
         calories: calculatedCalories,
       }),
     )

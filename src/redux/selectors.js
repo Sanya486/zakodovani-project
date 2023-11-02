@@ -17,6 +17,7 @@ export const selectRegistrationDate = (state) => state.auth.client.registrationD
 export const selectDiaryExercises = (state) => state.diary.data.exerciseDone;
 export const selectDiaryProducts = (state) => state.diary.data.consumedProduct;
 export const selectDiaryMetrics = (state) => state.diary.data;
+export const selectCurrentData = (state) => state.diary.currentData;
 
 // Products selectors
 

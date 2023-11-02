@@ -5,8 +5,9 @@ import css from './ProductsTableItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import { clsx } from 'clsx';
 
-import { useDispatch } from 'react-redux';
-import { fetchDeleteProduct } from 'redux/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchDeleteProduct, fetchDiaryDateInfo } from 'redux/operations';
+import { selectCurrentData } from 'redux/selectors';
 
 export const ProductTableItem = ({
   id,
@@ -18,11 +19,12 @@ export const ProductTableItem = ({
   first,
 }) => {
   const [width, setWidth] = useState(window.innerWidth);
-
+  const currentDate = useSelector(selectCurrentData);
   const dispatch = useDispatch();
 
   const onDeleteProduct = (id) => {
     dispatch(fetchDeleteProduct(id));
+    setTimeout(() => dispatch(fetchDiaryDateInfo(currentDate)), 3000);
   };
 
   const deleteHandler = () => {

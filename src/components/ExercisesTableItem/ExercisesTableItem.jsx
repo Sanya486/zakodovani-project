@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import css from './ExercisesTableItem.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import clsx from 'clsx';
-import { fetchDeleteExercise } from 'redux/operations';
-import { useDispatch } from 'react-redux';
+import { fetchDeleteExercise, fetchDiaryDateInfo } from 'redux/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentData } from 'redux/selectors';
+
 const ExercisesTableItem = ({
   id,
   bodyPart,
@@ -15,9 +17,13 @@ const ExercisesTableItem = ({
   first,
 }) => {
   const [width, setWidth] = useState(window.innerWidth);
+
+  const currentDate = useSelector(selectCurrentData);
+
   const dispatch = useDispatch();
   const onDeleteProduct = (id) => {
     dispatch(fetchDeleteExercise(id));
+    setTimeout(()=>  dispatch(fetchDiaryDateInfo(currentDate)), 3000)
   };
   const deleteHandler = () => {
     onDeleteProduct(id);
