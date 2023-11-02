@@ -176,14 +176,19 @@ export const fetchLogout = createAsyncThunk('/identification/logout', async (_, 
 
 // =========== Products fetches ===========
 
-export const fetchProducts = createAsyncThunk('/products', async ({ page, limit }, thunkAPI) => {
-  try {
-    const response = await axios.get(`products?page=${page}&limit=${limit}`);
-    return response.data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e.message);
-  }
-});
+export const fetchProducts = createAsyncThunk(
+  'products/',
+  async ({ page, limit, recommendation = 'all', category = '' }, thunkAPI) => {
+    try {
+      const response = await axios.get(
+        `products?page=${page}&limit=${limit}&recommendation=${recommendation}&category=${category}`,
+      );
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  },
+);
 
 export const fetchProductsCategories = createAsyncThunk(
   '/products/categories',
@@ -383,22 +388,7 @@ export const fetchDiaryDateInfo = createAsyncThunk(
   '/diary/diary-date-info/{date}',
   async (date, thunkAPI) => {
     try {
-      const promise = axios.get(`diary/diary-date-info/${date}`);
-      toast.promise(
-        promise,
-        {
-          loading: 'Loading Your Diary 🙂',
-          success: `Well done. Let's check our notes 👍`,
-          error: 'Error when loading diary. Please try another date 😓',
-        },
-        {
-          error: {
-            duration: 5000,
-          },
-        },
-      );
-
-      const response = await promise;
+      const response = await axios.get(`diary/diary-date-info/${date}`);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

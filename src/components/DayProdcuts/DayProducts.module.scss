@@ -2,13 +2,20 @@
 
 .productsContainer {
   width: 100%;
-  height: auto;
   background: rgba(index.$white-color, 0.05);
   overflow: hidden;
   border: 1px solid rgba(index.$white-color, 0.2);
   border-radius: 12px;
   padding: 16px 8px 16px 16px;
   position: relative;
+}
+
+.dayProductsContainer {
+  height: 824px;
+}
+
+.resultInfoContainer {
+  height: 335px;
 }
 
 .headBlock {
@@ -48,7 +55,7 @@
 
 .productWrap {
   width: 100%;
-  height: 301px;
+  height: auto;
 }
 
 .resultInfoTextWrap {

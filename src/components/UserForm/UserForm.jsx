@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { addYears, subYears } from 'date-fns';
+import { addYears } from 'date-fns';
 import css from './UserForm.module.scss';
 import sprite from '../../images/svg/sprite.svg';
 import Calendar from 'react-calendar';
@@ -10,37 +10,42 @@ import { fetchCalculateDailyMetrics, fetchCurrentUser } from '../../redux/operat
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { selectClient } from '../../redux/selectors';
-
-const formattingDate = (currentDate) => {
-  const day = currentDate.getDate().toString().padStart(2, '0');
-  const month = currentDate.getMonth() + 1;
-  const year = currentDate.getFullYear();
-  const formattedDate = `${day}-${month}-${year}`;
-  return formattedDate;
-};
+import formattingDate from 'utils/formattingDate';
+import formattingDateForBackEnd from 'utils/formattingDateForBackEnd';
 
 const UserForm = () => {
   const validationSchema = Yup.object().shape({
-    name: Yup.string().min(3).required("Це поле обов'язкове"),
-    email: Yup.string().email('Невірний формат Email'),
-    birthday: Yup.date().required("Це поле обов'язкове"),
-    blood: Yup.number().required('Оберіть опцію Blood'),
-    currentWeight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
-    desiredWeight: Yup.number().min(35, 'Мінімальна вага - 35 кг').required("Це поле обов'язкове"),
-    height: Yup.number().min(150, 'Мінімальна висота - 150 см').required("Це поле обов'язкове"),
-    levelActivity: Yup.number().required('Оберіть опцію levelActivity'),
-    sex: Yup.string().required('Оберіть стать'),
+    name: Yup.string().min(3).required('Required'),
+    email: Yup.string().email('Invalid Email format'),
+    birthday: Yup.string().required('Required'),
+    blood: Yup.number().required('Choose your blood'),
+    currentWeight: Yup.number().min(35, 'Min weight - 35 kg').required('Required'),
+    desiredWeight: Yup.number().min(35, 'Min weight - 35 kg').required('Required'),
+    height: Yup.number().min(150, 'Min height - 150 sm').required('Required'),
+    levelActivity: Yup.number().required('Choose your activity level'),
+    sex: Yup.string().required('Choose your sex'),
   });
 
+  const allowedUserAge = addYears(new Date(), -18);
+
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
-  const [currentDate, setCurrentDate] = useState(formattingDate(new Date()));
+  const [currentDate, setCurrentDate] = useState(formattingDate(allowedUserAge));
+  
 
   const client = useSelector(selectClient);
-
   const dispatch = useDispatch();
 
+
   useEffect(() => {
-    dispatch(fetchCurrentUser());
+    dispatch(fetchCurrentUser())
+      .then((response) => {
+        const dateFromBackEnd = new Date(response.data.birthday);
+        const formattedBirthday = formattingDate(dateFromBackEnd);
+        setCurrentDate(formattedBirthday);
+      })
+      .catch((error) => {
+        console.error('Помилка завантаження користувача:', error);
+      });
   }, [dispatch]);
 
   const showCalendar = () => {
@@ -61,8 +66,9 @@ const UserForm = () => {
     delete values.email;
     values.blood = parseInt(values.blood);
     values.levelActivity = parseInt(values.levelActivity);
+    values.birthday = formattingDateForBackEnd(values.birthday);
+
     dispatch(fetchCalculateDailyMetrics(values));
-    console.log(values);
   };
 
   return (
@@ -86,7 +92,7 @@ const UserForm = () => {
       initialErrors={{}}
       validateOnMount={true}
     >
-      {({ errors, touched, setFieldValue, handleChange }) => (
+      {({ errors, touched, setFieldValue, handleChange, isValid }) => (
         <Form>
           <div>
             <span className={css.title}>Basic info</span>
@@ -96,12 +102,19 @@ const UserForm = () => {
                   type='text'
                   id='name'
                   name='name'
-                  // value={name}
                   onChange={handleChange}
                   className={`${css.inputBase} ${errors.name && touched.name ? css.error : ''}`}
                   required
                 />
-                <ErrorMessage name='name' component='div' className={css.errorName} />
+
+                {errors.name && touched.name && (
+                  <div className={css.errorName}>
+                    <svg width={16} height={16} fill='red'>
+                      <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                    </svg>
+                    <ErrorMessage name='name' component='div' />
+                  </div>
+                )}
 
                 <Field
                   type='email'
@@ -110,7 +123,15 @@ const UserForm = () => {
                   onChange={handleChange}
                   className={`${css.inputBase} ${errors.email && touched.email ? css.error : ''}`}
                 />
-                <ErrorMessage name='email' component='div' className={css.errorEmail} />
+
+                {errors.email && touched.email && (
+                  <div className={css.errorEmail}>
+                    <svg width={16} height={16} fill='red'>
+                      <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                    </svg>
+                    <ErrorMessage name='email' component='div' />
+                  </div>
+                )}
               </div>
               <div className={css.groups}>
                 <div className={css.group1}>
@@ -122,91 +143,126 @@ const UserForm = () => {
                       type='number'
                       id='height'
                       name='height'
-                      className={`${css.input} ${errors.height && touched.height ? css.error : ''}`}
+                      className={`${css.inputHeight} ${
+                        errors.height && touched.height && css.error
+                      }`}
                       min='150'
                       required
                     />
-                    <ErrorMessage name='height' component='div' className={css.errorGroup1} />
+                    {errors.height && touched.height && (
+                      <div className={css.errorGroup1}>
+                        <svg width={16} height={16} fill='red'>
+                          <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                        </svg>
+                        <ErrorMessage name='height' component='div' />
+                      </div>
+                    )}
                   </div>
-                  <div className={css.column}>
-                    <label htmlFor='currentWeight' className={css.label}>
-                      Desired Weight
-                    </label>
-                    <Field
-                      type='number'
-                      id='currentWeight'
-                      name='currentWeight'
-                      className={`${css.input} ${
-                        errors.cur_height && touched.cur_height ? css.error : ''
-                      }`}
-                      min='35'
-                      required
-                    />
-                    <ErrorMessage
-                      name='currentWeight'
-                      component='div'
-                      className={css.errorGroup1}
-                    />
-                  </div>
-                </div>
-                <div className={css.group2}>
                   <div className={css.column}>
                     <label htmlFor='desiredWeight' className={css.label}>
-                      Current Weight
+                      Desired Weight
                     </label>
                     <Field
                       type='number'
                       id='desiredWeight'
                       name='desiredWeight'
-                      className={`${css.input} ${
-                        errors.currentWeight && touched.currentWeight ? css.error : ''
+                      className={`${css.inputWeight} ${
+                        errors.desiredWeight && touched.desiredWeight && css.error
                       }`}
                       min='35'
                       required
                     />
-                    <ErrorMessage
-                      name='desiredWeight'
-                      component='div'
-                      className={css.errorGroup2}
+                    {errors.desiredWeight && touched.desiredWeight && (
+                      <div className={css.errorGroup1}>
+                        <svg width={16} height={16} fill='red'>
+                          <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                        </svg>
+                        <ErrorMessage name='desiredWeight' component='div' />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className={css.group2}>
+                  <div className={css.column}>
+                    <label htmlFor='currentWeight' className={css.label}>
+                      Current Weight
+                    </label>
+                    <Field
+                      type='number'
+                      id='currentWeight'
+                      name='currentWeight'
+                      className={`${css.inputDesireWeight} ${
+                        errors.currentWeight && touched.currentWeight && css.error
+                      }`}
+                      min='35'
+                      required
                     />
+                    {errors.currentWeight && touched.currentWeight && (
+                      <div className={css.errorGroup1}>
+                        <svg width={16} height={16} fill='red'>
+                          <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                        </svg>
+                        <ErrorMessage name='currentWeight' component='div' />
+                      </div>
+                    )}
                   </div>
                   <div className={css.column}>
-                    <div className={css.forIcon}>
-                      <Field
-                        // onClick={showCalendar}
-                        className={`${css.input} ${css.inputDate} ${
-                          errors.birthday && touched.birthday ? css.error : ''
-                        }`}
-                        value={currentDate === null ? '00.00.00' : currentDate}
-                        id='birthday'
-                        name='birthday'
+                    <Field
+                      className={`${css.inputBirthday} ${css.inputDate} ${
+                        errors.birthday && touched.birthday && css.error
+                      }`}
+                      id='birthday'
+                      name='birthday'
+                      value={currentDate}
+                    />
+                    <svg onClick={showCalendar} className={css.calendarIcon}>
+                      <use href={sprite + '#calendar_icon'}></use>
+                    </svg>
+
+                    {errors.birthday && touched.birthday && (
+                      <div className={css.errorGroup3}>
+                        <svg width={16} height={16} fill='red'>
+                          <use href={sprite + '#icon-checkbox-circle-fill'}></use>
+                        </svg>
+                        <ErrorMessage name='birthday' component='div' />
+                      </div>
+                    )}
+
+                    {calendarIsClicked && (
+                      <Calendar
+                        onChange={async (date) => {
+                          const correctDate = formattingDate(date);
+                          setCurrentDate(correctDate);
+                          closeCalendar();
+                          setFieldValue('birthday', correctDate);
+                        }}
+                        next2Label={null}
+                        value={allowedUserAge}
+                        prev2Label={null}
+                        locale='en'
+                        defaultView='month'
+                        formatShortWeekday={customWeekdayFormatter}
+                        minDetail='decade'
+                        maxDate={new Date(allowedUserAge)}
+                        formatMonth={(locale, date) => {
+                          const monthNames = [
+                            'Jan',
+                            'Feb',
+                            'Mar',
+                            'Apr',
+                            'May',
+                            'Jun',
+                            'Jul',
+                            'Aug',
+                            'Sep',
+                            'Oct',
+                            'Nov',
+                            'Dec',
+                          ];
+                          return monthNames[date.getMonth()];
+                        }}
                       />
-                      <svg onClick={showCalendar} className={css.calendarIcon}>
-                        <use href={sprite + '#calendar_icon'}></use>
-                      </svg>
-                      {calendarIsClicked && (
-                        <Calendar
-                          onChange={async (date) => {
-                            const isoDate = await date.toISOString().split('T')[0];
-                            setCurrentDate(isoDate);
-                            closeCalendar();
-                            setFieldValue('birthday', isoDate);
-                          }}
-                          // className={css.reactCalendar}
-                          next2Label={null}
-                          value={currentDate}
-                          prev2Label={null}
-                          locale='en'
-                          defaultView='month'
-                          formatShortWeekday={customWeekdayFormatter}
-                          minDetail='month'
-                          maxDate={addYears(new Date(), -18)} // Використовуємо addYears для вирахування 18 років назад
-                          minDate={subYears(new Date(), 100)}
-                        />
-                      )}
-                      <ErrorMessage name='birthday' component='div' />
-                    </div>
-                    <div></div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -222,7 +278,6 @@ const UserForm = () => {
                   id='radio1'
                   value='1'
                   onChange={handleChange}
-                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${css.realRadio} ${
                     errors.blood && touched.blood ? css.error : ''
                   }`}
@@ -236,7 +291,6 @@ const UserForm = () => {
                   value='2'
                   id='radio2'
                   onChange={handleChange}
-                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${css.realRadio} ${
                     errors.blood && touched.blood ? css.error : ''
                   }`}
@@ -250,7 +304,6 @@ const UserForm = () => {
                   value='3'
                   id='radio3'
                   onChange={handleChange}
-                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${css.realRadio} ${
                     errors.blood && touched.blood ? css.error : ''
                   }`}
@@ -264,7 +317,6 @@ const UserForm = () => {
                   id='radio4'
                   value='4'
                   onChange={handleChange}
-                  // onChange={(e) => setFieldValue('blood', e.target.value)}
                   className={`${css.inputRadio} ${css.realRadio} ${
                     errors.blood && touched.blood ? css.error : ''
                   }`}
@@ -272,23 +324,20 @@ const UserForm = () => {
                 <span className={css.customRadio}></span>4
               </label>
             </div>
-            <ErrorMessage name='blood' component='div' className={css.error} />
+
             <div className={css.sex}>
-              {['male', 'female'].map((option) => (
+              {['Male', 'Female'].map((option) => (
                 <label key={option} className={`${css.labelMargin} `}>
                   <Field
                     type='radio'
                     name='sex'
-                    value={option}
-                    className={`${css.inputRadioSex} ${css.realRadio}${
-                      errors.sex && touched.sex ? css.error : ''
-                    }`}
+                    value={option.charAt(0).toLowerCase() + option.slice(1)}
+                    className={`${css.inputRadioSex} ${css.realRadio}`}
                   />
                   <span className={css.customRadio}></span>
                   <span>{option}</span>
                 </label>
               ))}
-              <ErrorMessage name='sex' component='div' className={css.error} />
             </div>
           </div>
 
@@ -315,7 +364,6 @@ const UserForm = () => {
                   value='2'
                   className={`${css.inputRadioText} ${css.realRadio}`}
                 />
-
                 <span className={css.customRadio}></span>
                 <span className={css.spanName}>
                   Light activity (light exercises/sports 1-3 days per week)
@@ -330,7 +378,6 @@ const UserForm = () => {
                   value='3'
                   className={`${css.inputRadioText} ${css.realRadio}`}
                 />
-
                 <span className={css.customRadio}></span>
                 <span className={css.spanName}>
                   Moderately active (moderate exercises/sports 3-5 days per week)
@@ -366,7 +413,7 @@ const UserForm = () => {
               </label>
             </div>
           </div>
-          <button type='submit' className={css.btn}>
+          <button type='submit' className={css.btn} disabled={!isValid}>
             Save
           </button>
         </Form>

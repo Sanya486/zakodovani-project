@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import PropTypes from 'prop-types'
 import Container from 'components/Container/Container';
-import DayExercises from 'components/DayExercises/DayExercises';
+import { DayExercises } from 'components/DayExercises/DayExercises';
 // import TitlePage from 'components/TitlePage/TitlePage';
 import DaySwitch from 'components/DaySwitch/DaySwitch';
 import { DayDashboard } from 'components/DayDashboard/DayDashboard';
@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import sprite from '../../images/svg/sprite.svg';
 import { DayProducts } from 'components/DayProdcuts/DayProducts';
+import { changeCurrentDate } from 'redux/diarySlice';
 
 const formattingDate = (currentDate) => {
   const day = currentDate.getDate().toString().padStart(2, '0');
@@ -38,6 +39,7 @@ const DiaryPage = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   useEffect(() => {
     dispatch(fetchDiaryDateInfo(formattingDate(currentDate)));
+    dispatch(changeCurrentDate(formattingDate(currentDate)));
   }, [dispatch, currentDate]);
 
   return (

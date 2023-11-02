@@ -6,18 +6,11 @@ import { InfoItem } from 'components/InfoItem/InfoItem';
 export const DayDashboard = ({
   BMR = 0,
   timeOfSport = 0,
-  caloriesConsumed= 0,
+  caloriesConsumed = 0,
   caloriesBurned = 0,
-  caloriesRest= 0,
-  restSport =0,
+  caloriesRest = 0,
+  restSport = 0,
 }) => {
-  const typeOfNumber = (number) => {
-    if (number < 0) {
-      return 'error';
-    } else {
-      return 'success';
-    }
-  };
 
   const changedArr = [
     {
@@ -43,12 +36,12 @@ export const DayDashboard = ({
     {
       name: 'The rest of the calories',
       value: `${caloriesRest}`,
-      variant: typeOfNumber(caloriesRest),
+      variant: `${caloriesRest <0 ? "error": "empty"}`,
     },
     {
       name: 'The rest of sports',
-      value: `${typeOfNumber(restSport) === 'success' ? '+' : ''}${restSport}min`,
-      variant: typeOfNumber(restSport),
+      value: `${(restSport - timeOfSport) >= 0 ? '+' : ''}${Math.abs(restSport - timeOfSport)}min`,
+      variant: `${(restSport - timeOfSport) >= 0 ? 'success' : 'empty'}`,
     },
   ];
 
@@ -66,8 +59,8 @@ export const DayDashboard = ({
 DayDashboard.propTypes = {
   BMR: PropTypes.number.isRequired,
   timeOfSport: PropTypes.number.isRequired,
-  caloriesConsumed: PropTypes.number.isRequired,
-  caloriesBurned: PropTypes.number.isRequired,
-  caloriesRest: PropTypes.number.isRequired,
-  restSport: PropTypes.number.isRequired,
+  caloriesConsumed: PropTypes.number,
+  caloriesBurned: PropTypes.number,
+  caloriesRest: PropTypes.number,
+  restSport: PropTypes.number,
 };

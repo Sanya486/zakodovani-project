@@ -36,4 +36,3 @@ export const DayExercises = ({ exercises }) => {
     </>
   );
 };
-export default DayExercises;

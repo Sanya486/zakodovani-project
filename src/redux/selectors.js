@@ -10,13 +10,14 @@ export const selectNameS = (state) => state.auth.client.name;
 export const selectEmail = (state) => state.auth.client.email;
 export const selectAvatar = (state) => state.auth.client.avatar;
 export const selectBMR = (state) => state.auth.client.BMR;
-export const selectRegistrationDate = (state) => state.auth.client.registrationDate
+export const selectRegistrationDate = (state) => state.auth.client.registrationDate;
 
 // Diary selectors
 
 export const selectDiaryExercises = (state) => state.diary.data.exerciseDone;
 export const selectDiaryProducts = (state) => state.diary.data.consumedProduct;
 export const selectDiaryMetrics = (state) => state.diary.data;
+export const selectCurrentData = (state) => state.diary.currentData;
 
 // Products selectors
 

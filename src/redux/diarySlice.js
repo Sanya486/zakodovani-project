@@ -22,9 +22,15 @@ export const diarySlice = createSlice({
       consumedProduct: [],
       exerciseDone: [],
     },
+    currentData: '',
     message: '',
     isLoading: false,
     error: null,
+  },
+  reducers: {
+    changeCurrentDate(state, { payload }) {
+      state.currentData = payload;
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -45,3 +51,5 @@ export const diarySlice = createSlice({
       .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
       .addMatcher((action) => action.type.endsWith('/rejected'), handleReject),
 });
+
+export const { changeCurrentDate } = diarySlice.actions;
