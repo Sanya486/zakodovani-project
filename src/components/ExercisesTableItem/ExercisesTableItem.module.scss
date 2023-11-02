@@ -1,40 +1,31 @@
 @use 'index';
-
 .container {
   background: rgba(index.$black-color, 0.05);
   width: 100%;
   height: auto;
 }
-
 .element {
   display: flex;
   flex-direction: column;
   row-gap: 8px;
   width: 100%;
 }
-
 .element:not(:last-child) {
   margin-bottom: 16px;
 }
-
-.titleElement,
-.categoriesElement {
+.bodyPartsElement,
+.equipmentElement,
+.nameElement {
   width: 100%;
 }
-
-.caloriesElement {
-  width: calc((100% - 28px) * 0.25);
+.burnedCaloriesElement {
+  width: calc((100% - 28px) * 0.34177);
 }
-.caloriesElement1 {
-  width: calc((100% - 28px) * 0.25);
+.timeElement {
+  width: calc((100% - 28px) * 0.33755);
 }
-.weightElement {
-  width: calc((100% - 28px) * 0.25);
-}
-
-.recommendElement {
-  width: calc((100% - 14px) * 0.25);
-  // width: calc(100% * 0.32067);
+.targetElement {
+  width: calc((100% - 14px) * 0.32067);
 }
 
 .title {
@@ -42,15 +33,14 @@
   max-height: 18px;
   max-width: 100%;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: calc(18 / 12);
   overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .elementField {
   padding: 9.2px 14px;
-  // background: inherit;
   color: index.$white-color;
   border-radius: 12px;
   border: 1px solid rgba(index.$white-color, 0.3);
@@ -64,33 +54,12 @@
   text-overflow: ellipsis;
 }
 
-.recommendField {
-  padding-left: 36px;
-  position: relative;
-}
-
-.recomendStatus::before {
-  content: '';
-  position: absolute;
-  left: 14px;
-  top: 30%;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: index.$variant-success-color;
-}
-
-.recommendFalseColor::before {
-  background-color: index.$variant-error-color;
-}
-
 .blockWrap {
   display: flex;
   align-items: flex-end;
   column-gap: 8px;
   width: 100%;
 }
-
 .subBlockWrap {
   display: flex;
   align-items: center;
@@ -98,17 +67,14 @@
   width: calc(100% - 28px);
   width: 100%;
 }
-
 .blockWrap .element {
   margin-bottom: 0;
 }
-
 .buttonWrap {
   width: 20px;
   height: 20px;
   margin-bottom: 9px;
 }
-
 .button {
   width: 20px;
   height: 20px;
@@ -116,39 +82,31 @@
   border: 0;
   background-color: inherit;
 }
-
 .icon {
   width: 20px;
   height: 20px;
   stroke: index.$orange-secondary-color;
 }
-
 @media screen and (min-width: index.$mobile-breakpoint) {
   .container {
     width: 297px;
   }
-
-  .caloriesElement {
+  .targetElement {
     width: 81px;
   }
-
-  .weightElement {
+  .burnedCaloriesElement {
     width: 80px;
   }
-
-  .recommendElement {
+  .timeElement {
     width: 76px;
   }
-
   .blockWrap {
     width: 269px;
   }
-
   .subBlockWrap {
     column-gap: 16px;
   }
 }
-
 @media screen and (min-width: index.$tablet-breakpoint) {
   .container {
     max-width: 100%;
@@ -157,95 +115,84 @@
     flex-direction: row;
     column-gap: 8px;
   }
-
   .element:not(:last-child) {
     margin-bottom: 0;
   }
-
-  .titleElement {
-    width: 110px;
+  .bodyPartsElement {
+    width: 90px;
   }
-
-  .categoriesElement {
+  .equipmentElement {
+    width: 132px;
+  }
+  .nameElement{
     width: 128px;
   }
-
-  .caloriesElement{
-    width: 80px;
+  .targetElement {
+    width: 84px;
   }
-  .weightElement {
-    width: 50px;
+  .burnedCaloriesElement {
+    width: 78px;
   }
-
-  .recommendElement {
-    width: 100px;
+  .timeElement {
+    width: 72px;
   }
 
   .elementField {
     padding: 8px 14px;
     height: 40px;
     font-size: 16px;
-    
-    // line-height: calc(24 / 16);
-  }
-
-  .recommendField {
-    padding-left: 36px;
+    line-height: calc(24 / 16);
   }
 
   .blockWrap {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    // column-gap: 12px;
-    // width: 308px;
+    column-gap: 12px;
+    width: 282px;
   }
 
   .subBlockWrap {
     column-gap: 8px;
   }
-
   .blockWrap:last-child {
     align-items: flex-end;
   }
-
   .blockWrap .element {
     margin-bottom: 0;
   }
 }
-
 @media screen and (min-width: index.$desktop-breakpoint) {
   .container {
     width: 762px;
   }
 
-  .titleElement {
-    width: 212px;
+  .bodyPartsElement {
+    width: 115px;
   }
-
-  .categoriesElement {
-    width: 120px;
+  .equipmentElement {
+    width: 157px;
   }
-
-  .caloriesElement,
-  .weightElement {
-    width: 80px;
+  .nameElement{
+    width: 131px;
   }
-
-
-  
-  .recommendElement {
-    width: 110px;
+  .targetElement {
+    width: 106px;
+  }
+  .burnedCaloriesElement {
+    width: 91px;
+  }
+  .timeElement {
+    width: 82px;
   }
 
   .blockWrap {
     width: 368px;
+    column-gap: 20px;
   }
-
   .blockWrap:last-child {
     column-gap: 8px;
   }
-
   .blockWrap .element {
     margin-bottom: 0;
   }

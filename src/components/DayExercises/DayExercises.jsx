@@ -1,17 +1,16 @@
 import React from 'react';
 import css from './DayExercises.module.scss';
-// import { selectDiaryExercises } from 'redux/selectors';
-
 import ExercisesTable from 'components/ExercisesTable/ExercisesTable';
 import { Link } from 'react-router-dom';
 import sprite from '../../images/svg/sprite.svg';
+import { clsx } from 'clsx';
 
 export const DayExercises = ({ exercises }) => {
   let empty = false;
   exercises.length === 0 ? (empty = true) : (empty = false);
   return (
     <>
-      <div className={css.productsContainer}>
+      <div className={clsx(css.productsContainer,  (empty === false ? css.dayProductsContainer : css.resultInfoContainer))}>
         <div className={css.headBlock}>
           <p className={css.headTitle}>Execrcises</p>
           <Link to='/exercises' className={css.headLink}>

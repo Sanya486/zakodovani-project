@@ -1,11 +1,7 @@
 import React from 'react';
 import css from './ExercisesTable.module.scss';
-
 import ExercisesTableItem from 'components/ExercisesTableItem/ExercisesTableItem';
 import clsx from 'clsx';
-// import sport from '../../redux-example.json';
-
-// import React from 'react';
 
 export const ExercisesTable = ({ exercises }) => {
   console.log(exercises);
@@ -33,5 +29,4 @@ export const ExercisesTable = ({ exercises }) => {
     </>
   );
 };
-
 export default ExercisesTable;
