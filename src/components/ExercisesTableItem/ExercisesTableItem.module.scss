@@ -6,51 +6,48 @@
   height: auto;
 }
 
-.element {
+.element1 {
   display: flex;
   flex-direction: column;
   row-gap: 8px;
   width: 100%;
 }
 
-.element:not(:last-child) {
+.element1:not(:last-child) {
   margin-bottom: 16px;
 }
 
-.titleElement,
-.categoriesElement {
+.bodyPartsElement,
+.equipmentElement,
+.nameElement {
   width: 100%;
 }
 
-.caloriesElement {
-  width: calc((100% - 28px) * 0.25);
-}
-.caloriesElement1 {
-  width: calc((100% - 28px) * 0.25);
-}
-.weightElement {
-  width: calc((100% - 28px) * 0.25);
+.targetElement {
+  width: calc((100% - 28px) * 0.34177);
 }
 
-.recommendElement {
-  width: calc((100% - 14px) * 0.25);
-  // width: calc(100% * 0.32067);
+.burnedCaloriesElement {
+  width: calc((100% - 28px) * 0.33755);
 }
 
-.title {
+.timeElement {
+  width: calc((100% - 14px) * 0.32067);
+}
+
+.title1 {
   color: index.$orange-secondary-color;
   max-height: 18px;
   max-width: 100%;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: calc(18 / 12);
   overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.elementField {
+.elementField1 {
   padding: 9.2px 14px;
-  // background: inherit;
   color: index.$white-color;
   border-radius: 12px;
   border: 1px solid rgba(index.$white-color, 0.3);
@@ -64,34 +61,14 @@
   text-overflow: ellipsis;
 }
 
-.recommendField {
-  padding-left: 36px;
-  position: relative;
-}
-
-.recomendStatus::before {
-  content: '';
-  position: absolute;
-  left: 14px;
-  top: 30%;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: index.$variant-success-color;
-}
-
-.recommendFalseColor::before {
-  background-color: index.$variant-error-color;
-}
-
-.blockWrap {
+.blockWrap1 {
   display: flex;
   align-items: flex-end;
   column-gap: 8px;
   width: 100%;
 }
 
-.subBlockWrap {
+.subBlockWrap1 {
   display: flex;
   align-items: center;
   column-gap: 8px;
@@ -99,17 +76,17 @@
   width: 100%;
 }
 
-.blockWrap .element {
+.blockWrap1 .element1 {
   margin-bottom: 0;
 }
 
-.buttonWrap {
+.buttonWrap1 {
   width: 20px;
   height: 20px;
   margin-bottom: 9px;
 }
 
-.button {
+.button1 {
   width: 20px;
   height: 20px;
   padding: 0;
@@ -117,7 +94,7 @@
   background-color: inherit;
 }
 
-.icon {
+.icon1 {
   width: 20px;
   height: 20px;
   stroke: index.$orange-secondary-color;
@@ -128,23 +105,23 @@
     width: 297px;
   }
 
-  .caloriesElement {
+  .targetElement {
     width: 81px;
   }
 
-  .weightElement {
+  .burnedCaloriesElement {
     width: 80px;
   }
 
-  .recommendElement {
+  .timeElement {
     width: 76px;
   }
 
-  .blockWrap {
+  .blockWrap1 {
     width: 269px;
   }
 
-  .subBlockWrap {
+  .subBlockWrap1 {
     column-gap: 16px;
   }
 }
@@ -158,95 +135,103 @@
     column-gap: 8px;
   }
 
-  .element:not(:last-child) {
+  .element1 {
+    width: 100%;
+  }
+
+  .element1:not(:last-child) {
     margin-bottom: 0;
   }
 
-  .titleElement {
-    width: 110px;
+  .bodyPartsElement {
+    width: 90px;
   }
 
-  .categoriesElement {
+  .equipmentElement {
+    width: 132px;
+  }
+
+  .nameElement {
     width: 128px;
   }
 
-  .caloriesElement{
-    width: 80px;
-  }
-  .weightElement {
-    width: 50px;
+  .targetElement {
+    width: 84px;
   }
 
-  .recommendElement {
-    width: 100px;
+  .burnedCaloriesElement {
+    width: 78px;
   }
 
-  .elementField {
+  .timeElement {
+    width: 72px;
+  }
+
+  .elementField1 {
     padding: 8px 14px;
     height: 40px;
     font-size: 16px;
-    
-    // line-height: calc(24 / 16);
+    line-height: calc(24 / 16);
   }
 
-  .recommendField {
-    padding-left: 36px;
-  }
-
-  .blockWrap {
+  .blockWrap1 {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    // column-gap: 12px;
-    // width: 308px;
+    column-gap: 12px;
+    width: 282px;
   }
 
-  .subBlockWrap {
+  .subBlockWrap1 {
     column-gap: 8px;
   }
 
-  .blockWrap:last-child {
+  .blockWrap1:last-child {
     align-items: flex-end;
   }
 
-  .blockWrap .element {
+  .blockWrap1 .element1 {
     margin-bottom: 0;
   }
 }
-
 @media screen and (min-width: index.$desktop-breakpoint) {
   .container {
     width: 762px;
   }
 
-  .titleElement {
-    width: 212px;
+  .bodyPartsElement {
+    width: 115px;
   }
 
-  .categoriesElement {
-    width: 120px;
+  .equipmentElement {
+    width: 157px;
   }
 
-  .caloriesElement,
-  .weightElement {
-    width: 80px;
+  .nameElement {
+    width: 131px;
   }
 
-
-  
-  .recommendElement {
-    width: 110px;
+  .targetElement {
+    width: 106px;
   }
 
-  .blockWrap {
-    width: 368px;
+  .burnedCaloriesElement {
+    width: 91px;
   }
 
-  .blockWrap:last-child {
-    column-gap: 8px;
+  .timeElement {
+    width: 82px;
   }
 
-  .blockWrap .element {
+  .blockWrap1 {
+    width: 335px;
+  }
+
+  .blockWrap1:last-child {
+    column-gap: 20px;
+  }
+
+  .blockWrap1 .element1 {
     margin-bottom: 0;
   }
 }
