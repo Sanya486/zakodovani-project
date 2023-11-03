@@ -13,14 +13,16 @@ import { selectClient } from '../../redux/selectors';
 import formattingDate from 'utils/formattingDate';
 import formattingDateForBackEnd from 'utils/formattingDateForBackEnd';
 
-
 const UserForm = () => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(3).required('Required'),
     email: Yup.string().email('Invalid Email format'),
     birthday: Yup.string()
       .required('Required')
-      .matches(/^(0[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/\d{4}$/,'Data must be in dd/mm/yyyy format'),
+      .matches(
+        /^(0[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/\d{4}$/,
+        'Data must be in dd/mm/yyyy format',
+      ),
     blood: Yup.number().required('Choose your blood'),
     currentWeight: Yup.number().min(35, 'Min weight - 35 kg').required('Required'),
     desiredWeight: Yup.number().min(35, 'Min weight - 35 kg').required('Required'),
@@ -28,13 +30,11 @@ const UserForm = () => {
     levelActivity: Yup.number().required('Choose your activity level'),
     sex: Yup.string().required('Choose your sex'),
   });
-const formikRef = useRef()
-  
+  const formikRef = useRef();
+
   const allowedUserAge = addYears(new Date(), -18);
 
   const [calendarIsClicked, setCalendarIsClicked] = useState(false);
-  // const [currentDate, setCurrentDate] = useState(formattingDate(allowedUserAge));
-
   const client = useSelector(selectClient);
   const dispatch = useDispatch();
 
@@ -52,7 +52,7 @@ const formikRef = useRef()
   };
 
   const handleSubmit = (values) => {
-    const backendValue = {...values}
+    const backendValue = { ...values };
     delete backendValue.name;
     delete backendValue.email;
     backendValue.blood = parseInt(values.blood);
@@ -62,7 +62,6 @@ const formikRef = useRef()
     dispatch(fetchCalculateDailyMetrics(backendValue));
   };
 
-  
   return (
     <Formik
       innerRef={formikRef}
