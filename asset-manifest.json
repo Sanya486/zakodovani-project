@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/zakodovani-project/static/css/main.4cb2398b.css",
-    "main.js": "/zakodovani-project/static/js/main.d6614e41.js",
+    "main.js": "/zakodovani-project/static/js/main.6b884a89.js",
     "static/css/939.525dc661.chunk.css": "/zakodovani-project/static/css/939.525dc661.chunk.css",
     "static/js/939.41ed68fb.chunk.js": "/zakodovani-project/static/js/939.41ed68fb.chunk.js",
     "static/js/938.63403f72.chunk.js": "/zakodovani-project/static/js/938.63403f72.chunk.js",
@@ -14,7 +14,7 @@
     "static/css/209.d2dc2d86.chunk.css": "/zakodovani-project/static/css/209.d2dc2d86.chunk.css",
     "static/js/209.708d995e.chunk.js": "/zakodovani-project/static/js/209.708d995e.chunk.js",
     "static/css/173.07226cdf.chunk.css": "/zakodovani-project/static/css/173.07226cdf.chunk.css",
-    "static/js/173.36f824e6.chunk.js": "/zakodovani-project/static/js/173.36f824e6.chunk.js",
+    "static/js/173.74ac9f42.chunk.js": "/zakodovani-project/static/js/173.74ac9f42.chunk.js",
     "static/css/355.645fb016.chunk.css": "/zakodovani-project/static/css/355.645fb016.chunk.css",
     "static/js/355.2bfb130d.chunk.js": "/zakodovani-project/static/js/355.2bfb130d.chunk.js",
     "static/css/224.cf81e3ed.chunk.css": "/zakodovani-project/static/css/224.cf81e3ed.chunk.css",
@@ -49,7 +49,7 @@
     "static/media/pagination_active.svg": "/zakodovani-project/static/media/pagination_active.34d5b942ec8d2f4d4431.svg",
     "static/media/pagination_bullet.svg": "/zakodovani-project/static/media/pagination_bullet.29245ca7cb84d94f9565.svg",
     "main.4cb2398b.css.map": "/zakodovani-project/static/css/main.4cb2398b.css.map",
-    "main.d6614e41.js.map": "/zakodovani-project/static/js/main.d6614e41.js.map",
+    "main.6b884a89.js.map": "/zakodovani-project/static/js/main.6b884a89.js.map",
     "939.525dc661.chunk.css.map": "/zakodovani-project/static/css/939.525dc661.chunk.css.map",
     "939.41ed68fb.chunk.js.map": "/zakodovani-project/static/js/939.41ed68fb.chunk.js.map",
     "938.63403f72.chunk.js.map": "/zakodovani-project/static/js/938.63403f72.chunk.js.map",
@@ -62,7 +62,7 @@
     "209.d2dc2d86.chunk.css.map": "/zakodovani-project/static/css/209.d2dc2d86.chunk.css.map",
     "209.708d995e.chunk.js.map": "/zakodovani-project/static/js/209.708d995e.chunk.js.map",
     "173.07226cdf.chunk.css.map": "/zakodovani-project/static/css/173.07226cdf.chunk.css.map",
-    "173.36f824e6.chunk.js.map": "/zakodovani-project/static/js/173.36f824e6.chunk.js.map",
+    "173.74ac9f42.chunk.js.map": "/zakodovani-project/static/js/173.74ac9f42.chunk.js.map",
     "355.645fb016.chunk.css.map": "/zakodovani-project/static/css/355.645fb016.chunk.css.map",
     "355.2bfb130d.chunk.js.map": "/zakodovani-project/static/js/355.2bfb130d.chunk.js.map",
     "224.cf81e3ed.chunk.css.map": "/zakodovani-project/static/css/224.cf81e3ed.chunk.css.map",
@@ -78,6 +78,6 @@
   },
   "entrypoints": [
     "static/css/main.4cb2398b.css",
-    "static/js/main.d6614e41.js"
+    "static/js/main.6b884a89.js"
   ]
 }
